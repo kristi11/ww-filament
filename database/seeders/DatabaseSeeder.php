@@ -9,7 +9,6 @@ use App\Models\Hero;
 use App\Models\Service;
 use App\Models\Social;
 use App\Models\User;
-use App\Models\Visibility;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

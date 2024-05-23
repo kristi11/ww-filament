@@ -17,6 +17,9 @@ use LaraZeus\Boredom\Concerns\HasBoringAvatar;
 use Override;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @method static create(array $array)
+ */
 class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
