@@ -78,7 +78,9 @@ class GalleryResource extends Resource
                     ->disk('gallery')
                     ->limit(2)
                     ->limitedRemainingText(isSeparate: true)
-                    ->extraImgAttributes(['loading' => 'lazy']),
+                    ->extraImgAttributes(['loading' => 'lazy'])
+                    ->disk('s3')
+                    ->visibility('public'),
                 TextColumn::make('description')
                     ->searchable()
                     ->limit(30)
