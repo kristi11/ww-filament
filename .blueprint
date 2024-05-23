@@ -1,0 +1,36 @@
+created:
+    - database/factories/AddressFactory.php
+    - database/factories/AppointmentFactory.php
+    - database/factories/BusinessHourFactory.php
+    - database/factories/GalleryFactory.php
+    - database/factories/HeroFactory.php
+    - database/factories/ServiceFactory.php
+    - database/factories/VisibilityFactory.php
+    - database/factories/SocialFactory.php
+    - database/migrations/2024_03_27_225254_create_addresses_table.php
+    - database/migrations/2024_03_27_225255_create_appointments_table.php
+    - database/migrations/2024_03_27_225256_create_business_hours_table.php
+    - database/migrations/2024_03_27_225257_create_galleries_table.php
+    - database/migrations/2024_03_27_225258_create_heroes_table.php
+    - database/migrations/2024_03_27_225259_create_services_table.php
+    - database/migrations/2024_03_27_225300_create_visibilities_table.php
+    - database/migrations/2024_03_27_225301_create_socials_table.php
+    - database/migrations/2024_03_27_225302_create_appointment_service_table.php
+    - app/Models/Address.php
+    - app/Models/Appointment.php
+    - app/Models/BusinessHour.php
+    - app/Models/Gallery.php
+    - app/Models/Hero.php
+    - app/Models/Service.php
+    - app/Models/Visibility.php
+    - app/Models/Social.php
+models:
+    User: { name: string, email: string, password: string, email_verified_at: 'timestamp nullable default:NULL', remember_token: 'string:100 nullable default:NULL' }
+    Address: { user_id: unsignedInteger, relationships: { belongsTo: User }, street: string, city: string, state: string, zip: string }
+    Appointment: { user_id: unsignedInteger, service_id: unsignedInteger, teamUser_id: unsignedInteger, relationships: { belongsTo: User, belongsToMany: Service }, date: string, time: string, client_name: string, client_email: 'string email', client_phone: 'string nullable', client_referer: 'string nullable', notes: 'string nullable', status: 'string default:pending' }
+    BusinessHour: { user_id: unsignedInteger, relationships: { belongsTo: User }, day: 'string nullable', open: 'string nullable', close: 'string nullable', status: 'boolean default:true' }
+    Gallery: { service_id: unsignedInteger, relationships: { belongsTo: Service }, description: 'text nullable', image: 'text nullable' }
+    Hero: { user_id: unsignedInteger, relationships: { belongsTo: User }, mainQuote: string, secondaryQuote: 'string nullable', thirdQuote: 'string nullable', gradientDegree: integer, gradientDegreeStart: integer, gradientDegreeEnd: integer, gradientDegreeFirstColor: string, gradientDegreeSecondColor: string, image: 'text nullable', waves: 'boolean default:false' }
+    Service: { user_id: unsignedInteger, relationships: { belongsTo: User, hasMany: Gallery, belongsToMany: Appointment }, name: string, description: text, price: 'string nullable', estimated_hours: 'integer nullable', estimated_minutes: 'integer nullable', extra_description: 'text nullable' }
+    Visibility: { user_id: unsignedInteger, relationships: { belongsTo: User }, appointmentsVisibility: 'boolean default:true', hoursVisibility: 'boolean default:true', galleriesVisibility: 'boolean default:true', heroVisibility: 'boolean default:true', seoVisibility: 'boolean default:true', servicesVisibility: 'boolean default:true', socialsVisibility: 'boolean default:true', addressVisibility: 'boolean default:true', alwaysOpen: 'boolean default:false', flexiblePricing: 'boolean default:false' }
+    Social: { user_id: unsignedInteger, relationships: { belongsTo: User }, facebook: 'string nullable', instagram: 'string nullable', twitter: 'string nullable', linkedin: 'string nullable' }
