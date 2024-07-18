@@ -56,9 +56,10 @@ class GalleryResource extends Resource
                             ->image()
                             ->imageEditor()
                             ->placeholder('Upload service image')
-                            ->disk('gallery')
                             ->multiple()
-                            ->visibility('public'),
+                            ->visibility('public')
+                            ->disk('s3-public')
+                            ->directory('gallery'),
                     ]),
             ]);
     }
@@ -78,9 +79,7 @@ class GalleryResource extends Resource
                     ->disk('gallery')
                     ->limit(2)
                     ->limitedRemainingText(isSeparate: true)
-                    ->extraImgAttributes(['loading' => 'lazy'])
-                    ->disk('s3')
-                    ->visibility('public'),
+                    ->extraImgAttributes(['loading' => 'lazy']),
                 TextColumn::make('description')
                     ->searchable()
                     ->limit(30)
