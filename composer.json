@@ -19,6 +19,7 @@
         "filament/forms": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
         "flowframe/laravel-trend": "^0.1.5",
+        "geo-sot/filament-env-editor": "^0.0.4",
         "guzzlehttp/guzzle": "^7.2",
         "lara-zeus/boredom": "^1.0",
         "laravel/framework": "^10.10",
