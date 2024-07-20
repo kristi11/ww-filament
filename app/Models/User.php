@@ -6,6 +6,7 @@ use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Firefly\FilamentBlog\Traits\HasBlog;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -28,6 +29,7 @@ class User extends Authenticatable implements FilamentUser
     use HasPanelShield;
     use HasRoles;
     use Notifiable;
+    use HasBlog;
 
     /**
      * The attributes that are mass assignable.
@@ -152,6 +154,12 @@ class User extends Authenticatable implements FilamentUser
             // Deny access to all other panels
             return false;
         }
+    }
+
+    public function canComment(): bool
+    {
+        // your conditional logic here
+        return true;
     }
 
     public function avatarName(): Attribute
