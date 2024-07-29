@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-pdo": "*",
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "bezhansalleh/filament-language-switch": "^3.0",

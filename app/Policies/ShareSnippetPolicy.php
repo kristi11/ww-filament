@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Social;
+use Firefly\FilamentBlog\Models\ShareSnippet;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SocialPolicy
+class ShareSnippetPolicy
 {
     use HandlesAuthorization;
 
@@ -15,15 +15,15 @@ class SocialPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('view_any_social');
+        return $user->can('view_any_share::snippet');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Social $social): bool
+    public function view(User $user, ShareSnippet $shareSnippet): bool
     {
-        return $user->can('view_social');
+        return $user->can('view_share::snippet');
     }
 
     /**
@@ -31,23 +31,23 @@ class SocialPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create_social');
+        return $user->can('create_share::snippet');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Social $social): bool
+    public function update(User $user, ShareSnippet $shareSnippet): bool
     {
-        return $user->can('update_social');
+        return $user->can('update_share::snippet');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Social $social): bool
+    public function delete(User $user, ShareSnippet $shareSnippet): bool
     {
-        return $user->can('delete_social');
+        return $user->can('delete_share::snippet');
     }
 
     /**
@@ -55,15 +55,15 @@ class SocialPolicy
      */
     public function deleteAny(User $user): bool
     {
-        return $user->can('delete_any_social');
+        return $user->can('delete_any_share::snippet');
     }
 
     /**
      * Determine whether the user can permanently delete.
      */
-    public function forceDelete(User $user, Social $social): bool
+    public function forceDelete(User $user, ShareSnippet $shareSnippet): bool
     {
-        return $user->can('force_delete_social');
+        return $user->can('force_delete_share::snippet');
     }
 
     /**
@@ -71,15 +71,15 @@ class SocialPolicy
      */
     public function forceDeleteAny(User $user): bool
     {
-        return $user->can('force_delete_any_social');
+        return $user->can('force_delete_any_share::snippet');
     }
 
     /**
      * Determine whether the user can restore.
      */
-    public function restore(User $user, Social $social): bool
+    public function restore(User $user, ShareSnippet $shareSnippet): bool
     {
-        return $user->can('restore_social');
+        return $user->can('restore_share::snippet');
     }
 
     /**
@@ -87,15 +87,15 @@ class SocialPolicy
      */
     public function restoreAny(User $user): bool
     {
-        return $user->can('restore_any_social');
+        return $user->can('restore_any_share::snippet');
     }
 
     /**
      * Determine whether the user can replicate.
      */
-    public function replicate(User $user, Social $social): bool
+    public function replicate(User $user, ShareSnippet $shareSnippet): bool
     {
-        return $user->can('replicate_social');
+        return $user->can('replicate_share::snippet');
     }
 
     /**
@@ -103,6 +103,6 @@ class SocialPolicy
      */
     public function reorder(User $user): bool
     {
-        return $user->can('reorder_social');
+        return $user->can('reorder_share::snippet');
     }
 }
