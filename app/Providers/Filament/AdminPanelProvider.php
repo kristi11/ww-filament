@@ -32,8 +32,6 @@ use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\Pages\HealthCheckResults;
-use TomatoPHP\FilamentArtisan\FilamentArtisanPlugin;
-use TomatoPHP\FilamentDeveloperGate\FilamentDeveloperGatePlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -80,7 +78,6 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-                FilamentDeveloperGatePlugin::make(),
                 Blog::make(),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('30s') // optional, by default it is set to null
