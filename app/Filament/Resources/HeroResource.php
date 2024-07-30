@@ -23,6 +23,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class HeroResource extends Resource
 {
@@ -279,12 +280,12 @@ class HeroResource extends Resource
 
         return ! $recordExists;
     }
-//    public static function canEdit(Model $record): bool
-//    {
-//        return false;
-//    }
-//    public static function canDelete(Model $record): bool
-//    {
-//        return false;
-//    }
+    public static function canEdit(Model $record): bool
+    {
+        return false;
+    }
+    public static function canDelete(Model $record): bool
+    {
+        return false;
+    }
 }
