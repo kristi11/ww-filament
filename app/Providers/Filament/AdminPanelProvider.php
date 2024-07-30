@@ -126,7 +126,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->databaseNotifications()
-                ->profile(isSimple: false)
+//                ->profile(isSimple: false)
             ;
     }
 
