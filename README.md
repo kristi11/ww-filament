@@ -18,6 +18,11 @@
     <img src="public/android-chrome-192x192.png" alt="Logo" width="80" height="80">
   </a>
 
+Disabled features:
+* Profile editing (change on Adminpanelprovider.php)
+* Permission management for user roles (change on RoleResource.php)
+* User resource editing and deleting have been disabled (change on UserResource.php)
+* 
 <h3 align="center">Witty workflow</h3>
 
   <p align="center">
