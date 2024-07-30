@@ -52,7 +52,7 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('favicon.svg'))
             ->login()
             ->passwordReset()
-            ->profile()
+//            ->profile() Uncomment this line to enable the profile page
             ->colors([
                 'primary' => Color::Indigo,
                 'gray' => Color::Slate,
@@ -128,7 +128,7 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->databaseNotifications()
-//            ->profile(isSimple: false)
+                ->profile(isSimple: false)
             ;
     }
 
