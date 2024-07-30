@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use TomatoPHP\FilamentDeveloperGate\Traits\InteractWithDeveloperGate;
 
 class RoleResource extends Resource implements HasShieldPermissions
 {
