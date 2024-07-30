@@ -91,7 +91,6 @@ class AdminPanelProvider extends PanelProvider
                     ->size(60)
                     ->square()
                     ->colors(['0A0310','49007E','FF005B','FF7D10','FFB238']),
-                FilamentEnvEditorPlugin::make(),
                 FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
