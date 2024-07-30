@@ -66,8 +66,7 @@ class RoleResource extends Resource implements HasShieldPermissions
                                 'sm' => 2,
                                 'lg' => 3,
                             ]),
-                    ])
-                ->disabledOn('edit'),
+                    ]),
                 Forms\Components\Tabs::make('Permissions')
                     ->contained()
                     ->tabs([
