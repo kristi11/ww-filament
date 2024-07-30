@@ -41,12 +41,6 @@ Route::get('/terms', function () {
 Route::get('/contact', function () {
     return view('footer.contact', ['contact' => Contact::get()]);
 })->name('contact');
-//Route::get('/about', function () {
-//    return view('footer.about', ['about' => About::get()]);
-//})->name('about');
-
-Route::middleware([\TomatoPHP\FilamentDeveloperGate\Http\Middleware\DeveloperGateMiddleware::class])->group(function () {
-    Route::get('/about', function () {
-        return view('footer.about', ['about' => About::get()]);
-    })->name('about');
-});
+Route::get('/about', function () {
+    return view('footer.about', ['about' => About::get()]);
+})->name('about');
