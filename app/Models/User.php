@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\OwnerScope;
 use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
@@ -30,6 +31,8 @@ class User extends Authenticatable implements FilamentUser
     use HasRoles;
     use Notifiable;
     use HasBlog;
+
+    public mixed $isSuperAdmin;
 
     /**
      * The attributes that are mass assignable.
@@ -173,18 +176,23 @@ class User extends Authenticatable implements FilamentUser
             get: fn () => $this->name // or $this->>email or $this->>username or Str::random()
         );
     }
-    public function getIsSuperAdminAttribute()
+    public function getIsSuperAdminAttribute(): bool
     {
         return $this->roles->pluck('name')->contains('super_admin');
     }
 
-    public function getIsTeamUserAttribute()
+    public function getIsTeamUserAttribute(): bool
     {
         return $this->roles->pluck('name')->contains('team_user');
     }
 
-    public function getIsPanelUserAttribute()
+    public function getIsPanelUserAttribute(): bool
     {
         return $this->roles->pluck('name')->contains('panel_user');
+    }
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new OwnerScope);
     }
 }
