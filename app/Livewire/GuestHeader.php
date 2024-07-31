@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Address;
 use App\Models\BusinessHour;
 use App\Models\Hero;
+use App\Models\PublicPage;
 use App\Models\Social;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -20,6 +21,7 @@ class GuestHeader extends Component
             'address' => Address::first(),
             'businessHours' => BusinessHour::all(),
             'social' => Social::first(),
+            'publicHero'=> PublicPage::get('hero'),
         ]);
     }
 }

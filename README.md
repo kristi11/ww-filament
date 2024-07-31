@@ -22,7 +22,7 @@ Disabled features:
 * Profile editing (change on Adminpanelprovider.php)
 * Permission management for user roles (change on RoleResource.php)
 * User resource editing and deleting have been disabled (change on UserResource.php)
-* 
+* Heroresource editing and deleting have been disabled (change on HeroResource.php)
 <h3 align="center">Witty workflow</h3>
 
   <p align="center">
