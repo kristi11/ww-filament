@@ -133,6 +133,11 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasOne(Support::class);
     }
 
+    public function publicPage(): HasOne
+    {
+        return $this->hasOne(PublicPage::class);
+    }
+
     /**
      * @throws Exception
      */

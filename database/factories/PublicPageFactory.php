@@ -15,13 +15,13 @@ class PublicPageFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'hero' => $this->faker->boolean(),
-            'credentials' => $this->faker->boolean(),
-            'services' => $this->faker->boolean(),
-            'hours' => $this->faker->boolean(),
-            'gallery' => $this->faker->boolean(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'footer' => $this->faker->boolean(),
+            'hero' => true,
+            'credentials' => true,
+            'services' => true,
+            'hours' => true,
+            'gallery' => true,
+            'email' => true,
+            'footer' => true,
         ];
     }
 }

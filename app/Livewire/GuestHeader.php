@@ -21,7 +21,6 @@ class GuestHeader extends Component
             'address' => Address::first(),
             'businessHours' => BusinessHour::all(),
             'social' => Social::first(),
-            'publicHero'=> PublicPage::get('hero'),
         ]);
     }
 }

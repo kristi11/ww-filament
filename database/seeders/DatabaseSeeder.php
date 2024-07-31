@@ -6,6 +6,7 @@ use App\Models\Address;
 use App\Models\BusinessHour;
 use App\Models\Flexibility;
 use App\Models\Hero;
+use App\Models\PublicPage;
 use App\Models\Service;
 use App\Models\Social;
 use App\Models\User;
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
         Hero::factory()->create(['user_id' => $admin->id]);
         Social::factory()->create(['user_id' => $admin->id]);
         Flexibility::create(['user_id' => $admin->id]);
+        PublicPage::factory()->create(['user_id' => $admin->id]);
     }
 
 }

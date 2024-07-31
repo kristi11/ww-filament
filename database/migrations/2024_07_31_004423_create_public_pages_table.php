@@ -9,13 +9,14 @@ return new class extends Migration {
     {
         Schema::create('public_pages', function (Blueprint $table) {
             $table->id();
-            $table->boolean('hero');
-            $table->boolean('credentials');
-            $table->boolean('services');
-            $table->boolean('hours');
-            $table->boolean('gallery');
-            $table->boolean('email');
-            $table->boolean('footer');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->boolean('hero')->default(true);
+            $table->boolean('credentials')->default(true);
+            $table->boolean('services')->default(true);
+            $table->boolean('hours')->default(true);
+            $table->boolean('gallery')->default(true);
+            $table->boolean('email')->default(true);
+            $table->boolean('footer')->default(true);
             $table->timestamps();
         });
     }

@@ -10,7 +10,8 @@ class PublicPage extends Model
     use HasFactory;
 
     protected $fillable = [
-        'hero',
+        'user_id',
+        'guestHero',
         'credentials',
         'services',
         'hours',
@@ -18,4 +19,9 @@ class PublicPage extends Model
         'email',
         'footer',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

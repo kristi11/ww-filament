@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\PublicPage;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;

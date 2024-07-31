@@ -1,4 +1,5 @@
 <div>
+    @if($credentials)
     <section id="login" class="bg-white border-b py-8">
         <div class="container flex flex-wrap justify-center mx-auto pb-12 pt-4">
             @guest()
@@ -56,4 +57,5 @@
 
         </div>
     </section>
+    @endif
 </div>

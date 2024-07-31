@@ -1,4 +1,5 @@
 <div>
+    @if($publicHero)
     <!--Hero-->
     <livewire:guest-nav-links/>
     <div class="pt-24">
@@ -41,5 +42,6 @@
     {{--Enable waves only if user has chosen to--}}
     @if($hero['waves'] == 1)
         <livewire:waves/>
+    @endif
     @endif
 </div>
