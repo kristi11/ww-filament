@@ -191,8 +191,8 @@ class User extends Authenticatable implements FilamentUser
         return $this->roles->pluck('name')->contains('panel_user');
     }
 
-    protected static function booted(): void
-    {
-        static::addGlobalScope(new OwnerScope);
-    }
+//    protected static function booted(): void
+//    {
+//        static::addGlobalScope(new OwnerScope);
+//    }
 }
