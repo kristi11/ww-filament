@@ -15,6 +15,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -74,13 +75,15 @@ class GalleryResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
-                ImageColumn::make('image')
+                SpatieMediaLibraryImageColumn::make('image')
                     ->circular()
-                    ->stacked()
+//                    ->stacked()
                     ->disk('gallery')
-                    ->limit(2)
-                    ->limitedRemainingText(isSeparate: true)
-                    ->extraImgAttributes(['loading' => 'lazy']),
+            ->directory('gallery')
+            ->visibility('public')
+//                    ->limit(2)
+//                    ->limitedRemainingText(isSeparate: true)
+//                    ->extraImgAttributes(['loading' => 'lazy']),
                 TextColumn::make('description')
                     ->searchable()
                     ->limit(30)
