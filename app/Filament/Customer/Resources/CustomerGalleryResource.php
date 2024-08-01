@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
@@ -52,7 +53,7 @@ class CustomerGalleryResource extends Resource
                         ->icon('heroicon-o-cog')
                         ->tooltip('name')
                         ->searchable(),
-                    Tables\Columns\ImageColumn::make('image')
+                    Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
                         ->placeholder('Service image')
                         ->disk('gallery')
                         ->visibility('public')
@@ -92,7 +93,7 @@ class CustomerGalleryResource extends Resource
             ->schema([
                 Section::make('Images')
                     ->schema([
-                        ImageEntry::make('image')
+                        SpatieMediaLibraryImageEntry::make('image')
                             ->visibility('public')
                             ->extraImgAttributes([
                                 'loading' => 'lazy',
