@@ -10,6 +10,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -76,11 +77,11 @@ class GalleryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
                 SpatieMediaLibraryImageColumn::make('image')
-                    ->circular()
+                    ->circular(),
 //                    ->stacked()
-                    ->disk('gallery')
-            ->directory('gallery')
-            ->visibility('public')
+//                    ->disk('gallery')
+//            ->directory('gallery')
+//            ->visibility('public'),
 //                    ->limit(2)
 //                    ->limitedRemainingText(isSeparate: true)
 //                    ->extraImgAttributes(['loading' => 'lazy']),
