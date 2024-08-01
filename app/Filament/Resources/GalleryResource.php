@@ -58,11 +58,12 @@ class GalleryResource extends Resource
                         SpatieMediaLibraryFileUpload::make('image')
                             ->image()
                             ->imageEditor()
-                            ->placeholder('Upload service image')
+                            ->placeholder('Upload service images')
                             ->multiple()
                             ->disk('s3-public')
                             ->directory('gallery')
-                            ->visibility('public'),
+                            ->visibility('public')
+                            ->reorderable(),
                     ]),
             ]);
     }
