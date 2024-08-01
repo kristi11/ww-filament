@@ -78,7 +78,8 @@ class GalleryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
                 SpatieMediaLibraryImageColumn::make('image')
-                    ->circular(),
+                    ->circular()
+                    ->stacked(),
                 TextColumn::make('description')
                     ->searchable()
                     ->limit(30)
