@@ -8,6 +8,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
@@ -52,7 +53,7 @@ class GalleryResource extends Resource
                     ]),
                 Section::make('Image Information')
                     ->schema([
-                        FileUpload::make('image')
+                        SpatieMediaLibraryFileUpload::make('image')
                             ->image()
                             ->imageEditor()
                             ->placeholder('Upload service image')
