@@ -79,7 +79,8 @@ class GalleryResource extends Resource
                     ->label('Created by'),
                 SpatieMediaLibraryImageColumn::make('image')
                     ->circular()
-                    ->stacked(),
+                    ->stacked()
+                    ->limit(3),
                 TextColumn::make('description')
                     ->searchable()
                     ->limit(30)
