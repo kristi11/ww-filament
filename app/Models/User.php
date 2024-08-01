@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Models;
-
-
 use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
@@ -137,7 +135,6 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasOne(PublicPage::class);
     }
-
 
     /**
      * @throws Exception
