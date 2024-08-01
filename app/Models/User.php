@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\OwnerScope;
+
 use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
-use Firefly\FilamentBlog\Traits\HasBlog;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,7 +15,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use LaraZeus\Boredom\Concerns\HasBoringAvatar;
-use Override;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -30,7 +28,6 @@ class User extends Authenticatable implements FilamentUser
     use HasPanelShield;
     use HasRoles;
     use Notifiable;
-    use HasBlog;
 
     public mixed $isSuperAdmin;
 
@@ -141,10 +138,10 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasOne(PublicPage::class);
     }
 
+
     /**
      * @throws Exception
      */
-    #[Override]
     public function canAccessPanel(Panel $panel): bool
     {
         // Check the panel ID to determine access rules

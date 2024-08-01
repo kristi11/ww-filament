@@ -18,7 +18,6 @@
         "filament/filament": "^3.2",
         "filament/forms": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
-        "firefly/filament-blog": "^2.0",
         "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
         "lara-zeus/boredom": "^1.0",

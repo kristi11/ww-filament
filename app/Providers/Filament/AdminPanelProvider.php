@@ -15,7 +15,6 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentView;
-use Firefly\FilamentBlog\Blog;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -77,7 +76,6 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-                Blog::make(),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('30s') // optional, by default it is set to null
                     ->defaultColor(Color::Blue), // optional, by default it is set to "primary"
