@@ -16,6 +16,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\Layout\Panel;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class CustomerGalleryResource extends Resource
@@ -71,8 +72,7 @@ class CustomerGalleryResource extends Resource
                     ->collapsible(),
             ])
             ->filters([
-                //
-            ])
+                SelectFilter::make('author')->relationship('service', 'name')            ])
             ->actions([
                 Tables\Actions\ViewAction::make()
                     ->label('View service images')
