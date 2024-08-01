@@ -60,9 +60,9 @@ class GalleryResource extends Resource
                             ->imageEditor()
                             ->placeholder('Upload service image')
                             ->multiple()
-                            ->visibility('public')
                             ->disk('s3-public')
-                            ->directory('gallery'),
+                            ->directory('gallery')
+                            ->visibility('public'),
                     ]),
             ]);
     }
@@ -78,13 +78,6 @@ class GalleryResource extends Resource
                     ->label('Created by'),
                 SpatieMediaLibraryImageColumn::make('image')
                     ->circular(),
-//                    ->stacked()
-//                    ->disk('gallery')
-//            ->directory('gallery')
-//            ->visibility('public'),
-//                    ->limit(2)
-//                    ->limitedRemainingText(isSeparate: true)
-//                    ->extraImgAttributes(['loading' => 'lazy']),
                 TextColumn::make('description')
                     ->searchable()
                     ->limit(30)
