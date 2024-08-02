@@ -378,4 +378,4 @@ class RoleResource extends Resource implements HasShieldPermissions
 //    {
 //        return false;
 //    }
-//}
+}
