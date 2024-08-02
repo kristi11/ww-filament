@@ -73,6 +73,10 @@ class AppointmentObserver
                 $teamUser->notify(new AppointmentAssignedNotification($appointment));
             }
         }
+        // If there is no teamUser, we should not send any notification.
+        else if ($appointment->teamUser_id == null) {
+            return;
+        }
         // Load the service associated with the appointment
         $appointment->load('service');
 
