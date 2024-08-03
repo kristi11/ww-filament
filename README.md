@@ -22,7 +22,9 @@ Disabled features:
 * Profile editing (change on Adminpanelprovider.php)
 * Permission management for user roles (change on RoleResource.php)
 * User resource editing and deleting have been disabled (change on UserResource.php)
-* Heroresource editing and deleting have been disabled (change on HeroResource.php)
+* Hero resource editing and deleting have been disabled (change on HeroResource.php)
+* User role editing and deleting have been disabled (change on RoleResource.php)
+
 <h3 align="center">Witty workflow</h3>
 
   <p align="center">
@@ -78,25 +80,13 @@ Disabled features:
 ## Key Features:
 
 * **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
-  communicates your brand essence.
+  communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user experience.
 
-* **Realtime Validation:** Ensure data accuracy and enhance user experience with realtime validation for all components,
-  contributing to a seamless interaction.
-
-* **Role-Based Access:** Implement a secure environment with role-based access, allowing team members exclusive access
-  to relevant information. Non-team members are restricted from accessing team-related data.
-
-* **Lazy Image Loading:** Optimize performance by incorporating lazy image loading, particularly beneficial in the hero
-  section for faster page rendering.
+* **Role-Based Access:** Utilizing the powerful Filament PHP, Wittyworkflow offers role-based access control, enabling
+  different panels for different user roles. Admins have full access to all functionalities, while staff members and customers have a more limited view.
 
 * **SPA functionality with Wire:Navigate :** Enhance navigation with a SPA like menu featuring wire:navigate
   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
-
-* **Laravel Jetstream Authentication:** Benefit from Laravel Jetstream authentication, including features like 2-factor
-  authentication and browser session control. Profile information updating has been disabled for demonstration purposes
-  but can be enabled through fortify.php with the desired features.
-
-* **Team Management:** Staff members can create teams, ensuring controlled and secure team management.
 
 * **CRUD Operations for Admins:** Enable administrators with CRUD (Create, Read, Update, Delete) operations for users,
   addresses, landing page heroes, appointments, services, opening hours, gallery, socials, and SEO. These
@@ -108,14 +98,7 @@ Disabled features:
 * **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you
   never miss valuable information about your upcoming appointments.
 
-* **Newsletter Creation:** Planned feature (Not yet finished): Develop a newsletter system to keep users informed and
-  engaged with your platform.
-
-* **Progressive Web App (PWA):** Planned feature (Not yet started): Transform the web app into a Progressive Web App,
-  providing users with an enhanced offline experience and improved accessibility.
-
-* **Jetstream Configuration (jetstream.php):** Customize Jetstream features by editing the jetstream.php configuration
-  file. Enable the desired features according to your project requirements.
+* **Full control** on what section shows/hides from the landing page depending on your businesses need for the section
 
 ## About Wittyworkflow:
 
@@ -152,12 +135,12 @@ To get started clone this repository.
 
 1. Clone the repo
    ```
-   git clone https://github.com/kristi11/wittyworkflow.git
+   https://github.com/kristi11/ww-filament.git
    ```
    or if you have a different name you'd like to use for the project create an empty folder with your desired name and
    run the following command:
    ```
-   git clone https://github.com/kristi11/wittyworkflow.git .
+   https://github.com/kristi11/ww-filament.git .
    ```
    this will clone all of the project's content without the project name folder.
 2. Install NPM packages
@@ -179,7 +162,7 @@ To get started clone this repository.
    ```
    if using laravel [forge](https://forge.laravel.com/) there's no need to generate key since when creating the
    server [forge](https://forge.laravel.com/) will take care of the key generation.
-6. Create an empty database for our application. I personally like using [TablePlus](https://tableplus.com/) but you can
+6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/) but you can
    use whatever you like.
 7. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name
    is `wittyworkflow`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env`
@@ -188,6 +171,22 @@ To get started clone this repository.
    ```
    php artisan migrate:fresh --seed
    ```
+   
+9. Wittyworkflow uses Shield package to provide proper user roles. We need to generate the permissions for that package 
+    ```
+    php artisan shield:generate --all
+    ```
+   and define the super admin of the system 
+    ```
+    php artisan shield:super-admin --user="1"
+    ```
+   
+    --user=1 is the id of the user that will be the super admin. You can change it to whatever user you want to be the super admin. the credentials for the super admin are the following:
+    ```
+    email: admin@example.com
+    password: password
+    ```
+    
 10. Link the storage folder.
     ```
     php artisan storage:link
@@ -199,12 +198,6 @@ To get started clone this repository.
 12. Visit your application in the browser.
     ```
     http://localhost:8000
-    ```
-13. Login to the admin dashboard with the following credentials:
-    ```
-    email: kristi@wittyworkflow.com
-    
-    password: password
     ```
 
 I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to use Mailtrap,
@@ -236,35 +229,6 @@ AWS_BUCKET_PUBLIC=your-bucket-public
 AWS_USE_PATH_STYLE_ENDPOINT=false
 ```
 
-To set up your chat credentials first you have to sign up for [pusher](https://pusher.com/).
-[Here's](https://chatify.munafio.com/installation) the setup and installation video from the creator of laravel chatify
-.This includes the set up of pusher and the installation of chatify(which is already installed).
-Then fill the following credentials to the `.env` file with the credentials from your pusher account.
-
-```
-PUSHER_APP_ID=your-pusher-app-id
-PUSHER_APP_KEY=your-pusher-app-key
-PUSHER_APP_SECRET=your-pusher-app-secret
-PUSHER_APP_CLUSTER=your-pusher-app-cluster
-```
-
-also add the following to the `.env` file
-
-```
-CHATIFY_STORAGE_DISK=your-s3-bucket-or-custom-driver
-CHATIFY_ROUTES_PREFIX=your-chatify-routes-prefix
-CHATIFY_NAME=Chatify-messeneger-name-here
-```
-
-The private bucket is used to store the livewire `tmp` files and the public bucket is used to store the images
-accessible to everyone.
-
-To clean up the `tmp` files uploaded on `S3` every 24 hours add the following command to your server
-
-```
-php artisan livewire:configure-s3-upload-cleanup
-```
-
 For help setting up [Amazon s3](https://aws.amazon.com/s3/) you can check out
 this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7) by Kevin McKee, a laracasts
 instructor. This is a paid tutorial but it's worth it. I learned a lot from it. And, No I'm not affiliated with
@@ -287,57 +251,6 @@ _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-1. [x] Create jetstream project
-2. [x] Dynamic hero
-3. [x] Realtime validation for all components
-4. [x] Lazy image loading on hero
-5. [x] Create role based access to team members.Non-team members do not have access to teams
-6. [x] Add wire:navigate to links for SPA functionality.
-7. [x] Staff members can create their own teams but cannot modify teams they belong to teams disabled momentarily
-8. [x] Above functionality for responsive menu
-9. [x] Disable making a user an administrator on JetstreamServiceProvider
-10. [x] Create CRUD for users. Only admin can access it
-11. [x] Create CRUD for address. Only admin can access it
-12. [x] Create CRUD for landingpage hero. Only admin can access it
-13. [x] Create appointments component
-14. [x] Create CRUD for appointments. Only admin can access it
-15. [x] Create CRUD for services. Only admin can access it
-16. [x] Create CRUD for opening hours. Only admin can access it
-17. [x] Create CRUD for gallery. Only admin can access it
-18. [x] Create CRUD for socials. Only admin can access it
-19. [x] complete public email form
-20. [x] complete footer
-22. [x] create newsletter (newsletter created but needs changes to be made)
-23. [x] make CRUD for SEO
-24. [x] install Schema.org for better SEO
-25. [ ] make PWA for the website
-26. [ ] make a blog
-27. [ ] make a shop
-28. [ ] make a forum
-29. [x] make a chat
-30. [ ] make a calendar
-31. [ ] make a CRM
-32. [ ] make a project management tool
-33. [ ] make a time tracking tool
-34. [ ] make a billing tool
-35. [ ] make a file sharing tool
-36. [ ] make a video conferencing tool
-37. [ ] make a note taking tool
-38. [ ] make a task management tool
-39. [ ] Create AI chatbot
-40. [x] Create dark/light mode toggle
-41. [ ] Integrate google analytics
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -345,15 +258,7 @@ _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
 contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
-simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+If you have a suggestion that would make this better, please contact me at `tanellari@gmail.com`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -375,7 +280,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Kristi Tanellari - [@TanellariKristi](https://twitter.com/TanellariKristi) - tanellari@gmail.com
 
-Project Link: [https://github.com/kristi11/wittyworkflow/](https://github.com/kristi11/wittyworkflow/)
+Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kristi11/wittyworkflow/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -388,16 +293,12 @@ Project Link: [https://github.com/kristi11/wittyworkflow/](https://github.com/kr
 I've included a few of my favorite links to kick things off!
 
 * [Laravel](https://laravel.com)
+* [Filament](https://filamentphp.com/)
 * [Livewire](https://livewire.laravel.com)
 * [Tailwind CSS](https://tailwindcss.com)
 * [README Template](https://github.com/othneildrew/Best-README-Template/)
-* [Schema.org](https://schema.org)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -428,3 +329,5 @@ I've included a few of my favorite links to kick things off!
 [Amazon s3]: https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
 
 [Amazon s3-url]: https://aws.amazon.com/s3/
+
+[Filament PHP]: https://img.shields.io/badge/Filament-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
