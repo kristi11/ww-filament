@@ -73,8 +73,6 @@ Disabled features:
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://wittyworkflow.com)
-
 ##### Wittyworkflow is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses. Below is an overview of the key functionalities and the development journey captured in our roadmap:
 
 ## Key Features:
