@@ -80,6 +80,7 @@ class Appointment extends Model
                     ->helperText(str('This is the list of the **team members** you can set an appointment with.')->inlineMarkdown()->toHtmlString())
                     ->columnSpanFull()
                     ->live()
+                    ->required()
                     ->prefixIcon('heroicon-s-users'),
                 DatePicker::make('date')
                     ->required()

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->unsignedInteger('service_id');
-            $table->unsignedInteger('teamUser_id')->nullable();
+            $table->unsignedInteger('teamUser_id');
             $table->string('date');
             $table->string('time');
             $table->string('client_name');

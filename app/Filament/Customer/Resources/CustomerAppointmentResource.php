@@ -56,12 +56,11 @@ class CustomerAppointmentResource extends Resource
                             ->placeholder('Select a service')
                             ->prefixIcon('heroicon-s-cog'),
                         Select::make('teamUser_id')
-                            ->relationship('user', 'name', function ($query) {
+                            ->relationship('teamUser', 'name', function ($query) {
                                 return $query->whereHas('roles', function ($query) {
                                     $query->where('name', 'team_user');
                                 });
                             })
-                            ->default(null)
                             ->helperText(str('This is the list of the **team members** you can set an appointment with.')->inlineMarkdown()->toHtmlString())
                             ->columnSpanFull()
                             ->live()
