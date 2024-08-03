@@ -123,8 +123,7 @@ This section lists all major frameworks/libraries used to bootstrap this project
 
 ## Getting Started
 
-This project uses [Laravel 10.x](https://laravel.com/docs/master#install-composer) with
-the  [livewire 3.x](https://livewire.laravel.com/docs/quickstart) stack.
+This project is built with [Filament 3](https://filamentphp.com)
 
 ### Installation
 
