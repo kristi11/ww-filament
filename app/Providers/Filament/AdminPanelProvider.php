@@ -59,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups(
                 [
                     NavigationGroup::make('Business Information'),
-                    NavigationGroup::make('SEO'),
+                    NavigationGroup::make('Socials'),
                     NavigationGroup::make('Visuals'),
                     NavigationGroup::make('Footer'),
 

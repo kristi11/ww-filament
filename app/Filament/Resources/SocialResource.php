@@ -20,7 +20,7 @@ class SocialResource extends Resource
 {
     protected static ?string $model = Social::class;
     protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'SEO';
+    protected static ?string $navigationGroup = 'Socials';
     protected static ?string $recordTitleAttribute = 'user.name';
 
     public static function form(Form $form): Form
