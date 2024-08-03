@@ -6,11 +6,11 @@
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-                <p class="uppercase tracking-loose w-full">{{ $hero->thirdQuote }}</p>
-                <h1 class="my-4 text-5xl font-bold leading-tight w-full">
+                <p class="lg:text-3xl text-xl tracking-loose uppercase w-full drop-shadow-2xl">{{ $hero->thirdQuote }}</p>
+                <h1 class="drop-shadow-2xl font-black font-bold leading-tight lg:text-8xl md:text-7xl my-4 text-5xl w-full">
                     {{ $hero->mainQuote }}
                 </h1>
-                <p class="leading-normal text-2xl mb-8 w-full">
+                <p class="leading-normal lg:text-5xl mb-8 md:text-4xl text-3xl w-full drop-shadow-2xl">
                     {{ $hero->secondaryQuote }}
                 </p>
                 {{--                <button--}}
