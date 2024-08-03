@@ -18,10 +18,12 @@ class UsersCountWidget extends BaseWidget
         return [
             Stat::make('Users', User::count())
                 ->description('The total number of users in the database ')
-                ->descriptionIcon('heroicon-o-users'),
+                ->descriptionIcon('heroicon-o-users')
+                ->url('/admin/users'),
             Stat::make('Services', Service::count())
                 ->description('The total number of services')
-                ->descriptionIcon('heroicon-o-wrench-screwdriver'),
+                ->descriptionIcon('heroicon-o-wrench-screwdriver')
+                ->url('/admin/service'),
         ];
     }
 }

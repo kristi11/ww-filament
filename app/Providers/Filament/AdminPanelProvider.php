@@ -62,7 +62,6 @@ class AdminPanelProvider extends PanelProvider
                     NavigationGroup::make('Socials'),
                     NavigationGroup::make('Visuals'),
                     NavigationGroup::make('Footer'),
-
                 ]
             )
             ->spa()

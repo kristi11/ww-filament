@@ -21,16 +21,20 @@ class BusinessInformationWidget extends BaseWidget
         return [
             Stat::make('Appointments', Appointment::count())
                 ->description('The total number of appointments')
-                ->descriptionIcon('heroicon-o-calendar-days'),
+                ->descriptionIcon('heroicon-o-calendar-days')
+                ->url('/admin/appointments'),
             Stat::make('Business hours', BusinessHour::count())
                 ->description('The number of days the business has set hours for')
-                ->descriptionIcon('heroicon-o-briefcase'),
+                ->descriptionIcon('heroicon-o-briefcase')
+                ->url('/admin/business-hours'),
             Stat::make('Images', Gallery::count())
                 ->description('The total number of services with images in the gallery')
-                ->descriptionIcon('heroicon-o-photo'),
+                ->descriptionIcon('heroicon-o-photo')
+                ->url('/admin/gallery'),
             Stat::make('Roles', Role::count())
                 ->description('The total number of user roles')
-                ->descriptionIcon('heroicon-o-user-circle'),
+                ->descriptionIcon('heroicon-o-user-circle')
+                ->url('/admin/shield/roles'),
         ];
     }
 }
