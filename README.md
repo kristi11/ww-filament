@@ -23,7 +23,6 @@ Disabled features:
 * Permission management for user roles (change on RoleResource.php)
 * User resource editing and deleting have been disabled (change on UserResource.php)
 * Hero resource editing and deleting have been disabled (change on HeroResource.php)
-* User role editing and deleting have been disabled (change on RoleResource.php)
 
 <h3 align="center">Witty workflow</h3>
 
