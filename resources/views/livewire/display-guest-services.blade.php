@@ -1,6 +1,6 @@
 <div>
     @if($guestServices)
-    <section id="service" class="bg-white border-b py-8 md:p-20">
+    <section id="service" class="bg-white border-b py-8 lg:p-20">
         <div class="bg-slate-50 container flex flex-wrap justify-center mx-auto pb-12 pt-4 rounded-lg shadow">
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                 Services
@@ -9,7 +9,7 @@
                 <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
             </div>
             @foreach($services as $service)
-                <div id="services" class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+                <div id="services" class="w-full lg:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
                     <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow p-2 border-b">
                         <a href="#" class="flex flex-wrap no-underline hover:no-underline">
                             <p class="border-b md:text-sm pb-2 px-6 text-gray-600 text-xs w-full">

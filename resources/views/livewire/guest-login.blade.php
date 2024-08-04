@@ -1,6 +1,6 @@
 <div>
     @if($credentials)
-    <section id="login" class="bg-white border-b py-8 md:p-20">
+    <section id="login" class="bg-white border-b py-8 lg:p-20">
         <div class="bg-slate-50 container flex flex-wrap justify-center mx-auto pb-12 pt-4 rounded-lg shadow">
             @guest()
                 <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
