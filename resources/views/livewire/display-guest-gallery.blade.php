@@ -3,7 +3,7 @@
         <section id="gallery" class="bg-white py-8">
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                 Check out the <a class="hover:text-indigo-600 text-indigo-500"
-                                 href=" {{ url('dashboard/customer-gallery') }} ">
+                                 href=" {{ url('dashboard/service-images') }} ">
                     gallery
                 </a>
             </h2>
