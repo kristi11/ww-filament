@@ -7,7 +7,7 @@
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
                 <p class="lg:text-3xl text-xl tracking-loose uppercase w-full drop-shadow-2xl">{{ $hero->thirdQuote }}</p>
-                <h1 class="drop-shadow-2xl font-black font-bold leading-tight lg:text-8xl md:text-7xl my-4 text-5xl w-full">
+                <h1 class="decoration-4 tracking-normal drop-shadow-2xl font-black font-bold leading-tight lg:text-8xl md:text-7xl my-4 text-5xl w-full">
                     {{ $hero->mainQuote }}
                 </h1>
                 <p class="leading-normal lg:text-5xl mb-8 md:text-4xl text-3xl w-full drop-shadow-2xl">
@@ -21,7 +21,7 @@
             <!--Right Col-->
             <div class="w-full md:w-3/5 py-6 text-center hidden md:block">
                 @if($hero->image !== null)
-                    <img class="w-full md:w-4/5 z-50"
+                    <img class="mb-12 w-full z-50"
                          src=
                              "
                                 {{ Storage::disk('hero')->url($hero->image) }}
@@ -31,7 +31,7 @@
                              "
                     />
                 @else
-                    <img class="w-full md:w-4/5 z-50"
+                    <img class="mb-12 w-full z-50"
                          src="{{ asset('default-heroImage.png') }}"
                          alt="{{config('app.name')}} hero image"
                     />
