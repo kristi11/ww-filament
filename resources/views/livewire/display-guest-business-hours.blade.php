@@ -1,8 +1,9 @@
 <div>
     @php use Carbon\Carbon; @endphp
     @if($guestHours)
-    <section id="hours" class="bg-gray-100 py-8">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+    <section id="hours" class="bg-white py-8 p-20">
+        <div class="bg-slate-50 pb-12 pt-4 rounded-lg shadow">
+        <h2 class="bg-slate-50 w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Hours
         </h2>
         <div class="w-full mb-4">
@@ -34,6 +35,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
     @endif
 </div>

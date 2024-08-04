@@ -1,7 +1,7 @@
 <div>
     @if($guestServices)
-    <section id="service" class="bg-white border-b py-8">
-        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+    <section id="service" class="bg-white border-b py-8 p-20">
+        <div class="bg-slate-50 container flex flex-wrap justify-center mx-auto pb-12 pt-4 rounded-lg shadow">
             <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
                 Services
             </h2>
@@ -10,9 +10,9 @@
             </div>
             @foreach($services as $service)
                 <div id="services" class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow p-2 border-b">
                         <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                            <p class="w-full text-gray-600 text-xs md:text-sm px-6">
+                            <p class="border-b md:text-sm pb-2 px-6 text-gray-600 text-xs w-full">
                                 @if($service->estimated_hours !== null && $service->estimated_minutes !== null)
                                     {{ 'This service takes about ' }}
                                     @php
@@ -37,18 +37,18 @@
                                     {{ 'This service takes about '.$service->estimated_minutes.' minute'.($service->estimated_minutes == 1 ? '' : 's') }}
                                 @endif
                             </p>
-                            <div class="w-full font-bold text-xl text-gray-800 px-6">
+                            <div class="w-full font-bold text-xl text-gray-800 px-6 pt-2">
                                 {{ ucwords($service->name) }}
                             </div>
                             <p class="text-gray-800 text-base px-6 mb-5">
                                 {{ \Illuminate\Support\Str::limit( $service->description, '120') }}
                             </p>
-                            <p class="text-gray-800 text-base px-6 mb-5">
+                            <p class="text-gray-800 text-base px-3 mb-5">
                             @if($service->price !== null)
                                 @if($flexible_pricing)
-                                    <p class="text-gray-500 text-sm">{{ 'Price starts at $'.$service->price }}</p>
+                                    <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-gray-500 text-sm text-white">{{ 'Price starts at $'.$service->price }}</p>
                                 @else
-                                    <p class="text-gray-500 text-sm">{{ 'Price: $'.$service->price }}</p>
+                                    <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-gray-500 text-sm text-white">{{ 'Price: $'.$service->price }}</p>
                                 @endif
                             @endif
                         </a>
