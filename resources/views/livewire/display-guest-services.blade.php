@@ -41,7 +41,7 @@
                                 {{ ucwords($service->name) }}
                             </div>
                             <p class="text-gray-800 text-base px-6 mb-5">
-                                {{ \Illuminate\Support\Str::limit( $service->description, '120') }}
+                                {{ \Illuminate\Support\Str::limit( $service->description, '200') }}
                             </p>
                             <p class="text-gray-800 text-base px-3 mb-5">
                             @if($service->price !== null)
@@ -63,7 +63,9 @@
                     </div>
                 </div>
             @endforeach
+            {{ $services->links(data: ['scrollTo' => false]) }}
         </div>
     </section>
     @endif
+
 </div>

@@ -7,9 +7,13 @@ use App\Models\PublicPage;
 use App\Models\Service;
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithoutUrlPagination;
+use Livewire\WithPagination;
 
 class DisplayGuestServices extends Component
 {
+    use WithPagination;
+    use WithoutUrlPagination;
     public function bookService()
     {
         return redirect(url('dashboard/customer-appointments'));
@@ -21,7 +25,7 @@ class DisplayGuestServices extends Component
 
         return view('livewire.display-guest-services',
             [
-                'services' => Service::all(),
+                'services' => Service::simplePaginate(3),
                 'flexible_pricing' => $flexiblePricing,
                 'guestServices' => PublicPage::where('services', true)->first(),
             ]);
