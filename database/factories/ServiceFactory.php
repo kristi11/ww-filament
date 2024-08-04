@@ -22,8 +22,8 @@ class ServiceFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'name' => $this->faker->bs,
-            'description' => $this->faker->realText(),
+            'name' => 'Sample service name',
+            'description' => 'Service description goes here. The estimated service completion times and the pricing are just placeholders to demonstrate what the service model looks like.',
             'price' => $this->faker->numberBetween(30, 300),
             'estimated_hours' => $this->faker->numberBetween(1, 12),
             'estimated_minutes' => $this->faker->numberBetween(0, 59),

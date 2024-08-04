@@ -158,7 +158,7 @@ class ServiceResource extends Resource
                 TextColumn::make('description')
                     ->searchable()
                     ->html()
-                    ->limit(20)
+                    ->limit(80)
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('price')
                     ->searchable()
