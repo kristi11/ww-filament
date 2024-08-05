@@ -9,7 +9,7 @@
                 <div class="w-full mb-4">
                     <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
                 </div>
-                <div class="gap-0.5 grid grid-cols-1 md:gap-10 md:grid-cols-3">
+                <div class="bg-white gap-0.5 grid grid-cols-1 md:bg-slate-50 md:gap-10 md:grid-cols-3 md:p-0 md:shadow-none p-6 rounded-lg shadow-lg">
                     <button wire:click="loginAsCustomer"
                             class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                         Customer
