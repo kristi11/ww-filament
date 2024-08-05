@@ -22,10 +22,10 @@ class SocialFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'facebook' => $this->faker->userName(),
-            'instagram' => $this->faker->userName(),
-            'twitter' => $this->faker->userName(),
-            'linkedin' => $this->faker->userName(),
+            'facebook' => 'kristi.tanellari1',
+            'instagram' => 'kristitanellari',
+            'twitter' => 'Tanellarikristi',
+            'linkedin' => 'kristi-tanellari',
         ];
     }
 }
