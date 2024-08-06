@@ -51,22 +51,16 @@ class SectionColorsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('loginBackgroundColor')
-                    ->searchable()
                     ->placeholder('No background color set'),
                 TextColumn::make('servicesBackgroundColor')
-                    ->searchable()
                     ->placeholder('No background color set'),
                 TextColumn::make('hoursBackgroundColor')
-                    ->searchable()
                     ->placeholder('No background color set'),
                 TextColumn::make('galleryBackgroundColor')
-                    ->searchable()
                     ->placeholder('No background color set'),
                 TextColumn::make('ctaBackgroundColor')
-                    ->searchable()
                     ->placeholder('No background color set'),
                 TextColumn::make('footerBackgroundColor')
-                    ->searchable()
                     ->placeholder('No background color set'),
                 TextColumn::make('created_at')
                     ->dateTime()
