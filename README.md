@@ -35,6 +35,13 @@
 * Announcement resource editing and deleting have been disabled (change on AnnouncementResource.php)
 * Social resource editing and deleting have been disabled (change on SocialResource.php)
 * Gallery resource creating, editing and deleting have been disabled (change on GalleryResource.php)
+* About resource editing and deleting have been disabled (change on AboutResource.php)
+* Contact resource editing and deleting have been disabled (change on ContactResource.php)
+* FAQ resource editing and deleting have been disabled (change on FAQdataResource.php)
+* Help resource editing and deleting have been disabled (change on HelpResource.php)
+* Privacy resource editing and deleting have been disabled (change on PrivacyResource.php)
+* Terms resource editing and deleting have been disabled (change on TermsResource.php)
+* Support resource editing and deleting have been disabled (change on SupportResource.php)
 
 ### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
 
