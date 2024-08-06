@@ -6,9 +6,11 @@ use App\Filament\Resources\SectionColorsResource\Pages;
 use App\Filament\Resources\SectionColorsResource\RelationManagers;
 use App\Models\SectionColors;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -18,29 +20,32 @@ class SectionColorsResource extends Resource
 {
     protected static ?string $model = SectionColors::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-swatch';
+    protected static ?string $label = 'Section Colors';
+    protected static ?string $navigationGroup = 'Visuals';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('loginBackgroundColor')
-                    ->required()
+                TextInput::make('loginBackgroundColor')
+                    ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
+                    ->placeholder('No background color set')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('servicesBackgroundColor')
-                    ->required()
+                TextInput::make('servicesBackgroundColor')
+                    ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('hoursBackgroundColor')
-                    ->required()
+                TextInput::make('hoursBackgroundColor')
+                    ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('galleryBackgroundColor')
-                    ->required()
+                TextInput::make('galleryBackgroundColor')
+                    ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('ctaBackgroundColor')
-                    ->required()
+                TextInput::make('ctaBackgroundColor')
+                    ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('footerBackgroundColor')
-                    ->required()
+                TextInput::make('footerBackgroundColor')
+                    ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
                     ->maxLength(255),
             ]);
     }
@@ -49,23 +54,29 @@ class SectionColorsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('loginBackgroundColor')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('servicesBackgroundColor')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('hoursBackgroundColor')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('galleryBackgroundColor')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('ctaBackgroundColor')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('footerBackgroundColor')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('loginBackgroundColor')
+                    ->searchable()
+                    ->placeholder('No background color set'),
+                TextColumn::make('servicesBackgroundColor')
+                    ->searchable()
+                    ->placeholder('No background color set'),
+                TextColumn::make('hoursBackgroundColor')
+                    ->searchable()
+                    ->placeholder('No background color set'),
+                TextColumn::make('galleryBackgroundColor')
+                    ->searchable()
+                    ->placeholder('No background color set'),
+                TextColumn::make('ctaBackgroundColor')
+                    ->searchable()
+                    ->placeholder('No background color set'),
+                TextColumn::make('footerBackgroundColor')
+                    ->searchable()
+                    ->placeholder('No background color set'),
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -74,7 +85,8 @@ class SectionColorsResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ->slideOver(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -94,8 +106,8 @@ class SectionColorsResource extends Resource
     {
         return [
             'index' => Pages\ListSectionColors::route('/'),
-            'create' => Pages\CreateSectionColors::route('/create'),
-            'edit' => Pages\EditSectionColors::route('/{record}/edit'),
+//            'create' => Pages\CreateSectionColors::route('/create'),
+//            'edit' => Pages\EditSectionColors::route('/{record}/edit'),
         ];
     }
 
