@@ -115,7 +115,9 @@ class HeroResource extends Resource
                             ->image()
                             ->imageEditor()
                             ->placeholder('Upload hero image')
-                            ->disk('hero'),
+                            ->disk('s3-public')
+                            ->directory('hero')
+                            ->visibility('public'),
                     ]),
 
                 Section::make('Hero waves')
