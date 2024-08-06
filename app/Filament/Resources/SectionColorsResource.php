@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SectionColorsResource\Pages;
 use App\Models\SectionColors;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -24,6 +26,18 @@ class SectionColorsResource extends Resource
     {
         return $form
             ->schema([
+                Section::make('User Information')
+                    ->schema([
+                        Select::make('user_id')
+                            ->relationship('user', 'name')
+                            ->default(fn (): int => auth()->id())
+                            ->required()
+                            ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
+                            ->disabled()
+                            ->dehydrated()
+                            ->columnSpanFull()
+                            ->prefixIcon('heroicon-s-user-circle'),
+                    ]),
                 TextInput::make('loginBackgroundColor')
                     ->helperText('This resource uses tailwind css colors. For example: bg-blue-500. You can find more colors at https://tailwindcss.com/docs/background-color if you need to change section colors.')
                     ->placeholder('No background color set')
@@ -80,7 +94,7 @@ class SectionColorsResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+//                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
             ->paginated(false);

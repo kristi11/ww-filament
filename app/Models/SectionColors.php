@@ -10,6 +10,7 @@ class SectionColors extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'loginBackgroundColor',
         'servicesBackgroundColor',
         'hoursBackgroundColor',
