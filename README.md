@@ -18,11 +18,36 @@
     <img src="public/android-chrome-192x192.png" alt="Logo" width="80" height="80">
   </a>
 
-Disabled features:
+### **Disabled features:**
 * Profile editing (change on Adminpanelprovider.php)
 * Permission management for user roles (change on RoleResource.php)
 * User resource editing and deleting have been disabled (change on UserResource.php)
 * Hero resource editing and deleting have been disabled (change on HeroResource.php)
+* SectionColors resource editing and deleting have been disabled (change on SectionColorResource.php)
+
+#### **To enable these features you need to comment the following functions on the desired resources:**
+
+```
+public static function canEdit(Model $record): bool
+{
+    return false;
+}
+public static function canDelete(Model $record): bool
+{
+    return false;
+}
+```
+
+#### **You can also comment the can create function based on necessity of your app:**
+
+```
+public static function canCreate(): bool
+{
+    $recordExists = SectionColors::exists();
+
+    return ! $recordExists;
+}
+```
 
 <h3 align="center">Witty workflow</h3>
 
