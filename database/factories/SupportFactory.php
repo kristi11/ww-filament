@@ -14,10 +14,10 @@ class SupportFactory extends Factory{
     {
         return [
             'created_at' => Carbon::now(),
-'updated_at' => Carbon::now(),
-'content' => $this->faker->word(),
+            'updated_at' => Carbon::now(),
+            'content' => 'Relevant information should be added here',
 
-'user_id' => User::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

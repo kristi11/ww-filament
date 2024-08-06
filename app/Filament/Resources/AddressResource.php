@@ -13,6 +13,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class AddressResource extends Resource
 {
@@ -133,5 +134,15 @@ class AddressResource extends Resource
             'create' => Pages\CreateAddress::route('/create'),
             //            'edit' => Pages\EditAddress::route('/{record}/edit'),
         ];
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return false;
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return false;
     }
 }

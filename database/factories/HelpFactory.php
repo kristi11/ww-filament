@@ -16,7 +16,7 @@ class HelpFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'content' => $this->faker->word(),
+            'content' => 'Relevant information should be added here',
 
             'user_id' => User::factory(),
         ];

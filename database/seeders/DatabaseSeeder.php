@@ -2,14 +2,21 @@
 
 namespace Database\Seeders;
 
+use App\Models\About;
 use App\Models\Address;
 use App\Models\BusinessHour;
+use App\Models\Contact;
+use App\Models\FAQdata;
 use App\Models\Flexibility;
+use App\Models\Help;
 use App\Models\Hero;
+use App\Models\Privacy;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use App\Models\Service;
 use App\Models\Social;
+use App\Models\Support;
+use App\Models\Terms;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -46,6 +53,13 @@ class DatabaseSeeder extends Seeder
         Flexibility::create(['user_id' => $admin->id]);
         PublicPage::factory()->create(['user_id' => $admin->id]);
         SectionColors::factory()->create(['user_id' => $admin->id]);
+        About::factory()->create(['user_id' => $admin->id]);
+        Contact::factory()->create(['user_id' => $admin->id]);
+        Terms::factory()->create(['user_id' => $admin->id]);
+        Privacy::factory()->create(['user_id' => $admin->id]);
+        FAQdata::factory()->create(['user_id' => $admin->id]);
+        Help::factory()->create(['user_id' => $admin->id]);
+        Support::factory()->create(['user_id' => $admin->id]);
     }
 
 }

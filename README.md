@@ -19,13 +19,26 @@
   </a>
 
 ### **Disabled features:**
+
+##### The following features have been disabled to maintain a proper demonstration environment. You should enable this features when working on your own project to get the full functionality of the app.
+
 * Profile editing (change on Adminpanelprovider.php)
 * Permission management for user roles (change on RoleResource.php)
 * User resource editing and deleting have been disabled (change on UserResource.php)
 * Hero resource editing and deleting have been disabled (change on HeroResource.php)
 * SectionColors resource editing and deleting have been disabled (change on SectionColorResource.php)
+* Service resource editing and deleting have been disabled (change on ServiceResource.php)
+* Section visibility on the landing page has been disabled (change on PublicPageResource.php)
+* Address resource editing and deleting have been disabled (change on AddressResource.php)
+* BusinessHours resource editing and deleting have been disabled (change on BusinessHoursResource.php)
+* Flexibility resource editing and deleting have been disabled (change on FlexibilityResource.php)
+* Announcement resource editing and deleting have been disabled (change on AnnouncementResource.php)
+* Social resource editing and deleting have been disabled (change on SocialResource.php)
+* Gallery resource creating, editing and deleting have been disabled (change on GalleryResource.php)
 
-#### **To enable these features you need to comment the following functions on the desired resources:**
+### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
+
+#### **To enable these features you need to comment or delete the following functions on the desired resources:**
 
 ```
 public static function canEdit(Model $record): bool
@@ -43,9 +56,7 @@ public static function canDelete(Model $record): bool
 ```
 public static function canCreate(): bool
 {
-    $recordExists = SectionColors::exists();
-
-    return ! $recordExists;
+    return false;
 }
 ```
 

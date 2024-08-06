@@ -137,6 +137,11 @@ class PublicPageResource extends Resource
         return false;
     }
 
+    public static function canEdit(Model $record): bool
+    {
+        return false;
+    }
+
     public static function canCreate(): bool
     {
         $recordExists = PublicPage::exists();

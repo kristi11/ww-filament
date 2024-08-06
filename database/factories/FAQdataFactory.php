@@ -15,7 +15,7 @@ class FAQdataFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'content' => $this->faker->paragraph(),
+            'content' => 'Relevant information should be added here',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
