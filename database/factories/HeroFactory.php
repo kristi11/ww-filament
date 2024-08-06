@@ -22,8 +22,8 @@ class HeroFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'mainQuote' => "Your business's needs",
-            'secondaryQuote' => 'All in one place',
+            'mainQuote' => "Control your business",
+            'secondaryQuote' => 'In one dashboard',
             'thirdQuote' => 'Check us out',
             'gradientDegree' => '90',
             'gradientDegreeStart' => '0',

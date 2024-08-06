@@ -6,7 +6,9 @@
             scroll-behavior: smooth;
             scroll-padding: 10rem;
         }
-
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
         .gradient {
             background: linear-gradient(
                 {{ $hero->gradientDegree.'deg' }},
