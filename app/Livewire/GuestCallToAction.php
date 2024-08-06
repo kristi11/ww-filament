@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Hero;
 use App\Models\PublicPage;
+use App\Models\SectionColors;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -19,6 +20,7 @@ class GuestCallToAction extends Component
                 })->get(),
                 'hero' => Hero::firstOrFail(),
                 'email' => PublicPage::where('email', true)->first(),
+                'background' => SectionColors::first(),
             ]);
     }
 }

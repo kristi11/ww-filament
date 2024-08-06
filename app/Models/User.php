@@ -136,6 +136,11 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasOne(PublicPage::class);
     }
 
+    public function sectionColors(): HasOne
+    {
+        return $this->hasOne(SectionColors::class);
+    }
+
     /**
      * @throws Exception
      */

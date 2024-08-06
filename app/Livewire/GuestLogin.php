@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\PublicPage;
+use App\Models\SectionColors;
 use Livewire\Component;
 
 class GuestLogin extends Component
@@ -26,6 +27,7 @@ class GuestLogin extends Component
     {
         return view('livewire.guest-login', [
             'credentials' => PublicPage::where('credentials', true)->first(),
+            'background' => SectionColors::first(),
         ]);
     }
 }

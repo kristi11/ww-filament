@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Flexibility;
 use App\Models\PublicPage;
+use App\Models\SectionColors;
 use App\Models\Service;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -28,6 +29,7 @@ class DisplayGuestServices extends Component
                 'services' => Service::simplePaginate(3),
                 'flexible_pricing' => $flexiblePricing,
                 'guestServices' => PublicPage::where('services', true)->first(),
+                'background' => SectionColors::first(),
             ]);
     }
 }

@@ -2,7 +2,7 @@
     @php use Carbon\Carbon; @endphp
     @if($guestHours)
     <section id="hours" class="bg-white py-8 lg:p-20">
-        <div class="bg-slate-50 pb-12 pt-4 rounded-lg shadow">
+        <div class="{{ $background->hoursBackgroundColor }} pb-12 pt-4 rounded-lg shadow-lg">
         <h2 class="bg-slate-50 w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Hours
         </h2>

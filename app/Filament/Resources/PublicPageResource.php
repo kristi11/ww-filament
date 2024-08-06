@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PublicPageResource\Pages;
-use App\Filament\Resources\PublicPageResource\RelationManagers;
 use App\Models\PublicPage;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -12,9 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PublicPageResource extends Resource
 {
@@ -24,7 +21,7 @@ class PublicPageResource extends Resource
 
     protected static ?string $navigationGroup = 'Visuals';
 
-    protected static ?string $pluralModelLabel = 'Public Page';
+    protected static ?string $pluralModelLabel = 'Section visibility';
 
     protected static ?string $slug = 'public-page';
 
