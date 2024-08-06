@@ -21,6 +21,7 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -110,7 +111,7 @@ class HeroResource extends Resource
                     ]),
                 Section::make('Hero image')
                     ->schema([
-                        Forms\Components\FileUpload::make('image')
+                        Forms\Components\SpatieMediaLibraryFileUpload::make('image')
                             ->image()
                             ->imageEditor()
                             ->placeholder('Upload hero image')
@@ -135,7 +136,7 @@ class HeroResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
-                ImageColumn::make('image')
+                SpatieMediaLibraryImageColumn::make('image')
                     ->circular()
                     ->label('Hero image')
                     ->disk('hero')
