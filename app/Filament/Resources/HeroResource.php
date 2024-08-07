@@ -143,7 +143,6 @@ class HeroResource extends Resource
                 SpatieMediaLibraryImageColumn::make('image')
                     ->circular()
                     ->label('Hero image')
-                    ->disk('hero')
                     ->placeholder('No image'),
                 TextColumn::make('mainQuote')
                     ->limit(20)
@@ -202,7 +201,7 @@ class HeroResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+//                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -214,61 +213,61 @@ class HeroResource extends Resource
         ];
     }
 
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                \Filament\Infolists\Components\Section::make('Hero image')
-                    ->schema([
-                        SpatieMediaLibraryImageEntry::make('image')
-                            ->disk('hero')
-                            ->placeholder('No image'),
-                    ]),
-                \Filament\Infolists\Components\Section::make('Hero quotes')
-                    ->columns(2)
-                    ->schema([
-                        TextEntry::make('mainQuote')
-                            ->limit(20),
-                        TextEntry::make('secondaryQuote')
-                            ->limit(20),
-                        TextEntry::make('thirdQuote')
-                            ->limit(20),
-                    ]),
-                \Filament\Infolists\Components\Section::make('Hero degrees')
-                    ->columns(2)
-                    ->schema([
-                        TextEntry::make('gradientDegree')
-                            ->numeric()
-                            ->suffix('%')
-                            ->columnSpanFull(),
-                        TextEntry::make('gradientDegreeStart')
-                            ->numeric()
-                            ->suffix('%'),
-                        TextEntry::make('gradientDegreeEnd')
-                            ->numeric()
-                            ->suffix('%'),
-                    ]),
-                \Filament\Infolists\Components\Section::make('Hero colors')
-                    ->columns(2)
-                    ->schema([
-                        ColorEntry::make('gradientDegreeFirstColor')
-                            ->copyable()
-                            ->copyMessage('Color code copied')
-                            ->copyMessageDuration(1500)
-                            ->tooltip('Click to copy color code'),
-                        ColorEntry::make('gradientDegreeSecondColor')
-                            ->copyable()
-                            ->copyMessage('Color code copied')
-                            ->copyMessageDuration(1500)
-                            ->tooltip('Click to copy color code'),
-                    ]),
-                \Filament\Infolists\Components\Section::make('Hero waves')
-                    ->schema([
-                        IconEntry::make('waves')
-                            ->boolean(),
-                    ]),
-            ]);
-    }
+//    public static function infolist(Infolist $infolist): Infolist
+//    {
+//        return $infolist
+//            ->schema([
+//                \Filament\Infolists\Components\Section::make('Hero image')
+//                    ->schema([
+//                        SpatieMediaLibraryImageEntry::make('image')
+//                            ->disk('hero')
+//                            ->placeholder('No image'),
+//                    ]),
+//                \Filament\Infolists\Components\Section::make('Hero quotes')
+//                    ->columns(2)
+//                    ->schema([
+//                        TextEntry::make('mainQuote')
+//                            ->limit(20),
+//                        TextEntry::make('secondaryQuote')
+//                            ->limit(20),
+//                        TextEntry::make('thirdQuote')
+//                            ->limit(20),
+//                    ]),
+//                \Filament\Infolists\Components\Section::make('Hero degrees')
+//                    ->columns(2)
+//                    ->schema([
+//                        TextEntry::make('gradientDegree')
+//                            ->numeric()
+//                            ->suffix('%')
+//                            ->columnSpanFull(),
+//                        TextEntry::make('gradientDegreeStart')
+//                            ->numeric()
+//                            ->suffix('%'),
+//                        TextEntry::make('gradientDegreeEnd')
+//                            ->numeric()
+//                            ->suffix('%'),
+//                    ]),
+//                \Filament\Infolists\Components\Section::make('Hero colors')
+//                    ->columns(2)
+//                    ->schema([
+//                        ColorEntry::make('gradientDegreeFirstColor')
+//                            ->copyable()
+//                            ->copyMessage('Color code copied')
+//                            ->copyMessageDuration(1500)
+//                            ->tooltip('Click to copy color code'),
+//                        ColorEntry::make('gradientDegreeSecondColor')
+//                            ->copyable()
+//                            ->copyMessage('Color code copied')
+//                            ->copyMessageDuration(1500)
+//                            ->tooltip('Click to copy color code'),
+//                    ]),
+//                \Filament\Infolists\Components\Section::make('Hero waves')
+//                    ->schema([
+//                        IconEntry::make('waves')
+//                            ->boolean(),
+//                    ]),
+//            ]);
+//    }
 
     public static function getPages(): array
     {
@@ -285,12 +284,12 @@ class HeroResource extends Resource
 
         return ! $recordExists;
     }
-//    public static function canEdit(Model $record): bool
-//    {
-//        return false;
-//    }
-//    public static function canDelete(Model $record): bool
-//    {
-//        return false;
-//    }
+    public static function canEdit(Model $record): bool
+    {
+        return false;
+    }
+    public static function canDelete(Model $record): bool
+    {
+        return false;
+    }
 }
