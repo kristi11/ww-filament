@@ -20,11 +20,11 @@
             </div>
             <!--Right Col-->
             <div class="w-full lg:w-3/5 py-6 text-center hidden lg:block">
-                @if($hero->getMedia() !== null)
+                @if($hero->getFirstMediaPath() !== null)
                     <img class="mb-12 w-full z-50"
                          src=
                              "
-                                {{ Storage::disk('hero')->url($hero->getMedia()) }}
+                                {{ Storage::disk('hero')->url($hero->getFirstMediaPath()) }}
                              "
                          alt="
                                 {{config('app.name')}} hero image

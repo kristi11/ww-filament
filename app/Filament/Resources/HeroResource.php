@@ -12,10 +12,12 @@ use Filament\Forms\Form;
 use Filament\Infolists\Components\ColorEntry;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ColorColumn;
@@ -200,7 +202,7 @@ class HeroResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-                    //                    Tables\Actions\DeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -218,7 +220,7 @@ class HeroResource extends Resource
             ->schema([
                 \Filament\Infolists\Components\Section::make('Hero image')
                     ->schema([
-                        ImageEntry::make('image')
+                        SpatieMediaLibraryImageEntry::make('image')
                             ->disk('hero')
                             ->placeholder('No image'),
                     ]),

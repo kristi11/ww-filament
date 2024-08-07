@@ -122,10 +122,10 @@ class GalleryResource extends Resource
         ];
     }
 
-    public static function canCreate(): bool
-    {
-        return false;
-    }
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
 
 //    public static function canDelete(Model $record): bool
 //    {
