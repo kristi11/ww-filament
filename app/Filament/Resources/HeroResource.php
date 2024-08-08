@@ -111,16 +111,16 @@ class HeroResource extends Resource
                             ->type('color')
                             ->columnSpan(1),
                     ]),
-                Section::make('Hero image')
-                    ->schema([
-                        Forms\Components\SpatieMediaLibraryFileUpload::make('image')
-                            ->image()
-                            ->imageEditor()
-                            ->placeholder('Upload hero image')
-                            ->disk('s3-public')
-                            ->directory('hero')
-                            ->visibility('public'),
-                    ]),
+//                Section::make('Hero image')
+//                    ->schema([
+//                        Forms\Components\SpatieMediaLibraryFileUpload::make('image')
+//                            ->image()
+//                            ->imageEditor()
+//                            ->placeholder('Upload hero image')
+//                            ->disk('s3-public')
+//                            ->directory('hero')
+//                            ->visibility('public'),
+//                    ]),
 
                 Section::make('Hero waves')
                     ->schema([
@@ -140,10 +140,10 @@ class HeroResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
-                SpatieMediaLibraryImageColumn::make('image')
-                    ->circular()
-                    ->label('Hero image')
-                    ->placeholder('No image'),
+//                SpatieMediaLibraryImageColumn::make('image')
+//                    ->circular()
+//                    ->label('Hero image')
+//                    ->placeholder('No image'),
                 TextColumn::make('mainQuote')
                     ->limit(20)
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -169,14 +169,12 @@ class HeroResource extends Resource
                     ->copyable()
                     ->copyMessage('Color code copied')
                     ->copyMessageDuration(1500)
-                    ->tooltip('Click to copy color code')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->tooltip('Click to copy color code'),
                 ColorColumn::make('gradientDegreeSecondColor')
                     ->copyable()
                     ->copyMessage('Color code copied')
                     ->copyMessageDuration(1500)
-                    ->tooltip('Click to copy color code')
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->tooltip('Click to copy color code'),
                 IconColumn::make('waves')
                     ->boolean(),
                 TextColumn::make('created_at')
