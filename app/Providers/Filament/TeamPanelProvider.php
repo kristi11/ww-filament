@@ -20,6 +20,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
 use LaraZeus\Boredom\BoringAvatarPlugin;
 use LaraZeus\Boredom\Enums\Variants;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
@@ -62,14 +63,20 @@ class TeamPanelProvider extends PanelProvider
                 'business_hours' => BusinessHoursWidget::class,
             ])
             ->plugins([
+//                BreezyCore::make()
+//                    ->myProfile(
+//                        shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
+//                        shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)
+//                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
+//                        hasAvatars: false, // Enables the avatar upload form component (default = false)
+//                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
+//                    )
+//                    ->enableTwoFactorAuthentication(
+//                        force: false, // force the user to enable 2FA before they can use the application (default = false)
+//                    ),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('30s') // optional, by default it is set to null
                     ->defaultColor(Color::Blue), // optional, by default it is set to "primary"
-                BoringAvatarPlugin::make()
-                    ->variant(Variants::BEAM)
-                    ->size(60)
-                    ->square()
-                    ->colors(['0A0310','49007E','FF005B','FF7D10','FFB238'])
             ])
             ->discoverResources(in: app_path('Filament/Team/Resources'), for: 'App\\Filament\\Team\\Resources')
             ->discoverPages(in: app_path('Filament/Team/Pages'), for: 'App\\Filament\\Team\\Pages')

@@ -23,9 +23,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use LaraZeus\Boredom\BoringAvatarPlugin;
-use LaraZeus\Boredom\BoringAvatarsProvider;
-use LaraZeus\Boredom\Enums\Variants;
+use Jeffgreco13\FilamentBreezy\BreezyCore;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
@@ -39,6 +37,7 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->authGuard('web')
             ->default()
             ->id('admin')
             ->path('admin')
@@ -75,6 +74,18 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                BreezyCore::make()
+                    ->myProfile(
+                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
+                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
+                        hasAvatars: false, // Enables the avatar upload form component (default = false)
+                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
+
+                    )
+                    ->enableTwoFactorAuthentication(
+                        force: false, // force the user to enable 2FA before they can use the application (default = false)
+                    ),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('30s') // optional, by default it is set to null
                     ->defaultColor(Color::Blue), // optional, by default it is set to "primary"
@@ -82,11 +93,6 @@ class AdminPanelProvider extends PanelProvider
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->usingPage(HealthCheckResults::class),
                 FilamentShieldPlugin::make(),
-                BoringAvatarPlugin::make()
-                    ->variant(Variants::BEAM)
-                    ->size(60)
-                    ->square()
-                    ->colors(['0A0310','49007E','FF005B','FF7D10','FFB238']),
                 FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
@@ -104,9 +110,6 @@ class AdminPanelProvider extends PanelProvider
                         'sm' => 2,
                     ]),
             ])
-            ->defaultAvatarProvider(
-                BoringAvatarsProvider::class
-            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

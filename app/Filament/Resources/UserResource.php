@@ -56,8 +56,8 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('avatar_url')
-                    ->circular(),
+//                ImageColumn::make('avatar_url')
+//                    ->circular(),
                 TextColumn::make('name')
                     ->searchable(),
                 IconColumn::make('is_super_admin')

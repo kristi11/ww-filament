@@ -5,14 +5,13 @@ use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
-use LaraZeus\Boredom\Concerns\HasBoringAvatar;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -21,11 +20,11 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
-    use HasBoringAvatar;
     use HasFactory;
     use HasPanelShield;
     use HasRoles;
     use Notifiable;
+    use TwoFactorAuthenticatable;
 
     public mixed $isSuperAdmin;
 
@@ -168,13 +167,6 @@ class User extends Authenticatable implements FilamentUser
         // your conditional logic here
         return true;
     }
-
-    public function avatarName(): Attribute
-    {
-        return new Attribute(
-            get: fn () => $this->name // or $this->>email or $this->>username or Str::random()
-        );
-    }
     public function getIsSuperAdminAttribute(): bool
     {
         return $this->roles->pluck('name')->contains('super_admin');
@@ -188,6 +180,11 @@ class User extends Authenticatable implements FilamentUser
     public function getIsPanelUserAttribute(): bool
     {
         return $this->roles->pluck('name')->contains('panel_user');
+    }
+
+    public function getFilamentName(): string
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 
 //    protected static function booted(): void

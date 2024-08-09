@@ -18,54 +18,7 @@
     <img src="public/android-chrome-192x192.png" alt="Logo" width="80" height="80">
   </a>
 
-### **Disabled features:**
 
-##### The following features have been disabled to maintain a proper demonstration environment. You should enable this features when working on your own project to get the full functionality of the app.
-
-* Profile editing (change on Adminpanelprovider.php)
-* Permission management for user roles (change on RoleResource.php)
-* User resource editing and deleting have been disabled (change on UserResource.php)
-* Hero resource editing and deleting have been disabled (change on HeroResource.php)
-* SectionColors resource editing and deleting have been disabled (change on SectionColorResource.php)
-* Service resource editing and deleting have been disabled (change on ServiceResource.php)
-* Section visibility on the landing page has been disabled (change on PublicPageResource.php)
-* Address resource editing and deleting have been disabled (change on AddressResource.php)
-* BusinessHours resource editing and deleting have been disabled (change on BusinessHoursResource.php)
-* Flexibility resource editing and deleting have been disabled (change on FlexibilityResource.php)
-* Announcement resource editing and deleting have been disabled (change on AnnouncementResource.php)
-* Social resource editing and deleting have been disabled (change on SocialResource.php)
-* Gallery resource creating, editing and deleting have been disabled (change on GalleryResource.php)
-* About resource editing and deleting have been disabled (change on AboutResource.php)
-* Contact resource editing and deleting have been disabled (change on ContactResource.php)
-* FAQ resource editing and deleting have been disabled (change on FAQdataResource.php)
-* Help resource editing and deleting have been disabled (change on HelpResource.php)
-* Privacy resource editing and deleting have been disabled (change on PrivacyResource.php)
-* Terms resource editing and deleting have been disabled (change on TermsResource.php)
-* Support resource editing and deleting have been disabled (change on SupportResource.php)
-
-### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
-
-#### **To enable these features you need to comment or delete the following functions on the desired resources:**
-
-```
-public static function canEdit(Model $record): bool
-{
-    return false;
-}
-public static function canDelete(Model $record): bool
-{
-    return false;
-}
-```
-
-#### **You can also comment the can create function based on necessity of your app:**
-
-```
-public static function canCreate(): bool
-{
-    return false;
-}
-```
 
 <h3 align="center">Witty workflow</h3>
 
@@ -101,7 +54,7 @@ public static function canCreate(): bool
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#configuration">Configuration</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -135,10 +88,14 @@ public static function canCreate(): bool
 * **Public Email Form and Footer:** Facilitate communication by implementing a public email form and completing the
   footer for a professional and polished user interface.
 
+* **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
+
 * **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you
   never miss valuable information about your upcoming appointments.
 
 * **Full control** on what section shows/hides from the landing page depending on your businesses need for the section
+
+* **2 Factor authentication:** To enhance security of your accounts
 
 ## About Wittyworkflow:
 
@@ -280,7 +237,85 @@ Your application is now ready for use. Enjoy! To install it in production follow
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Configuration
 
+### **Disabled features:**
+
+##### The following features have been disabled to maintain a proper demonstration environment. You should enable this features when working on your own project to get the full functionality of the app.
+
+* Profile editing (change on Adminpanelprovider.php and TeamPanelProvider.php)
+* Permission management for user roles (change on RoleResource.php)
+* User resource editing and deleting have been disabled (change on UserResource.php)
+* Hero resource editing and deleting have been disabled (change on HeroResource.php)
+* SectionColors resource editing and deleting have been disabled (change on SectionColorResource.php)
+* Service resource editing and deleting have been disabled (change on ServiceResource.php)
+* Section visibility on the landing page has been disabled (change on PublicPageResource.php)
+* Address resource editing and deleting have been disabled (change on AddressResource.php)
+* BusinessHours resource editing and deleting have been disabled (change on BusinessHoursResource.php)
+* Flexibility resource editing and deleting have been disabled (change on FlexibilityResource.php)
+* Announcement resource editing and deleting have been disabled (change on AnnouncementResource.php)
+* Social resource editing and deleting have been disabled (change on SocialResource.php)
+* Gallery resource creating, editing and deleting have been disabled (change on GalleryResource.php)
+* About resource editing and deleting have been disabled (change on AboutResource.php)
+* Contact resource editing and deleting have been disabled (change on ContactResource.php)
+* FAQ resource editing and deleting have been disabled (change on FAQdataResource.php)
+* Help resource editing and deleting have been disabled (change on HelpResource.php)
+* Privacy resource editing and deleting have been disabled (change on PrivacyResource.php)
+* Terms resource editing and deleting have been disabled (change on TermsResource.php)
+* Support resource editing and deleting have been disabled (change on SupportResource.php)
+
+[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to manage user profiles. Uncomment the following code to enable profile editing on AdminPanelProvider.php and TeamPanelProvider.php for the Admin and Team member roles
+```
+//                    ->myProfile(
+//                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
+//                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+//                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
+//                        hasAvatars: false, // Enables the avatar upload form component (default = false)
+//                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
+//
+//                    )
+//                    ->enableTwoFactorAuthentication(
+//                        force: false, // force the user to enable 2FA before they can use the application (default = false)
+//                    ),
+```
+
+### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
+
+#### **To enable these features you need to comment or delete the following functions on the desired resources:**
+
+```
+public static function canEdit(Model $record): bool
+{
+    return false;
+}
+public static function canDelete(Model $record): bool
+{
+    return false;
+}
+```
+
+#### **You can also comment the can create function based on necessity of your app:**
+
+```
+public static function canCreate(): bool
+{
+    return false;
+}
+```
+
+#### **Bulk actions have been disabled for the footer resources to maintain the integrity of a demonstration environment on a production server since this repo is being used to show the live server on the official website**
+
+###### To enable the bulk actions uncomment the following code
+
+`//Tables\Actions\DeleteBulkAction::make(),`
+
+### Role configuration
+WittyWorkflow used the shield package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
+
+### Role explanation
+* `super_admin` = The super admin of the system
+* `team_user` = The team members of the system assigned by the Super Admin
+* `panel_user` = The panel for the customers
 
 <!-- USAGE EXAMPLES -->
 
@@ -289,6 +324,22 @@ Your application is now ready for use. Enjoy! To install it in production follow
 _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+To access the super-admin dashboard go to `https://wittyworkflow.com/admin/login` and enter the following credentials:
+```
+Email: admin@example.com
+Password: password
+```
+
+To access the team dashboard go to `https://wittyworkflow.com/team/login` and enter the following credentials:
+```
+Email: team@example.com
+Password: password
+```
+
+To access the customer dashboard go to `https://wittyworkflow.com/dashboard/login` and create an account
+
+<p align="right">(<a href="#configuration">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
