@@ -6,13 +6,18 @@
         {{--                                Blog</a>--}}
         {{--                        </li>--}}
         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-            <a href="{{ route('about') }}" target="_blank"
-               class="no-underline hover:underline text-gray-800 hover:text-pink-500">About
-                Us</a>
+            @if($about)
+                <a href="{{ route('about') }}" target="_blank"
+                   class="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us
+                </a>
+            @endif
         </li>
         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-            <a href="{{ route('contact') }}" target="_blank"
-               class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
+            @if($contact)
+                <a href="{{ route('contact') }}" target="_blank"
+                   class="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact
+                </a>
+            @endif
         </li>
     </ul>
 </div>

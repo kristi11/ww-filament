@@ -63,7 +63,7 @@ class UserResource extends Resource
                 IconColumn::make('is_super_admin')
                     ->color('danger')
                     ->boolean()
-                ->label('Super Admin'),
+                    ->label('Super Admin'),
                 IconColumn::make('is_team_user')
                     ->color('success')
                     ->boolean()

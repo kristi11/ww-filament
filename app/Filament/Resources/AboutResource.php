@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\Visibility;
 use App\Filament\Resources\AboutResource\Pages;
 use App\Models\About;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -39,6 +41,7 @@ class AboutResource extends Resource
                     ->disabled()
                     ->dehydrated()
                     ->prefixIcon('heroicon-o-user-circle'),
+                Toggle::make('visibility'),
                 RichEditor::make('content')
                     ->label('content')
                     ->columnSpanFull()
@@ -52,6 +55,12 @@ class AboutResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\IconColumn::make('visibility')
+                    ->color(function ($state) {
+                        return Visibility::from($state)->getVisibility();
+                    })
+                    ->boolean()
+                    ->label('About us exists ?'),
                 Tables\Columns\TextColumn::make('content')
                     ->html()
                     ->label('About')
