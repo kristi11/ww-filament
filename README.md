@@ -68,14 +68,14 @@
 
 ## About The Project
 
-##### Wittyworkflow is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses. Below is an overview of the key functionalities and the development journey captured in our roadmap:
+##### [WittyWorkflow](https:://wittyworkflow.com) is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses. Below is an overview of the key functionalities and the development journey captured in our roadmap:
 
 ## Key Features:
 
 * **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
   communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user experience.
 
-* **Role-Based Access:** Utilizing the powerful Filament PHP, Wittyworkflow offers role-based access control, enabling
+* **Role-Based Access:** Utilizing the powerful Filament PHP, [WittyWorkflow](https:://wittyworkflow.com) offers role-based access control, enabling
   different panels for different user roles. Admins have full access to all functionalities, while staff members and customers have a more limited view.
 
 * **SPA functionality with Wire:Navigate :** Enhance navigation with a SPA like menu featuring wire:navigate
@@ -162,7 +162,7 @@ To get started clone this repository.
    php artisan migrate:fresh --seed
    ```
    
-9. Wittyworkflow uses Shield package to provide proper user roles. We need to generate the permissions for that package 
+9. [WittyWorkflow](https:://wittyworkflow.com) uses Shield package to provide proper user roles. We need to generate the permissions for that package 
     ```
     php artisan shield:generate --all
     ```
@@ -307,7 +307,7 @@ public static function canCreate(): bool
 `//Tables\Actions\DeleteBulkAction::make(),`
 
 ### Role configuration
-WittyWorkflow used the shield package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
+[WittyWorkflow](https:://wittyworkflow.com) used the shield package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
 
 ### Role explanation
 * `super_admin` = The super admin of the system
