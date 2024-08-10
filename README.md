@@ -97,16 +97,10 @@
 
 * **2 Factor authentication:** To enhance security of your accounts
 
-## About Wittyworkflow:
-
-Wittyworkflow is designed to empower businesses through a comprehensive suite of features, combining dynamic visual
-elements with secure and efficient management tools. The roadmap reflects the commitment to continuous improvement and
-innovation. Join up on this journey as we work towards creating a platform that simplifies business operations and
-fosters growth.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
 This section lists all major frameworks/libraries used to bootstrap this project.
 
@@ -125,7 +119,7 @@ This section lists all major frameworks/libraries used to bootstrap this project
 
 This project is built with [Filament 3](https://filamentphp.com)
 
-### Installation
+## Installation
 
 To get started clone this repository.
 
@@ -264,22 +258,6 @@ Your application is now ready for use. Enjoy! To install it in production follow
 * Terms resource editing and deleting have been disabled (change on TermsResource.php)
 * Support resource editing and deleting have been disabled (change on SupportResource.php)
 
-[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to manage user profiles. Uncomment the following code to enable profile editing on AdminPanelProvider.php and TeamPanelProvider.php for the Admin and Team member roles
-```
-//                    ->myProfile(
-//                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
-//                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
-//                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
-//                        hasAvatars: false, // Enables the avatar upload form component (default = false)
-//                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
-//
-//                    )
-//                    ->enableTwoFactorAuthentication(
-//                        force: false, // force the user to enable 2FA before they can use the application (default = false)
-//                    ),
-```
-
-### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
 
 #### **To enable these features you need to comment or delete the following functions on the desired resources:**
 
@@ -303,6 +281,25 @@ public static function canCreate(): bool
 }
 ```
 
+#### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
+
+[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to manage user profiles. Change the following values to `shouldRegisterUserMenu: true` and `shouldRegisterNavigation: true` to enable profile editing on AdminPanelProvider.php and TeamPanelProvider.php for the Admin and Team member roles
+```
+                    ->myProfile(
+                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
+                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
+                        hasAvatars: false, // Enables the avatar upload form component (default = false)
+                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
+
+                    )
+                    ->enableTwoFactorAuthentication(
+                        force: false, // force the user to enable 2FA before they can use the application (default = false)
+                    )
+```
+
+
+
 #### **Bulk actions have been disabled for the footer resources to maintain the integrity of a demonstration environment on a production server since this repo is being used to show the live server on the official website**
 
 ###### To enable the bulk actions uncomment the following code
@@ -310,7 +307,7 @@ public static function canCreate(): bool
 `//Tables\Actions\DeleteBulkAction::make(),`
 
 ### Role configuration
-WittyWorkflow used the shield package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
+WittyWorkflow used the shield package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
 
 ### Role explanation
 * `super_admin` = The super admin of the system
@@ -325,19 +322,19 @@ _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To access the super-admin dashboard go to `https://wittyworkflow.com/admin/login` and enter the following credentials:
+To access the super-admin dashboard go to the [Admin dashboard](https://wittyworkflow.com/admin/login) and enter the following credentials:
 ```
 Email: admin@example.com
 Password: password
 ```
 
-To access the team dashboard go to `https://wittyworkflow.com/team/login` and enter the following credentials:
+To access the team dashboard go to the [Team dashboard](https://wittyworkflow.com/team/login) and enter the following credentials:
 ```
 Email: team@example.com
 Password: password
 ```
 
-To access the customer dashboard go to `https://wittyworkflow.com/dashboard/login` and create an account
+To access the customer dashboard go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create an account
 
 <p align="right">(<a href="#configuration">back to top</a>)</p>
 
