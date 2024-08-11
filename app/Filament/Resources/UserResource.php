@@ -11,7 +11,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -133,16 +132,16 @@ class UserResource extends Resource
             //            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-    public static function canCreate(): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
 }
