@@ -68,21 +68,21 @@
 
 ## About The Project
 
-##### [WittyWorkflow](https:://wittyworkflow.com) is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses. Below is an overview of the key functionalities and the development journey captured in our roadmap:
+##### [WittyWorkflow](https:://wittyworkflow.com) is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses. Below is an overview of the key functionalities of the app:
 
 ## Key Features:
 
 * **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
   communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user experience.
 
-* **Role-Based Access:** Utilizing the powerful Filament PHP, [WittyWorkflow](https:://wittyworkflow.com) offers role-based access control, enabling
+* **Role-Based Access:** Utilizing the powerful [Filament PHP](https://filamentphp.com/), [WittyWorkflow](https:://wittyworkflow.com) offers role-based access control, enabling
   different panels for different user roles. Admins have full access to all functionalities, while staff members and customers have a more limited view.
 
-* **SPA functionality with Wire:Navigate :** Enhance navigation with a SPA like menu featuring wire:navigate
+* **SPA functionality with `Wire:Navigate` :** Enhance navigation with a SPA like menu featuring `wire:navigate`
   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
 
 * **CRUD Operations for Admins:** Enable administrators with CRUD (Create, Read, Update, Delete) operations for users,
-  addresses, landing page heroes, appointments, services, opening hours, gallery, socials, and SEO. These
+  addresses, landing page heroes, appointments, services, opening hours, gallery, socials. These
   functionalities empower admins with comprehensive control over critical aspects of the platform.
 
 * **Public Email Form and Footer:** Facilitate communication by implementing a public email form and completing the
@@ -127,7 +127,7 @@ To get started clone this repository.
    ```
    https://github.com/kristi11/ww-filament.git
    ```
-   or if you have a different name you'd like to use for the project create an empty folder with your desired name and
+   or if you have a different name you'd like to use for the project create an empty folder with your desired name, `cd` into that folder and
    run the following command:
    ```
    https://github.com/kristi11/ww-filament.git .
@@ -155,14 +155,14 @@ To get started clone this repository.
 6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/) but you can
    use whatever you like.
 7. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name
-   is `wittyworkflow`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env`
+   is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env`
    file with your database name.
 8. Migrate and seed the database.
    ```
    php artisan migrate:fresh --seed
    ```
    
-9. [WittyWorkflow](https:://wittyworkflow.com) uses Shield package to provide proper user roles. We need to generate the permissions for that package 
+9. [WittyWorkflow](https:://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin to provide proper user roles. We need to generate the permissions for that package 
     ```
     php artisan shield:generate --all
     ```
@@ -171,7 +171,7 @@ To get started clone this repository.
     php artisan shield:super-admin --user="1"
     ```
    
-    --user=1 is the id of the user that will be the super admin. You can change it to whatever user you want to be the super admin. the credentials for the super admin are the following:
+    `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be the `super admin`. the credentials for the super admin are the following:
     ```
     email: admin@example.com
     password: password
@@ -190,11 +190,11 @@ To get started clone this repository.
     http://localhost:8000
     ```
 
-I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to use Mailtrap,
+I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to use [Mailtrap](https://mailtrap.io/),
 create an account and add the credentials to the `.env` file. If you are using [forge](https://forge.laravel.com/) you
 can add the credentials to the server environment variables.
 
-If you decide to use mailtrap, you can use the following credentials:
+If you decide to use [Mailtrap](https://mailtrap.io/), you can use the following credentials:
 
 ```
 MAIL_MAILER=smtp
@@ -220,9 +220,9 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 ```
 
 For help setting up [Amazon s3](https://aws.amazon.com/s3/) you can check out
-this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7) by Kevin McKee, a laracasts
+this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7) by [Kevin McKee](https://laracasts.com/browse/instructors/KevinMcKee), a [laracasts](https://laracasts.com/)
 instructor. This is a paid tutorial but it's worth it. I learned a lot from it. And, No I'm not affiliated with
-laracasts in any way. If you're having trouble setting up [Amazon s3](https://aws.amazon.com/s3/) you can contact me and
+[laracasts](https://laracasts.com/) in any way. If you're having trouble setting up [Amazon s3](https://aws.amazon.com/s3/) you can contact me and
 I'll try to help you out. Or you can choose to use a different storage provider.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
@@ -237,65 +237,65 @@ Your application is now ready for use. Enjoy! To install it in production follow
 
 ##### The following features have been disabled to maintain a proper demonstration environment. You should enable this features when working on your own project to get the full functionality of the app.
 
-* Profile editing (change on Adminpanelprovider.php and TeamPanelProvider.php)
-* Permission management for user roles (change on RoleResource.php)
-* User resource editing and deleting have been disabled (change on UserResource.php)
-* Hero resource editing and deleting have been disabled (change on HeroResource.php)
-* SectionColors resource editing and deleting have been disabled (change on SectionColorResource.php)
-* Service resource editing and deleting have been disabled (change on ServiceResource.php)
-* Section visibility on the landing page has been disabled (change on PublicPageResource.php)
-* Address resource editing and deleting have been disabled (change on AddressResource.php)
-* BusinessHours resource editing and deleting have been disabled (change on BusinessHoursResource.php)
-* Flexibility resource editing and deleting have been disabled (change on FlexibilityResource.php)
-* Announcement resource editing and deleting have been disabled (change on AnnouncementResource.php)
-* Social resource editing and deleting have been disabled (change on SocialResource.php)
-* Gallery resource creating, editing and deleting have been disabled (change on GalleryResource.php)
-* About resource editing and deleting have been disabled (change on AboutResource.php)
-* Contact resource editing and deleting have been disabled (change on ContactResource.php)
-* FAQ resource editing and deleting have been disabled (change on FAQdataResource.php)
-* Help resource editing and deleting have been disabled (change on HelpResource.php)
-* Privacy resource editing and deleting have been disabled (change on PrivacyResource.php)
-* Terms resource editing and deleting have been disabled (change on TermsResource.php)
-* Support resource editing and deleting have been disabled (change on SupportResource.php)
+* Profile editing (change on `Adminpanelprovider.php` and `TeamPanelProvider.php`)
+* Permission management for user roles (change on `RoleResource.php`)
+* User resource editing and deleting have been disabled (change on `UserResource.php`)
+* Hero resource editing and deleting have been disabled (change on `HeroResource.php`)
+* SectionColors resource editing and deleting have been disabled (change on `SectionColorResource.php`)
+* Service resource editing and deleting have been disabled (change on `ServiceResource.php`)
+* Section visibility on the landing page has been disabled (change on `PublicPageResource.php`)
+* Address resource editing and deleting have been disabled (change on `AddressResource.php`)
+* BusinessHours resource editing and deleting have been disabled (change on `BusinessHoursResource.php`)
+* Flexibility resource editing and deleting have been disabled (change on `FlexibilityResource.php`)
+* Announcement resource editing and deleting have been disabled (change on `AnnouncementResource.php`)
+* Social resource editing and deleting have been disabled (change on `SocialResource.php`)
+* Gallery resource creating, editing and deleting have been disabled (change on `GalleryResource.php`)
+* About resource editing and deleting have been disabled (change on `AboutResource.php`)
+* Contact resource editing and deleting have been disabled (change on `ContactResource.php`)
+* FAQ resource editing and deleting have been disabled (change on `FAQdataResource.php`)
+* Help resource editing and deleting have been disabled (change on `HelpResource.php`)
+* Privacy resource editing and deleting have been disabled (change on `PrivacyResource.php`)
+* Terms resource editing and deleting have been disabled (change on `TermsResource.php`)
+* Support resource editing and deleting have been disabled (change on `SupportResource.php`)
 
 
 #### **To enable these features you need to comment or delete the following functions on the desired resources:**
 
 ```
 public static function canEdit(Model $record): bool
-{
-    return false;
-}
+    {
+        return false;
+    }
 public static function canDelete(Model $record): bool
-{
-    return false;
-}
+    {
+        return false;
+    }
 ```
 
 #### **You can also comment the can create function based on necessity of your app:**
 
 ```
 public static function canCreate(): bool
-{
-    return false;
-}
+    {
+        return false;
+    }
 ```
 
 #### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
 
-[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to manage user profiles. Change the following values to `shouldRegisterUserMenu: true` and `shouldRegisterNavigation: true` to enable profile editing on AdminPanelProvider.php and TeamPanelProvider.php for the Admin and Team member roles
+[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to manage user profiles. Change the following values to `shouldRegisterUserMenu: true` and `shouldRegisterNavigation: true` to enable profile editing on `AdminPanelProvider.php` and `TeamPanelProvider.php` for the `Admin` and `Team member` roles
 ```
-                    ->myProfile(
-                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
-                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
-                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
-                        hasAvatars: false, // Enables the avatar upload form component (default = false)
-                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
+->myProfile(
+    shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
+    shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+    navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
+    hasAvatars: false, // Enables the avatar upload form component (default = false)
+    slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
 
-                    )
-                    ->enableTwoFactorAuthentication(
-                        force: false, // force the user to enable 2FA before they can use the application (default = false)
-                    )
+)
+->enableTwoFactorAuthentication(
+    force: false, // force the user to enable 2FA before they can use the application (default = false)
+)
 ```
 
 
@@ -307,7 +307,7 @@ public static function canCreate(): bool
 `//Tables\Actions\DeleteBulkAction::make(),`
 
 ### Role configuration
-[WittyWorkflow](https:://wittyworkflow.com) used the shield package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
+[WittyWorkflow](https:://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` `view` permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
 
 ### Role explanation
 * `super_admin` = The super admin of the system
@@ -322,19 +322,19 @@ _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To access the super-admin dashboard go to the [Admin dashboard](https://wittyworkflow.com/admin/login) and enter the following credentials:
+To access the `super-admin dashboard` go to the [Admin dashboard](https://wittyworkflow.com/admin/login) and enter the following credentials:
 ```
 Email: admin@example.com
 Password: password
 ```
 
-To access the team dashboard go to the [Team dashboard](https://wittyworkflow.com/team/login) and enter the following credentials:
+To access the `team dashboard` go to the [Team dashboard](https://wittyworkflow.com/team/login) and enter the following credentials:
 ```
 Email: team@example.com
 Password: password
 ```
 
-To access the customer dashboard go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create an account
+To access the `customer dashboard` go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create an account
 
 <p align="right">(<a href="#configuration">back to top</a>)</p>
 
