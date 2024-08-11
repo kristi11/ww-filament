@@ -53,8 +53,8 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -78,7 +78,7 @@
 * **Role-Based Access:** Utilizing the powerful [Filament PHP](https://filamentphp.com/), [WittyWorkflow](https:://wittyworkflow.com) offers role-based access control, enabling
   different panels for different user roles. Admins have full access to all functionalities, while staff members and customers have a more limited view.
 
-* **SPA functionality with `Wire:Navigate` :** Enhance navigation with a SPA like menu featuring `wire:navigate`
+* **SPA functionality with `Wire:Navigate` :** Enhance navigation with an SPA like menu featuring `wire:navigate`
   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
 
 * **CRUD Operations for Admins:** Enable administrators with CRUD (Create, Read, Update, Delete) operations for users,
@@ -95,7 +95,7 @@
 
 * **Full control** on what section shows/hides from the landing page depending on your businesses need for the section
 
-* **2 Factor authentication:** To enhance security of your accounts
+* **2-Factor authentication:** To enhance security of your accounts
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -132,7 +132,7 @@ To get started clone this repository.
    ```
    https://github.com/kristi11/ww-filament.git .
    ```
-   this will clone all of the project's content without the project name folder.
+   this will clone all the project's content without the project name folder.
 2. Install NPM packages
    ```
    npm install
@@ -152,7 +152,7 @@ To get started clone this repository.
    ```
    if using laravel [forge](https://forge.laravel.com/) there's no need to generate key since when creating the
    server [forge](https://forge.laravel.com/) will take care of the key generation.
-6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/) but you can
+6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/), but you can
    use whatever you like.
 7. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name
    is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env`
@@ -221,8 +221,8 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 
 For help setting up [Amazon s3](https://aws.amazon.com/s3/) you can check out
 this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7) by [Kevin McKee](https://laracasts.com/browse/instructors/KevinMcKee), a [laracasts](https://laracasts.com/)
-instructor. This is a paid tutorial but it's worth it. I learned a lot from it. And, No I'm not affiliated with
-[laracasts](https://laracasts.com/) in any way. If you're having trouble setting up [Amazon s3](https://aws.amazon.com/s3/) you can contact me and
+instructor. This is a paid tutorial, but it's worth it. I learned a lot from it. And, No I'm not affiliated with
+[laracasts](https://laracasts.com/) in any way. If you're having trouble setting up [Amazon s3](https://aws.amazon.com/s3/) you can contact me, and
 I'll try to help you out. Or you can choose to use a different storage provider.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
@@ -398,8 +398,6 @@ I've included a few of my favorite links to kick things off!
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
 [linkedin-url]: https://linkedin.com/in/othneildrew
-
-[product-screenshot]: public/Screenshot-wittyworkflow.png
 
 [Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
 
