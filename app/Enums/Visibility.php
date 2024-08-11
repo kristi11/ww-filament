@@ -10,7 +10,7 @@ enum Visibility: int
     public function getVisibility(): string
     {
         return match ($this) {
-            self::True => 'primary',
+            self::True => 'success',
             self::False => 'danger',
         };
     }
