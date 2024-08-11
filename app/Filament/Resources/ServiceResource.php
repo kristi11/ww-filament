@@ -150,6 +150,8 @@ class ServiceResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->deferLoading()
+            ->striped()
             ->columns([
                 TextColumn::make('name')
                     ->searchable()

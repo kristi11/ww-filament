@@ -55,6 +55,8 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->deferLoading()
+            ->striped()
             ->columns([
 //                ImageColumn::make('avatar_url')
 //                    ->circular(),
