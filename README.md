@@ -33,6 +33,8 @@
     <a href="https://github.com/kristi11/wittyworkflow/issues">Request Feature</a>
   </p>
     <b>PLEASE DO KEEP IN MIND THAT THIS IS A NEW APP AND THERE WILL BE A LOT OF ROOM FOR IMPROVEMENT</b>
+
+### **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 </div>
 
 
