@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\Visibility;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use Exception;
@@ -60,15 +61,21 @@ class UserResource extends Resource
                 TextColumn::make('name')
                     ->searchable(),
                 IconColumn::make('is_super_admin')
-                    ->color('danger')
+                    ->color(function ($state) {
+                        return Visibility::from($state)->getVisibility();
+                    })
                     ->boolean()
                     ->label('Super Admin'),
                 IconColumn::make('is_team_user')
-                    ->color('success')
+                    ->color(function ($state) {
+                        return Visibility::from($state)->getVisibility();
+                    })
                     ->boolean()
                     ->label('Team Member'),
                 IconColumn::make('is_panel_user')
-                    ->color('primary')
+                    ->color(function ($state) {
+                        return Visibility::from($state)->getVisibility();
+                    })
                     ->boolean()
                     ->label('Customer'),
                 TextColumn::make('email')
