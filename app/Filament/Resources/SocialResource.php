@@ -142,13 +142,13 @@ class SocialResource extends Resource
         return ! $recordExists;
     }
 
-//    public static function canDelete(Model $record): bool
-//    {
-//        return false;
-//    }
-//
-//    public static function canEdit(Model $record): bool
-//    {
-//        return false;
-//    }
+    public static function canDelete(Model $record): bool
+    {
+        return false;
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return false;
+    }
 }
