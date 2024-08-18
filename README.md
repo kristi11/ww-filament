@@ -102,7 +102,7 @@
 
 * **2-Factor authentication:** To enhance security of your accounts
 
-* **Theme customization** to give every user the ability to customize the look and feel of the app to their liking
+* **Theme customization:** to give every user the ability to customize the look and feel of the app to their liking
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
