@@ -11,6 +11,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -89,7 +90,9 @@ class AddressResource extends Resource
                 Tables\Columns\TextColumn::make('street'),
                 Tables\Columns\TextColumn::make('city'),
                 Tables\Columns\TextColumn::make('state'),
-                Tables\Columns\TextColumn::make('zip'),
+                Tables\Columns\TextColumn::make('zip')
+                    ->badge()
+                    ->color(Color::Indigo),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -15,10 +15,13 @@ use Filament\Forms\Form;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use Filament\Support\Colors\Color;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -153,45 +156,30 @@ class ServiceResource extends Resource
             ->deferLoading()
             ->striped()
             ->columns([
-                TextColumn::make('name')
-                    ->searchable()
-                    ->sortable()
-                    ->label('Service name'),
-                TextColumn::make('description')
-                    ->searchable()
-                    ->html()
-                    ->limit(20)
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('price')
-                    ->searchable()
-                    ->money()
-                    ->sortable(),
-                TextColumn::make('estimated_hours')
-                    ->suffix(' hours')
-                    ->searchable()
-                    ->numeric()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('estimated_minutes')
-                    ->suffix(' minutes')
-                    ->searchable()
-                    ->numeric()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('extra_description')
-                    ->searchable()
-                    ->html()
-                    ->limit(20)
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('created_at')
-                    ->searchable()
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->searchable()
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Stack::make([
+                    TextColumn::make('name')
+                        ->searchable()
+                        ->sortable()
+                        ->label('Service name')
+                    ->weight(FontWeight::Bold),
+                    TextColumn::make('description')
+                        ->searchable()
+                        ->html()
+                        ->limit(20)
+                        ->weight(FontWeight::Thin)
+                        ->color(Color::Gray),
+                    TextColumn::make('price')
+                        ->searchable()
+                        ->money()
+                        ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo),
+                ])
+            ])
+            ->contentGrid([
+                'sm' => 1,
+                'md' => 2,
+                'xl' => 3,
             ])
             ->filters([
                 //
@@ -205,7 +193,7 @@ class ServiceResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+//                    DeleteBulkAction::make(),
                 ]),
             ]);
     }
@@ -228,17 +216,25 @@ class ServiceResource extends Resource
                             ->label('Service name'),
                         TextEntry::make('price')
                             ->prefix('$')
+                            ->badge()
+                            ->color(Color::Indigo)
                             ->label('Price'),
                         TextEntry::make('estimated_hours')
                             ->label('Estimated Hours')
-                            ->suffix(' hours'),
+                            ->suffix(' hours')
+                            ->badge()
+                            ->color(Color::Indigo),
                         TextEntry::make('estimated_minutes')
                             ->label('Estimated Minutes')
-                            ->suffix(' minutes'),
+                            ->suffix(' minutes')
+                            ->badge()
+                            ->color(Color::Indigo),
                         TextEntry::make('description')
-                            ->label('Description'),
+                            ->label('Description')
+                            ->color(Color::Gray),
                         TextEntry::make('extra_description')
-                            ->label('Extra Description'),
+                            ->label('Extra Description')
+                            ->color(Color::Gray),
                     ]),
             ]);
 
