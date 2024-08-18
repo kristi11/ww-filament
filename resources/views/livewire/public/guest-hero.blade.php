@@ -16,7 +16,7 @@
                            ">
                 <p class="lg:text-3xl text-xl tracking-loose uppercase w-full antialiased drop-shadow-xl">{{ $hero->thirdQuote }}</p>
                 <h1 class="
-                decoration-4 tracking-normal antialiased drop-shadow-xl font-black leading-tight text-8xl w-full indent-px my-12
+                decoration-4 tracking-normal antialiased drop-shadow-xl font-black leading-tight text-5xl md:text-8xl w-full indent-px my-12
                 ">
                     {{ $hero->mainQuote }}
                 </h1>
