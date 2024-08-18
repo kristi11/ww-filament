@@ -102,6 +102,8 @@
 
 * **2-Factor authentication:** To enhance security of your accounts
 
+* **Theme customization** to give every user the ability to customize the look and feel of the app to their liking
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -305,9 +307,9 @@ public static function canCreate(): bool
 
 
 
-#### **Bulk actions have been disabled for the footer resources to maintain the integrity of a demonstration environment on a production server since this repo is being used to show the live server on the official website**
+#### **Bulk actions have been disabled for the resources to maintain the integrity of a demonstration environment on a production server since this repo is being used to show the live server on the official website**
 
-###### To enable the bulk actions uncomment the following code
+###### To enable the bulk actions uncomment the following code on the necessary resources
 
 `//Tables\Actions\DeleteBulkAction::make(),`
 
