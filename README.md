@@ -86,23 +86,25 @@
 * **SPA functionality with `Wire:Navigate` :** Enhance navigation with an SPA like menu featuring `wire:navigate`
   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
 
-* **CRUD Operations for Admins:** Enable administrators with CRUD (Create, Read, Update, Delete) operations for users,
-  addresses, landing page heroes, appointments, services, opening hours, gallery, socials. These
-  functionalities empower admins with comprehensive control over critical aspects of the platform.
-
 * **Public Email Form and Footer:** Facilitate communication by implementing a public email form and completing the
   footer for a professional and polished user interface.
 
 * **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
 
+* **Appointments:** Manage your appointments 
+
 * **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you
   never miss valuable information about your upcoming appointments.
 
-* **Full control** on what section shows/hides from the landing page depending on your businesses need for the section
+* **Full control:** On what section shows/hides from the landing page depending on your businesses need for the section
 
 * **2-Factor authentication:** To enhance security of your accounts
 
-* **Theme customization:** to give every user the ability to customize the look and feel of the app to their liking
+* **Theme customization:** To give every user the ability to customize the look and feel of the app to their liking
+
+* **Application health:** See how your application is performing and make the necessary changes in the server
+
+* **Business information:** Have full access on different aspects of your business including system users, section visibility, business services, announcements and much more...
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
