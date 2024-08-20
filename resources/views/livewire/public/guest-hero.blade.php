@@ -8,25 +8,13 @@
             <div class=
                      "flex flex-col
                       w-full
-{{--                       lg:w-2/5--}}
                         justify-center
                          items-start
                           text-center
-{{--                           lg:text-left--}}
                            ">
-                <p class="lg:text-3xl text-xl tracking-loose uppercase w-full antialiased drop-shadow-xl">{{ $hero->thirdQuote }}</p>
-                <h1 class="
-                decoration-4 tracking-normal antialiased drop-shadow-xl font-black leading-tight text-5xl md:text-8xl w-full indent-px my-12
-                ">
-                    {{ $hero->mainQuote }}
-                </h1>
-                <p class="leading-normal lg:text-5xl md:text-4xl text-3xl w-full antialiased drop-shadow-xl mb-12">
-                    {{ $hero->secondaryQuote }}
-                </p>
-                {{--                <button--}}
-                {{--                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">--}}
-                {{--                    Subscribe--}}
-                {{--                </button>--}}
+                <livewire:animation.hero-third-quote-animation/>
+                <livewire:animation.hero-main-quote-animation/>
+                <livewire:animation.hero-secondary-quote-animation/>
             </div>
 {{--            <!--Right Col-->--}}
 {{--            <div class="w-full lg:w-3/5 py-6 text-center hidden lg:block">--}}
