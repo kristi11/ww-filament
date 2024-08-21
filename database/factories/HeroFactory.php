@@ -28,7 +28,7 @@ class HeroFactory extends Factory
             'gradientDegree' => '135',
             'gradientDegreeStart' => '10',
             'gradientDegreeEnd' => '100',
-            'gradientDegreeFirstColor' => '#F05f57',
+            'gradientDegreeFirstColor' => '#F05F57',
             'gradientDegreeSecondColor' => '#360940',
             'image' => null,
             'waves' => true,
