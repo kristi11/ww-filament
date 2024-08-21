@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\GradientTypes;
 use App\Filament\Resources\HeroResource\Pages;
 use App\Models\Hero;
 use Filament\Forms;
@@ -11,22 +12,16 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ColorEntry;
 use Filament\Infolists\Components\IconEntry;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 
 class HeroResource extends Resource
 {
@@ -77,6 +72,10 @@ class HeroResource extends Resource
                 Section::make('Hero gradient')
                     ->columns(2)
                     ->schema([
+                        Select::make('gradientType')
+                            ->options(GradientTypes::gradientType())
+                            ->placeholder('Select a gradient type')
+                            ->columnSpanFull(),
                         TextInput::make('gradientDegree')
                             ->required()
                             ->numeric()
@@ -215,12 +214,12 @@ class HeroResource extends Resource
     {
         return $infolist
             ->schema([
-                \Filament\Infolists\Components\Section::make('Hero image')
-                    ->schema([
-                        SpatieMediaLibraryImageEntry::make('image')
-                            ->disk('hero')
-                            ->placeholder('No image'),
-                    ]),
+//                \Filament\Infolists\Components\Section::make('Hero image')
+//                    ->schema([
+//                        SpatieMediaLibraryImageEntry::make('image')
+//                            ->disk('hero')
+//                            ->placeholder('No image'),
+//                    ]),
                 \Filament\Infolists\Components\Section::make('Hero quotes')
                     ->columns(2)
                     ->schema([
@@ -282,12 +281,12 @@ class HeroResource extends Resource
 
         return ! $recordExists;
     }
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
 }
