@@ -10,7 +10,7 @@
         @tailwind components;
         @tailwind utilities;
         .gradient {
-            background: {{$hero->gradientType}}(
+            background: {{ $hero->gradientType }}(
                 {{ $hero->gradientDegree.'deg' }},
                 {{ $hero->gradientDegreeFirstColor }} {{ $hero->gradientDegreeStart.'%' }},
                 {{ $hero->gradientDegreeSecondColor }} {{ $hero->gradientDegreeEnd.'%' }}

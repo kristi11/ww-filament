@@ -25,6 +25,7 @@ class HeroFactory extends Factory
             'mainQuote' => "Control your business",
             'secondaryQuote' => 'In one dashboard',
             'thirdQuote' => 'Check us out',
+            'gradientType' => 'linear-gradient',
             'gradientDegree' => '135',
             'gradientDegreeStart' => '10',
             'gradientDegreeEnd' => '100',
