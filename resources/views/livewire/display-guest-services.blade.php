@@ -43,12 +43,12 @@
                             <p class="text-gray-800 text-base px-6 mb-5">
                                 {{ \Illuminate\Support\Str::limit( $service->description, '200') }}
                             </p>
-                            <p class="text-gray-800 text-base px-3 mb-5">
+                            <p class="text-white text-base px-3 mb-5">
                             @if($service->price !== null)
                                 @if($flexible_pricing)
-                                    <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-gray-500 text-sm text-white">{{ 'Price starts at $'.$service->price }}</p>
+                                    <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-sm text-white">{{ 'Price starts at $'.$service->price }}</p>
                                 @else
-                                    <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-gray-500 text-sm text-white">{{ 'Price: $'.$service->price }}</p>
+                                    <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-sm text-white">{{ 'Price: $'.$service->price }}</p>
                                 @endif
                             @endif
                         </a>
