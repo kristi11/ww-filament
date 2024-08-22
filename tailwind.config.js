@@ -2,6 +2,7 @@ import preset from './vendor/filament/support/tailwind.config.preset'
 import typography from '@tailwindcss/typography';
 
 export default {
+    presets: [preset],
     theme: {
         extend: {
             content: [
