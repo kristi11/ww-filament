@@ -81,13 +81,13 @@ class AdminPanelProvider extends PanelProvider
                     ->myProfile(
                         shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
                         shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
-                        navigationGroup: 'Settings', // Sets the navigation group for the My Profile page (default = null)
-                        hasAvatars: false, // Enables the avatar upload form component (default = false)
-                        slug: 'profile' // Sets the slug for the profile page (default = 'my-profile')
+                        hasAvatars: false, // Sets the navigation group for the My Profile page (default = null)
+                        slug: 'profile', // Enables the avatar upload form component (default = false)
+                        navigationGroup: 'Settings' // Sets the slug for the profile page (default = 'my-profile')
 
                     )
                     ->enableTwoFactorAuthentication(
-                        force: false, // force the user to enable 2FA before they can use the application (default = false)
+                    // force the user to enable 2FA before they can use the application (default = false)
                     ),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('30s') // optional, by default it is set to null
