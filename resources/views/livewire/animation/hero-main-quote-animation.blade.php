@@ -1,7 +1,7 @@
 <div
     x-data="{
         text: '',
-        textArray : ['{{ $hero->mainQuote }}'],
+        textArray : ['{{ $hero->mainQuote }}'], {{--multiple lines of text can be added inside the brackets separated by comas--}}
         textIndex: 0,
         charIndex: 0,
         typeSpeed: 110,
