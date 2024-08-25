@@ -25,6 +25,7 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $recordTitleAttribute = 'name';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -100,7 +101,18 @@ class UserResource extends Resource
             ])
             ->filters([
                 SelectFilter::make('roles')
-                    ->relationship('roles', 'name'),
+                    ->relationship('roles', 'name')
+                    ->getOptionLabelFromRecordUsing(function (Model $record) {
+                        if ($record->name == 'panel_user') {
+                            return 'Customers';
+                        }
+
+                        if ($record->name == 'team_user') {
+                            return 'Team members';
+                        }
+
+                        return str_replace('_', ' ', ucwords($record->name, '_'));
+                    }),
             ])
             ->actions([
                 EditAction::make()
@@ -141,14 +153,17 @@ class UserResource extends Resource
             //            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
+
     public static function canEdit(Model $record): bool
     {
         return false;
     }
+
     public static function canDelete(Model $record): bool
     {
         return false;
     }
+
     public static function canCreate(): bool
     {
         return false;
