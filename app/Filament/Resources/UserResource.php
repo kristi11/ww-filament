@@ -102,6 +102,8 @@ class UserResource extends Resource
             ->filters([
                 SelectFilter::make('roles')
                     ->relationship('roles', 'name')
+                    ->preload()
+                    ->searchable()
                     ->getOptionLabelFromRecordUsing(function (Model $record) {
                         if ($record->name == 'panel_user') {
                             return 'Customers';
