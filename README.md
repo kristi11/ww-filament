@@ -35,6 +35,7 @@
     <b>PLEASE DO KEEP IN MIND THAT THIS IS A NEW APP AND THERE WILL BE A LOT OF ROOM FOR IMPROVEMENT</b>
 
 ### **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
+
 </div>
 
 
@@ -60,6 +61,7 @@
     </li>
     <li><a href="#configuration">Configuration</a></li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -78,10 +80,14 @@
 ## Key Features:
 
 * **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
-  communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user experience.
+  communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user
+  experience.
 
-* **Role-Based Access:** Utilizing the powerful [Filament PHP](https://filamentphp.com/), [WittyWorkflow](https:://wittyworkflow.com) offers role-based access control, enabling
-  different panels for different user roles. Admins have full access to all functionalities, while staff members and customers have a more limited view.
+* **Role-Based Access:** Utilizing the
+  powerful [Filament PHP](https://filamentphp.com/), [WittyWorkflow](https:://wittyworkflow.com) offers role-based
+  access control, enabling
+  different panels for different user roles. Admins have full access to all functionalities, while staff members and
+  customers have a more limited view.
 
 * **SPA functionality with `Wire:Navigate` :** Enhance navigation with an SPA like menu featuring `wire:navigate`
   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
@@ -91,7 +97,7 @@
 
 * **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
 
-* **Appointments:** Manage your appointments 
+* **Appointments:** Manage your appointments
 
 * **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you
   never miss valuable information about your upcoming appointments.
@@ -104,8 +110,8 @@
 
 * **Application health:** See how your application is performing and make the necessary changes in the server
 
-* **Business information:** Have full access on different aspects of your business including system users, section visibility, business services, announcements and much more...
-
+* **Business information:** Have full access on different aspects of your business including system users, section
+  visibility, business services, announcements and much more...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -136,7 +142,8 @@ To get started clone this repository.
    ```
    https://github.com/kristi11/ww-filament.git
    ```
-   or if you have a different name you'd like to use for the project create an empty folder with your desired name, `cd` into that folder and
+   or if you have a different name you'd like to use for the project create an empty folder with your desired name, `cd`
+   into that folder and
    run the following command:
    ```
    https://github.com/kristi11/ww-filament.git .
@@ -161,7 +168,8 @@ To get started clone this repository.
    ```
    if using laravel [forge](https://forge.laravel.com/) there's no need to generate key since when creating the
    server [forge](https://forge.laravel.com/) will take care of the key generation.
-6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/), but you can
+6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/), but you
+   can
    use whatever you like.
 7. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name
    is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env`
@@ -170,22 +178,24 @@ To get started clone this repository.
    ```
    php artisan migrate:fresh --seed
    ```
-   
-9. [WittyWorkflow](https:://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin to provide proper user roles. We need to generate the permissions for that package 
+
+9. [WittyWorkflow](https:://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
+   to provide proper user roles. We need to generate the permissions for that package
     ```
     php artisan shield:generate --all
     ```
-   and define the super admin of the system 
+   and define the super admin of the system
     ```
     php artisan shield:super-admin --user="1"
     ```
-   
-    `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be the `super admin`. the credentials for the super admin are the following:
+
+   `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be
+   the `super admin`. the credentials for the super admin are the following:
     ```
     email: admin@example.com
     password: password
     ```
-    
+
 10. Link the storage folder.
     ```
     php artisan storage:link
@@ -199,7 +209,8 @@ To get started clone this repository.
     http://localhost:8000
     ```
 
-I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to use [Mailtrap](https://mailtrap.io/),
+I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to
+use [Mailtrap](https://mailtrap.io/),
 create an account and add the credentials to the `.env` file. If you are using [forge](https://forge.laravel.com/) you
 can add the credentials to the server environment variables.
 
@@ -229,9 +240,11 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 ```
 
 For help setting up [Amazon s3](https://aws.amazon.com/s3/) you can check out
-this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7) by [Kevin McKee](https://laracasts.com/browse/instructors/KevinMcKee), a [laracasts](https://laracasts.com/)
+this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7)
+by [Kevin McKee](https://laracasts.com/browse/instructors/KevinMcKee), a [laracasts](https://laracasts.com/)
 instructor. This is a paid tutorial, but it's worth it. I learned a lot from it. And, No I'm not affiliated with
-[laracasts](https://laracasts.com/) in any way. If you're having trouble setting up [Amazon s3](https://aws.amazon.com/s3/) you can contact me, and
+[laracasts](https://laracasts.com/) in any way. If you're having trouble setting
+up [Amazon s3](https://aws.amazon.com/s3/) you can contact me, and
 I'll try to help you out. Or you can choose to use a different storage provider.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
@@ -267,7 +280,6 @@ Your application is now ready for use. Enjoy! To install it in production follow
 * Terms resource editing and deleting have been disabled (change on `TermsResource.php`)
 * Support resource editing and deleting have been disabled (change on `SupportResource.php`)
 
-
 #### **To enable these features you need to comment or delete the following functions on the desired resources:**
 
 ```
@@ -292,7 +304,11 @@ public static function canCreate(): bool
 
 #### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
 
-[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to manage user profiles. Change the following values to `shouldRegisterUserMenu: true` and `shouldRegisterNavigation: true` to enable profile editing on `AdminPanelProvider.php` and `TeamPanelProvider.php` for the `Admin` and `Team member` roles
+[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
+manage user profiles. Change the following values to `shouldRegisterUserMenu: true` and `shouldRegisterNavigation: true`
+to enable profile editing on `AdminPanelProvider.php` and `TeamPanelProvider.php` for the `Admin` and `Team member`
+roles
+
 ```
 ->myProfile(
     shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
@@ -307,18 +323,24 @@ public static function canCreate(): bool
 )
 ```
 
+#### **Bulk actions have been disabled for the resources to maintain the integrity of a demonstration environment on a
 
-
-#### **Bulk actions have been disabled for the resources to maintain the integrity of a demonstration environment on a production server since this repo is being used to show the live server on the official website**
+production server since this repo is being used to show the live server on the official website**
 
 ###### To enable the bulk actions uncomment the following code on the necessary resources
 
 `//Tables\Actions\DeleteBulkAction::make(),`
 
 ### Role configuration
-[WittyWorkflow](https:://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on the `Appointment` model permissions and to give the `panel_user` `view` permissions on the gallery choose  `view` and `view any` under the `Gallery` model permissions.
+
+[WittyWorkflow](https:://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
+package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section
+of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on
+the `Appointment` model permissions and to give the `panel_user` `view` permissions on the gallery choose  `view`
+and `view any` under the `Gallery` model permissions.
 
 ### Role explanation
+
 * `super_admin` = The super admin of the system
 * `team_user` = The team members of the system assigned by the Super Admin
 * `panel_user` = The panel for the customers
@@ -331,21 +353,53 @@ _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To access the `super-admin dashboard` go to the [Admin dashboard](https://wittyworkflow.com/admin/login) and enter the following credentials:
+To access the `super-admin dashboard` go to the [Admin dashboard](https://wittyworkflow.com/admin/login) and enter the
+following credentials:
+
 ```
 Email: admin@example.com
 Password: password
 ```
 
-To access the `team dashboard` go to the [Team dashboard](https://wittyworkflow.com/team/login) and enter the following credentials:
+To access the `team dashboard` go to the [Team dashboard](https://wittyworkflow.com/team/login) and enter the following
+credentials:
+
 ```
 Email: team@example.com
 Password: password
 ```
 
-To access the `customer dashboard` go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create an account
+To access the `customer dashboard` go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create
+an account
 
 <p align="right">(<a href="#configuration">back to top</a>)</p>
+
+<!-- ROADMAP -->
+
+## Roadmap
+
+1. [x] Create separate dashboards for each user role
+2. [x] Add Filament [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) for managing user roles and
+   permissions
+3. [x] Create business information resources (appointments, services, users etc )
+4. [x] Add socials resource for referencing business's social profiles
+5. [x] Add CRUD functionality to sections of the public page for a more controlled and customizable experience
+6. [x] Add Hero animations
+7. [x] Add footer resources to give users an easy way to add their policies, FAQ and other business related information
+8. [x] Add flash notifications and email notifications for appointment changes
+9. [ ] Add shop for purchases ( Thinking of lunarPHP since it already has a filamentPHP admin dashboard)
+10. [ ] Add more animated hero options the user can choose from
+11. [ ] Improve visuals (**ongoing effort**)
+12. [ ] Add How to section showing the users how to use the app
+13. [ ] Add analytics to admin dashboard
+14. [ ] Improve SEO
+15. [x] Add announcements package to announce different messages to system users
+16. [x] Add themes package to give users more options on system layout and design
+17. [x] Add laravel Breezy for 2-factor authentication and better profile updating
+18. [x] Add multi-language support
+19. [x] Add Application health to check how the app is running
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
