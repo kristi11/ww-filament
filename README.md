@@ -59,6 +59,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#command_list">Command list</a></li>
     <li><a href="#configuration">Configuration</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -149,7 +150,7 @@ To get started clone this repository.
    https://github.com/kristi11/ww-filament.git .
    ```
    this will clone all the project's content without the project name folder.
-2. Install NPM packages
+2. Install NPM dependencies
    ```
    npm install
    ```
@@ -208,6 +209,23 @@ To get started clone this repository.
     ```
     http://localhost:8000
     ```
+
+### Command list
+
+```
+git clone https://github.com/kristi11/ww-filament.git .
+npm install
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate:fresh --seed
+php artisan shield:generate --all
+php artisan shield:super-admin --user="1"
+php artisan storage:link
+```
+
+Don't forget to run `npm run dev` and `php artisan serve`
+after the above commands are ran.
 
 I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to
 use [Mailtrap](https://mailtrap.io/),
@@ -387,19 +405,25 @@ an account
 6. [x] Add Hero animations
 7. [x] Add footer resources to give users an easy way to add their policies, FAQ and other business related information
 8. [x] Add flash notifications and email notifications for appointment changes
-9. [ ] Add shop for purchases ( Thinking of lunarPHP since it already has a filamentPHP admin dashboard)
+9. [ ] Add shop for purchases ( Thinking of [lunarPHP](https://lunarphp.io/) since it already has
+   a [filamentPHP](https://filamentphp.com/) admin dashboard)
 10. [ ] Add more animated hero options the user can choose from
 11. [ ] Improve visuals (**ongoing effort**)
 12. [ ] Add How to section showing the users how to use the app
 13. [ ] Add analytics to admin dashboard
 14. [ ] Improve SEO
-15. [x] Add announcements package to announce different messages to system users
-16. [x] Add themes package to give users more options on system layout and design
-17. [x] Add laravel Breezy for 2-factor authentication and better profile updating
-18. [x] Add multi-language support
-19. [x] Add Application health to check how the app is running
+15. [x] Add [Announce](https://filamentphp.com/plugins/rupadana-announce) package to announce different messages to
+    system users
+16. [x] Add [Themes](https://filamentphp.com/plugins/hasnayeen-themes) package to give users more options on system
+    layout and design
+17. [x] Add [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy) for 2-factor authentication and better
+    profile updating
+18. [x] Add [Language-switch](https://filamentphp.com/plugins/bezhansalleh-language-switch) to support different
+    languages
+19. [x] Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
+    app is running
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#roadmap">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
