@@ -28,6 +28,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
+use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\Pages\HealthCheckResults;
 
@@ -76,11 +77,14 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(
-                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
-                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+                        shouldRegisterUserMenu: false,
+                        // Sets the 'account' link in the panel User Menu (default = false)
+                        shouldRegisterNavigation: false,
+                        // Adds a main navigation item for the My Profile page (default = false)
                         hasAvatars: false, // Sets the navigation group for the My Profile page (default = null)
                         slug: 'profile', // Enables the avatar upload form component (default = false)
                         navigationGroup: 'Settings' // Sets the slug for the profile page (default = 'my-profile')
@@ -90,7 +94,7 @@ class AdminPanelProvider extends PanelProvider
                     // force the user to enable 2FA before they can use the application (default = false)
                     ),
                 FilamentAnnouncePlugin::make()
-                    ->pollingInterval('30s') // optional, by default it is set to null
+                    ->pollingInterval('1s') // optional, by default it is set to null
                     ->defaultColor(Color::Blue), // optional, by default it is set to "primary"
                 SpotlightPlugin::make(),
                 FilamentSpatieLaravelHealthPlugin::make()
@@ -128,14 +132,14 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->databaseNotifications()
-//                ->profile(isSimple: false)
+            ->databaseNotifications()//                ->profile(isSimple: false)
             ;
     }
 
     public function register(): void
     {
         parent::register();
-        FilamentView::registerRenderHook('panels::body.end', fn(): string => Blade::render("@vite('resources/js/app.js')"));
+        FilamentView::registerRenderHook('panels::body.end',
+            fn(): string => Blade::render("@vite('resources/js/app.js')"));
     }
 }
