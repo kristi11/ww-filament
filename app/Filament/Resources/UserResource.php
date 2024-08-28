@@ -10,6 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -118,12 +119,17 @@ class UserResource extends Resource
             ])
             ->actions([
                 EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
+            ->paginated(false)
             ->bulkActions([
-//                BulkActionGroup::make([
-//                    DeleteBulkAction::make(),
-//                ]),
+                BulkActionGroup::make([
+//                    Tables\Actions\DeleteBulkAction::make()
+//                          ->label('')
+//                          ->tooltip('Delete'),
+                ]),
             ]);
     }
 

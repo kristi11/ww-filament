@@ -34,7 +34,9 @@
   </p>
     <b>PLEASE DO KEEP IN MIND THAT THIS IS A NEW APP AND THERE WILL BE A LOT OF ROOM FOR IMPROVEMENT</b>
 
-### **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
+### The app's CRUD functionality has been severally restricted in this [demonstration](https://wittyworkflow.com) app. Follow the below steps to activate CRUD functionality on the desired resources in order to achieve the desired functionality
+
+## **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 
 </div>
 

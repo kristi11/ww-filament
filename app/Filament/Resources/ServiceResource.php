@@ -18,7 +18,6 @@ use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Stack;
@@ -48,7 +47,7 @@ class ServiceResource extends Resource
                         [
                             Select::make('user_id')
                                 ->relationship('user', 'name')
-                                ->default(fn (): int => auth()->id())
+                                ->default(fn(): int => auth()->id())
                                 ->required()
                                 ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                                 ->disabled()
@@ -161,7 +160,7 @@ class ServiceResource extends Resource
                         ->searchable()
                         ->sortable()
                         ->label('Service name')
-                    ->weight(FontWeight::Bold),
+                        ->weight(FontWeight::Bold),
                     TextColumn::make('description')
                         ->searchable()
                         ->html()
@@ -172,8 +171,8 @@ class ServiceResource extends Resource
                         ->searchable()
                         ->money()
                         ->sortable()
-                    ->badge()
-                    ->color(Color::Indigo),
+                        ->badge()
+                        ->color(Color::Indigo),
                 ])
             ])
             ->contentGrid([
@@ -187,13 +186,19 @@ class ServiceResource extends Resource
             ->actions([
                 ViewAction::make()
                     ->slideOver()
-                    ->label('View details'),
+                    ->label('')
+                    ->tooltip('View details'),
                 EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
+            ->paginated(false)
             ->bulkActions([
                 BulkActionGroup::make([
-//                    DeleteBulkAction::make(),
+//                    Tables\Actions\DeleteBulkAction::make()
+//                          ->label('')
+//                          ->tooltip('Delete'),
                 ]),
             ]);
     }

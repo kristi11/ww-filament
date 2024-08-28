@@ -10,7 +10,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
-use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -31,7 +30,7 @@ class SocialResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn (): int => auth()->id())
+                            ->default(fn(): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -95,11 +94,16 @@ class SocialResource extends Resource
             ])
             ->actions([
                 EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
+            ->paginated(false)
             ->bulkActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+//                    Tables\Actions\DeleteBulkAction::make()
+//                          ->label('')
+//                          ->tooltip('Delete'),
                 ]),
             ]);
     }
@@ -139,7 +143,7 @@ class SocialResource extends Resource
     {
         $recordExists = Social::exists();
 
-        return ! $recordExists;
+        return !$recordExists;
     }
 
     public static function canDelete(Model $record): bool

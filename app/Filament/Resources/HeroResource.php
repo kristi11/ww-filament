@@ -44,7 +44,7 @@ class HeroResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn (): int => auth()->id())
+                            ->default(fn(): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -195,11 +195,15 @@ class HeroResource extends Resource
                     ->slideOver()
                     ->label('View details'),
                 EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-//                    DeleteBulkAction::make(),
+//                    DeleteBulkAction::make()
+//                      ->label('')
+//                      ->tooltip('Delete'),
                 ]),
             ]);
     }
@@ -280,12 +284,14 @@ class HeroResource extends Resource
     {
         $recordExists = Hero::exists();
 
-        return ! $recordExists;
+        return !$recordExists;
     }
+
     public static function canEdit(Model $record): bool
     {
         return false;
     }
+
     public static function canDelete(Model $record): bool
     {
         return false;

@@ -34,7 +34,7 @@ class SupportResource extends Resource
             ->schema([
                 Select::make('user_id')
                     ->relationship('user', 'name')
-                    ->default(fn (): int => auth()->id())
+                    ->default(fn(): int => auth()->id())
                     ->required()
                     ->columnSpanFull()
                     ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
@@ -73,11 +73,16 @@ class SupportResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
+            ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make(),
+//                    Tables\Actions\DeleteBulkAction::make()
+//                          ->label('')
+//                          ->tooltip('Delete'),
                 ]),
             ]);
     }
@@ -101,7 +106,7 @@ class SupportResource extends Resource
     {
         $recordExists = Support::exists();
 
-        return ! $recordExists;
+        return !$recordExists;
     }
 
     public static function canDelete(Model $record): bool

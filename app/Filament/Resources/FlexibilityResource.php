@@ -9,6 +9,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -36,7 +37,7 @@ class FlexibilityResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn (): int => auth()->id())
+                            ->default(fn(): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -85,7 +86,17 @@ class FlexibilityResource extends Resource
             ])
             ->actions([
                 EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
+            ])
+            ->paginated(false)
+            ->bulkActions([
+                BulkActionGroup::make([
+//                    Tables\Actions\DeleteBulkAction::make()
+//                          ->label('')
+//                          ->tooltip('Delete'),
+                ]),
             ]);
     }
 

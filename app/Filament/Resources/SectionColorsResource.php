@@ -30,7 +30,7 @@ class SectionColorsResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn (): int => auth()->id())
+                            ->default(fn(): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -90,11 +90,16 @@ class SectionColorsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
+            ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make(),
+//                    Tables\Actions\DeleteBulkAction::make()
+//                          ->label('')
+//                          ->tooltip('Delete'),
                 ]),
             ])
             ->paginated(false);
@@ -120,12 +125,14 @@ class SectionColorsResource extends Resource
     {
         $recordExists = SectionColors::exists();
 
-        return ! $recordExists;
+        return !$recordExists;
     }
+
     public static function canEdit(Model $record): bool
     {
         return false;
     }
+
     public static function canDelete(Model $record): bool
     {
         return false;

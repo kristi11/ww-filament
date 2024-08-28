@@ -6,7 +6,6 @@ use App\Filament\Customer\Resources\CustomerGalleryResource\Pages;
 use App\Filament\Resources\GalleryResource;
 use App\Models\Gallery;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Infolist;
@@ -37,6 +36,9 @@ class CustomerGalleryResource extends Resource
             ]);
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -72,7 +74,8 @@ class CustomerGalleryResource extends Resource
                     ->collapsible(),
             ])
             ->filters([
-                SelectFilter::make('author')->relationship('service', 'name')            ])
+                SelectFilter::make('author')->relationship('service', 'name')
+            ])
             ->actions([
                 Tables\Actions\ViewAction::make()
                     ->label('View service images')
@@ -82,7 +85,9 @@ class CustomerGalleryResource extends Resource
             ]);
         //            ->bulkActions([
         //                Tables\Actions\BulkActionGroup::make([
-        //                    Tables\Actions\DeleteBulkAction::make(),
+        //                    Tables\Actions\DeleteBulkAction::make()
+        //                      ->label('')
+        //                      ->tooltip('Delete'),
         //                ]),
         //            ]);
     }

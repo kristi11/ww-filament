@@ -38,7 +38,7 @@ class AppointmentResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn (): int => auth()->id())
+                            ->default(fn(): int => auth()->id())
                             ->required()
                             ->helperText(str('The name of the user that created the appointment.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -83,7 +83,7 @@ class AppointmentResource extends Resource
                     ->schema([
                         TextInput::make('client_name')
                             ->label('Name')
-                            ->default(fn (): string => auth()->user()->name)
+                            ->default(fn(): string => auth()->user()->name)
                             ->required()
                             ->helperText(str('The name of the user that created the appointment.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -93,7 +93,7 @@ class AppointmentResource extends Resource
                         TextInput::make('client_email')
                             ->label('Email')
                             ->email()
-                            ->default(fn (): string => auth()->user()->email)
+                            ->default(fn(): string => auth()->user()->email)
                             ->required()
                             ->helperText(str('The email of the user that created the appointment.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -181,7 +181,7 @@ class AppointmentResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('client_email')
                     ->searchable()
-                    ->url(fn ($record) => "mailto:$record->client_email")
+                    ->url(fn($record) => "mailto:$record->client_email")
                     ->color('primary')
                     ->label('Client email')
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -222,15 +222,17 @@ class AppointmentResource extends Resource
             ])
             ->filtersFormColumns(2)
             ->actions([
-                Tables\Actions\ViewAction::make()
-                    ->slideOver()
-                    ->label('View details'),
                 Tables\Actions\EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
+            ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }
@@ -254,7 +256,7 @@ class AppointmentResource extends Resource
                             ->label('Client name'),
                         TextEntry::make('client_email')
                             ->label('Client email')
-                            ->url(fn ($record) => "mailto:$record->client_email")
+                            ->url(fn($record) => "mailto:$record->client_email")
                             ->color('primary'),
                         TextEntry::make('client_phone')
                             ->label('Client phone')

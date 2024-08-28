@@ -37,7 +37,7 @@ class TeamAppointmentsResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn (): int => auth()->id())
+                            ->default(fn(): int => auth()->id())
                             ->required()
                             ->helperText(str('The name of the user that created the appointment.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -87,7 +87,7 @@ class TeamAppointmentsResource extends Resource
                     ->schema([
                         TextInput::make('client_name')
                             ->label('Name')
-                            ->default(fn (): string => auth()->user()->name)
+                            ->default(fn(): string => auth()->user()->name)
                             ->required()
                             ->helperText(str('The name of the user that created the appointment.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -97,7 +97,7 @@ class TeamAppointmentsResource extends Resource
                         TextInput::make('client_email')
                             ->label('Email')
                             ->email()
-                            ->default(fn (): string => auth()->user()->email)
+                            ->default(fn(): string => auth()->user()->email)
                             ->required()
                             ->helperText(str('The email of the user that created the appointment.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -186,7 +186,7 @@ class TeamAppointmentsResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('client_email')
                     ->searchable()
-                    ->url(fn ($record) => "mailto:$record->client_email")
+                    ->url(fn($record) => "mailto:$record->client_email")
                     ->color('primary')
                     ->label('Client email')
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -222,13 +222,18 @@ class TeamAppointmentsResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make()
                     ->slideOver()
-                    ->label('View details'),
+                    ->label('')
+                    ->tooltip('View details'),
                 Tables\Actions\EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }
@@ -245,7 +250,7 @@ class TeamAppointmentsResource extends Resource
                             ->label('Client name'),
                         TextEntry::make('client_email')
                             ->label('Client email')
-                            ->url(fn ($record) => "mailto:$record->client_email")
+                            ->url(fn($record) => "mailto:$record->client_email")
                             ->color('primary'),
                         TextEntry::make('client_phone')
                             ->label('Client phone')

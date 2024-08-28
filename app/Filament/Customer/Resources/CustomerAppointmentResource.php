@@ -220,11 +220,15 @@ class CustomerAppointmentResource extends Resource
                     ->slideOver()
                     ->label('View details'),
                 Tables\Actions\EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }
