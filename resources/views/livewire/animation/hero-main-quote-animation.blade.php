@@ -4,7 +4,7 @@
         textArray : ['{{ $hero->mainQuote }}'], {{--multiple lines of text can be added inside the brackets separated by comas--}}
         textIndex: 0,
         charIndex: 0,
-        typeSpeed: 110,
+        typeSpeed:77,
         cursorSpeed: 550,
         pauseEnd: 60000,
         pauseStart: 20,
@@ -65,7 +65,8 @@
     })"
     class="flex items-center justify-center mx-auto text-center max-w-7xl">
     <div class="relative flex items-center justify-center h-auto">
-        <p class="decoration-4 tracking-normal antialiased drop-shadow-xl font-black leading-tight text-5xl md:text-8xl w-full indent-px my-12" x-text="text"></p>
+        <p class="decoration-4 tracking-normal antialiased drop-shadow-xl font-black leading-tight text-5xl md:text-8xl w-full indent-px my-12"
+           x-text="text"></p>
         <span class="absolute right-0 w-2 -mr-2 bg-black h-3/4" x-ref="cursor"></span>
     </div>
 </div>
