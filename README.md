@@ -279,26 +279,34 @@ Your application is now ready for use. Enjoy! To install it in production follow
 
 ##### The following features have been disabled to maintain a proper demonstration environment. You should enable this features when working on your own project to get the full functionality of the app.
 
+### Editing:
+
 * Profile editing (change on `Adminpanelprovider.php` and `TeamPanelProvider.php`)
+
+### Permission management:
+
 * Permission management for user roles (change on `RoleResource.php`)
-* User resource editing and deleting (change on `UserResource.php`)
-* Hero resource editing and deleting (change on `HeroResource.php`)
-* SectionColors resource editing and deleting (change on `SectionColorResource.php`)
-* Service resource editing and deleting (change on `ServiceResource.php`)
+
+### Editing and deleting:
+
+* User resource (change on `UserResource.php`)
+* Hero resource (change on `HeroResource.php`)
+* SectionColors resource (change on `SectionColorResource.php`)
+* Service resource (change on `ServiceResource.php`)
 * Section visibility on the landing page (change on `PublicPageResource.php`)
-* Address resource editing and deleting (change on `AddressResource.php`)
-* BusinessHours resource editing and deleting (change on `BusinessHoursResource.php`)
-* Flexibility resource editing and deleting (change on `FlexibilityResource.php`)
-* Announcement resource editing and deleting (change on `AnnouncementResource.php`)
-* Social resource editing and deleting (change on `SocialResource.php`)
-* Gallery resource creating, editing and deleting (change on `GalleryResource.php`)
-* About resource editing and deleting (change on `AboutResource.php`)
-* Contact resource editing and deleting (change on `ContactResource.php`)
-* FAQ resource editing and deleting (change on `FAQdataResource.php`)
-* Help resource editing and deleting (change on `HelpResource.php`)
-* Privacy resource editing and deleting (change on `PrivacyResource.php`)
-* Terms resource editing and deleting (change on `TermsResource.php`)
-* Support resource editing and deleting (change on `SupportResource.php`)
+* Address resource (change on `AddressResource.php`)
+* BusinessHours resource (change on `BusinessHoursResource.php`)
+* Flexibility resource (change on `FlexibilityResource.php`)
+* Announcement resource (change on `AnnouncementResource.php`)
+* Social resource (change on `SocialResource.php`)
+* Gallery resource creating, (change on `GalleryResource.php`)
+* About resource (change on `AboutResource.php`)
+* Contact resource (change on `ContactResource.php`)
+* FAQ resource (change on `FAQdataResource.php`)
+* Help resource (change on `HelpResource.php`)
+* Privacy resource (change on `PrivacyResource.php`)
+* Terms resource (change on `TermsResource.php`)
+* Support resource (change on `SupportResource.php`)
 
 #### **To enable these features you need to comment or delete the following functions on the desired resources:**
 
