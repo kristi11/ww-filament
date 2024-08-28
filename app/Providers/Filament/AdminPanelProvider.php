@@ -77,7 +77,7 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-                FilamentSpatieLaravelBackupPlugin::make(),
+//                FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(
