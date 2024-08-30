@@ -193,7 +193,8 @@ class HeroResource extends Resource
             ->actions([
                 ViewAction::make()
                     ->slideOver()
-                    ->label('View details'),
+                    ->label('')
+                    ->tooltip('View details'),
                 EditAction::make()
                     ->slideOver()
                     ->label('')
