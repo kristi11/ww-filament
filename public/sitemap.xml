@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+    <url>
+        <loc>https://wittyworkflow.com/</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/dashboard/login</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/faq</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/help</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/support</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/terms</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/privacy</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/about</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/contact</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/dashboard/register</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://wittyworkflow.com/dashboard/password-reset/request</loc>
+        <lastmod>2024-09-01T15:58:51+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+
+
+</urlset>

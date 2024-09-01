@@ -1,25 +1,17 @@
- <div>
+<div>
     <head>
-    <livewire:guest-links/>
-    <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding: 10rem;
-        }
-        @tailwind base;
-        @tailwind components;
-        @tailwind utilities;
-        .gradient {
-            background: {{ $hero->gradientType }}(
+        <livewire:guest-links/>
+        <style>
+            .gradient {
+                background: {{ $hero->gradientType }}(
                 {{ $hero->gradientDegree.'deg' }},
-                {{ $hero->gradientDegreeFirstColor }} {{ $hero->gradientDegreeStart.'%' }},
-                {{ $hero->gradientDegreeSecondColor }} {{ $hero->gradientDegreeEnd.'%' }}
-            );
-        }
-    </style>
-    <title>
-        {{ config('app.name') }}
-    </title>
+                {{ $hero->gradientDegreeFirstColor }} {{ $hero->gradientDegreeStart.'%' }},{{ $hero->gradientDegreeSecondColor }} {{ $hero->gradientDegreeEnd.'%' }}
+                );
+            }
+        </style>
+        <title>
+            {{ config('app.name') }}
+        </title>
     </head>
-        <livewire:guest-hero/>
+    <livewire:guest-hero/>
 </div>
