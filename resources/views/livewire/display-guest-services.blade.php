@@ -10,10 +10,10 @@
                     <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
                 </div>
                 @foreach($services as $service)
-                    <div id="services" class="w-full lg:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+                    <div id="services" class="w-full md:w-1/2 lg:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
                         <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg p-2 border-b">
                             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-                                <p class="border-b md:text-sm pb-2 px-6 text-gray-600 text-xs w-full">
+                                <p class="border-b md:text-sm py-4 px-6 text-gray-600 text-xs w-full">
                                     @if($service->estimated_hours !== null && $service->estimated_minutes !== null)
                                         {{ 'This service takes about ' }}
                                         @php
@@ -41,7 +41,7 @@
                                 <div class="w-full font-bold text-xl text-gray-800 px-6 pt-2">
                                     {{ ucwords($service->name) }}
                                 </div>
-                                <p class="text-gray-800 text-base px-6 mb-5">
+                                <p class="text-gray-800 text-base px-6 py-6">
                                     {{ \Illuminate\Support\Str::limit( $service->description, '200') }}
                                 </p>
                                 <p class="text-white text-base px-3 mb-5">
@@ -49,7 +49,7 @@
                                     @if($flexible_pricing)
                                         <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-sm text-white">{{ 'Price starts at $'.$service->price }}</p>
                                     @else
-                                        <p class="bg-gray-800 border-solid font-bold p-2 rounded-lg text-sm text-white">{{ 'Price: $'.$service->price }}</p>
+                                        <p class="border-solid font-bold font-mono text-black text-lg">{{ 'Price: $'.$service->price }}</p>
                                     @endif
                                 @endif
                             </a>
@@ -57,14 +57,16 @@
                         <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
                             <div class="flex items-center justify-center">
                                 <button wire:click="bookService"
-                                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        class="mx-auto lg:mx-0 w-full hover:bg-sky-50 border-2 border-black text-black font-bold rounded-lg py-4 px-8 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
                                     Book service
                                 </button>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                {{ $services->links(data: ['scrollTo' => false]) }}
+                <div class="flex justify-center w-full">
+                    {{ $services->links(data: ['scrollTo' => false]) }}
+                </div>
             </div>
         </section>
     @endif
