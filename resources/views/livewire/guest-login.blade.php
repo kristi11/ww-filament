@@ -14,15 +14,15 @@
                     <div
                         class="bg-white gap-0.5 grid grid-cols-1 lg:px-15 m-6 md:{{ $background->loginBackgroundColor }} md:gap-10 md:grid-cols-3 md:p-0 md:shadow-none md:w-4/5 p-6 rounded-lg shadow-lg w-full">
                         <button wire:click="loginAsCustomer"
-                                class="bg-white border-2 border-black focus:outline-none focus:shadow-outline font-bold hover:bg-sky-50 hover:scale-105 lg:mx-0 mx-auto my-6 px-8 py-4 rounded-full text-black">
+                                class="bg-white border-2 border-black focus:outline-none focus:shadow-outline font-bold hover:bg-sky-50 hover:scale-105 lg:mx-0 mx-auto my-6 px-8 py-4 rounded-full text-black transform transition duration-300 ease-in-out">
                             Customer
                         </button>
                         <button wire:click="loginAsTeam"
-                                class="bg-white border-2 border-black focus:outline-none focus:shadow-outline font-bold hover:bg-sky-50 hover:scale-105 lg:mx-0 mx-auto my-6 px-8 py-4 rounded-full text-black">
+                                class="bg-white border-2 border-black focus:outline-none focus:shadow-outline font-bold hover:bg-sky-50 hover:scale-105 lg:mx-0 mx-auto my-6 px-8 py-4 rounded-full text-black transform transition duration-300 ease-in-out">
                             Team Member
                         </button>
                         <button wire:click="loginAsSuperAdmin"
-                                class="bg-white border-2 border-black focus:outline-none focus:shadow-outline font-bold hover:bg-sky-50 hover:scale-105 lg:mx-0 mx-auto my-6 px-8 py-4 rounded-full text-black">
+                                class="bg-white border-2 border-black focus:outline-none focus:shadow-outline font-bold hover:bg-sky-50 hover:scale-105 lg:mx-0 mx-auto my-6 px-8 py-4 rounded-full text-black transform transition duration-300 ease-in-out">
                             Super Admin
                         </button>
                     </div>
