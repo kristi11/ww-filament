@@ -13,26 +13,26 @@ class BusinessInformationWidget extends BaseWidget
 {
     protected function getColumns(): int
     {
-        return 2;
+        return 4;
     }
 
     protected function getStats(): array
     {
         return [
             Stat::make('Appointments', Appointment::count())
-                ->description('The total number of appointments')
+                ->description('Number of appointments')
                 ->descriptionIcon('heroicon-o-calendar-days')
                 ->url('/admin/appointments'),
             Stat::make('Business hours', BusinessHour::count())
-                ->description('The number of days the business has set hours for')
+                ->description('Days that hours are set for')
                 ->descriptionIcon('heroicon-o-briefcase')
                 ->url('/admin/business-hours'),
             Stat::make('Images', Gallery::count())
-                ->description('The total number of services with images in the gallery')
+                ->description('Services with images')
                 ->descriptionIcon('heroicon-o-photo')
                 ->url('/admin/gallery'),
             Stat::make('Roles', Role::count())
-                ->description('The total number of user roles')
+                ->description('Number of user roles')
                 ->descriptionIcon('heroicon-o-user-circle')
                 ->url('/admin/shield/roles'),
         ];

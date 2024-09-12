@@ -28,7 +28,6 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
-use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\Pages\HealthCheckResults;
 
@@ -60,10 +59,12 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->navigationGroups(
                 [
-                    NavigationGroup::make('Business Information'),
-                    NavigationGroup::make('Socials'),
-                    NavigationGroup::make('Visuals'),
-                    NavigationGroup::make('Footer'),
+                    NavigationGroup::make('Business Information')->icon('heroicon-o-briefcase'),
+                    NavigationGroup::make('Socials')->icon('heroicon-o-user-circle'),
+                    NavigationGroup::make('Visuals')->icon('heroicon-o-photo'),
+                    NavigationGroup::make('Footer')->icon('heroicon-o-document-minus'),
+                    NavigationGroup::make('Shop')->icon('heroicon-o-building-storefront'),
+                    NavigationGroup::make('System')->icon('heroicon-o-settings')
                 ]
             )
             ->spa()
@@ -99,7 +100,7 @@ class AdminPanelProvider extends PanelProvider
                 SpotlightPlugin::make(),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->usingPage(HealthCheckResults::class),
-                FilamentShieldPlugin::make(),
+//                FilamentShieldPlugin::make(),
                 FilamentShieldPlugin::make()
                     ->gridColumns([
                         'default' => 1,
@@ -132,7 +133,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->databaseNotifications()//                ->profile(isSimple: false)
+            ->databaseNotifications()//->profile(isSimple: false)
             ;
     }
 

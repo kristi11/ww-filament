@@ -15,7 +15,6 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 
 class GalleryResource extends Resource
 {
@@ -126,18 +125,18 @@ class GalleryResource extends Resource
         ];
     }
 
-    public static function canCreate(): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
 }

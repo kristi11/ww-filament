@@ -105,6 +105,7 @@ return [
         public_path('storage/') => storage_path('app/public'),
         public_path('storage/hero/') => storage_path('app/hero'),
         public_path('gallery') => storage_path('app/gallery'),
+        public_path('product_image') => storage_path('app/product_image'),
     ],
 
 ];
