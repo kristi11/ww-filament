@@ -126,6 +126,7 @@ class HeroResource extends Resource
                             ->image()
                             ->imageEditor()
                             ->placeholder('Upload hero image')
+                            ->disk('DO-SPACES')
                             ->directory('hero')
                             ->visibility('public'),
                     ]),
@@ -155,7 +156,8 @@ class HeroResource extends Resource
                 ImageColumn::make('image')
                     ->circular()
                     ->label('Hero image')
-                    ->placeholder('No image'),
+                    ->placeholder('No image')
+                ->disk('DO-SPACES'),
                 TextColumn::make('mainQuote')
                     ->limit(20)
                     ->toggleable(isToggledHiddenByDefault: true),

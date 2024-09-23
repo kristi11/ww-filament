@@ -32,7 +32,7 @@
                 <div class="lg:col-span-1 lg:w-3/5 py-6 text-center hidden lg:block">
                     @if($hero->image)
                         <img class="mb-12 w-full z-50"
-                             src="{{ Storage::url($hero->image) }}"
+                             src="{{ Storage::disk('DO-SPACES')->url($hero->image) }}"
                              alt="{{config('app.name')}} hero image"
                         />
                     @endif
