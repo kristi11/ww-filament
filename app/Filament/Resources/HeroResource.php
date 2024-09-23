@@ -20,6 +20,8 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -111,8 +113,8 @@ class HeroResource extends Resource
                             ->type('color')
                             ->columnSpan(1),
                     ]),
-//                Section::make('Hero image')
-//                    ->schema([
+                Section::make('Hero image')
+                    ->schema([
 //                        Forms\Components\SpatieMediaLibraryFileUpload::make('image')
 //                            ->image()
 //                            ->imageEditor()
@@ -120,7 +122,13 @@ class HeroResource extends Resource
 //                            ->disk('s3-public')
 //                            ->directory('hero')
 //                            ->visibility('public'),
-//                    ]),
+                        Forms\Components\FileUpload::make('image')
+                            ->image()
+                            ->imageEditor()
+                            ->placeholder('Upload hero image')
+                            ->directory('hero')
+                            ->visibility('public'),
+                    ]),
 
                 Section::make('Hero waves')
                     ->schema([
@@ -144,6 +152,10 @@ class HeroResource extends Resource
 //                    ->circular()
 //                    ->label('Hero image')
 //                    ->placeholder('No image'),
+                ImageColumn::make('image')
+                    ->circular()
+                    ->label('Hero image')
+                    ->placeholder('No image'),
                 TextColumn::make('mainQuote')
                     ->limit(20)
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -288,13 +300,13 @@ class HeroResource extends Resource
         return !$recordExists;
     }
 
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
 }

@@ -16,10 +16,8 @@ class GuestHero extends Component
     public function render(): View
     {
         $hero = Hero::first();
-        $image = $hero->getFirstMedia('image');
         return view('livewire.public.guest-hero', [
             'hero' => Hero::first(),
-            'image' => $image,
             'publicHero' => PublicPage::where('hero', true)->first(),
             'social' => Social::first(),
         ]);

@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Hero extends Model implements HasMedia
+/**
+ * @method static first()
+ */
+class Hero extends Model
 {
     use HasFactory;
-    use InteractsWithMedia;
 
     protected $casts = [
         'id' => 'integer',
