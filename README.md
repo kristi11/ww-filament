@@ -247,25 +247,18 @@ MAIL_FROM_ADDRESS=your_email
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
-This app stores files in [Amazon s3](https://aws.amazon.com/s3/). If you want to
-use [Amazon s3](https://aws.amazon.com/s3/) you need to add the credentials to the `.env` file.
+This app uses DigitalOcean Spaces to store files. If you want to
+use [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces) you need to add the credentials to the `.env` file.
 
 ```
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_DEFAULT_REGION=your_region
-AWS_BUCKET=your-bucket-private
-AWS_BUCKET_PUBLIC=your-bucket-public
-AWS_USE_PATH_STYLE_ENDPOINT=false
+DO_SPACES_KEY=key
+DO_SPACES_SECRET=secret
+DO_SPACES_BUCKET=bucket-name
+DO_SPACES_REGION=region
+DO_SPACES_ENDPOINT=endpoint-that-is-provided-by-DigitalOcean
 ```
 
-For help setting up [Amazon s3](https://aws.amazon.com/s3/) you can check out
-this [tutorial](https://laracasts.com/series/multitenancy-in-practice/episodes/7)
-by [Kevin McKee](https://laracasts.com/browse/instructors/KevinMcKee), a [laracasts](https://laracasts.com/)
-instructor. This is a paid tutorial, but it's worth it. I learned a lot from it. And, No I'm not affiliated with
-[laracasts](https://laracasts.com/) in any way. If you're having trouble setting
-up [Amazon s3](https://aws.amazon.com/s3/) you can contact me, and
-I'll try to help you out. Or you can choose to use a different storage provider.
+Here's a [youtube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to set up Digital Ocean Spaces with Laravel.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
 
