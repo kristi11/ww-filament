@@ -157,7 +157,7 @@ class HeroResource extends Resource
                     ->circular()
                     ->label('Hero image')
                     ->placeholder('No image')
-                ->disk('DO-SPACES'),
+                    ->disk('DO-SPACES'),
                 TextColumn::make('mainQuote')
                     ->limit(20)
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -302,13 +302,13 @@ class HeroResource extends Resource
         return !$recordExists;
     }
 
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
 }

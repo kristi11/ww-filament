@@ -22,7 +22,7 @@ class HeroObserver
     {
         $originalImagePath = $hero->getOriginal('image');
         if ($hero->isDirty('image') && $originalImagePath !== null) {
-            Storage::disk('hero')->delete($originalImagePath);
+            Storage::disk('DO-SPACES')->delete($originalImagePath);
         }
     }
 
@@ -33,7 +33,7 @@ class HeroObserver
     {
         $originalImagePath = $hero->getOriginal('image');
         if ($hero->isDirty('image') && $originalImagePath !== null) {
-            Storage::disk('hero')->delete($originalImagePath);
+            Storage::disk('DO-SPACES')->delete($originalImagePath);
         }
     }
 
