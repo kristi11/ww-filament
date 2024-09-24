@@ -10,6 +10,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * @method static first()
+ * @method static exists()
  */
 class Hero extends Model
 {

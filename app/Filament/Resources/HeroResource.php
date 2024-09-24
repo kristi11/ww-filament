@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ColorEntry;
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
@@ -234,12 +235,22 @@ class HeroResource extends Resource
     {
         return $infolist
             ->schema([
-//                \Filament\Infolists\Components\Section::make('Hero image')
-//                    ->schema([
-//                        SpatieMediaLibraryImageEntry::make('image')
-//                            ->disk('hero')
-//                            ->placeholder('No image'),
-//                    ]),
+                \Filament\Infolists\Components\Section::make('Hero image')
+                    ->columns(1)
+                    ->schema([
+                        ImageEntry::make('image')
+                            ->disk('DO-SPACES')
+                            ->placeholder('No image')
+                            ->columnSpanFull()
+                            ->extraImgAttributes([
+                                'class' => 'rounded-lg',
+                                'loading' => 'lazy',
+                                'style' => 'object-fit: cover; object-position: center;
+                                width: 100%; height: 100%;
+                                transition: transform 0.2s ease-in-out; transition: filter 0.2s ease-in-out;
+                                ',
+                            ]),
+                    ]),
                 \Filament\Infolists\Components\Section::make('Hero quotes')
                     ->columns(2)
                     ->schema([
