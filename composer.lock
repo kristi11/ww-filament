@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e82d9abd06e499566448abeb7e59a29",
+    "content-hash": "2eb70314232c0509ac201d9fc48980df",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -774,6 +774,53 @@
                 }
             ],
             "time": "2023-12-11T17:09:12+00:00"
+        },
+        {
+            "name": "charrafimed/global-search-modal",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CharrafiMed/global-search-modal.git",
+                "reference": "147bca25e3c67479c4a92bad4fbcba0f1f1c992a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CharrafiMed/global-search-modal/zipball/147bca25e3c67479c4a92bad4fbcba0f1f1c992a",
+                "reference": "147bca25e3c67479c4a92bad4fbcba0f1f1c992a",
+                "shasum": ""
+            },
+            "require": {
+                "filament/support": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CharrafiMed\\GlobalSearchModal\\GlobalSearchModalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CharrafiMed\\GlobalSearchModal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CharrafiMed",
+                    "email": "charrafimohamed27@gmail.com"
+                }
+            ],
+            "description": "advanced global search modal",
+            "support": {
+                "issues": "https://github.com/CharrafiMed/global-search-modal/issues",
+                "source": "https://github.com/CharrafiMed/global-search-modal/tree/v3.3.0"
+            },
+            "time": "2024-09-23T16:02:49+00:00"
         },
         {
             "name": "composer/semver",

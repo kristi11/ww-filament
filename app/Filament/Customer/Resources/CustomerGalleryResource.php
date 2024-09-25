@@ -6,12 +6,14 @@ use App\Filament\Customer\Resources\CustomerGalleryResource\Pages;
 use App\Filament\Resources\GalleryResource;
 use App\Models\Gallery;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\Layout\Panel;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\TextColumn;
@@ -56,9 +58,9 @@ class CustomerGalleryResource extends Resource
                         ->icon('heroicon-o-cog')
                         ->tooltip('name')
                         ->searchable(),
-                    Tables\Columns\SpatieMediaLibraryImageColumn::make('image')
+                    ImageColumn::make('image')
                         ->placeholder('Service image')
-                        ->disk('gallery')
+                        ->disk('DO-SPACES')
                         ->visibility('public')
                         ->circular()
                         ->stacked()
@@ -98,16 +100,17 @@ class CustomerGalleryResource extends Resource
             ->schema([
                 Section::make('Images')
                     ->schema([
-                        SpatieMediaLibraryImageEntry::make('image')
+                        ImageEntry::make('image')
+                            ->disk('DO-SPACES')
                             ->visibility('public')
                             ->extraImgAttributes([
+                                'class' => 'rounded-lg',
                                 'loading' => 'lazy',
                                 'style' => 'object-fit: cover; object-position: center;
                                 width: 100%; height: 100%;
                                 transition: transform 0.2s ease-in-out; transition: filter 0.2s ease-in-out;
                                 ',
                             ])
-                            ->disk('gallery')
                             ->label(''),
                     ])
                     ->columns(1)

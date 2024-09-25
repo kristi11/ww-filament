@@ -13,6 +13,7 @@
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "bezhansalleh/filament-language-switch": "^3.0",
         "bezhansalleh/filament-shield": "^3.2",
+        "charrafimed/global-search-modal": "^3.3",
         "doctrine/dbal": "^3.8",
         "filament/actions": "^3.2",
         "filament/filament": "^3.2",

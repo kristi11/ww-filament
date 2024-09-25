@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Customer\Widgets\BusinessHoursWidget;
 use App\Filament\Customer\Widgets\ServicesWidget;
 use App\Filament\Customer\Widgets\SocialsWidget;
+use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -64,6 +65,10 @@ class CustomerPanelProvider extends PanelProvider
                 'business_hours' => BusinessHoursWidget::class,
             ])
             ->plugins([
+                GlobalSearchModalPlugin::make()
+                    ->slideOver()
+                    ->RetainRecentIfFavorite(true)
+                    ->associateItemsWithTheirGroups(),
                 ThemesPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(

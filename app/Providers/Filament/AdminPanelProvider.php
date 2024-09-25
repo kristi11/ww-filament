@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -78,6 +79,10 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                GlobalSearchModalPlugin::make()
+                    ->slideOver()
+                    ->RetainRecentIfFavorite(true)
+                    ->associateItemsWithTheirGroups(),
 //                FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
                 BreezyCore::make()
