@@ -18,6 +18,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property mixed $service_id
  * @property mixed $services
  * @property mixed $teamUser_id
+ * @property mixed $service
+ * @property mixed $user
+ * @property mixed $user_id
  */
 class Appointment extends Model
 {

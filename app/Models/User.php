@@ -16,6 +16,9 @@ use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @method static create(array $array)
+ * @method static whereHas(string $string, \Closure $param)
+ * @method static find(mixed $teamUser_id)
+ * @property mixed $id
  */
 class User extends Authenticatable implements FilamentUser
 {

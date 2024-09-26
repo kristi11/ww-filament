@@ -28,7 +28,7 @@ class GalleryObserver
                 // Loop through original images and delete any that don't exist in the updated images
                 foreach ($originalImages as $originalImage) {
                     if (!in_array($originalImage, $updatedImages)) {
-                        Storage::disk('gallery')->delete($originalImage);
+                        Storage::disk('DO-SPACES')->delete($originalImage);
                     }
                 }
             }
