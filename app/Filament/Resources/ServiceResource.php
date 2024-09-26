@@ -223,17 +223,20 @@ class ServiceResource extends Resource
                             ->prefix('$')
                             ->badge()
                             ->color(Color::Indigo)
-                            ->label('Price'),
+                            ->label('Price')
+                            ->placeholder('Price not set'),
                         TextEntry::make('estimated_hours')
                             ->label('Estimated Hours')
                             ->suffix(' hours')
                             ->badge()
-                            ->color(Color::Indigo),
+                            ->color(Color::Indigo)
+                            ->placeholder('Est. hours not set'),
                         TextEntry::make('estimated_minutes')
                             ->label('Estimated Minutes')
                             ->suffix(' minutes')
                             ->badge()
-                            ->color(Color::Indigo),
+                            ->color(Color::Indigo)
+                            ->placeholder('Est. minutes not set'),
                         TextEntry::make('description')
                             ->label('Description')
                             ->color(Color::Gray),
@@ -269,18 +272,18 @@ class ServiceResource extends Resource
         ];
     }
 
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canCreate(): bool
-    {
-        return false;
-    }
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
 }

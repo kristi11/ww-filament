@@ -6,6 +6,9 @@ use App\Models\Flexibility;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use App\Models\Service;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
@@ -15,7 +18,7 @@ class DisplayGuestServices extends Component
 {
     use WithPagination;
     use WithoutUrlPagination;
-    public function bookService()
+    public function bookService(): Application|Redirector|\Illuminate\Contracts\Foundation\Application|RedirectResponse
     {
         return redirect(url('dashboard/customer-appointments'));
     }
