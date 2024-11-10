@@ -189,9 +189,10 @@ To get started clone this repository.
    ```
 
 9. [WittyWorkflow](https:://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
-   to provide proper user roles. We need to generate the permissions for that package
+   to provide proper user roles. We need to setup the plugin and generate the permissions for that package
     ```
-    php artisan shield:generate --all
+    php artisan shield:setup --fresh
+    php artisan shield:generate --all --panel=admin
     ```
    and define the super admin of the system
     ```
@@ -227,7 +228,8 @@ composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate:fresh --seed
-php artisan shield:generate --all
+php artisan shield:setup --fresh
+php artisan shield:generate --all --panel=admin
 php artisan shield:super-admin --user="1"
 php artisan storage:link
 ```
