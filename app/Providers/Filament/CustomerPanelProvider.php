@@ -10,6 +10,7 @@ use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -64,6 +65,11 @@ class CustomerPanelProvider extends PanelProvider
                 'services' => ServicesWidget::class,
                 'business_hours' => BusinessHoursWidget::class,
             ])
+            ->navigationGroups(
+                [
+                    NavigationGroup::make('Shop')->icon('heroicon-o-building-storefront'),
+                ]
+            )
             ->plugins([
                 GlobalSearchModalPlugin::make()
                     ->slideOver()
@@ -73,8 +79,8 @@ class CustomerPanelProvider extends PanelProvider
                 BreezyCore::make()
                     ->myProfile(
                         shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = true)
-                        shouldRegisterNavigation: true, // Adds a main navigation item for the My Profile page (default = false)
-                        hasAvatars: false, // Sets the navigation group for the My Profile page (default = null)
+                        shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
+                        hasAvatars: true, // Sets the navigation group for the My Profile page (default = null)
                         slug: 'profile', // Enables the avatar upload form component (default = false)
                         navigationGroup: 'Settings' // Sets the slug for the profile page (default = 'my-profile')
                     )

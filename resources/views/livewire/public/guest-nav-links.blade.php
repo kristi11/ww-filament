@@ -29,22 +29,30 @@
                 class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
                 id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
-                    <li class="mr-3">
-                        <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                           href="#services">Services</a>
-                    </li>
-                    <li class="mr-3">
-                        <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                           href="#hours">Hours</a>
-                    </li>
-                    <li class="mr-3">
-                        <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                           href="#gallery">Gallery</a>
-                    </li>
-                    <li class="mr-3">
-                        <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                           href="#cta">Contact</a>
-                    </li>
+                    @if($services)
+                        <li class="mr-3">
+                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                               href="#services">Services</a>
+                        </li>
+                        @endif
+                        @if($hours)
+                            <li class="mr-3">
+                                <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                                   href="#hours">Hours</a>
+                            </li>
+                        @endif
+                    @if($shop)
+                        <li class="mr-3">
+                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                               href="#shop">Shop</a>
+                        </li>
+                    @endif
+                    @if($email)
+                        <li class="mr-3">
+                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                               href="#cta">Contact</a>
+                        </li>
+                    @endif
                 </ul>
 
             </div>

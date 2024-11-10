@@ -11,6 +11,7 @@ use App\Models\Flexibility;
 use App\Models\Help;
 use App\Models\Hero;
 use App\Models\Privacy;
+use App\Models\Product;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use App\Models\Service;
@@ -60,6 +61,9 @@ class DatabaseSeeder extends Seeder
         FAQdata::factory()->create(['user_id' => $admin->id]);
         Help::factory()->create(['user_id' => $admin->id]);
         Support::factory()->create(['user_id' => $admin->id]);
+        Product::factory(6)
+            ->hasVariants(3)
+            ->create();
     }
 
 }

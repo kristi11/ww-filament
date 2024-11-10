@@ -61,10 +61,10 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups(
                 [
                     NavigationGroup::make('Business Information')->icon('heroicon-o-briefcase'),
+                    NavigationGroup::make('Shop')->icon('heroicon-o-building-storefront'),
                     NavigationGroup::make('Socials')->icon('heroicon-o-user-circle'),
                     NavigationGroup::make('Visuals')->icon('heroicon-o-photo'),
                     NavigationGroup::make('Footer')->icon('heroicon-o-document-minus'),
-                    NavigationGroup::make('Shop')->icon('heroicon-o-building-storefront'),
                     NavigationGroup::make('System')->icon('heroicon-o-settings')
                 ]
             )
@@ -91,7 +91,7 @@ class AdminPanelProvider extends PanelProvider
                         // Sets the 'account' link in the panel User Menu (default = false)
                         shouldRegisterNavigation: false,
                         // Adds a main navigation item for the My Profile page (default = false)
-                        hasAvatars: false, // Sets the navigation group for the My Profile page (default = null)
+                        hasAvatars: true, // Sets the navigation group for the My Profile page (default = null)
                         slug: 'profile', // Enables the avatar upload form component (default = false)
                         navigationGroup: 'Settings' // Sets the slug for the profile page (default = 'my-profile')
 

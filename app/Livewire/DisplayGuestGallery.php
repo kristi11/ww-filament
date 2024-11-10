@@ -12,9 +12,9 @@ class DisplayGuestGallery extends Component
     public function render(): View
     {
         return view('livewire.display-guest-gallery',
-        [
-            'gallery' => PublicPage::where('gallery', true)->first(),
-            'background' => SectionColors::first(),
-        ]);
+            [
+                'gallery' => PublicPage::where('gallery', true)->first(),
+                'background' => SectionColors::first(),
+            ]);
     }
 }

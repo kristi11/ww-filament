@@ -6,6 +6,7 @@
     <livewire:display-socials/>
     <livewire:guest-login/>
     <livewire:display-guest-services/>
+    <livewire:guest-shop-display/>
     <livewire:display-guest-business-hours/>
     <livewire:display-guest-gallery/>
     </body>

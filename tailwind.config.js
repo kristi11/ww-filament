@@ -13,6 +13,11 @@ export default {
             ],
         },
     },
+    variants: {
+        extend: {
+            transform: ['hover', 'focus'],
+        },
+    },
     plugins: [
         typography,
     ],

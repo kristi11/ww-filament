@@ -57,7 +57,7 @@ class GalleryResource extends Resource
                             ->imageEditor()
                             ->placeholder('Upload service images')
                             ->multiple()
-                            ->disk('DO-SPACES')
+                            ->disk(config('filesystems.disks.STORAGE_DISK'))
                             ->directory('gallery')
                             ->visibility('public')
                             ->reorderable(),
@@ -75,7 +75,7 @@ class GalleryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
                 ImageColumn::make('image')
-                    ->disk('DO-SPACES')
+                    ->disk(config('filesystems.disks.STORAGE_DISK'))
                     ->circular()
                     ->stacked()
                     ->limit(3),
@@ -127,18 +127,18 @@ class GalleryResource extends Resource
         ];
     }
 
-    public static function canCreate(): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
 }

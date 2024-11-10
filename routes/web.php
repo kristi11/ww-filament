@@ -1,5 +1,10 @@
 <?php
 
+use App\Livewire\Cart;
+use App\Livewire\CheckoutStatus;
+use App\Livewire\ProductInfo;
+use App\Livewire\StoreFront;
+use App\Livewire\ViewOrder;
 use App\Models\About;
 use App\Models\Contact;
 use App\Models\FAQdata;
@@ -19,28 +24,57 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('publicPage');
+})->name('home');
+Route::middleware('public-page-check')->group(function () {
+
+    Route::get('/shop', StoreFront::class)->name('shop');
+
+    Route::get('/product/{product}', ProductInfo::class)->name('productInfo');
+
+    Route::get('/cart',Cart::class)->name('cart');
+
+    Route::get('/checkout-status',CheckoutStatus::class)->name('checkout-status');
+
+    Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
+
+    Route::get('/order/{orderId}',ViewOrder::class)->name('view-order');
+
+    Route::get('/faq', function () {
+        return view('footer.FAQ', ['faq' => FAQdata::get()]);
+    })->name('faq');
+
+    Route::get('/help', function () {
+        return view('footer.help', ['help' => Help::get()]);
+    })->name('help');
+
+    Route::get('/support', function () {
+        return view('footer.support', ['support' => Support::get()]);
+    })->name('support');
+
+    Route::get('/privacy', function () {
+        return view('footer.privacy', ['privacy' => Privacy::get()]);
+    })->name('privacy');
+
+    Route::get('/terms', function () {
+        return view('footer.terms', ['terms' => Terms::get()]);
+    })->name('terms');
+
+    Route::get('/contact', function () {
+        return view('footer.contact', ['contact' => Contact::get()]);
+    })->name('contact');
+
+    Route::get('/about', function () {
+        return view('footer.about', ['about' => About::get()]);
+    })->name('about');
+
 });
-Route::get('/faq', function () {
-    return view('footer.FAQ', ['faq' => FAQdata::get()]);
-})->name('faq');
-Route::get('/help', function () {
-    return view('footer.help', ['help' => Help::get()]);
-})->name('help');
-Route::get('/support', function () {
-    return view('footer.support', ['support' => Support::get()]);
-})->name('support');
-Route::get('/privacy', function () {
-    return view('footer.privacy', ['privacy' => Privacy::get()]);
-})->name('privacy');
-Route::get('/terms', function () {
-    return view('footer.terms', ['terms' => Terms::get()]);
-})->name('terms');
-Route::get('/contact', function () {
-    return view('footer.contact', ['contact' => Contact::get()]);
-})->name('contact');
-Route::get('/about', function () {
-    return view('footer.about', ['about' => About::get()]);
-})->name('about');
+//Route::middleware(['auth', 'auth.session'])->group(function () {
+//    Route::get('preview', function (){
+//        $order = \App\Models\Order::first();
+//        return new \App\Mail\OrderConfirmation($order);
+////        $cart = \App\Models\User::first()->cart;
+////        return new \App\Mail\AbandonedCartReminder($cart);
+//    });
+//});

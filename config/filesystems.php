@@ -57,6 +57,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'shop' => [
+            'driver' => 'local',
+            'root' => storage_path('app/shop'),
+            'url' => env('APP_URL').'/shop',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         'backups' => [
             'driver' => 'local',
             'root' => storage_path('app/backups'),
@@ -98,6 +105,8 @@ return [
             'use_path_style_endpoint' => env('DO_SPACES_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
+        // Change the storage disk name to your preferred disk name
+        'STORAGE_DISK' => env('STORAGE_DISK', 'public'),
 
     ],
 
@@ -116,6 +125,7 @@ return [
         public_path('storage/') => storage_path('app/public'),
         public_path('storage/hero/') => storage_path('app/hero'),
         public_path('gallery') => storage_path('app/gallery'),
+        public_path('storage/shop') => storage_path('app/shop'),
     ],
 
 ];

@@ -48,25 +48,28 @@ class PublicPageResource extends Resource
                     ->schema([
                         Forms\Components\Toggle::make('hero')
                             ->required()
-                            ->helperText('Enable/Disable the hero section on the public page.'),
+                            ->helperText('Enable/Disable the Hero section on the public page.'),
                         Forms\Components\Toggle::make('credentials')
                             ->required()
-                            ->helperText('Enable/Disable the login section on the public page.'),
+                            ->helperText('Enable/Disable the Login section on the public page.'),
                         Forms\Components\Toggle::make('services')
                             ->required()
-                            ->helperText('Enable/Disable the services section on the public page.'),
+                            ->helperText('Enable/Disable the Services section on the public page.'),
+                        Forms\Components\Toggle::make('shop')
+                            ->required()
+                            ->helperText('Enable/Disable the Shop section on the public page.'),
                         Forms\Components\Toggle::make('hours')
                             ->required()
-                            ->helperText('Enable/Disable the business hours section on the public page.'),
+                            ->helperText('Enable/Disable the Business hours section on the public page.'),
                         Forms\Components\Toggle::make('gallery')
                             ->required()
-                            ->helperText('Enable/Disable the gallery section on the public page.'),
+                            ->helperText('Enable/Disable the Gallery section on the public page.'),
                         Forms\Components\Toggle::make('email')
                             ->required()
                             ->helperText('Enable/Disable the Contact Us section on the public page.'),
                         Forms\Components\Toggle::make('footer')
                             ->required()
-                            ->helperText('Enable/Disable the footer section on the public page.'),
+                            ->helperText('Enable/Disable the Footer section on the public page.'),
                     ]),
             ]);
     }
@@ -83,6 +86,8 @@ class PublicPageResource extends Resource
                 Tables\Columns\IconColumn::make('credentials')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('services')
+                    ->boolean(),
+                Tables\Columns\IconColumn::make('shop')
                     ->boolean(),
                 Tables\Columns\IconColumn::make('hours')
                     ->boolean(),
@@ -141,12 +146,12 @@ class PublicPageResource extends Resource
     {
         return false;
     }
-
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
+//
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//
     public static function canCreate(): bool
     {
         $recordExists = PublicPage::exists();

@@ -17,6 +17,7 @@ class PublicPage extends Model
         'guestHero',
         'credentials',
         'services',
+        'shop',
         'hours',
         'gallery',
         'email',

@@ -41,7 +41,6 @@
 </div>
 
 
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -69,6 +68,12 @@
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li>
+      <a href="#known-issues">Known issues</a>
+      <ul>
+        <li><a href="#workaround">Workaround</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
 
@@ -115,7 +120,8 @@
 
 * **Business information:** Have full access on different aspects of your business including system users, section
   visibility, business services, announcements and much more...
-
+* **E-commerce:** TALL stack e-commerce shop. Stripe integration
+* **Shop panel control** Have control over the shop products and orders straight from you admin panel.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
@@ -262,7 +268,18 @@ Here's a [youtube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to 
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
 
+Add the Stripe credentials:
+```
+STRIPE_KEY=your-stripe-key
+STRIPE_SECRET=your-stripe-secret
+STRIPE_WEBHOOK_SECRET=your-stripe-webhook-secret
+```
+
+In your server whether that's locally or in production run `stripe login` to log in into stripe and then `stripe listen --forward-to {your url here}/stripe/webhook --format JSON`.
+
 Your application is now ready for use. Enjoy! To install it in production follow your servers specific needs.
+
+You can go to the app's [shop](https://wittyworkflow.com/shop) to make test purchases. You can enter card nr. `4242 4242 4242 4242`. Any 4 numbers for expiration date for example `03/11` and any 3 numbers for CVC code for example `111`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -393,7 +410,7 @@ Password: password
 To access the `customer dashboard` go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create
 an account
 
-<p align="right">(<a href="#configuration">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 
@@ -408,10 +425,9 @@ an account
 6. [x] Add Hero animations
 7. [x] Add footer resources to give users an easy way to add their policies, FAQ and other business related information
 8. [x] Add flash notifications and email notifications for appointment changes
-9. [ ] Add shop for purchases ( Thinking of [lunarPHP](https://lunarphp.io/) since it already has
-   a [filamentPHP](https://filamentphp.com/) admin dashboard)
+9. [x] Add shop for purchases
 10. [ ] Add more animated hero options the user can choose from
-11. [ ] Improve visuals (**ongoing effort**)
+11. [x] Improve visuals (**ongoing effort**)
 12. [ ] Add How to section showing the users how to use the app
 13. [ ] Add analytics to admin dashboard
 14. [ ] Improve SEO
@@ -426,7 +442,34 @@ an account
 19. [x] Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
     app is running
 
-<p align="right">(<a href="#roadmap">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ISSUES -->
+
+## Known issues
+
+The following are the known issues that need addressing and i hope that the community will step in and work on them:
+
+* `table actions throw Property type not supported in Livewire for property: [{"amount":"{amount here}","currency":"USD"}]`. I suspect it has to do with the fact that i have set up [Money](https://packagist.org/packages/moneyphp/money) plugin for sales since the shop is using the Money object for the item prices but filament also has a `money()` function that formats money so they maybe are interfering with each-other. The error occurs only on models that have the `protected $casts = [
+  'price' => MoneyCast::class,
+  ];` and only on the `edit` action on the filament panel so editing a product would throw the error.
+
+* Cart items don't get sent from session id to user_id if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
+
+* I've to fix the route to redirect to filament login page instead of a default laravel page when user is not logged in
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Workaround
+
+**2 Workarounds on the first issue are:**
+*     Whenever a product change needs to occur simply delete the product  and re-add it again
+*     Disable the `protected $casts = [
+           'price' => MoneyCast::class,
+           ];` to edit the product and enable it again.
+**These are just temporary workarounds until a solution is found**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 

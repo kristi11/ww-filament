@@ -60,7 +60,7 @@ class CustomerGalleryResource extends Resource
                         ->searchable(),
                     ImageColumn::make('image')
                         ->placeholder('Service image')
-                        ->disk('DO-SPACES')
+                        ->disk(config('filesystems.disks.STORAGE_DISK'))
                         ->visibility('public')
                         ->circular()
                         ->stacked()
@@ -101,7 +101,7 @@ class CustomerGalleryResource extends Resource
                 Section::make('Images')
                     ->schema([
                         ImageEntry::make('image')
-                            ->disk('DO-SPACES')
+                            ->disk(config('filesystems.disks.STORAGE_DISK'))
                             ->visibility('public')
                             ->extraImgAttributes([
                                 'class' => 'rounded-lg',

@@ -4,10 +4,20 @@ namespace App\Livewire;
 
 use App\Models\PublicPage;
 use App\Models\SectionColors;
+use Filament\Facades\Filament;
 use Livewire\Component;
 
 class GuestLogin extends Component
 {
+    public $customerPanelUrl;
+    public $teamPanelUrl;
+    public $adminPanelUrl;
+    public function mount()
+    {
+        $this->customerPanelUrl = Filament::getPanel('customer')->getUrl();
+        $this->teamPanelUrl = Filament::getPanel('team')->getUrl();
+        $this->adminPanelUrl = Filament::getPanel('admin')->getUrl();
+    }
     public function loginAsCustomer()
     {
         return redirect(url('dashboard/login'));

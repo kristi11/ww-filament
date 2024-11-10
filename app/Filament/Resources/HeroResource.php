@@ -6,6 +6,7 @@ use App\Enums\GradientTypes;
 use App\Filament\Resources\HeroResource\Pages;
 use App\Models\Hero;
 use Filament\Forms;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -93,26 +94,24 @@ class HeroResource extends Resource
                             ->suffix('%')
                             ->placeholder('Start degree of the hero gradient')
                             ->columnSpan(1),
-                        TextInput::make('gradientDegreeFirstColor')
+                        ColorPicker::make('gradientDegreeFirstColor')
                             ->required()
-                            ->maxLength(255)
                             ->suffixIcon('heroicon-s-swatch')
                             ->placeholder('First color of the hero gradient')
-                            ->type('color')
-                            ->columnSpan(1),
+                            ->columnSpan(1)
+                            ->regex('/^#([a-f0-9]{6}|[a-f0-9]{3})\b$/'),
                         TextInput::make('gradientDegreeEnd')
                             ->required()
                             ->numeric()
                             ->suffix('%')
                             ->placeholder('End degree of the hero gradient')
                             ->columnSpan(1),
-                        TextInput::make('gradientDegreeSecondColor')
+                        ColorPicker::make('gradientDegreeSecondColor')
                             ->required()
-                            ->maxLength(255)
                             ->suffixIcon('heroicon-s-swatch')
                             ->placeholder('Second color of the hero gradient')
-                            ->type('color')
-                            ->columnSpan(1),
+                            ->columnSpan(1)
+                            ->regex('/^#([a-f0-9]{6}|[a-f0-9]{3})\b$/'),
                     ]),
                 Section::make('Hero image')
                     ->schema([
@@ -127,7 +126,7 @@ class HeroResource extends Resource
                             ->image()
                             ->imageEditor()
                             ->placeholder('Upload hero image')
-                            ->disk('DO-SPACES')
+                            ->disk(config('filesystems.disks.STORAGE_DISK'))
                             ->directory('hero')
                             ->visibility('public'),
                     ]),
@@ -158,7 +157,7 @@ class HeroResource extends Resource
                     ->circular()
                     ->label('Hero image')
                     ->placeholder('No image')
-                    ->disk('DO-SPACES'),
+                    ->disk(config('filesystems.disks.STORAGE_DISK')),
                 TextColumn::make('mainQuote')
                     ->limit(20)
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -239,7 +238,7 @@ class HeroResource extends Resource
                     ->columns(1)
                     ->schema([
                         ImageEntry::make('image')
-                            ->disk('DO-SPACES')
+                            ->disk(config('filesystems.disks.STORAGE_DISK'))
                             ->placeholder('No image')
                             ->columnSpanFull()
                             ->extraImgAttributes([
@@ -313,13 +312,13 @@ class HeroResource extends Resource
         return !$recordExists;
     }
 
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
 }

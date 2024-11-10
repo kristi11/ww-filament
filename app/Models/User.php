@@ -4,13 +4,16 @@ namespace App\Models;
 use BezhanSalleh\FilamentShield\Traits\HasPanelShield;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -19,9 +22,11 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static whereHas(string $string, \Closure $param)
  * @method static find(mixed $teamUser_id)
  * @property mixed $id
+ * @property mixed $cart
  */
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
+    use Billable;
     use HasApiTokens;
     use HasFactory;
     use HasPanelShield;
@@ -41,6 +46,7 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
         'user_id',
+        'avatar_url'
     ];
 
     /**
@@ -63,6 +69,10 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
     ];
 
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar_url ? Storage::url($this->avatar_url) : null ;
+    }
     public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
@@ -87,11 +97,6 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasOne(Social::class);
     }
-
-    //    public function seo(): HasOne
-    //    {
-    //        return $this->hasOne(Seo::class);
-    //    }
 
     public function hero(): HasOne
     {
@@ -133,7 +138,7 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasOne(Support::class);
     }
 
-    public function publicPage(): HasOne
+    public function   publicPage(): HasOne
     {
         return $this->hasOne(PublicPage::class);
     }
@@ -141,6 +146,16 @@ class User extends Authenticatable implements FilamentUser
     public function sectionColors(): HasOne
     {
         return $this->hasOne(SectionColors::class);
+    }
+
+    public function cart(): HasOne
+    {
+        return $this->hasOne(Cart::class);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 
     /**

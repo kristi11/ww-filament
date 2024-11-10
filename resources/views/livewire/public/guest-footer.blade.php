@@ -1,7 +1,7 @@
 <div>
     <!--Footer-->
     @if($footer)
-        <footer class="{{ $background->footerBackgroundColor }}">
+        <footer class="{{ $background->footerBackgroundColor }} sticky bottom-0 z-50">
             <div class="container mx-auto px-8">
                 <div class="w-full flex flex-col md:flex-row py-6">
                     <div class="flex-1 mb-6 text-black">

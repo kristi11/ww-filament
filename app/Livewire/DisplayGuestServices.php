@@ -2,10 +2,14 @@
 
 namespace App\Livewire;
 
+use AllowDynamicProperties;
+use App\Filament\Customer\Resources\CustomerAppointmentResource;
+use App\Filament\Resources\AppointmentResource;
 use App\Models\Flexibility;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use App\Models\Service;
+use Filament\Facades\Filament;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
@@ -18,7 +22,9 @@ class DisplayGuestServices extends Component
 {
     use WithPagination;
     use WithoutUrlPagination;
-    public function bookService(): Application|Redirector|\Illuminate\Contracts\Foundation\Application|RedirectResponse
+
+
+    public function bookService()
     {
         return redirect(url('dashboard/customer-appointments'));
     }

@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->boolean('hero')->default(true);
             $table->boolean('credentials')->default(true);
             $table->boolean('services')->default(true);
+            $table->boolean('shop')->default(true);
             $table->boolean('hours')->default(true);
             $table->boolean('gallery')->default(true);
             $table->boolean('email')->default(true);

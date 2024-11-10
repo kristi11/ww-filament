@@ -18,6 +18,7 @@ class PublicPageFactory extends Factory
             'hero' => true,
             'credentials' => true,
             'services' => true,
+            'shop' => true,
             'hours' => true,
             'gallery' => true,
             'email' => true,

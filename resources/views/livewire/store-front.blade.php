@@ -1,0 +1,10 @@
+<div>
+    <livewire:guest-links/>
+    @guest
+        <livewire:shop-guest-nav/>
+    @endguest
+    @auth
+        <livewire:shop-auth-nav/>
+    @endauth
+    <livewire:shop-products/>
+</div>
