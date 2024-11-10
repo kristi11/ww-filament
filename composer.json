@@ -40,8 +40,7 @@
         "spatie/cpu-load-health-check": "^1.0",
         "spatie/laravel-backup": "^9.0",
         "spatie/laravel-medialibrary": "^11.9",
-        "spatie/security-advisories-health-check": "^1.1",
-        "ext-http":"*"
+        "spatie/security-advisories-health-check": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",

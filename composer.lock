@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a543b1a56715ac5755de98ea8bc92ed8",
+    "content-hash": "971709cf4f03467843a9c612e88e5dac",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -421,16 +421,16 @@
         },
         {
             "name": "bezhansalleh/filament-shield",
-            "version": "3.3.1",
+            "version": "3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bezhanSalleh/filament-shield.git",
-                "reference": "5e2fdecaf1a1ba8d18fed0a2adb8ac24eb0b5a45"
+                "reference": "38be83349bccb774c4365a174f52411c51622133"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bezhanSalleh/filament-shield/zipball/5e2fdecaf1a1ba8d18fed0a2adb8ac24eb0b5a45",
-                "reference": "5e2fdecaf1a1ba8d18fed0a2adb8ac24eb0b5a45",
+                "url": "https://api.github.com/repos/bezhanSalleh/filament-shield/zipball/38be83349bccb774c4365a174f52411c51622133",
+                "reference": "38be83349bccb774c4365a174f52411c51622133",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +496,7 @@
             ],
             "support": {
                 "issues": "https://github.com/bezhanSalleh/filament-shield/issues",
-                "source": "https://github.com/bezhanSalleh/filament-shield/tree/3.3.1"
+                "source": "https://github.com/bezhanSalleh/filament-shield/tree/3.3.2"
             },
             "funding": [
                 {
@@ -504,7 +504,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-09T23:04:21+00:00"
+            "time": "2024-11-10T16:38:21+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -13652,8 +13652,7 @@
     "platform": {
         "php": "^8.2",
         "ext-intl": "*",
-        "ext-pdo": "*",
-        "ext-http": "*"
+        "ext-pdo": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"
