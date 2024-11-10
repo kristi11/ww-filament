@@ -6,11 +6,14 @@ return [
         'slug' => 'shield/roles',
         'navigation_sort' => -1,
         'navigation_badge' => true,
-        'navigation_group' => false,
+        'navigation_group' => true,
         'is_globally_searchable' => false,
         'show_model_path' => true,
         'is_scoped_to_tenant' => true,
+        'cluster' => null,
     ],
+
+    'tenant_model' => null,
 
     'auth_provider_model' => [
         'fqcn' => 'App\\Models\\User',
@@ -21,11 +24,6 @@ return [
         'name' => 'super_admin',
         'define_via_gate' => false,
         'intercept_gate' => 'before', // after
-    ],
-
-    'team_user' => [
-        'enabled' => true,
-        'name' => 'team_user',
     ],
 
     'panel_user' => [
@@ -63,6 +61,7 @@ return [
     'generator' => [
         'option' => 'policies_and_permissions',
         'policy_directory' => 'Policies',
+        'policy_namespace' => 'Policies',
     ],
 
     'exclude' => [
@@ -86,7 +85,7 @@ return [
     ],
 
     'register_role_policy' => [
-        'enabled' => false,
+        'enabled' => true,
     ],
 
 ];

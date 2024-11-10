@@ -388,14 +388,14 @@ class RoleResource extends Resource implements HasShieldPermissions
 //    {
 //        return false;
 //    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canCreate(): bool
-    {
-        return false;
-    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
 }
