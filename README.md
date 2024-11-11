@@ -277,11 +277,15 @@ STRIPE_SECRET=your-stripe-secret
 STRIPE_WEBHOOK_SECRET=your-stripe-webhook-secret
 ```
 
-In your server whether that's locally or in production run `stripe login` to log in into stripe and then `stripe listen --forward-to {your url here}/stripe/webhook --format JSON`.
+#### The shop in [wittyworkflow website](https://wittyworkflow.com/shop) is in test mode so it might not work for production site purchases.
+
+In your local server (for testing purposes only) use [stripe-cli](https://docs.stripe.com/stripe-cli) and run `stripe login` to log in into stripe and then `stripe listen --forward-to {your url here}/stripe/webhook --format JSON` to listen to Stripe's webhook. Installation instructions for your local development environment will be in the stripe-cli link above
 
 Your application is now ready for use. Enjoy! To install it in production follow your servers specific needs.
 
-You can go to the app's [shop](https://wittyworkflow.com/shop) to make test purchases. You can enter card nr. `4242 4242 4242 4242`. Any 4 numbers for expiration date for example `03/11` and any 3 numbers for CVC code for example `111`
+To make test purchases in your local environment you can enter card nr. `4242 4242 4242 4242`. Any 4 numbers for expiration date for example `03/11` and any 3 numbers for CVC code for example `111`. This is stripe's testing card numbers
+
+### To enter Stripe's live mode you need to complete your business profile in [Stripe's dashboard](https://dashboard.stripe.com/test/dashboard) and change the API keys from _test_ to _live API keys_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -380,6 +384,8 @@ the `Appointment` model permissions and to give the `panel_user` `view` permissi
 and `view any` under the `Gallery` model permissions.
 
 ### Role explanation
+
+#### In order to use the Team role you need to create the role from the admin panel and the name of the role should be 'team_user' as it doesnt exist by default and then assign that role to a desired user. Multiple roles can be assigned to a user
 
 * `super_admin` = The super admin of the system
 * `team_user` = The team members of the system assigned by the Super Admin
