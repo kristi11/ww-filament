@@ -27,49 +27,50 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('publicPage');
 })->name('home');
-Route::middleware('public-page-check')->group(function () {
+Route::get('/shop', StoreFront::class)->name('shop');
 
-    Route::get('/shop', StoreFront::class)->name('shop');
+Route::get('/product/{product}', ProductInfo::class)->name('productInfo');
 
-    Route::get('/product/{product}', ProductInfo::class)->name('productInfo');
+Route::get('/cart',Cart::class)->name('cart');
 
-    Route::get('/cart',Cart::class)->name('cart');
+Route::get('/checkout-status',CheckoutStatus::class)->name('checkout-status');
 
-    Route::get('/checkout-status',CheckoutStatus::class)->name('checkout-status');
+Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
 
-    Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
+Route::get('/order/{orderId}',ViewOrder::class)->name('view-order');
 
-    Route::get('/order/{orderId}',ViewOrder::class)->name('view-order');
+Route::get('/faq', function () {
+    return view('footer.FAQ', ['faq' => FAQdata::get()]);
+})->name('faq');
 
-    Route::get('/faq', function () {
-        return view('footer.FAQ', ['faq' => FAQdata::get()]);
-    })->name('faq');
+Route::get('/help', function () {
+    return view('footer.help', ['help' => Help::get()]);
+})->name('help');
 
-    Route::get('/help', function () {
-        return view('footer.help', ['help' => Help::get()]);
-    })->name('help');
+Route::get('/support', function () {
+    return view('footer.support', ['support' => Support::get()]);
+})->name('support');
 
-    Route::get('/support', function () {
-        return view('footer.support', ['support' => Support::get()]);
-    })->name('support');
+Route::get('/privacy', function () {
+    return view('footer.privacy', ['privacy' => Privacy::get()]);
+})->name('privacy');
 
-    Route::get('/privacy', function () {
-        return view('footer.privacy', ['privacy' => Privacy::get()]);
-    })->name('privacy');
+Route::get('/terms', function () {
+    return view('footer.terms', ['terms' => Terms::get()]);
+})->name('terms');
 
-    Route::get('/terms', function () {
-        return view('footer.terms', ['terms' => Terms::get()]);
-    })->name('terms');
+Route::get('/contact', function () {
+    return view('footer.contact', ['contact' => Contact::get()]);
+})->name('contact');
 
-    Route::get('/contact', function () {
-        return view('footer.contact', ['contact' => Contact::get()]);
-    })->name('contact');
-
-    Route::get('/about', function () {
-        return view('footer.about', ['about' => About::get()]);
-    })->name('about');
-
-});
+Route::get('/about', function () {
+    return view('footer.about', ['about' => About::get()]);
+})->name('about');
+//Route::middleware('public-page-check')->group(function () {
+//
+//
+//
+//});
 //Route::middleware(['auth', 'auth.session'])->group(function () {
 //    Route::get('preview', function (){
 //        $order = \App\Models\Order::first();
