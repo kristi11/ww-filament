@@ -32,7 +32,8 @@
     ·
     <a href="https://github.com/kristi11/wittyworkflow/issues">Request Feature</a>
   </p>
-    <b>PLEASE DO KEEP IN MIND THAT THIS IS A NEW APP AND THERE WILL BE A LOT OF ROOM FOR IMPROVEMENT</b>
+
+# **!! This app is in active development !!**
 
 ### The app's CRUD functionality has been severally restricted in this [demonstration](https://wittyworkflow.com) app. Follow the below steps to activate CRUD functionality on the desired resources in order to achieve the desired functionality
 
@@ -76,8 +77,6 @@
     </li>
   </ol>
 </details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 
@@ -463,9 +462,10 @@ The following are the known issues that need addressing and i hope that the comm
   'price' => MoneyCast::class,
   ];` and only on the `edit` action on the filament panel so editing a product would throw the error.
 
-* Cart items don't get sent from session id to user_id if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
+* Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
-* I've to fix the route to redirect to filament login page instead of a default laravel page when user is not logged in
+* I've to fix the route to redirect to filament login page instead of a default laravel page when user is not logged in.
+* There's a bug where `panel_user` role is not assigned to customers.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
