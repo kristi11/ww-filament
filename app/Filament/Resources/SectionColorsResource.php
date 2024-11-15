@@ -63,6 +63,7 @@ class SectionColorsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->description('Use Tailwind css class names to set the section colors')
             ->columns([
                 TextColumn::make('loginBackgroundColor')
                     ->placeholder('No background color set'),
@@ -76,14 +77,14 @@ class SectionColorsResource extends Resource
                     ->placeholder('No background color set'),
                 TextColumn::make('footerBackgroundColor')
                     ->placeholder('No background color set'),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+//                TextColumn::make('created_at')
+//                    ->dateTime()
+//                    ->sortable()
+//                    ->toggleable(isToggledHiddenByDefault: true),
+//                TextColumn::make('updated_at')
+//                    ->dateTime()
+//                    ->sortable()
+//                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

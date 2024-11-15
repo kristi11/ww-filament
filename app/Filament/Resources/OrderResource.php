@@ -94,15 +94,15 @@ class OrderResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Action::make('openLink')
-                    ->label('')
-                    ->tooltip('View order')
-                    ->icon('heroicon-o-eye')
-                    ->action(fn ($record) => null)
-                    ->color('primary')
-                    ->url(fn ($record) => route('view-order', ['orderId' => $record->id]))
-                    ->openUrlInNewTab(),
+//                Tables\Actions\EditAction::make(),
+//                Action::make('openLink')
+//                    ->label('')
+//                    ->tooltip('View order')
+//                    ->icon('heroicon-o-eye')
+//                    ->action(fn ($record) => null)
+//                    ->color('primary')
+//                    ->url(fn ($record) => route('view-order', ['orderId' => $record->id]))
+//                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
