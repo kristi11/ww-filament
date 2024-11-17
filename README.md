@@ -121,7 +121,7 @@
   visibility, business services, announcements and much more...
 * **E-commerce:** TALL stack e-commerce shop. Stripe integration
 * **Shop panel control** Have control over the shop products and orders straight from you admin panel.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Built With
 
@@ -132,7 +132,7 @@ This section lists all major frameworks/libraries used to bootstrap this project
 * [![Tailwind CSS][tailwindcss.com]][tailwindcss-url]
 * [![Amazon s3][Amazon s3]][Amazon s3-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
@@ -287,7 +287,7 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 # Your application is now ready for use. Enjoy! To install it in production follow your servers specific needs.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Configuration
 
@@ -397,7 +397,7 @@ and `view any` under the `Gallery` model permissions.
 
 _For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 To access the `super-admin dashboard` go to the [Admin dashboard](https://wittyworkflow.com/admin/login) and enter the
 following credentials:
@@ -418,7 +418,7 @@ Password: password
 To access the `customer dashboard` go to the [Customer dashboard](https://wittyworkflow.com/dashboard/login) and create
 an account
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- ROADMAP -->
 
@@ -450,7 +450,7 @@ an account
 19. [x] Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
     app is running
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- ISSUES -->
 
@@ -464,7 +464,7 @@ The following are the known issues that need addressing and i hope that the comm
 
 * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Workaround
 
@@ -475,7 +475,7 @@ The following are the known issues that need addressing and i hope that the comm
            ];` to edit the product and enable it again.
 **These are just temporary workarounds until a solution is found**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -486,7 +486,7 @@ contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please contact me at `tanellari@gmail.com`
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
@@ -496,7 +496,7 @@ If you have a suggestion that would make this better, please contact me at `tane
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
@@ -508,7 +508,7 @@ Kristi Tanellari - [@TanellariKristi](https://twitter.com/TanellariKristi) - tan
 
 Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kristi11/wittyworkflow/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
@@ -527,7 +527,7 @@ I've included a few of my favorite links to kick things off!
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 
 
