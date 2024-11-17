@@ -464,9 +464,6 @@ The following are the known issues that need addressing and i hope that the comm
 
 * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
-* I've to fix the route to redirect to filament login page instead of a default laravel page when user is not logged in.
-* There's a bug where `panel_user` role is not assigned to customers in production server. Everything works as intended in local server
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Workaround
