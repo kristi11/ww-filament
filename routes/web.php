@@ -39,6 +39,8 @@ Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
 
 Route::get('/order/{orderId}',ViewOrder::class)->name('view-order');
 
+Route::redirect('/login', '/admin/login')->name('redirectedLogin');
+
 Route::get('/faq', function () {
     return view('footer.FAQ', ['faq' => FAQdata::get()]);
 })->name('faq');

@@ -45,7 +45,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-
+    protected function registered(Request $request, $user)
+    {
+        $user->assignRole('panel_user');
+    }
     /**
      * Bootstrap any application services.
      */

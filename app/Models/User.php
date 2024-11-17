@@ -185,8 +185,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return match ($panel->getId()) {
             'admin' => $this->hasRole('super_admin'),
             'team' => $this->hasRole('team_user'),
-//            'customer' => $this->hasRole('panel_user'),
-            default => true,
+            'customer' => $this->hasRole('panel_user'),
+            default => false,
         };
     }
 
@@ -215,12 +215,12 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return "$this->first_name $this->last_name";
     }
 
-    protected static function booted(): void
-    {
-        static::created(function (User $user) {
-            $user->assignRole('panel_user');
-        });
-    }
+//    protected static function booted(): void
+//    {
+//        static::created(function (User $user) {
+//            $user->assignRole('panel_user');
+//        });
+//    }
 
 //    protected static function booted(): void
 //    {
