@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Actions\Shop\CreateStripeCheckoutSession;
 use App\Factories\CartFactory;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Cart extends Component
@@ -17,6 +18,7 @@ class Cart extends Component
     }
 
     #[Computed]
+    #[On('productDeletedFromCart')]
     public function items()
     {
         return $this->cart->items;
@@ -24,11 +26,11 @@ class Cart extends Component
 
     public function increment($itemId)
     {
-        return $this->cart->items()->find($itemId)?->increment('quantity');
+        return $this->cart->items->find($itemId)?->increment('quantity');
     }
     public function decrement($itemId): void
     {
-        $item = $this->cart->items()->find($itemId);
+        $item = $this->cart->items->find($itemId);
         if ($item->quantity > 1){
             $item->decrement('quantity');
         }
