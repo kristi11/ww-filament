@@ -18,7 +18,7 @@
                 @php
                     $description = strip_tags($product->description);
                 @endphp
-                <article class="relative mx-2 my-4 md:mx-4 md:my-4 lg:mx-6 lg:my-6 group col-span-1 flex rounded-md max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
+                <article class="relative mx-4 my-4 md:mx-4 md:my-4 lg:mx-6 lg:my-6 group col-span-1 flex rounded-md max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-50 text-neutral-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
                     <a href="{{ route('productInfo', $product) }}" wire:navigate class="absolute inset-0 w-full h-full"></a>
                     <!-- Image -->
                     <div class="h-44 md:h-64 overflow-hidden">
