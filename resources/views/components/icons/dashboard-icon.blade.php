@@ -1,0 +1,3 @@
+<div>
+    <svg fill="#000000" width="80px" height="80px" viewBox="0 0 24 24" id="dashboard-alt" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg" class="icon flat-color" transform="rotate(270)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M2,8V4A2,2,0,0,1,4,2H20a2,2,0,0,1,2,2V8Zm14,2V22h4a2,2,0,0,0,2-2V10Z" style="fill: #000000;"></path><path id="secondary" d="M14,10H2V20a2,2,0,0,0,2,2H14Z" style="fill: #2ca9bc;"></path></g></svg>
+</div>

@@ -1,0 +1,3 @@
+<div>
+    <svg width="80px" height="80px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="24" cy="11" r="7" fill="#2F88FF" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></circle> <path d="M4 41C4 32.1634 12.0589 25 22 25" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> <circle cx="34" cy="34" r="9" fill="#2F88FF" stroke="#000000" stroke-width="4"></circle> <path d="M33 31V35H37" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+</div>
