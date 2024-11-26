@@ -68,16 +68,11 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('footer.about', ['about' => About::get()]);
 })->name('about');
-//Route::middleware('public-page-check')->group(function () {
-//
-//
-//
-//});
 //Route::middleware(['auth', 'auth.session'])->group(function () {
 //    Route::get('preview', function (){
 //        $order = \App\Models\Order::first();
 //        return new \App\Mail\OrderConfirmation($order);
-////        $cart = \App\Models\User::first()->cart;
-////        return new \App\Mail\AbandonedCartReminder($cart);
+//       $cart = \App\Models\User::first()->cart;
+//       return new \App\Mail\AbandonedCartReminder($cart);
 //    });
 //});

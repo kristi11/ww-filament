@@ -16,8 +16,8 @@ class ProductVariantFactory extends Factory
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'product_id' => $this->faker->randomNumber(),
-            'color' => $this->faker->randomElement(['blue', 'green', 'yellow', 'red']),
-            'size' => $this->faker->randomElement(['small', 'medium', 'large']),
+            'color' => $this->faker->randomElement(['Blue', 'Green', 'Yellow', 'Red']),
+            'size' => $this->faker->randomElement(['S', 'M', 'L']),
         ];
     }
 }

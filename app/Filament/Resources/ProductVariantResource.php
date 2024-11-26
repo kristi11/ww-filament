@@ -3,15 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductVariantResource\Pages;
-use App\Filament\Resources\ProductVariantResource\RelationManagers;
 use App\Models\ProductVariant;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProductVariantResource extends Resource
 {
@@ -24,19 +20,13 @@ class ProductVariantResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\Select::make('product_id')
-                    ->relationship('product', 'name')
-                    ->required(),
-                Forms\Components\TextInput::make('color')
-                    ->maxLength(255)
-                    ->default(null),
-                Forms\Components\TextInput::make('size')
-                    ->maxLength(255)
-                    ->default(null),
-            ]);
+            ->columns(2)
+            ->schema(ProductVariant::getForm());
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -55,9 +45,42 @@ class ProductVariantResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('color')
-                    ->searchable(),
+                    ->searchable()
+                    ->placeholder('N/A'),
                 Tables\Columns\TextColumn::make('size')
-                    ->searchable(),
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('corecount')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Core Count'),
+                Tables\Columns\TextColumn::make('graphiccardtype')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Graphic Card Type'),
+                Tables\Columns\TextColumn::make('memorysize')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Memory Size'),
+                Tables\Columns\TextColumn::make('dstorage')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Digital Storage'),
+                Tables\Columns\TextColumn::make('processortype')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Processor Type'),
+                Tables\Columns\TextColumn::make('enginevolume')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Engine Volume'),
+                Tables\Columns\TextColumn::make('material')
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('memorysize')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Memory Size'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -68,11 +91,17 @@ class ProductVariantResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('product')
+                ->relationship('product', 'name')
+                ->multiple()
+                ->searchable()
+                ->preload()
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                ->slideOver(),
+                ->slideOver()
+                ->label('')
+                ->tooltip('Edit product variant'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

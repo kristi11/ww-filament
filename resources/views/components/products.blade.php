@@ -1,11 +1,13 @@
 <div>
     <div class="flex justify-center my-20 md:m-10 lg:m-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div id="products" class="col-span-full flex justify-between mx-auto w-full px-6">
-                <h1 class="text-lg font-medium">
-                    Our products
-                </h1>
-                <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+            <div id="products" class="col-span-full flex justify-between mx-auto w-full px-6 gap-8">
+                <div class="col-span-1">
+                    <h1 class="text-lg font-medium">
+                        Our products
+                    </h1>
+                </div>
+                <div class="col-span-1">
                     <div class="relative flex w-full max-w-xs flex-col gap-1 text-neutral-600 dark:text-neutral-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="absolute left-2.5 top-1/2 size-5 -translate-y-1/2 text-neutral-600/50 dark:text-neutral-300/50">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -14,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            @foreach($this->product as $product)
+            @forelse($this->product as $product)
                 @php
                     $description = strip_tags($product->description);
                 @endphp
@@ -67,7 +69,14 @@
                         </p>
                     </div>
                 </article>
-            @endforeach
+                @empty
+                <div class="flex justify-center col-span-1 md:col-span-2 lg:col-span-3 m-10">
+                    <x-icons.empty-products/>
+                </div>
+                <div class="flex justify-center text-gray-400 col-span-1 md:col-span-2 lg:col-span-3">
+                    No products found with that name
+                </div>
+            @endforelse
             <div class="col-span-full mx-auto w-full px-6">
                 {{ $this->product->links() }}
             </div>

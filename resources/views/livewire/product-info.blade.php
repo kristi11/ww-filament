@@ -29,23 +29,24 @@
             <div class="text-xl text-gray-500"> {{$this->product->price }}</div>
             <div class="mt-4"> {!! $this->product->description !!}</div>
             <div class="mt-4 space-y-4">
-                <select wire:model="variant" class="block w-full rounded-lg border-0 py-1.5 p-3 pr-10 text-gray-800">
-                    <option value="" >Size</option>
-                    @foreach($this->product->variants as $variant)
-                        <option value="{{ $variant->id }}">{{ $variant->size }}</option>
-                    @endforeach
-                </select>
+
+                <x-variants.productVariant-size/>
+                <x-variants.product-variant-color/>
+                <x-variants.product-variant-material/>
+                <x-variants.product-variant-volume/>
+                <x-variants.product-variant-capacity/>
+                <x-variants.product-variant-style/>
+                <x-variants.product-variant-performance/>
+                <x-variants.product-variant-specs/>
+                <x-variants.product-variant-flavor/>
+                <x-variants.product-variant-brand/>
+                <x-variants.product-variant-processor-type/>
+                <x-variants.product-variant-core-count/>
+                <x-variants.product-variant-graphic-card-type/>
+
                 @error('variant')
                     <div class="text-red-600">{{ $message }}</div>
                 @enderror
-
-                <select class="block w-full rounded-lg border-0 py-1.5 p-3 pr-10 text-gray-800">
-                    <option value="" disabled selected>Color</option>
-                    @foreach($this->product->variants as $variant)
-                        <option value="{{ $variant->id }}">{{ $variant->color }}</option>
-                    @endforeach
-                </select>
-
                 @guest
                     <x-filament::button wire:click="customerLogin" wire:navigate class="uppercase">Login to Add to cart</x-filament::button>
                 @endguest

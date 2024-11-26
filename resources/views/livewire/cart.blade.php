@@ -17,20 +17,78 @@
             @auth()
                 <div class="sm:grid sm:grid-cols-4 gap-4">
                     <div class="sm:col-span-3">
-                        <div class="bg-white text-black sm:border-2 grid grid-cols-4 my-16 p-4 place-items-center sm:rounded-lg items-center">
+                        <div class="bg-white text-black sm:border-2 grid grid-cols-4 gap-8 my-16 p-4 place-items-center sm:rounded-lg items-center">
                             @if(count($this->items) > 0)
                                 @foreach($this->items as $item)
                                     <div class="col-span-1 p-3">
                                         {{$item->product->name}}
-                                        <div class="w-full flex">
-                                            <p
-                                                class="flex text-gray-800 text-xs pr-0.5">
-                                                {{$item->variant->size}}
-                                            </p>
-                                            <p
-                                                class="flex text-gray-800 text-xs pl-0.5">
-                                                {{$item->variant->color}}
-                                            </p>
+                                        <div class="w-full">
+                                            @if($item->variant->size)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Size: '.$item->variant->size}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->color)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Color: '.$item->variant->color->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->corecount)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Core count: '.$item->variant->corecount->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->dstorage)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Digital storage: '.$item->variant->dstorage->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->enginevolume)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Engine volume: '.$item->variant->enginevolume->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->graphiccardtype)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Graphic card type: '.$item->variant->graphiccardtype->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->material)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Material: '.$item->variant->material->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->memorysize)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Memory size: '.$item->variant->memorysize->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->processortype)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Processor type: '.$item->variant->processortype->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->atyle)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'style: '.$item->variant->atyle->getLabel()}}
+                                                </p>
+                                            @endif
+                                            @if($item->variant->volume)
+                                                <p
+                                                    class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{'Volume: '.$item->variant->volume->getLabel()}}
+                                                </p>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-span-1 p-3">
