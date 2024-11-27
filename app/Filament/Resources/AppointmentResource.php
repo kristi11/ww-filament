@@ -18,6 +18,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class AppointmentResource extends Resource
 {
@@ -319,6 +320,17 @@ class AppointmentResource extends Resource
                     ]),
             ]);
 
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Client name' => $record->user->name,
+            'Client email' => $record->user->email,
+            'Appointment date' => $record->date,
+            'Appointment time' => $record->time,
+            'Appointment status' => $record->status,
+        ];
     }
 
     public static function getNavigationBadge(): ?string

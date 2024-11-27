@@ -28,6 +28,8 @@ class AddressResource extends Resource
 
     protected static ?string $slug = 'address';
 
+    protected static ?string $recordTitleAttribute = 'street';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -119,6 +121,16 @@ class AddressResource extends Resource
                 ]),
             ])
             ->paginated(false);
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'street' => $record->street,
+            'city' => $record->city,
+            'state' => $record->state,
+            'zip' => $record->zip,
+        ];
     }
 
     public static function getRelations(): array

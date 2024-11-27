@@ -19,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class TeamAppointmentsResource extends Resource
 {
@@ -27,6 +28,8 @@ class TeamAppointmentsResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
 
     protected static ?string $pluralModelLabel = 'Appointments';
+
+    protected static ?string $recordTitleAttribute = 'client_name';
 
     public static function form(Form $form): Form
     {
@@ -306,6 +309,17 @@ class TeamAppointmentsResource extends Resource
                     ]),
             ]);
 
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Client name' => $record->user->name,
+            'Client email' => $record->user->email,
+            'Appointment date' => $record->date,
+            'Appointment time' => $record->time,
+            'Appointment status' => $record->status,
+        ];
     }
 
     public static function getRelations(): array
