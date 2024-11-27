@@ -394,8 +394,8 @@ class RoleResource extends Resource implements HasShieldPermissions
         return false;
     }
 
-    public static function canCreate(): bool
-    {
-        return false;
-    }
+//    public static function canCreate(): bool
+//    {
+//        return false;
+//    }
 }

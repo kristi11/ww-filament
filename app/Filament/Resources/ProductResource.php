@@ -21,6 +21,8 @@ class ProductResource extends Resource
 
     protected static ?string $navigationGroup = 'Shop';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -103,6 +105,7 @@ class ProductResource extends Resource
             ->filters([
                 //
             ])
+            ->searchable()
             ->actions([
 //                Tables\Actions\EditAction::make(),
 //                Tables\Actions\ViewAction::make()

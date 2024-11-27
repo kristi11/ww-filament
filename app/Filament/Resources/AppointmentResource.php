@@ -214,7 +214,11 @@ class AppointmentResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('teamUser_id')
-                    ->relationship('teamUser', 'name')
+                    ->relationship('teamUser', 'name', function ($query) {
+                        return $query->whereHas('roles', function ($query) {
+                            $query->where('name', 'team_user');
+                        });
+                    })
                     ->label('Appointment with'),
                 Tables\Filters\SelectFilter::make('service_id')
                     ->relationship('service', 'name')
