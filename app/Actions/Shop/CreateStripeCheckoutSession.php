@@ -80,6 +80,30 @@ class CreateStripeCheckoutSession
                 $descriptionItems[] = "Volume: {$item->variant->volume->getLabel()}";
             }
 
+            if (!is_null($item->variant->age)) {
+                $descriptionItems[] = "Age: {$item->variant->age->getLabel()}";
+            }
+
+            if (!is_null($item->variant->pattern)) {
+                $descriptionItems[] = "Pattern: {$item->variant->pattern->getLabel()}";
+            }
+
+            if (!is_null($item->variant->weight)) {
+                $descriptionItems[] = "Weight: {$item->variant->weight->getLabel()}";
+            }
+
+            if (!is_null($item->variant->length)) {
+                $descriptionItems[] = "Length: {$item->variant->length->getLabel()}";
+            }
+
+            if (!is_null($item->variant->finish)) {
+                $descriptionItems[] = "Finish: {$item->variant->finish->getLabel()}";
+            }
+
+            if (!is_null($item->variant->gender)) {
+                $descriptionItems[] = "Gender: {$item->variant->gender->getLabel()}";
+            }
+
             // Convert array to string, with items separated by " - "
             $description = implode(" - ", $descriptionItems);
            return [

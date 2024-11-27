@@ -43,6 +43,13 @@
                 <x-variants.product-variant-processor-type/>
                 <x-variants.product-variant-core-count/>
                 <x-variants.product-variant-graphic-card-type/>
+                <x-variants.product-variant-age/>
+                <x-variants.product-variant-pattern/>
+                <x-variants.product-variant-weight/>
+                <x-variants.product-variant-length/>
+                <x-variants.product-variant-finish/>
+                <x-variants.product-variant-gender/>
+
 
                 @error('variant')
                     <div class="text-red-600">{{ $message }}</div>

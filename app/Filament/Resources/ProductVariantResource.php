@@ -50,6 +50,24 @@ class ProductVariantResource extends Resource
                 Tables\Columns\TextColumn::make('size')
                     ->searchable()
                     ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('age')
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('pattern')
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('weight')
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('length')
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('finish')
+                    ->searchable()
+                    ->placeholder('N/A'),
+                Tables\Columns\TextColumn::make('gender')
+                    ->searchable()
+                    ->placeholder('N/A'),
                 Tables\Columns\TextColumn::make('corecount')
                     ->searchable()
                     ->placeholder('N/A')
