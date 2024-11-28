@@ -78,6 +78,9 @@ class CustomerGalleryResource extends Resource
             ->filters([
                 SelectFilter::make('author')->relationship('service', 'name')
             ])
+            ->emptyStateHeading('No images yet')
+            ->emptyStateDescription('No images have been added to the gallery yet')
+            ->emptyStateIcon('heroicon-o-rectangle-stack')
             ->actions([
                 Tables\Actions\ViewAction::make()
                     ->label('View service images')

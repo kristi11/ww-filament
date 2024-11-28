@@ -103,6 +103,9 @@ class GalleryResource extends Resource
                     ->tooltip('Edit'),
             ])
             ->paginated(false)
+            ->emptyStateHeading('No images yet')
+            ->emptyStateDescription('Try adding a few images to your gallery')
+            ->emptyStateIcon('heroicon-o-rectangle-stack')
             ->bulkActions([
                 BulkActionGroup::make([
 //                    Tables\Actions\DeleteBulkAction::make()

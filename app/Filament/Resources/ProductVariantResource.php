@@ -7,6 +7,7 @@ use App\Models\ProductVariant;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 
 class ProductVariantResource extends Resource
@@ -17,7 +18,7 @@ class ProductVariantResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $recordTitleAttribute = 'size';
+    protected static ?string $recordTitleAttribute = 'product.name';
 
     public static function form(Form $form): Form
     {
@@ -43,9 +44,6 @@ class ProductVariantResource extends Resource
                     ->limitedRemainingText(isSeparate: true)
                     ->checkFileExistence(false)
                 ->label('Image'),
-                Tables\Columns\TextColumn::make('product.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('color')
                     ->searchable()
                     ->placeholder('N/A'),
@@ -54,53 +52,67 @@ class ProductVariantResource extends Resource
                     ->placeholder('N/A'),
                 Tables\Columns\TextColumn::make('age')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('pattern')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('weight')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('length')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('finish')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('gender')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('corecount')
                     ->searchable()
                     ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Core Count'),
                 Tables\Columns\TextColumn::make('graphiccardtype')
                     ->searchable()
                     ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Graphic Card Type'),
                 Tables\Columns\TextColumn::make('memorysize')
                     ->searchable()
                     ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Memory Size'),
                 Tables\Columns\TextColumn::make('dstorage')
                     ->searchable()
                     ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Digital Storage'),
                 Tables\Columns\TextColumn::make('processortype')
                     ->searchable()
                     ->placeholder('N/A')
-                    ->label('Processor Type'),
+                    ->label('Processor Type')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('enginevolume')
                     ->searchable()
                     ->placeholder('N/A')
-                    ->label('Engine Volume'),
+                    ->label('Engine Volume')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('material')
                     ->searchable()
-                    ->placeholder('N/A'),
+                    ->placeholder('N/A')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('memorysize')
                     ->searchable()
                     ->placeholder('N/A')
-                    ->label('Memory Size'),
+                    ->label('Memory Size')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -110,6 +122,7 @@ class ProductVariantResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->columnToggleFormMaxHeight('350px')
             ->filters([
                 Tables\Filters\SelectFilter::make('product')
                 ->relationship('product', 'name')
@@ -117,6 +130,8 @@ class ProductVariantResource extends Resource
                 ->searchable()
                 ->preload()
             ])
+            ->defaultGroup('product.name')
+            ->groups(['size', 'age', 'weight'])
             ->actions([
                 Tables\Actions\EditAction::make()
                 ->slideOver()
