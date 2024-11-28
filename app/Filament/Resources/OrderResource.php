@@ -127,7 +127,10 @@ class OrderResource extends Resource
         ];
     }
 
-
+    public static function getNavigationBadge(): ?string
+    {
+        return Order::count();
+    }
 
         public static function canEdit(Model $record): bool
     {
