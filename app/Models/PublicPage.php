@@ -12,6 +12,7 @@ class PublicPage extends Model
 {
     use HasFactory;
 
+    public mixed $shop;
     protected $fillable = [
         'user_id',
         'guestHero',

@@ -10,11 +10,9 @@ class PublicPageAccessCheck
 {
     public function handle(Request $request, Closure $next)
     {
-        // Get the PublicPage instance based on the logged-in user or public settings (user_id = 0 for public settings)
-        $userId = auth()->check() ? auth()->id() : 0;  // Use logged-in user's ID or 0 for public settings
-
-        // Fetch the PublicPage settings for this user or public settings (user_id = 0)
-        $publicPage = PublicPage::where('user_id', $userId)->first();
+        // Fetch the PublicPage settings
+        $publicPage = PublicPage::where('shop', true)  // this checks the 'shop' column in the PublicPage model
+            ->first();
 
         // If no PublicPage instance is found for this user (or public settings), return 404
         if (!$publicPage) {
