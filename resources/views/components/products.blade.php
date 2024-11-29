@@ -61,7 +61,7 @@
                                 {{--                                </div>--}}
                             </div>
                             <span class="text-xl"><span class="sr-only">Price</span>
-                                {{ $product->price }}
+                                {{ '$'.$product->price }}
                             </span>
                         </div>
                         <p id="productDescription" class="mb-2 text-pretty text-sm">
