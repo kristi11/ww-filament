@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use Money\Currency;
+use Money\Money;
 
 class CartItems extends Model
 {
@@ -20,11 +22,20 @@ class CartItems extends Model
         'quantity',
     ];
 
+//    protected function subtotal(): Attribute
+//    {
+//        return Attribute::make(
+//            get: function (){
+//                return $this->product->price->multiply($this->quantity);
+//            }
+//        );
+//    }
     protected function subtotal(): Attribute
     {
         return Attribute::make(
             get: function (){
-                return $this->product->price->multiply($this->quantity);
+                $priceInCents = $this->product->price * 100;
+                return new Money($priceInCents * $this->quantity, new Currency('USD'));
             }
         );
     }

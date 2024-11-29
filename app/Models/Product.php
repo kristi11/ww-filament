@@ -12,7 +12,7 @@ class Product extends Model
     use HasFactory;
     protected $casts = [
         'image' => 'array',
-        'price' => MoneyCast::class,
+        'price' => 'int',
     ];
 
     protected $fillable = [
@@ -21,6 +21,16 @@ class Product extends Model
         'image',
         'price',
     ];
+
+    function setPriceAttribute($value)
+    {
+        $this->attributes['price'] = $value*100; // convert the price to cents before saving to the database
+    }
+
+    function getPriceAttribute($value)
+    {
+        return $value/100; // convert the price from cents when retrieving from the database
+    }
 
     public function variants(): HasMany
     {

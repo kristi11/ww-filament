@@ -109,7 +109,7 @@ class CreateStripeCheckoutSession
            return [
                 'price_data' => [
                     'currency' => 'USD',
-                    'unit_amount' => $item->product->price->getAmount(),
+                    'unit_amount' => $item->product->price * 100,
                     'product_data' => [
                         'name' => $item->product->name,
                         'description' => $description,

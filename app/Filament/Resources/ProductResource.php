@@ -11,7 +11,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Model;
 
 class ProductResource extends Resource
 {
@@ -30,12 +29,15 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)
-                    ->prefixIcon('heroicon-o-user'),
+                    ->prefixIcon('heroicon-o-user')
+                    ->hint('
+            What will you name your product. Maybe choose a catchy name that would appeal to the customer'),
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
+                    ->step(0.01) // Allow 2 decimal places for cents
                     ->prefixIcon('heroicon-o-currency-dollar')
-                    ->hint('Price should be inserted in cents. (Ex. $1 = 100)'),
+                    ->hint('Price should be inserted in dollars with up to two decimal places for cents. (Ex. $1.99 = 1.99)'),
                 RichEditor::make('description')
                     ->required()
                     ->columnSpanFull()
@@ -92,7 +94,8 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('price')
                     ->sortable()
                     ->badge()
-                    ->color('primary'),
+                    ->color('primary')
+                    ->prefix('$'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -107,9 +110,13 @@ class ProductResource extends Resource
             ])
             ->searchable()
             ->actions([
-//                Tables\Actions\EditAction::make(),
-//                Tables\Actions\ViewAction::make()
-//                ->slideOver(),
+                Tables\Actions\ViewAction::make()
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('View details'),
+                Tables\Actions\EditAction::make()
+                    ->label('')
+                    ->tooltip('Edit product'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -144,10 +151,10 @@ class ProductResource extends Resource
 //        return false;
 //    }
 
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
 
 //    public static function canDelete(Model $record): bool
 //    {
