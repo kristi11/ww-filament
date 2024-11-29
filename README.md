@@ -458,22 +458,12 @@ an account
 
 The following are the known issues that need addressing and i hope that the community will step in and work on them:
 
-* `table actions throw Property type not supported in Livewire for property: [{"amount":"{amount here}","currency":"USD"}]`. I suspect it has to do with the fact that i have set up [Money](https://packagist.org/packages/moneyphp/money) plugin for sales since the shop is using the Money object for the item prices but filament also has a `money()` function that formats money so they maybe are interfering with each-other. The error occurs only on models that have the `protected $casts = [
-  'price' => MoneyCast::class,
-  ];` and only on the `edit` action on the filament panel so editing a product would throw the error.
-
 * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Workaround
 
-**2 Workarounds on the first issue are:**
-*     Whenever a product change needs to occur simply delete the product  and re-add it again
-*     Disable the `protected $casts = [
-           'price' => MoneyCast::class,
-           ];` to edit the product and enable it again.
-**These are just temporary workarounds until a solution is found**
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
