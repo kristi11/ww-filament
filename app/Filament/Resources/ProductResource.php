@@ -8,6 +8,9 @@ use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -122,6 +125,40 @@ class ProductResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                \Filament\Infolists\Components\Section::make("Product images")
+                    ->columns(1)
+                    ->schema([
+                        ImageEntry::make('image')
+                            ->disk(config('filesystems.disks.STORAGE_DISK'))
+                            ->placeholder('No image')
+                            ->columnSpanFull()
+                            ->extraImgAttributes([
+                                'class' => 'rounded-lg',
+                                'loading' => 'lazy',
+                                'style' => 'object-fit: cover; object-position: center;
+                                width: 100%; height: 100%;
+                                transition: transform 0.2s ease-in-out; transition: filter 0.2s ease-in-out;
+                                ',
+                            ]),
+                    ]),
+                TextEntry::make('name')
+                    ->label('Product Name'),
+
+                TextEntry::make('price')
+                    ->label('Product Price')
+                    ->prefix('$'),
+
+                TextEntry::make('description')
+                    ->label('Product Description')
+                    ->html()
+                ->columnSpanFull(),
             ]);
     }
 
