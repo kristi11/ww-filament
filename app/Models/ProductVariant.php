@@ -69,17 +69,6 @@ class ProductVariant extends Model
     public static function getForm():array
     {
         return [
-            Section::make('Product name')
-                ->columns(1)
-                ->schema([
-                    Select::make('product_id')
-                        ->relationship('product', 'name')
-                        ->required()
-                        ->columnSpanFull()
-                        ->required()
-                        ->helperText(str("The name of the project that's being updated")->inlineMarkdown()->toHtmlString())
-                        ->prefixIcon('heroicon-s-shopping-bag'),
-                ]),
             Section::make('General variants')
                 ->columns(2)
                 ->description('These are commonly used product variants. Choose only the variants applicable to the product')

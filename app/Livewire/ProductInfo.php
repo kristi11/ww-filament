@@ -31,6 +31,14 @@ class ProductInfo extends Component
             }
         );
     }
+
+    /**
+     * Adds a product variant to the cart after validating the request and dispatches notifications.
+     *
+     * @param  AddProductVariantToCart  $cart  The cart instance to which the variant will be added.
+     *
+     * @return void
+     */
     public function addToCart(AddProductVariantToCart $cart): void
     {
         $this->validate();
