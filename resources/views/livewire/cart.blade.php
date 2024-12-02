@@ -23,72 +23,11 @@
                                     <div class="col-span-1 p-3">
                                         {{$item->product->name}}
                                         <div class="w-full">
-                                            @if($item->variant->size)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Size: '.$item->variant->size}}
+                                            @foreach ($this->renderAttributes($item->variant) as $label)
+                                                <p class="flex text-gray-800 text-xs pr-0.5">
+                                                    {{ $label }}
                                                 </p>
-                                            @endif
-                                            @if($item->variant->color)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Color: '.$item->variant->color->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->corecount)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Core count: '.$item->variant->corecount->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->dstorage)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Digital storage: '.$item->variant->dstorage->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->enginevolume)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Engine volume: '.$item->variant->enginevolume->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->graphiccardtype)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Graphic card type: '.$item->variant->graphiccardtype->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->material)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Material: '.$item->variant->material->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->memorysize)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Memory size: '.$item->variant->memorysize->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->processortype)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Processor type: '.$item->variant->processortype->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->atyle)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'style: '.$item->variant->atyle->getLabel()}}
-                                                </p>
-                                            @endif
-                                            @if($item->variant->volume)
-                                                <p
-                                                    class="flex text-gray-800 text-xs pr-0.5">
-                                                    {{'Volume: '.$item->variant->volume->getLabel()}}
-                                                </p>
-                                            @endif
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="col-span-1 p-3">

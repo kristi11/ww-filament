@@ -8,7 +8,7 @@
     @endauth
 <livewire:guest-notificaiton/>
     <div class="grid grid:cols-1 lg:grid-cols-2 gap-10 justify-center mx-4 my-20 md:m-10 lg:m-20 bg-gray-50">
-        @if($this->product->image !== null)
+        @if($this->product->image)
             <div class="space-y-4" x-data="{ image: '{{Storage::disk(config('filesystems.disks.STORAGE_DISK'))->url($this->product->image[0])}}'}">
                 <div class="bg-white p-6 rounded shadow">
                     <img x-bind:src="image" alt="{{ $this->product->name }}"/>
@@ -26,29 +26,30 @@
         @endif
         <div>
             <h1 class="text-3xl font-medium">{{ $this->product->name }}</h1>
-            <div class="text-xl text-gray-500"> {{$this->product->price }}</div>
+            <div class="text-xl text-gray-500"> {{'$'.$this->product->price }}</div>
             <div class="mt-4"> {!! $this->product->description !!}</div>
             <div class="mt-4 space-y-4">
 
-                <x-variants.productVariant-size/>
-                <x-variants.product-variant-color/>
-                <x-variants.product-variant-material/>
-                <x-variants.product-variant-volume/>
-                <x-variants.product-variant-capacity/>
-                <x-variants.product-variant-style/>
-                <x-variants.product-variant-performance/>
-                <x-variants.product-variant-specs/>
-                <x-variants.product-variant-flavor/>
-                <x-variants.product-variant-brand/>
-                <x-variants.product-variant-processor-type/>
-                <x-variants.product-variant-core-count/>
-                <x-variants.product-variant-graphic-card-type/>
-                <x-variants.product-variant-age/>
-                <x-variants.product-variant-pattern/>
-                <x-variants.product-variant-weight/>
-                <x-variants.product-variant-length/>
-                <x-variants.product-variant-finish/>
-                <x-variants.product-variant-gender/>
+                <x-variants.content/>
+{{--                <x-variants.productVariant-size/>--}}
+{{--                <x-variants.product-variant-color/>--}}
+{{--                <x-variants.product-variant-material/>--}}
+{{--                <x-variants.product-variant-volume/>--}}
+{{--                <x-variants.product-variant-capacity/>--}}
+{{--                <x-variants.product-variant-style/>--}}
+{{--                <x-variants.product-variant-performance/>--}}
+{{--                <x-variants.product-variant-specs/>--}}
+{{--                <x-variants.product-variant-flavor/>--}}
+{{--                <x-variants.product-variant-brand/>--}}
+{{--                <x-variants.product-variant-processor-type/>--}}
+{{--                <x-variants.product-variant-core-count/>--}}
+{{--                <x-variants.product-variant-graphic-card-type/>--}}
+{{--                <x-variants.product-variant-age/>--}}
+{{--                <x-variants.product-variant-pattern/>--}}
+{{--                <x-variants.product-variant-weight/>--}}
+{{--                <x-variants.product-variant-length/>--}}
+{{--                <x-variants.product-variant-finish/>--}}
+{{--                <x-variants.product-variant-gender/>--}}
 
 
                 @error('variant')

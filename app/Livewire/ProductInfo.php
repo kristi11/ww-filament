@@ -31,7 +31,6 @@ class ProductInfo extends Component
             }
         );
     }
-
     /**
      * Adds a product variant to the cart after validating the request and dispatches notifications.
      *
