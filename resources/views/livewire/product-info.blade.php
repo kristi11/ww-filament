@@ -29,29 +29,7 @@
             <div class="text-xl text-gray-500"> {{'$'.$this->product->price }}</div>
             <div class="mt-4"> {!! $this->product->description !!}</div>
             <div class="mt-4 space-y-4">
-
                 <x-variants.content/>
-{{--                <x-variants.productVariant-size/>--}}
-{{--                <x-variants.product-variant-color/>--}}
-{{--                <x-variants.product-variant-material/>--}}
-{{--                <x-variants.product-variant-volume/>--}}
-{{--                <x-variants.product-variant-capacity/>--}}
-{{--                <x-variants.product-variant-style/>--}}
-{{--                <x-variants.product-variant-performance/>--}}
-{{--                <x-variants.product-variant-specs/>--}}
-{{--                <x-variants.product-variant-flavor/>--}}
-{{--                <x-variants.product-variant-brand/>--}}
-{{--                <x-variants.product-variant-processor-type/>--}}
-{{--                <x-variants.product-variant-core-count/>--}}
-{{--                <x-variants.product-variant-graphic-card-type/>--}}
-{{--                <x-variants.product-variant-age/>--}}
-{{--                <x-variants.product-variant-pattern/>--}}
-{{--                <x-variants.product-variant-weight/>--}}
-{{--                <x-variants.product-variant-length/>--}}
-{{--                <x-variants.product-variant-finish/>--}}
-{{--                <x-variants.product-variant-gender/>--}}
-
-
                 @error('variant')
                     <div class="text-red-600">{{ $message }}</div>
                 @enderror
