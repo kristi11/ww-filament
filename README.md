@@ -52,9 +52,9 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-<li>
-    <a href="#key-features">Key features</a>
-</li>
+    <li>
+        <a href="#key-features">Key features</a>
+    </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -62,7 +62,13 @@
       </ul>
     </li>
     <li><a href="#command_list">Command list</a></li>
-    <li><a href="#configuration">Configuration</a></li>
+    <li>
+      <a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#add-variants">Adding variants</a></li>
+      </ul>
+    </li>
+    <li><a href=""></a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -390,6 +396,22 @@ and `view any` under the `Gallery` model permissions.
 * `super_admin` = The super admin of the system
 * `team_user` = The team members of the system assigned by the Super Admin
 * `panel_user` = The panel for the customers
+
+<!-- Adding variants -->
+### Adding variants
+
+**There are quite a few steps you need to take to add/edit/delete variants and i'll walk you through all of them:**
+
+* Create migration to `add/edit/delete` database variants.
+* Update the `ProductVariant.php` factory if needed. As of now only the `size` and `color` variants are assigned on the initial database seed just to keep things simple.
+* Add the`Enum` for the newly created variant in `App/Enums`. To keep things simple, the enum can be named the same name as the database column but you can name it whatever you want.
+* Update the `getForm()` function in `ProductVariant.php` model, add/edit/delete the desired variants.
+* Update the `$table` function in `ProductVariantResource.php`, add/edit/delete the desired variants.
+* Update the `$variantAttributes` in `<x-variants.content/>` blade component, add/edit/delete the desired variants.
+* Update the `generateDescriptionItems()` function in `CreateStripeCheckoutSession.php`, add/edit/delete the desired variants. This action, changes the varinats in `view-order.blade.php` and `order-confirmation.blade.php` .
+* Update the `renderAttributes()` function in the `Cart.php` livewire component, add/edit/delete the desired variants.
+
+**If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 
 <!-- USAGE EXAMPLES -->
 
