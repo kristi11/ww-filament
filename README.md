@@ -413,6 +413,8 @@ and `view any` under the `Gallery` model permissions.
 
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
+
 <!-- USAGE EXAMPLES -->
 
 ## Usage
