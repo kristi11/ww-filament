@@ -65,7 +65,7 @@
     <li>
       <a href="#configuration">Configuration</a>
       <ul>
-        <li><a href="#add-variants">Adding variants</a></li>
+        <li><a href="#adding-variants">Adding variants</a></li>
       </ul>
     </li>
     <li><a href=""></a></li>
@@ -398,7 +398,7 @@ and `view any` under the `Gallery` model permissions.
 * `panel_user` = The panel for the customers
 
 <!-- Adding variants -->
-### Adding variants
+### adding-variants
 
 **There are quite a few steps you need to take to add/edit/delete variants and i'll walk you through all of them:**
 
