@@ -398,7 +398,7 @@ and `view any` under the `Gallery` model permissions.
 * `panel_user` = The panel for the customers
 
 <!-- Adding variants -->
-### adding-variants
+### Adding variants
 
 **There are quite a few steps you need to take to add/edit/delete variants and i'll walk you through all of them:**
 
