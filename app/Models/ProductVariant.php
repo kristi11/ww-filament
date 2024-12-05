@@ -31,22 +31,6 @@ class ProductVariant extends Model
 
     protected $guarded = [];
 
-//    protected $fillable = [
-//        'product_id',
-//        'material',
-//        'dstorage',
-//        'enginevolume',
-//        'style',
-//        'performance',
-//        'specs',
-//        'flavor',
-//        'brand',
-//        'processortype',
-//        'corecount',
-//        'graphiccardtype',
-//        'memorysize'
-//    ];
-
     protected $casts = [
         'color' => Colors::class,
         'corecount' => Corecount::class,

@@ -70,7 +70,6 @@ class AppServiceProvider extends ServiceProvider
         Appointment::observe(AppointmentObserver::class);
         Product::observe(ProductsObserver::class);
         Hero::observe(HeroObserver::class);
-        Model::unguard();
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
                 ->locales(['ar','en','fr']);
