@@ -29,21 +29,22 @@ class HandleCheckoutSessionCompleted
                 'amount_total' => $session->amount_total,
                 'billing_address' => [
                     'name' => $session->customer_details->name,
-                    'city' => $session->customer_details->address->city,
-                    'country' => $session->customer_details->address->country,
                     'line1' => $session->customer_details->address->line1,
                     'line2' => $session->customer_details->address->line2,
-                    'postal_code' => $session->customer_details->address->postal_code,
+                    'city' => $session->customer_details->address->city,
                     'state' => $session->customer_details->address->state,
+                    'country' => $session->customer_details->address->country,
+                    'postal_code' => $session->customer_details->address->postal_code,
                 ],
                 'shipping_address' => [
                     'name' => $session->shipping_details->name,
-                    'city' => $session->shipping_details->address->city,
-                    'country' => $session->shipping_details->address->country,
                     'line1' => $session->shipping_details->address->line1,
                     'line2' => $session->shipping_details->address->line2,
-                    'postal_code' => $session->shipping_details->address->postal_code,
+                    'city' => $session->shipping_details->address->city,
                     'state' => $session->shipping_details->address->state,
+                    'country' => $session->shipping_details->address->country,
+                    'postal_code' => $session->shipping_details->address->postal_code,
+
                 ]
             ]);
             $lineItems = Cashier::stripe()->checkout->sessions->allLineItems($session->id);

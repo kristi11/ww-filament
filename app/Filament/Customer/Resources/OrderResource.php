@@ -71,37 +71,53 @@ class OrderResource extends Resource
                     ->prefix('#')
                     ->badge()
                     ->color(Color::Slate),
-                Tables\Columns\TextColumn::make('user.name')
-                    ->label('User name'),
                 Tables\Columns\TextColumn::make('items.name')
-                    ->sortable()
                     ->label("Item('s) name"),
                 Tables\Columns\TextColumn::make('totalQuantity')
+                    ->badge()
+                    ->color(Color::Indigo)
                     ->label('Total items ordered'),
                 Tables\Columns\TextColumn::make('amount_shipping')
                     ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo)
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('amount_discount')
                     ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo)
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('amount_tax')
                     ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo)
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('amount_subtotal')
                     ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo)
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('amount_total')
-                    ->sortable(),
+                    ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo),
+                Tables\Columns\TextColumn::make('shipping_address')
+                    ->sortable()
+                    ->badge()
+                    ->color(Color::Indigo)
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true)
-                    ->label('Time ordered'),
+                    ->badge()
+                    ->color(Color::Indigo)
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true)
-                    ->label('Time order updated'),
+                    ->badge()
+                    ->color(Color::Indigo)
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
