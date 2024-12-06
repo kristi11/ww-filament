@@ -163,7 +163,7 @@ class UserResource extends Resource
         ];
     }
 
-    public static function canEdit(Model $record): bool
+//    public static function canEdit(Model $record): bool
 //    {
 //        return false;
 //    }
