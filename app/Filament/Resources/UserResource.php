@@ -164,9 +164,9 @@ class UserResource extends Resource
     }
 
     public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
+//    {
+//        return false;
+//    }
 
     public static function canDelete(Model $record): bool
     {
