@@ -384,10 +384,10 @@ class RoleResource extends Resource implements HasShieldPermissions
             ->columnSpan(FilamentShieldPlugin::get()->getCheckboxListColumnSpan());
     }
 
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
 
     public static function canDelete(Model $record): bool
     {
