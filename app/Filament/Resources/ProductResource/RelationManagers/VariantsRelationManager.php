@@ -79,6 +79,31 @@ class VariantsRelationManager extends RelationManager
                     ->placeholder('N/A')
                     ->label('Memory Size')
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('model_number')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Model number')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('dimensions')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Dimensions')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('operating_system')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Operating system')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('battery_capacity')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Battery capacity')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('screen_resolution')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Screen resolution')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

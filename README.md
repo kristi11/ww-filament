@@ -407,9 +407,9 @@ and `view any` under the `Gallery` model permissions.
 * Add the`Enum` for the newly created variant in `App/Enums`. To keep things simple, the enum can be named the same name as the database column but you can name it whatever you want.
 * Update the `getForm()` function in `ProductVariant.php` model, add/edit/delete the desired variants.
 * Update the `$table` function in `ProductVariantResource.php`, add/edit/delete the desired variants.
-* Update the `$variantAttributes` in `<x-variants.content/>` blade component, add/edit/delete the desired variants.
-* Update the `generateDescriptionItems()` function in `CreateStripeCheckoutSession.php`, add/edit/delete the desired variants. This action, changes the varinats in `view-order.blade.php` and `order-confirmation.blade.php` .
-* Update the `renderAttributes()` function in the `Cart.php` livewire component, add/edit/delete the desired variants.
+* Update the `$table` function in `VariationsRelationManager.php`, add/edit/delete the desired variants.
+* Add/Update/Delete desired values inside `config/enums.php`.
+* Update '$casts' on the `ProductVariant.php` model
 
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 

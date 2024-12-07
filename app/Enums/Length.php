@@ -12,8 +12,15 @@ enum Length: string
     case FLOOR_LENGTH = 'Floor Length';
     case CROPPED = 'Cropped';
 
-    public function getLabel(): ?string
-    {
-        return $this->name;
+    public function getLabel(): string {
+        return match($this) {
+            self::SHORT => 'Short',
+            self::REGULAR => 'Regular',
+            self::LONG => 'Long',
+            self::KNEE_LENGTH => 'Knee Length',
+            self::ANKLE_LENGTH => 'Ankle Length',
+            self::FLOOR_LENGTH => 'Floor Length',
+            self::CROPPED => 'Cropped',
+        };
     }
 }

@@ -1,23 +1,6 @@
 <?php
 namespace App\Actions\Shop;
 
-use App\Enums\Age;
-use App\Enums\Colors;
-use App\Enums\CoreCount;
-use App\Enums\DStorage;
-use App\Enums\EngineVolume;
-use App\Enums\Finish;
-use App\Enums\Gender;
-use App\Enums\GraphicCardType;
-use App\Enums\Length;
-use App\Enums\Material;
-use App\Enums\MemorySize;
-use App\Enums\OutfitSizes;
-use App\Enums\Patterns;
-use App\Enums\ProcessorType;
-use App\Enums\Style;
-use App\Enums\Volume;
-use App\Enums\Weight;
 use App\Models\Cart;
 use App\Models\CartItems;
 use Illuminate\Database\Eloquent\Collection;
@@ -70,38 +53,18 @@ class CreateStripeCheckoutSession
             ];
         })->toArray();
     }
-
     private function generateDescriptionItems(CartItems $item): array
     {
-        $attributes = [
-            'size' => OutfitSizes::class,
-            'color' => Colors::class,
-            'corecount' => CoreCount::class,
-            'material' => Material::class,
-            'enginevolume' => EngineVolume::class,
-            'dstorage' => DStorage::class,
-            'graphiccardtype' => GraphicCardType::class,
-            'memorysize' => MemorySize::class,
-            'processortype' => ProcessorType::class,
-            'style' => Style::class,
-            'volume' => Volume::class,
-            'age' => Age::class,
-            'pattern' => Patterns::class,
-            'weight' => Weight::class,
-            'length' => Length::class,
-            'finish' => Finish::class,
-            'gender' => Gender::class,
-        ];
-
+        $enumMappings = config('enums', []); // Load the enum mappings with a default to avoid null
         $descriptionItems = [];
 
-        foreach ($attributes as $attribute => $enumClass) {
+        foreach ($enumMappings as $attribute => $enumClass) {
             $value = $item->variant->$attribute;
 
             if ($value instanceof $enumClass) {
-                $descriptionItems[] = ucfirst($attribute).": {$value->getLabel()}";
+                $descriptionItems[] = ucfirst($attribute) . ": {$value->getLabel()}";
             } elseif (!is_null($value)) {
-                $descriptionItems[] = ucfirst($attribute).": $value";
+                $descriptionItems[] = ucfirst($attribute) . ": $value";
             }
         }
 

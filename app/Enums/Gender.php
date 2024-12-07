@@ -9,8 +9,12 @@ enum Gender: string
     case UNISEX = 'Unisex';
     case KIDS = 'Kids';
 
-    public function getLabel(): ?string
-    {
-        return $this->name;
+    public function getLabel(): string {
+        return match($this) {
+            self::MALE => 'Male',
+            self::FEMALE => 'Female',
+            self::UNISEX => 'Unisex',
+            self::KIDS => 'Kids',
+        };
     }
 }

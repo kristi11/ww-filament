@@ -181,12 +181,12 @@ class HeroResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 ColorColumn::make('gradientDegreeFirstColor')
                     ->copyable()
-                    ->copyMessage('Color code copied')
+                    ->copyMessage('color code copied')
                     ->copyMessageDuration(1500)
                     ->tooltip('Click to copy color code'),
                 ColorColumn::make('gradientDegreeSecondColor')
                     ->copyable()
-                    ->copyMessage('Color code copied')
+                    ->copyMessage('color code copied')
                     ->copyMessageDuration(1500)
                     ->tooltip('Click to copy color code'),
                 IconColumn::make('waves')
@@ -279,12 +279,12 @@ class HeroResource extends Resource
                     ->schema([
                         ColorEntry::make('gradientDegreeFirstColor')
                             ->copyable()
-                            ->copyMessage('Color code copied')
+                            ->copyMessage('color code copied')
                             ->copyMessageDuration(1500)
                             ->tooltip('Click to copy color code'),
                         ColorEntry::make('gradientDegreeSecondColor')
                             ->copyable()
-                            ->copyMessage('Color code copied')
+                            ->copyMessage('color code copied')
                             ->copyMessageDuration(1500)
                             ->tooltip('Click to copy color code'),
                     ]),

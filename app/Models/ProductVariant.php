@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Enums\Age;
-use App\Enums\Colors;
+use App\Enums\BatteryCapacity;
+use App\Enums\color;
 use App\Enums\CoreCount;
+use App\Enums\Dimensions;
 use App\Enums\DStorage;
 use App\Enums\EngineVolume;
 use App\Enums\Finish;
@@ -13,17 +15,24 @@ use App\Enums\GraphicCardType;
 use App\Enums\Length;
 use App\Enums\Material;
 use App\Enums\MemorySize;
+use App\Enums\ModelNumber;
+use App\Enums\OperatingSystem;
 use App\Enums\OutfitSizes;
-use App\Enums\Patterns;
+use App\Enums\Pattern;
 use App\Enums\ProcessorType;
+use App\Enums\ScreenResolution;
 use App\Enums\Style;
 use App\Enums\Volume;
 use App\Enums\Weight;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class ProductVariant extends Model
 {
@@ -32,22 +41,54 @@ class ProductVariant extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'color' => Colors::class,
+        'color' => Color::class,
+        'outfitsizes' => Outfitsizes::class,
+        'material' => Material::class,
         'corecount' => Corecount::class,
         'dstorage' => DStorage::class,
         'enginevolume' => EngineVolume::class,
         'graphiccardtype' => GraphicCardType::class,
-        'material' => Material::class,
         'memorysize' => Memorysize::class,
-        'outfitsizes' => Outfitsizes::class,
         'processortype' => ProcessorType::class,
         'style' => Style::class,
         'volume' => Volume::class,
+        'weight' => Weight::class,
+        'length' => Length::class,
+        'finish' => Finish::class,
+        'gender' => Gender::class,
+        'model_number' => ModelNumber::class,
+        'operating_system' => OperatingSystem::class,
+        'screen_resolution' => ScreenResolution::class,
+        'battery_capacity' => BatteryCapacity::class,
+        'dimensions' => Dimensions::class,
+        'age' => Age::class,
+        'pattern' => Pattern::class,
     ];
 
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public static function getVariantAttributes(): array
+    {
+        // Get all columns from the 'product_variants' table
+        $columns = Schema::getColumnListing('product_variants');
+
+        // Define columns to exclude
+        $excludedColumns = ['id', 'product_id', 'created_at', 'updated_at'];
+
+        // Filter out the excluded columns
+        $columns = array_diff($columns, $excludedColumns);
+
+        // Map columns to display names
+        $variantAttributes = [];
+        foreach ($columns as $column) {
+            // Convert column name to display format (e.g., 'color' to 'color')
+            $variantAttributes[$column] = Str::title(str_replace('_', ' ', $column));
+        }
+
+        return $variantAttributes;
     }
 
     public static function getForm():array
@@ -59,8 +100,8 @@ class ProductVariant extends Model
                 ->schema([
                     Select::make('color')
                         ->preload()
-                        ->enum(Colors::class)
-                        ->options(Colors::class)
+                        ->enum(Color::class)
+                        ->options(Color::class)
                         ->columnSpan(1),
                     Select::make('size')
                         ->preload()
@@ -81,8 +122,8 @@ class ProductVariant extends Model
                         ->label('Age'),
                     Select::make('pattern')
                         ->preload()
-                        ->enum(Patterns::class)
-                        ->options(Patterns::class)
+                        ->enum(Pattern::class)
+                        ->options(Pattern::class)
                         ->columnSpan(1)
                         ->label('Pattern'),
                     Select::make('weight')
@@ -146,6 +187,36 @@ class ProductVariant extends Model
                         ->options(ProcessorType::class)
                         ->columnSpan(1)
                         ->label('Processor type'),
+                    Select::make('model_number')
+                        ->preload()
+                        ->enum(ModelNumber::class)
+                        ->options(ModelNumber::class)
+                        ->columnSpan(1)
+                        ->label('Model number'),
+                    Select::make('dimensions')
+                        ->preload()
+                        ->enum(Dimensions::class)
+                        ->options(Dimensions::class)
+                        ->columnSpan(1)
+                        ->label('Dimensions'),
+                    Select::make('operating_system')
+                        ->preload()
+                        ->enum(OperatingSystem::class)
+                        ->options(OperatingSystem::class)
+                        ->columnSpan(1)
+                        ->label('Operating system'),
+                    Select::make('battery_capacity')
+                        ->preload()
+                        ->enum(BatteryCapacity::class)
+                        ->options(BatteryCapacity::class)
+                        ->columnSpan(1)
+                        ->label('Battery capacity'),
+                    Select::make('screen_resolution')
+                        ->preload()
+                        ->enum(ScreenResolution::class)
+                        ->options(ScreenResolution::class)
+                        ->columnSpan(1)
+                        ->label('Screen resolution'),
                 ])
                 ->collapsed()
                 ->icon('heroicon-m-cpu-chip'),
@@ -159,12 +230,6 @@ class ProductVariant extends Model
                         ->options(EngineVolume::class)
                         ->columnSpan(1)
                         ->label('Engine volume'),
-                    Select::make('memorysize')
-                        ->preload()
-                        ->enum(MemorySize::class)
-                        ->options(MemorySize::class)
-                        ->columnSpan(1)
-                        ->label('Memory size'),
                 ])->collapsed(),
         ];
     }

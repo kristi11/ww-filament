@@ -7,7 +7,8 @@ use App\Models\ProductVariant;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Actions\Action;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class ProductVariantResource extends Resource
@@ -34,7 +35,7 @@ class ProductVariantResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('product.image')
+                ImageColumn::make('product.image')
                     ->circular()
                     ->stacked()
                     ->ring(3)
@@ -44,80 +45,105 @@ class ProductVariantResource extends Resource
                     ->limitedRemainingText(isSeparate: true)
                     ->checkFileExistence(false)
                 ->label('Image'),
-                Tables\Columns\TextColumn::make('color')
+                TextColumn::make('color')
                     ->searchable()
                     ->placeholder('N/A'),
-                Tables\Columns\TextColumn::make('size')
+                TextColumn::make('size')
                     ->searchable()
                     ->placeholder('N/A'),
-                Tables\Columns\TextColumn::make('age')
+                TextColumn::make('age')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('pattern')
+                TextColumn::make('pattern')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('weight')
+                TextColumn::make('weight')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('length')
+                TextColumn::make('length')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('finish')
+                TextColumn::make('finish')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('gender')
+                TextColumn::make('gender')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('corecount')
+                TextColumn::make('corecount')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Core Count'),
-                Tables\Columns\TextColumn::make('graphiccardtype')
+                TextColumn::make('graphiccardtype')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Graphic Card Type'),
-                Tables\Columns\TextColumn::make('memorysize')
+                TextColumn::make('memorysize')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Memory Size'),
-                Tables\Columns\TextColumn::make('dstorage')
+                TextColumn::make('dstorage')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Digital Storage'),
-                Tables\Columns\TextColumn::make('processortype')
+                TextColumn::make('processortype')
                     ->searchable()
                     ->placeholder('N/A')
                     ->label('Processor Type')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('enginevolume')
+                TextColumn::make('enginevolume')
                     ->searchable()
                     ->placeholder('N/A')
                     ->label('Engine Volume')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('material')
+                TextColumn::make('material')
                     ->searchable()
                     ->placeholder('N/A')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('memorysize')
+                TextColumn::make('memorysize')
                     ->searchable()
                     ->placeholder('N/A')
                     ->label('Memory Size')
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('model_number')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Model number')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('dimensions')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Dimensions')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('operating_system')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Operating system')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('battery_capacity')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Battery capacity')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('screen_resolution')
+                    ->searchable()
+                    ->placeholder('N/A')
+                    ->label('Screen resolution')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

@@ -67,29 +67,12 @@ class Cart extends Component
 
     public function renderAttributes($variant): array
     {
-        $attributes = [
-            'size' => \App\Enums\OutfitSizes::class,
-            'color' => \App\Enums\Colors::class,
-            'corecount' => \App\Enums\CoreCount::class,
-            'dstorage' => \App\Enums\DStorage::class,
-            'enginevolume' => \App\Enums\EngineVolume::class,
-            'graphiccardtype' => \App\Enums\GraphicCardType::class,
-            'material' => \App\Enums\Material::class,
-            'memorysize' => \App\Enums\MemorySize::class,
-            'processortype' => \App\Enums\ProcessorType::class,
-            'style' => \App\Enums\Style::class,
-            'volume' => \App\Enums\Volume::class,
-            'pattern' => \App\Enums\Patterns::class,
-            'weight' => \App\Enums\Weight::class,
-            'length' => \App\Enums\Length::class,
-            'finish' => \App\Enums\Finish::class,
-            'gender' => \App\Enums\Gender::class,
-        ];
-
+        $enumMappings = config('enums', []); // Retrieve mappings from config
         $output = [];
 
-        foreach ($attributes as $key => $enumClass) {
-            $value = $variant->$key ?? null;
+        foreach ($enumMappings as $key => $enumClass) {
+            $value = $variant->$key ?? null; // Safely access value
+
             if ($value instanceof $enumClass) {
                 $output[$key] = ucfirst($key) . ': ' . $value->getLabel();
             } elseif (!is_null($value)) {
