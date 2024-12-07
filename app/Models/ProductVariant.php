@@ -41,7 +41,7 @@ class ProductVariant extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'color' => Color::class,
+        'colors' => Color::class,
         'outfitsizes' => Outfitsizes::class,
         'material' => Material::class,
         'corecount' => Corecount::class,
