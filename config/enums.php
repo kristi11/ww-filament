@@ -3,7 +3,7 @@
 use App\Enums\Age;
 use App\Enums\BatteryCapacity;
 use App\Enums\CameraSpecifications;
-use App\Enums\color;
+use App\Enums\Color;
 use App\Enums\ConnectivityOptions;
 use App\Enums\CoreCount;
 use App\Enums\Dimensions;
@@ -27,7 +27,7 @@ use App\Enums\Weight;
 
 return [
     'size' => OutfitSizes::class,
-    'color' => color::class,
+    'color' => Color::class,
     'corecount' => CoreCount::class,
     'material' => Material::class,
     'enginevolume' => EngineVolume::class,

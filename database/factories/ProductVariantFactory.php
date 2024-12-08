@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\color;
+use App\Enums\Color;
 use App\Enums\OutfitSizes;
 use App\Models\Product;
 use App\Models\ProductVariant;
@@ -17,7 +17,7 @@ class ProductVariantFactory extends Factory
     {
         return [
             'product_id' => Product::factory(),
-            'color' => $this->faker->randomElement(color::class),
+            'color' => $this->faker->randomElement(Color::class),
             'size' => $this->faker->randomElement(OutfitSizes::class),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

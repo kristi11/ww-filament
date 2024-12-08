@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum color: string
+enum Color: string
 {
     case RED = 'Red';
     case GREEN = 'Green';

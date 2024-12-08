@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Enums\Age;
 use App\Enums\BatteryCapacity;
-use App\Enums\color;
+use App\Enums\Color;
 use App\Enums\CoreCount;
 use App\Enums\Dimensions;
 use App\Enums\DStorage;
