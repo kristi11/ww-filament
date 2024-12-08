@@ -26,8 +26,6 @@ use App\Enums\Volume;
 use App\Enums\Weight;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

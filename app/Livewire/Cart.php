@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Actions\Shop\CreateStripeCheckoutSession;
-use App\Enums\Weight;
 use App\Factories\CartFactory;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
