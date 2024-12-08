@@ -54,10 +54,10 @@ class ProductVariant extends Model
         'length' => Length::class,
         'finish' => Finish::class,
         'gender' => Gender::class,
-        'model_number' => ModelNumber::class,
-        'operating_system' => OperatingSystem::class,
-        'screen_resolution' => ScreenResolution::class,
-        'battery_capacity' => BatteryCapacity::class,
+        'modelnumber' => ModelNumber::class,
+        'operatingSystem' => OperatingSystem::class,
+        'screenResolution' => ScreenResolution::class,
+        'batteryCapacity' => BatteryCapacity::class,
         'dimensions' => Dimensions::class,
         'age' => Age::class,
         'pattern' => Pattern::class,
@@ -185,7 +185,7 @@ class ProductVariant extends Model
                         ->options(ProcessorType::class)
                         ->columnSpan(1)
                         ->label('Processor type'),
-                    Select::make('model_number')
+                    Select::make('modelNumber')
                         ->preload()
                         ->enum(ModelNumber::class)
                         ->options(ModelNumber::class)
@@ -197,19 +197,19 @@ class ProductVariant extends Model
                         ->options(Dimensions::class)
                         ->columnSpan(1)
                         ->label('Dimensions'),
-                    Select::make('operating_system')
+                    Select::make('operatingSystem')
                         ->preload()
                         ->enum(OperatingSystem::class)
                         ->options(OperatingSystem::class)
                         ->columnSpan(1)
                         ->label('Operating system'),
-                    Select::make('battery_capacity')
+                    Select::make('batteryCapacity')
                         ->preload()
                         ->enum(BatteryCapacity::class)
                         ->options(BatteryCapacity::class)
                         ->columnSpan(1)
                         ->label('Battery capacity'),
-                    Select::make('screen_resolution')
+                    Select::make('screenResolution')
                         ->preload()
                         ->enum(ScreenResolution::class)
                         ->options(ScreenResolution::class)
