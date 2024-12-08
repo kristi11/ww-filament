@@ -34,15 +34,14 @@ return new class extends Migration
     {
         Schema::table('product_variants', function (Blueprint $table) {
             $table->dropColumn('material');
-            $table->dropColumn('dstorage');
             $table->dropColumn('enginevolume');
             $table->dropColumn('style');
             $table->dropColumn('performance');
             $table->dropColumn('specs');
             $table->dropColumn('flavor');
             $table->dropColumn('brand');
-            $table->dropColumn('processortype');;
-            $table->dropColumn('corecount');;
+            $table->dropColumn('processortype');
+            $table->dropColumn('corecount');
             $table->dropColumn('graphiccardtype');
             $table->dropColumn('memorysize');
         });
