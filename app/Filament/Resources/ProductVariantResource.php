@@ -15,6 +15,8 @@ class ProductVariantResource extends Resource
 {
     protected static ?string $model = ProductVariant::class;
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $navigationGroup = 'Shop';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
