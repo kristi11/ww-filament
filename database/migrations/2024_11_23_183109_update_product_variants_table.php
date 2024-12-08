@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('specs')->nullable();
             $table->string('flavor')->nullable();
             $table->string('brand')->nullable();
-            $table->string('processortype')->nullable();;
-            $table->string('corecount')->nullable();;
+            $table->string('processortype')->nullable();
+            $table->string('corecount')->nullable();
             $table->string('graphiccardtype')->nullable();
             $table->string('memorysize')->nullable();
         });
