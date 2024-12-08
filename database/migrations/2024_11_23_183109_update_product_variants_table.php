@@ -34,7 +34,7 @@ return new class extends Migration
     {
         Schema::table('product_variants', function (Blueprint $table) {
             $table->dropColumn('material');
-            $table->dropColumn('dstorage')->nullable();
+            $table->dropColumn('dstorage');
             $table->dropColumn('enginevolume');
             $table->dropColumn('style');
             $table->dropColumn('performance');
