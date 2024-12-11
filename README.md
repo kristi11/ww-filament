@@ -300,6 +300,10 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 ##### To maintain a proper demonstration environment the editing app-wise has been disabled. Switch the `canEdit()` function in `CRUDSettingsResource.php` to `true` to enable choosing whether the admin should be able to edit content or not.
 
+### **Side note:**
+
+#### If the `canCreate()`, `canEdit()` or `canDelete()` functions return a `true` or `false` value is best not to mess with that value because that value is supposed to be that way.
+
 
 
 [WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
@@ -321,21 +325,12 @@ roles
 )
 ```
 
-#### **Bulk actions have been disabled for the resources to maintain the integrity of a demonstration environment on a
-
-production server since this repo is being used to show the live server on the official website**
-
-###### To enable the bulk actions uncomment the following code on the necessary resources
-
-`//Tables\Actions\DeleteBulkAction::make(),`
-
 ### Role configuration
 
 [WittyWorkflow](https:://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
-package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section
-of the dashboard under `Filament Shield` sidebar menu and for both `team_user` and `panel_user` choose `select all` on
-the `Appointment` model permissions and to give the `panel_user` `view` permissions on the gallery choose  `view`
-and `view any` under the `Gallery` model permissions.
+package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard, inside the `Settings` sidebar menu group and for both `team_user` and `panel_user` choose `select all` on
+the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view`
+and `view any` under the `Gallery` model permissions. Also give the `panel_user` all permissions on the `Order` model permissions. 
 
 ### Role explanation
 
