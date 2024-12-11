@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FlexibilityResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\Flexibility;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -117,16 +118,16 @@ class FlexibilityResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
+        return CRUD_settings::query()->value('can_create_content');
     }
 
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

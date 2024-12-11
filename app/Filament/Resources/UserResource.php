@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Enums\Visibility;
 use App\Filament\Resources\UserResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\User;
 use Exception;
 use Filament\Forms\Components\Select;
@@ -163,18 +164,18 @@ class UserResource extends Resource
         ];
     }
 
+    public static function canCreate(): bool
+    {
+        return CRUD_settings::query()->value('can_create_content');
+    }
+
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
     }
 
     public static function canDelete(Model $record): bool
     {
-        return false;
-    }
-
-    public static function canCreate(): bool
-    {
-        return false;
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

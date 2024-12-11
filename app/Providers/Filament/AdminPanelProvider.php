@@ -60,12 +60,13 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->navigationGroups(
                 [
+                    NavigationGroup::make('Settings')->icon('heroicon-o-cog-8-tooth'),
                     NavigationGroup::make('Business Information')->icon('heroicon-o-briefcase'),
                     NavigationGroup::make('Shop')->icon('heroicon-o-building-storefront'),
                     NavigationGroup::make('Socials')->icon('heroicon-o-user-circle'),
                     NavigationGroup::make('Visuals')->icon('heroicon-o-photo'),
                     NavigationGroup::make('Footer')->icon('heroicon-o-document-minus'),
-                    NavigationGroup::make('System')->icon('heroicon-o-settings')
+                    NavigationGroup::make('System')->icon('heroicon-o-settings'),
                 ]
             )
             ->spa()

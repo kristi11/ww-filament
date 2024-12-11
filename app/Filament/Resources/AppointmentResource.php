@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\AppointmentStatus;
 use App\Filament\Resources\AppointmentResource\Pages;
 use App\Models\Appointment;
+use App\Models\CRUD_settings;
 use Exception;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
@@ -69,7 +70,8 @@ class AppointmentResource extends Resource
                             ->live()
                             ->placeholder('Select a team member')
                             ->label('Appointment with')
-                            ->prefixIcon('heroicon-s-users'),
+                            ->prefixIcon('heroicon-s-users')
+                            ->required(),
                         DatePicker::make('date')
                             ->required()
                             ->helperText(str('The date of the appointment.')->inlineMarkdown()->toHtmlString())
@@ -348,6 +350,16 @@ class AppointmentResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_create_content');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

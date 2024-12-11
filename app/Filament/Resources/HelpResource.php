@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Enums\Visibility;
 use App\Filament\Resources\HelpResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\Help;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -109,13 +110,13 @@ class HelpResource extends Resource
         return !$recordExists;
     }
 
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

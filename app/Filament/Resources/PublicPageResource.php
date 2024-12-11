@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PublicPageResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\PublicPage;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -142,20 +143,20 @@ class PublicPageResource extends Resource
         ];
     }
 
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-//
-//    public static function canEdit(Model $record): bool
-//    {
-//        return false;
-//    }
-//
     public static function canCreate(): bool
     {
         $recordExists = PublicPage::exists();
 
         return !$recordExists;
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

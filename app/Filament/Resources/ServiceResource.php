@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\HOURS;
 use App\Enums\minutes;
 use App\Filament\Resources\ServiceResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\Service;
 use Exception;
 use Filament\Forms\Components\RichEditor;
@@ -272,18 +273,18 @@ class ServiceResource extends Resource
         ];
     }
 
-    public static function canDelete(Model $record): bool
+    public static function canCreate(): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_create_content');
     }
 
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
     }
 
-    public static function canCreate(): bool
+    public static function canDelete(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

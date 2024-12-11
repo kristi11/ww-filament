@@ -6,6 +6,7 @@ use App\Enums\US_STATES;
 use App\Filament\Resources\AddressRecourceResource\RelationManagers\AddressesRelationManager;
 use App\Filament\Resources\AddressResource\Pages;
 use App\Models\Address;
+use App\Models\CRUD_settings;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -156,13 +157,13 @@ class AddressResource extends Resource
         ];
     }
 
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

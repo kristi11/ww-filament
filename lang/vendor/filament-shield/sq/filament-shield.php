@@ -7,11 +7,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'column.name' => 'Name',
-    'column.guard_name' => 'Guard Name',
-    'column.roles' => 'Roles',
-    'column.permissions' => 'Permissions',
-    'column.updated_at' => 'Updated At',
+    'column.name' => 'Emri',
+    'column.guard_name' => 'Emri i rojes',
+    'column.roles' => 'Rolet',
+    'column.permissions' => 'Lejet',
+    'column.updated_at' => 'Përditësuar në',
 
     /*
     |--------------------------------------------------------------------------
@@ -19,11 +19,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'field.name' => 'Name',
-    'field.guard_name' => 'Guard Name',
-    'field.permissions' => 'Permissions',
-    'field.select_all.name' => 'Select All',
-    'field.select_all.message' => 'Enable all Permissions currently <span class="text-primary font-medium">Enabled</span> for this role',
+    'field.name' => 'Emri',
+    'field.guard_name' => 'Emri i rojes',
+    'field.permissions' => 'Lejet',
+    'field.select_all.name' => 'Zgjidh të gjitha',
+    'field.select_all.message' => 'Aktivizo të gjitha lejet aktualisht <span class="text-primary font-medium">Aktivizuar</span> për këtë rol',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,12 +31,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Settings',
-    'nav.group.icon' => 'heroicon-o-shield-check',
-    'nav.role.label' => 'Roles',
+    'nav.group' => 'Filament Shield',
+    'nav.role.label' => 'Rolet',
     'nav.role.icon' => 'heroicon-o-shield-check',
-    'resource.label.role' => 'Role',
-    'resource.label.roles' => 'Roles',
+    'resource.label.role' => 'Rol',
+    'resource.label.roles' => 'Rolet',
 
     /*
     |--------------------------------------------------------------------------
@@ -44,11 +43,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'section' => 'Entities',
-    'resources' => 'Resources',
+    'section' => 'Seksioni',
+    'resources' => 'Burimet',
     'widgets' => 'Widgets',
-    'pages' => 'Pages',
-    'custom' => 'Custom Permissions',
+    'pages' => 'Faqet',
+    'custom' => 'Lejet e personalizuara',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +55,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'forbidden' => 'You do not have permission to access',
+    'forbidden' => 'Nuk ke leje për të hyrë',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,17 +64,17 @@ return [
     */
 
     'resource_permission_prefixes_labels' => [
-        'view' => 'View',
-        'view_any' => 'View Any',
-        'create' => 'Create',
-        'update' => 'Update',
-        'delete' => 'Delete',
-        'delete_any' => 'Delete Any',
-        'force_delete' => 'Force Delete',
-        'force_delete_any' => 'Force Delete Any',
-        'restore' => 'Restore',
-        'reorder' => 'Reorder',
-        'restore_any' => 'Restore Any',
-        'replicate' => 'Replicate',
+        'view' => 'Shiko',
+        'view_any' => 'Shiko çdo',
+        'create' => 'Krijo',
+        'update' => 'Përditëso',
+        'delete' => 'Fshi',
+        'delete_any' => 'Fshi çdo',
+        'force_delete' => 'Fshije me forcë',
+        'force_delete_any' => 'Fshije me forcë çdo',
+        'restore' => 'Rikthe',
+        'reorder' => 'Rirendit',
+        'restore_any' => 'Rikthe çdo',
+        'replicate' => 'Ripërsërit',
     ],
 ];

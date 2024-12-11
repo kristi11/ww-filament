@@ -7,11 +7,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'column.name' => 'Name',
-    'column.guard_name' => 'Guard Name',
-    'column.roles' => 'Roles',
-    'column.permissions' => 'Permissions',
-    'column.updated_at' => 'Updated At',
+    'column.name' => 'Nosaukums',
+    'column.guard_name' => 'Sargs',
+    'column.roles' => 'Lomas',
+    'column.permissions' => 'Tiesības',
+    'column.updated_at' => 'Atjaunots',
 
     /*
     |--------------------------------------------------------------------------
@@ -19,11 +19,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'field.name' => 'Name',
-    'field.guard_name' => 'Guard Name',
-    'field.permissions' => 'Permissions',
-    'field.select_all.name' => 'Select All',
-    'field.select_all.message' => 'Enable all Permissions currently <span class="text-primary font-medium">Enabled</span> for this role',
+    'field.name' => 'Nosaukums',
+    'field.guard_name' => 'Sargs',
+    'field.permissions' => 'Tiesības',
+    'field.select_all.name' => 'Atzīmēt visu',
+    'field.select_all.message' => 'Aktivizēt visas <span class="text-primary font-medium">pieejamās</span> tiesības šai lomai',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,12 +31,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Settings',
-    'nav.group.icon' => 'heroicon-o-shield-check',
-    'nav.role.label' => 'Roles',
+    'nav.group' => 'Tiesības',
+    'nav.role.label' => 'Lomas',
     'nav.role.icon' => 'heroicon-o-shield-check',
-    'resource.label.role' => 'Role',
-    'resource.label.roles' => 'Roles',
+    'resource.label.role' => 'Loma',
+    'resource.label.roles' => 'Lomas',
 
     /*
     |--------------------------------------------------------------------------
@@ -44,11 +43,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'section' => 'Entities',
-    'resources' => 'Resources',
-    'widgets' => 'Widgets',
-    'pages' => 'Pages',
-    'custom' => 'Custom Permissions',
+    'section' => 'Vienības',
+    'resources' => 'Resursi',
+    'widgets' => 'Logrīki',
+    'pages' => 'Lapas',
+    'custom' => 'Speciālās tiesības',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +55,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'forbidden' => 'You do not have permission to access',
+    'forbidden' => 'Jums nav pietiekamu tiesību šī resursa apskatei.',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,17 +64,17 @@ return [
     */
 
     'resource_permission_prefixes_labels' => [
-        'view' => 'View',
-        'view_any' => 'View Any',
-        'create' => 'Create',
-        'update' => 'Update',
-        'delete' => 'Delete',
-        'delete_any' => 'Delete Any',
-        'force_delete' => 'Force Delete',
-        'force_delete_any' => 'Force Delete Any',
-        'restore' => 'Restore',
-        'reorder' => 'Reorder',
-        'restore_any' => 'Restore Any',
-        'replicate' => 'Replicate',
+        'view' => 'Skatīt',
+        'view_any' => 'Skatīt visu',
+        'create' => 'Izveidot',
+        'update' => 'Atjaunot',
+        'delete' => 'Dzēst',
+        'delete_any' => 'Dzēst visu',
+        'force_delete' => 'Piespiedu dzēšana',
+        'force_delete_any' => 'Piespiedu dzēšana visam',
+        'restore' => 'Atjaunot',
+        'reorder' => 'Pārkārtot',
+        'restore_any' => 'Atjaunot visu',
+        'replicate' => 'Replicēt',
     ],
 ];

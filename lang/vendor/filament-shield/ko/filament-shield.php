@@ -7,11 +7,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'column.name' => 'Name',
-    'column.guard_name' => 'Guard Name',
-    'column.roles' => 'Roles',
-    'column.permissions' => 'Permissions',
-    'column.updated_at' => 'Updated At',
+    'column.name' => '이름',
+    'column.guard_name' => '가드 이름',
+    'column.roles' => '역할',
+    'column.permissions' => '권한',
+    'column.updated_at' => '최근 업데이트',
 
     /*
     |--------------------------------------------------------------------------
@@ -19,11 +19,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'field.name' => 'Name',
-    'field.guard_name' => 'Guard Name',
-    'field.permissions' => 'Permissions',
-    'field.select_all.name' => 'Select All',
-    'field.select_all.message' => 'Enable all Permissions currently <span class="text-primary font-medium">Enabled</span> for this role',
+    'field.name' => '이름',
+    'field.guard_name' => '가드 이름',
+    'field.permissions' => '권한',
+    'field.select_all.name' => '전체 선택',
+    'field.select_all.message' => '현재 이 역할에 대해 <span class="text-primary font-medium">활성화</span>된 모든 권한을 활성화',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,12 +31,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Settings',
-    'nav.group.icon' => 'heroicon-o-shield-check',
-    'nav.role.label' => 'Roles',
+    'nav.group' => 'Filament Shield',
+    'nav.role.label' => '역할',
     'nav.role.icon' => 'heroicon-o-shield-check',
-    'resource.label.role' => 'Role',
-    'resource.label.roles' => 'Roles',
+    'resource.label.role' => '역할',
+    'resource.label.roles' => '역할들',
 
     /*
     |--------------------------------------------------------------------------
@@ -44,11 +43,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'section' => 'Entities',
-    'resources' => 'Resources',
-    'widgets' => 'Widgets',
-    'pages' => 'Pages',
-    'custom' => 'Custom Permissions',
+    'section' => '섹션',
+    'resources' => '리소스',
+    'widgets' => '위젯',
+    'pages' => '페이지',
+    'custom' => '사용자 정의 권한',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +55,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'forbidden' => 'You do not have permission to access',
+    'forbidden' => '접근 권한이 없습니다',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,17 +64,17 @@ return [
     */
 
     'resource_permission_prefixes_labels' => [
-        'view' => 'View',
-        'view_any' => 'View Any',
-        'create' => 'Create',
-        'update' => 'Update',
-        'delete' => 'Delete',
-        'delete_any' => 'Delete Any',
-        'force_delete' => 'Force Delete',
-        'force_delete_any' => 'Force Delete Any',
-        'restore' => 'Restore',
-        'reorder' => 'Reorder',
-        'restore_any' => 'Restore Any',
-        'replicate' => 'Replicate',
+        'view' => '보기',
+        'view_any' => '모두 보기',
+        'create' => '생성',
+        'update' => '업데이트',
+        'delete' => '삭제',
+        'delete_any' => '모두 삭제',
+        'force_delete' => '강제 삭제',
+        'force_delete_any' => '모두 강제 삭제',
+        'restore' => '복구',
+        'reorder' => '재정렬',
+        'restore_any' => '모두 복구',
+        'replicate' => '복제',
     ],
 ];

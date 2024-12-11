@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Shield;
 
 use App\Filament\Resources\Shield\RoleResource\Pages;
+use App\Models\CRUD_settings;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 use BezhanSalleh\FilamentShield\Facades\FilamentShield;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -384,18 +385,18 @@ class RoleResource extends Resource implements HasShieldPermissions
             ->columnSpan(FilamentShieldPlugin::get()->getCheckboxListColumnSpan());
     }
 
-//    public static function canEdit(Model $record): bool
-//    {
-//        return false;
-//    }
+    public static function canCreate(): bool
+    {
+        return CRUD_settings::query()->value('can_create_content');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_edit_content');
+    }
 
     public static function canDelete(Model $record): bool
     {
-        return false;
-    }
-
-    public static function canCreate(): bool
-    {
-        return false;
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

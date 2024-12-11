@@ -158,6 +158,11 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->hasMany(Order::class);
     }
 
+    public function crudSettings(): HasMany
+    {
+        return $this->hasMany(CRUD_settings::class);
+    }
+
     /**
      * @throws Exception
      */

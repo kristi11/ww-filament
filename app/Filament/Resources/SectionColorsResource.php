@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SectionColorsResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\SectionColors;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -131,11 +132,11 @@ class SectionColorsResource extends Resource
 
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
     }
 
     public static function canDelete(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

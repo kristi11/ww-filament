@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\GalleryResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\Gallery;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -132,16 +133,16 @@ class GalleryResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
+        return CRUD_settings::query()->value('can_create_content');
     }
 
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

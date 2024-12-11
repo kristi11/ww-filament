@@ -7,6 +7,7 @@ use App\Enums\Days;
 use App\Filament\Resources\BusinessHourResource\Pages;
 use App\Filament\Resources\BusinessRecourceResource\RelationManagers\BusinessHoursRelationManager;
 use App\Models\BusinessHour;
+use App\Models\CRUD_settings;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -211,13 +212,13 @@ class BusinessHourResource extends Resource
         return true;
     }
 
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Address;
 use App\Models\BusinessHour;
 use App\Models\Contact;
+use App\Models\CRUD_settings;
 use App\Models\FAQdata;
 use App\Models\Flexibility;
 use App\Models\Help;
@@ -60,6 +61,7 @@ class DatabaseSeeder extends Seeder
         Privacy::factory()->create(['user_id' => $admin->id]);
         FAQdata::factory()->create(['user_id' => $admin->id]);
         Help::factory()->create(['user_id' => $admin->id]);
+        CRUD_settings::factory()->create(['user_id' => $admin->id]);
         Support::factory()->create(['user_id' => $admin->id]);
         Product::factory(6)
             ->hasVariants(3)

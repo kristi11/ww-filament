@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers\VariantsRelationManager;
+use App\Models\CRUD_settings;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
@@ -14,6 +15,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class ProductResource extends Resource
 {
@@ -183,18 +185,18 @@ class ProductResource extends Resource
         ];
     }
 
-//    public static function canCreate(): bool
-//    {
-//        return false;
-//    }
+    public static function canCreate(): bool
+    {
+        return CRUD_settings::query()->value('can_create_content');
+    }
 
-//    public static function canEdit(Model $record): bool
-//    {
-//        return false;
-//    }
+    public static function canEdit(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_edit_content');
+    }
 
-//    public static function canDelete(Model $record): bool
-//    {
-//        return false;
-//    }
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
+    }
 }

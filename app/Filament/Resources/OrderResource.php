@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\Order;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
@@ -153,18 +154,18 @@ class OrderResource extends Resource
         return Order::count();
     }
 
-        public static function canEdit(Model $record): bool
+    public static function canCreate(): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_create_content');
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_edit_content');
     }
 
     public static function canDelete(Model $record): bool
     {
-        return false;
-    }
-
-    public static function canCreate(): bool
-    {
-        return false;
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

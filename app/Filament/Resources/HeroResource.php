@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Enums\GradientTypes;
 use App\Filament\Resources\HeroResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\Hero;
 use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
@@ -314,11 +315,11 @@ class HeroResource extends Resource
 
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
     }
 
     public static function canDelete(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }

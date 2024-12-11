@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\Visibility;
 use App\Filament\Resources\ContactResource\Pages;
 use App\Models\Contact;
+use App\Models\CRUD_settings;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
@@ -108,13 +109,13 @@ class ContactResource extends Resource
         return !$recordExists;
     }
 
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-
     public static function canEdit(Model $record): bool
     {
-        return false;
+        return CRUD_settings::query()->value('can_edit_content');
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return CRUD_settings::query()->value('can_delete_content');
     }
 }
