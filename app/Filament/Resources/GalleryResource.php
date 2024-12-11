@@ -12,6 +12,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -109,9 +110,10 @@ class GalleryResource extends Resource
             ->emptyStateIcon('heroicon-o-rectangle-stack')
             ->bulkActions([
                 BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
+                    DeleteBulkAction::make()
+                        ->visible(CRUD_settings::query()->value('can_delete_content'))
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }

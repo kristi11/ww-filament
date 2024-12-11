@@ -85,9 +85,10 @@ class FAQdataResource extends Resource
             ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->visible(CRUD_settings::query()->value('can_delete_content'))
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }
@@ -121,6 +122,6 @@ class FAQdataResource extends Resource
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return false;
     }
 }

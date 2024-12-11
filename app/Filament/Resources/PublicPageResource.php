@@ -117,14 +117,7 @@ class PublicPageResource extends Resource
                     ->label('')
                     ->tooltip('Edit'),
             ])
-            ->paginated(false)
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
-                ]),
-            ]);
+            ->paginated(false);
     }
 
     public static function getRelations(): array
@@ -157,6 +150,6 @@ class PublicPageResource extends Resource
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return false;
     }
 }

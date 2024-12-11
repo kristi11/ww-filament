@@ -96,14 +96,6 @@ class SectionColorsResource extends Resource
                     ->label('')
                     ->tooltip('Edit'),
             ])
-            ->paginated(false)
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
-                ]),
-            ])
             ->paginated(false);
     }
 
@@ -137,6 +129,6 @@ class SectionColorsResource extends Resource
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return false;
     }
 }

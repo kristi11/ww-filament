@@ -214,13 +214,6 @@ class HeroResource extends Resource
                     ->slideOver()
                     ->label('')
                     ->tooltip('Edit'),
-            ])
-            ->bulkActions([
-                BulkActionGroup::make([
-//                    DeleteBulkAction::make()
-//                      ->label('')
-//                      ->tooltip('Delete'),
-                ]),
             ]);
     }
 
@@ -320,6 +313,6 @@ class HeroResource extends Resource
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return false;
     }
 }

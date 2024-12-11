@@ -3,10 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductVariantResource\Pages;
+use App\Models\CRUD_settings;
 use App\Models\ProductVariant;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -167,9 +169,10 @@ class ProductVariantResource extends Resource
                 ->tooltip('Edit product variant'),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                DeleteBulkAction::make()
+                    ->visible(CRUD_settings::query()->value('can_delete_content'))
+                    ->label('')
+                    ->tooltip('Delete'),
             ]);
     }
 

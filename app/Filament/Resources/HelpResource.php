@@ -12,6 +12,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
@@ -81,9 +82,10 @@ class HelpResource extends Resource
             ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
+                    DeleteBulkAction::make()
+                        ->visible(CRUD_settings::query()->value('can_delete_content'))
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }

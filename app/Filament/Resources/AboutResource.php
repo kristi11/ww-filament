@@ -80,9 +80,10 @@ class AboutResource extends Resource
             ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('delete'),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->visible(CRUD_settings::query()->value('can_delete_content'))
+                        ->label('')
+                        ->tooltip('delete'),
                 ]),
             ]);
     }

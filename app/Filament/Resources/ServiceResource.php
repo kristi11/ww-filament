@@ -19,6 +19,7 @@ use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Stack;
@@ -197,9 +198,10 @@ class ServiceResource extends Resource
             ->paginated(false)
             ->bulkActions([
                 BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
+                    DeleteBulkAction::make()
+                        ->visible(CRUD_settings::query()->value('can_delete_content'))
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ]);
     }

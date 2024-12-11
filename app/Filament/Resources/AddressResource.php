@@ -116,9 +116,10 @@ class AddressResource extends Resource
             ->paginated(false)
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make()
-//                          ->label('')
-//                          ->tooltip('Delete'),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->visible(CRUD_settings::query()->value('can_delete_content'))
+                        ->label('')
+                        ->tooltip('Delete'),
                 ]),
             ])
             ->paginated(false);
