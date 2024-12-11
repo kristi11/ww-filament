@@ -35,7 +35,7 @@
 
 # **!! This app is in active development !!**
 
-### The app's CRUD functionality has been severally restricted in this [demonstration](https://wittyworkflow.com) app. Follow the below steps to activate CRUD functionality on the desired resources in order to achieve the desired functionality
+### This is a demonstration app for developer or clients to see how their app would look like in real world scenarios. To enable all the CRUD functionality follow the steps below
 
 ## **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 
@@ -88,7 +88,7 @@
 
 ## About The Project
 
-##### [WittyWorkflow](https:://wittyworkflow.com) is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses. Below is an overview of the key functionalities of the app:
+##### [WittyWorkflow](https:://wittyworkflow.com) is a TALL stack small business management tool. It includes an E-commerce shop, appointment management, role based access and much more. Below is an overview of the key functionalities of the app:
 
 ## Key Features:
 
@@ -110,10 +110,10 @@
 
 * **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
 
-* **Appointments:** Manage your appointments
+* **Appointment management:** Manage your appointments
 
-* **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you
-  never miss valuable information about your upcoming appointments.
+* **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you never miss valuable information about your upcoming appointments.
+* **Email Notifications on shop purchases: Be notified every time a purchase is made.**
 
 * **Full control:** On what section shows/hides from the landing page depending on your businesses need for the section
 
@@ -133,9 +133,12 @@
 
 This section lists all major frameworks/libraries used to bootstrap this project.
 
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Livewire][Livewire.laravel.com]][Livewire-url]
-* [![Tailwind CSS][tailwindcss.com]][tailwindcss-url]
+* ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+* ![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
+* 	![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+* ![Filament](https://img.shields.io/badge/Filament-FFAA00?style=for-the-badge&logoColor=%23000000)
+* ![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
+* ![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -431,6 +434,8 @@ The following are the known issues that need addressing and i hope that the comm
 
 ## Workaround
 
+For now as a workaround only logged in users can add to cart.
+
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -481,34 +486,8 @@ I've included a few of my favorite links to kick things off!
 * [Tailwind CSS](https://tailwindcss.com)
 * [README Template](https://github.com/othneildrew/Best-README-Template/)
 * [Img Shields](https://shields.io)
+* [Markdown Badges](https://github.com/Ileriayo/markdown-badges)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-
-[linkedin-url]: https://linkedin.com/in/othneildrew
-
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-
-[Laravel-url]: https://laravel.com
-
-[Livewire.laravel.com]: https://img.shields.io/badge/Livewire-E05890?style=for-the-badge&logo=livewire&logoColor=white
-
-[Livewire-url]: https://livewire.laravel.com
-
-[tailwindcss.com]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-
-[tailwindcss-url]: https://tailwindcss.com
-
-[Amazon s3]: https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white
-
-[Amazon s3-url]: https://aws.amazon.com/s3/
-
-[Filament PHP]: https://img.shields.io/badge/Filament-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
