@@ -136,7 +136,6 @@ This section lists all major frameworks/libraries used to bootstrap this project
 * [![Laravel][Laravel.com]][Laravel-url]
 * [![Livewire][Livewire.laravel.com]][Livewire-url]
 * [![Tailwind CSS][tailwindcss.com]][tailwindcss-url]
-* [![Amazon s3][Amazon s3]][Amazon s3-url]
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -299,60 +298,9 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 ### **Disabled features:**
 
-##### The following features have been disabled to maintain a proper demonstration environment. You should enable this features when working on your own project to get the full functionality of the app.
+##### To maintain a proper demonstration environment the editing app-wise has been disabled. Switch the `canEdit()` function in `CRUDSettingsResource.php` to `true` to enable choosing whether the admin should be able to edit content or not.
 
-### Editing:
 
-* Profile editing (change on `Adminpanelprovider.php` and `TeamPanelProvider.php`)
-
-### Permission management:
-
-* Permission management for user roles (change on `RoleResource.php`)
-
-### Editing and deleting:
-
-* User resource (change on `UserResource.php`)
-* Hero resource (change on `HeroResource.php`)
-* SectionColors resource (change on `SectionColorResource.php`)
-* Service resource (change on `ServiceResource.php`)
-* Section visibility on the landing page (change on `PublicPageResource.php`)
-* Address resource (change on `AddressResource.php`)
-* BusinessHours resource (change on `BusinessHoursResource.php`)
-* Flexibility resource (change on `FlexibilityResource.php`)
-* Announcement resource (change on `AnnouncementResource.php`)
-* Social resource (change on `SocialResource.php`)
-* Gallery resource creating, (change on `GalleryResource.php`)
-* About resource (change on `AboutResource.php`)
-* Contact resource (change on `ContactResource.php`)
-* FAQ resource (change on `FAQdataResource.php`)
-* Help resource (change on `HelpResource.php`)
-* Privacy resource (change on `PrivacyResource.php`)
-* Terms resource (change on `TermsResource.php`)
-* Support resource (change on `SupportResource.php`)
-
-#### **To enable these features you need to comment or delete the following functions on the desired resources:**
-
-```
-public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
-```
-
-#### **You can also comment the can create function based on necessity of your app:**
-
-```
-public static function canCreate(): bool
-    {
-        return false;
-    }
-```
-
-#### If the `canCreate` function simply returns false, it's safe to be added/removed based on your app's needs. If the function checks if the record exists then returns the proper action, it shouldn't be messed with, since  only 1 database row has to be created for the app to work properly and avoid duplicate data.
 
 [WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
 manage user profiles. Change the following values to `shouldRegisterUserMenu: true` and `shouldRegisterNavigation: true`
