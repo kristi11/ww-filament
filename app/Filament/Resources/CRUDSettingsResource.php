@@ -93,7 +93,7 @@ class CRUDSettingsResource extends Resource
 
     public static function canEdit(Model $record): bool
     {
-        return true;
+        return false;
     }
 
     public static function canDelete(Model $record): bool
