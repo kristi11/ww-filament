@@ -485,7 +485,6 @@ I've included a few of my favorite links to kick things off!
 * [Livewire](https://livewire.laravel.com)
 * [Tailwind CSS](https://tailwindcss.com)
 * [README Template](https://github.com/othneildrew/Best-README-Template/)
-* [Img Shields](https://shields.io)
 * [Markdown Badges](https://github.com/Ileriayo/markdown-badges)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
