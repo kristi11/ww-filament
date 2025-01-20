@@ -63,9 +63,7 @@ class DatabaseSeeder extends Seeder
         Help::factory()->create(['user_id' => $admin->id]);
         CRUD_settings::factory()->create(['user_id' => $admin->id]);
         Support::factory()->create(['user_id' => $admin->id]);
-        Product::factory(6)
-            ->hasVariants(3)
-            ->create();
+        Product::factory(6)->hasVariants(3)->create();
     }
 
 }

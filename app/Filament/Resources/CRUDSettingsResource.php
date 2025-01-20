@@ -19,7 +19,7 @@ class CRUDSettingsResource extends Resource
 
     protected static ?string $slug = 'content';
 
-    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
+//    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
 
     protected static ?string $navigationGroup = 'Settings';
 
