@@ -61,12 +61,12 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups(
                 [
                     NavigationGroup::make('Settings'),
-                    NavigationGroup::make('Business Information')->icon('heroicon-o-briefcase'),
-                    NavigationGroup::make('Shop')->icon('heroicon-o-building-storefront'),
-                    NavigationGroup::make('Socials')->icon('heroicon-o-user-circle'),
-                    NavigationGroup::make('Visuals')->icon('heroicon-o-photo'),
-                    NavigationGroup::make('Footer')->icon('heroicon-o-document-minus'),
-                    NavigationGroup::make('System')->icon('heroicon-o-settings'),
+                    NavigationGroup::make('Business Information'),
+                    NavigationGroup::make('Shop'),
+                    NavigationGroup::make('Socials'),
+                    NavigationGroup::make('Visuals'),
+                    NavigationGroup::make('Footer'),
+                    NavigationGroup::make('System'),
                 ]
             )
             ->spa()
