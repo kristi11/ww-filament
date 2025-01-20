@@ -85,19 +85,19 @@ class CRUDSettingsResource extends Resource
         ];
     }
 
-    public static function canCreate(): bool
-    {
-        // Disable the "Create" button if a row already exists
-        return CRUD_settings::query()->doesntExist();
-    }
-
-    public static function canEdit(Model $record): bool
-    {
-        return false;
-    }
-
-    public static function canDelete(Model $record): bool
-    {
-        return false;
-    }
+//    public static function canCreate(): bool
+//    {
+//        // Disable the "Create" button if a row already exists
+//        return CRUD_settings::query()->doesntExist();
+//    }
+//
+//    public static function canEdit(Model $record): bool
+//    {
+//        return false;
+//    }
+//
+//    public static function canDelete(Model $record): bool
+//    {
+//        return false;
+//    }
 }
