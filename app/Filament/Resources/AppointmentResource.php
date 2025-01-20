@@ -27,7 +27,7 @@ class AppointmentResource extends Resource
 
     protected static ?string $navigationGroup = 'Business Information';
 
-    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
+//    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
 
     protected static ?string $recordTitleAttribute = 'client_name';
 

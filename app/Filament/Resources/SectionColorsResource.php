@@ -19,7 +19,7 @@ class SectionColorsResource extends Resource
 {
     protected static ?string $model = SectionColors::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-swatch';
+//    protected static ?string $navigationIcon = 'heroicon-o-swatch';
     protected static ?string $label = 'Section color';
     protected static ?string $navigationGroup = 'Visuals';
 

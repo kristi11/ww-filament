@@ -20,7 +20,7 @@ class TermsResource extends Resource
 {
     protected static ?string $model = Terms::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+//    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     protected static ?string $label = 'Terms';
 

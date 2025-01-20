@@ -21,7 +21,7 @@ class AddressResource extends Resource
 {
     protected static ?string $model = Address::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-map';
+//    protected static ?string $navigationIcon = 'heroicon-o-map';
 
     protected static ?string $navigationGroup = 'Business Information';
 

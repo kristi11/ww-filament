@@ -20,7 +20,7 @@ class HelpResource extends Resource
 {
     protected static ?string $model = Help::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-lifebuoy';
+//    protected static ?string $navigationIcon = 'heroicon-o-lifebuoy';
 
     protected static ?string $label = 'Help';
 

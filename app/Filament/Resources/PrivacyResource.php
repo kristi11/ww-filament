@@ -20,7 +20,7 @@ class PrivacyResource extends Resource
 {
     protected static ?string $model = Privacy::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
+//    protected static ?string $navigationIcon = 'heroicon-o-lock-closed';
 
     protected static ?string $label = 'Privacy';
 
