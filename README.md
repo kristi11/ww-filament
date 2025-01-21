@@ -291,7 +291,9 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 #### To enter Stripe's live mode you need to complete your business profile in [Stripe's dashboard](https://dashboard.stripe.com/test/dashboard) and change the API keys from _test_ to _live API keys_. Also after running `php artian cashier:webhook` in your production server you need to go to the [webhooks page](https://dashboard.stripe.com/webhooks) click on the newly created webhook and copy the `Signin secret` to your `STRIPE_WEBHOOK_SECRET` in your `.env` file. Also i noticed that the `php artian cashier:webhook` doesn't generate the `checkout.session.completed` so you will have to do that manually in order for the purchase to go through. To do that click on the newly created webhook and as of `11/13/2024` you can go to the `...` button on the right side of the page, choose `update details` and on the `events to send` click `select events...` and enter `checkout.session.completed`. This way stripe will start listening for the event and proceed the payment.
 
-## To make a test live purchase in the [store](https://wittyworkflow.com/shop) login and choose a product to purchase. After clicking `checkout` in the cart, in your order details click `Add promotion code` and enter `100OFF` for a `100%` discount in your order just so you can see that everything works as intended.
+> [!IMPORTANT]  
+> ## To make a test live purchase in the [store](https://wittyworkflow.com/shop) login and choose a product to purchase. After clicking `checkout` in the cart, in your order details click `Add promotion code` and enter `100OFF` for a `100%` discount in your order just so you can see that everything works as intended.
+
 
 # Your application is now ready for use. Enjoy! To install it in production follow your servers specific needs.
 
@@ -301,7 +303,9 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 ### **Disabled features:**
 
-##### To maintain a proper demonstration environment the editing app-wise has been disabled. Switch the `canEdit()` function in `CRUDSettingsResource.php` to `true` to enable choosing whether the admin should be able to edit content or not.
+> [!IMPORTANT]  
+> ##### To maintain a proper demonstration environment the editing app-wise has been disabled. Switch the `canEdit()` function in `CRUDSettingsResource.php` to `true` to enable choosing whether the admin should be able to edit content or not.
+
 
 ### **Side note:**
 
@@ -429,11 +433,12 @@ an account
 
 <!-- ISSUES -->
 
-## Known issues
+> [!NOTE]
+> ## Known issues
+>The following are the known issues that need addressing and i hope that the community will step in and work on them:
+> * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
-The following are the known issues that need addressing and i hope that the community will step in and work on them:
 
-* Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
