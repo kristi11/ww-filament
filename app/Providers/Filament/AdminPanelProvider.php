@@ -64,9 +64,7 @@ class AdminPanelProvider extends PanelProvider
                     NavigationGroup::make('Settings'),
                     NavigationGroup::make('Business Information'),
                     NavigationGroup::make('Shop'),
-                    NavigationGroup::make('Socials'),
                     NavigationGroup::make('Footer'),
-                    NavigationGroup::make('System'),
                 ]
             )
             ->spa()
