@@ -21,7 +21,7 @@ class SectionColorsResource extends Resource
 
 //    protected static ?string $navigationIcon = 'heroicon-o-swatch';
     protected static ?string $label = 'Section color';
-    protected static ?string $navigationGroup = 'Visuals';
+    protected static ?string $navigationGroup = 'Settings';
 
     public static function form(Form $form): Form
     {
