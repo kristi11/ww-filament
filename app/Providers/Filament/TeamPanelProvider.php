@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Afsakar\FilamentOtpLogin\FilamentOtpLoginPlugin;
 use App\Filament\Customer\Widgets\BusinessHoursWidget;
 use App\Filament\Customer\Widgets\ServicesWidget;
 use App\Filament\Customer\Widgets\SocialsWidget;
@@ -64,6 +65,7 @@ class TeamPanelProvider extends PanelProvider
                 'business_hours' => BusinessHoursWidget::class,
             ])
             ->plugins([
+//              FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()
                     ->RetainRecentIfFavorite(true)

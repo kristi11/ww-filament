@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Afsakar\FilamentOtpLogin\FilamentOtpLoginPlugin;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -80,11 +81,12 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                //FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()
                     ->RetainRecentIfFavorite(true)
                     ->associateItemsWithTheirGroups(),
-//                FilamentSpatieLaravelBackupPlugin::make(),
+                //FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(

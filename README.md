@@ -1,16 +1,3 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -49,6 +36,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#key-features">Key Features</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -66,9 +54,10 @@
       <a href="#configuration">Configuration</a>
       <ul>
         <li><a href="#adding-variants">Adding variants</a></li>
+        <li><a href="#otp">One Time Passwords</a></li>
       </ul>
     </li>
-    <li><a href=""></a></li>
+    <li><a href="#shop">Shop</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -127,6 +116,8 @@
   visibility, business services, announcements and much more...
 * **E-commerce:** TALL stack e-commerce shop. Stripe integration
 * **Shop panel control** Have control over the shop products and orders straight from you admin panel.
+* **Shop panel control** One Time Passwords (OTP) for an extra added layer of security.
+
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Built With
@@ -244,7 +235,11 @@ php artisan storage:link
 Don't forget to run `npm run dev` and `php artisan serve`
 after the above commands are ran.
 
-I use [Mailtrap](https://mailtrap.io/) for email testing. You can use whatever you like. If you want to
+> [!NOTE]
+> 
+> Don't forget to update your Mail settings to reflect your production server's needs
+
+I use [Mailtrap](https://mailtrap.io/) for local email testing. You can use whatever you like. If you want to
 use [Mailtrap](https://mailtrap.io/),
 create an account and add the credentials to the `.env` file. If you are using [forge](https://forge.laravel.com/) you
 can add the credentials to the server environment variables.
@@ -276,6 +271,9 @@ DO_SPACES_ENDPOINT=endpoint-that-is-provided-by-DigitalOcean
 Here's a [youtube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to set up Digital Ocean Spaces with Laravel.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
+
+<-- Shop -->
+## Shop
 
 Add the Stripe credentials:
 ```
@@ -364,8 +362,14 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 
 > [!NOTE]
-> **The App comes preloaded with some general variants and some tech variants. You should add the variant types that fit the type of store you're building.**
 > 
+> **The App comes preloaded with some general variants and some tech variants. You should add the variant types that fit the type of store you're building.**
+
+<!-- One Time Passwords -->
+> [!Importnat]
+> 
+>OTP is now available for an extra added layer of security. To enable OTP just got to your desired panels. The available panels are `AdminPanelProvider.php`, `CustomerPannelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
+
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
