@@ -25,7 +25,7 @@ class GalleryResource extends Resource
 
 //    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Business Information';
 
     protected static ?string $pluralModelLabel = 'Gallery';
 
