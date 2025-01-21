@@ -359,7 +359,9 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 
-**The app comes preloaded with some general variants and some tech variants. You should add the variant types that fit the type of store you're building.**
+> [!NOTE]
+> **The App comes preloaded with some general variants and some tech variants. You should add the variant types that fit the type of store you're building.**
+> 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
