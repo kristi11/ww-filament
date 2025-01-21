@@ -272,7 +272,7 @@ Here's a [youtube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to 
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
 
-<-- Shop -->
+<!-- SHOP -->
 ## Shop
 
 Add the Stripe credentials:
