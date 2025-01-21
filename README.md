@@ -359,6 +359,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 
+**The app comes preloaded with some general variants and some tech variants. You should add the variant types that fit the type of store you're building.**
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
@@ -418,7 +419,9 @@ an account
 18. [x] Add [Language-switch](https://filamentphp.com/plugins/bezhansalleh-language-switch) to support different
     languages
 19. [x] Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
-    app is running
+    app is running.
+20. [ ] Add CRUD for shipping/billing address in the app so you don't have to enter it manually when checking out.
+21. [ ] Add in app tracking for orders. Thinking of using laravel reverb for live tracking
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 

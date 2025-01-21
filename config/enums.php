@@ -55,5 +55,4 @@ return [
     'operating_system' => OperatingSystem::class,
     'processor_type' => ProcessorType::class,
     'screen_resolution' => ScreenResolution::class,
-
 ];
