@@ -116,7 +116,7 @@
   visibility, business services, announcements and much more...
 * **E-commerce:** TALL stack e-commerce shop. Stripe integration
 * **Shop panel control** Have control over the shop products and orders straight from you admin panel.
-* **Shop panel control** One Time Passwords (OTP) for an extra added layer of security.
+* **One Time Passwords (OTP)** for an extra added layer of security.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -366,7 +366,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 > **The App comes preloaded with some general variants and some tech variants. You should add the variant types that fit the type of store you're building.**
 
 <!-- One Time Passwords -->
-> [!Importnat]
+> [!Important]
 > 
 >OTP is now available for an extra added layer of security. To enable OTP just got to your desired panels. The available panels are `AdminPanelProvider.php`, `CustomerPannelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
 
@@ -431,7 +431,8 @@ an account
 19. [x] Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
     app is running.
 20. [ ] Add CRUD for shipping/billing address in the app so you don't have to enter it manually when checking out.
-21. [ ] Add in app tracking for orders. Thinking of using laravel reverb for live tracking
+21. [ ] Add in app tracking for orders. Thinking of using laravel reverb for live tracking.
+22. [x] Add One Time Passwords (OTP) for an extra added layer of security
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
