@@ -307,7 +307,7 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 ### **Side note:**
 
-#### If the `canCreate()`, `canEdit()` or `canDelete()` functions return a `true` or `false` value is best not to mess with that value because that value is supposed to be that way.
+#### If the `canCreate()`, `canEdit()` or `canDelete()` functions return anything other than a `true` or `false` value is best not to mess with that value because that value is supposed to be that way.
 
 
 
