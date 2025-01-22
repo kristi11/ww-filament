@@ -166,24 +166,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     /**
      * @throws Exception
      */
-//    public function canAccessPanel(Panel $panel): bool
-//    {
-//        // Check the panel ID to determine access rules
-//        if ($panel->getId() === 'admin') {
-//            // Only super admins can access the 'admin' panel
-//            return $this->hasRole('super_admin');
-//        } elseif ($panel->getId() === 'team') {
-//            // Allow access to the 'customer' panel for customers
-//            return $this->hasRole('team_user');
-//        } elseif // Check the panel ID to determine access rules
-//        ($panel->getId() === 'customer') {
-//            // Allow access to the 'customer' panel for customers
-//            return $this->hasRole('panel_user');
-//        } else {
-//            // Deny access to all other panels
-//            return false;
-//        }
-//    }
 
     public function canAccessPanel(Panel $panel): bool
     {

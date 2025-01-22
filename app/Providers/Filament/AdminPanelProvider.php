@@ -8,6 +8,7 @@ use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 use Exception;
+use Filament\Forms\Components\FileUpload;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -52,7 +53,6 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('favicon.svg'))
             ->login()
             ->passwordReset()
-//            ->profile() Uncomment this line to enable the profile page
             ->colors([
                 'primary' => Color::Indigo,
                 'gray' => Color::Slate,
@@ -86,8 +86,9 @@ class AdminPanelProvider extends PanelProvider
                 //FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
                 BreezyCore::make()
+                    ->avatarUploadComponent(fn() => FileUpload::make('avatar_url')->disk('DO-SPACES'))
                     ->myProfile(
-                        shouldRegisterUserMenu: false,
+//                        shouldRegisterUserMenu: false,
                         // Sets the 'account' link in the panel User Menu (default = false)
                         shouldRegisterNavigation: false,
                         // Adds a main navigation item for the My Profile page (default = false)
