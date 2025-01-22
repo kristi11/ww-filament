@@ -85,8 +85,8 @@ class AdminPanelProvider extends PanelProvider
                     ->associateItemsWithTheirGroups(),
                 //FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
-                BreezyCore::make()
-                    ->avatarUploadComponent(fn() => FileUpload::make('avatar_url')->disk('DO-SPACES'))
+                \App\Filament\Plugins\BreezyCore::make()
+                    ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
                     ->myProfile(
 //                        shouldRegisterUserMenu: false,
                         // Sets the 'account' link in the panel User Menu (default = false)
