@@ -88,7 +88,7 @@ class AdminPanelProvider extends PanelProvider
                 \App\Filament\Plugins\BreezyCore::make()
                     ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
                     ->myProfile(
-//                        shouldRegisterUserMenu: false,
+                        shouldRegisterUserMenu: false,
                         // Sets the 'account' link in the panel User Menu (default = false)
                         shouldRegisterNavigation: false,
                         // Adds a main navigation item for the My Profile page (default = false)
