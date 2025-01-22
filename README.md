@@ -368,7 +368,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 <!-- One Time Passwords -->
 > [!Important]
 > 
->OTP is now available for an extra added layer of security. To enable OTP just got to your desired panels. The available panels are `AdminPanelProvider.php`, `CustomerPanelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
+>OTP is now available for an extra added layer of security. To enable OTP just go to your desired panels and uncomment  `//FilamentOtpLoginPlugin::make(),`. The available panels are `AdminPanelProvider.php`, `CustomerPanelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
