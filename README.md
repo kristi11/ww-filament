@@ -356,7 +356,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 * Update the `getForm()` function in `ProductVariant.php` model, add/edit/delete the desired variants.
 * Update the `$table` function in `ProductVariantResource.php`, add/edit/delete the desired variants.
 * Update the `$table` function in `VariationsRelationManager.php`, add/edit/delete the desired variants.
-* Add/Update/Delete desired values inside `config/enums.php`.
+* Add/Update/Delete the newly created Enum name inside `config/enums.php`.
 * Update '$casts' on the `ProductVariant.php` model
 
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
@@ -368,7 +368,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 <!-- One Time Passwords -->
 > [!Important]
 > 
->OTP is now available for an extra added layer of security. To enable OTP just got to your desired panels. The available panels are `AdminPanelProvider.php`, `CustomerPannelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
+>OTP is now available for an extra added layer of security. To enable OTP just got to your desired panels. The available panels are `AdminPanelProvider.php`, `CustomerPanelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
