@@ -71,7 +71,7 @@ class TeamPanelProvider extends PanelProvider
                     ->RetainRecentIfFavorite(true)
                     ->associateItemsWithTheirGroups(),
                 ThemesPlugin::make(),
-                BreezyCore::make()
+                \App\Filament\Plugins\BreezyCore::make()
                     ->myProfile(
                         shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
                         shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
