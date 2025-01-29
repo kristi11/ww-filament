@@ -14,6 +14,7 @@ use App\Observers\GalleryObserver;
 use App\Observers\HeroObserver;
 use App\Observers\ProductsObserver;
 use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
+use BezhanSalleh\PanelSwitch\PanelSwitch;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
@@ -54,6 +55,28 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
+            $panelSwitch
+                ->renderHook('panels::global-search.after')
+                ->modalHeading('Available Panels')
+                ->panels(['admin', 'team', 'customer'])
+                ->slideOver()
+                ->modalWidth('lg')
+                ->icons([
+                    'admin' => 'heroicon-s-user-circle',
+                    'team' => 'heroicon-s-user-plus',
+                    'customer' => 'heroicon-s-user',
+                ])
+                ->iconSize(16)
+                ->labels([
+                    'admin' => __('Admin'),
+                    'team' => __('Team'),
+                    'customer' => __('Customer'),
+                ])
+                ->visible(fn (): bool => auth()->user()?->hasAnyRole([
+                    'super_admin'
+                ]));;
+        });
         Model::unguard();
 
         Cashier::calculateTaxes();
