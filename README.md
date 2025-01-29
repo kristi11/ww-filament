@@ -357,7 +357,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 >[!NOTE]
 >
-> In order to maintain a proper demonstration environment in the demonstration app, the admin has only been given the `super_admin` role so when trying to switch panels on the demonstration app you will be prompted with the `403` error. This would be alleviated by simply adding `team_user` and `panel_user` to the admin of the system on the user resource but as stated above this is done INTENTIONALLY to maintain a proper demonstration environment.
+> In order to maintain a proper demonstration environment in the [demonstration app](https://wittyworkflow.com/), the admin has only been given the `super_admin` role so when trying to switch panels on the [demonstration app](https://wittyworkflow.com/) you will be prompted with the `403` error. This would be alleviated by simply adding `team_user` and `panel_user` to the admin of the system on the user resource but as stated above this is done INTENTIONALLY to maintain a proper demonstration environment.
 
 <!-- Adding variants -->
 ### Adding variants
