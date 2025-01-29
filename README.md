@@ -447,6 +447,7 @@ an account
 20. [ ] Add CRUD for shipping/billing address in the app so you don't have to enter it manually when checking out.
 21. [ ] Add in app tracking for orders. Thinking of using laravel reverb for live tracking.
 22. [x] Add One Time Passwords (OTP) for an extra added layer of security
+23. [x] Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
