@@ -53,8 +53,10 @@
     <li>
       <a href="#configuration">Configuration</a>
       <ul>
+        <li><a href="#panel-switching">Panel switching</a></li>
         <li><a href="#adding-variants">Adding variants</a></li>
         <li><a href="#otp">One Time Passwords</a></li>
+        <li><a href="#demonstration-environment-note">Demonstration environment note</a></li>
       </ul>
     </li>
     <li><a href="#shop">Shop</a></li>
@@ -344,6 +346,18 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 * `super_admin` = The super admin of the system
 * `team_user` = The team members of the system assigned by the Super Admin
 * `panel_user` = The panel for the customers
+
+### Panel switching
+
+>[!NOTE]
+> 
+> In order to properly switch user panels for different roles the admin of the system must be assigned all the available roles (`super_admin`, `team_user` and `panel_user`) in the user resource. That way the admin will not be prompted with a `403` code when trying to access a panel that he doesn't have access to.
+
+### Demonstration environment note
+
+>[!NOTE]
+>
+> In order to maintain a proper demonstration environment in the demonstration app, the admin has only been given the `super_admin` role so when trying to switch panels on the demonstration app you will be prompted with the `403` error. This would be alleviated by simply adding `team_user` and `panel_user` to the admin of the system on the user resource but as stated above this is done INTENTIONALLY to maintain a proper demonstration environment.
 
 <!-- Adding variants -->
 ### Adding variants
