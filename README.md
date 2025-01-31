@@ -20,9 +20,10 @@
     <a href="https://github.com/kristi11/wittyworkflow/issues">Request Feature</a>
   </p>
 
-# **!! This app is in active development !!**
+>[!Important]
+># This app is in active development
 
-### This is a demonstration app for developer or clients to see how their app would look like in real world scenarios. To enable all the CRUD functionality follow the steps below
+### The website is a demonstration app for developer or clients to see how their app would look like in real world scenarios. A lot of CRUD features have been disabled to maintain a proper demonstration environment. To enable all the CRUD functionality follow the steps outlined on the <a href="#disabled-features">Disabled features</a> section and then on the **Content** resource choose to enable the desired functions.
 
 ## **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 
@@ -53,6 +54,7 @@
     <li>
       <a href="#configuration">Configuration</a>
       <ul>
+        <li><a href="#disabled-features">Disabled features</a></li>
         <li><a href="#panel-switching">Panel switching</a></li>
         <li><a href="#adding-variants">Adding variants</a></li>
         <li><a href="#otp">One Time Passwords</a></li>
@@ -83,42 +85,45 @@
 
 ## Key Features:
 
-* **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
+>* **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
   communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user
   experience.
 
-* **Role-Based Access:** Utilizing the
+>* **Role-Based Access:** Utilizing the
   powerful [Filament PHP](https://filamentphp.com/), [WittyWorkflow](https:://wittyworkflow.com) offers role-based
   access control, enabling
   different panels for different user roles. Admins have full access to all functionalities, while staff members and
   customers have a more limited view.
 
-* **SPA functionality with `Wire:Navigate` :** Enhance navigation with an SPA like menu featuring `wire:navigate`
+>* **SPA functionality with `Wire:Navigate` :** Enhance navigation with an SPA like menu featuring `wire:navigate`
   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
 
-* **Public Email Form and Footer:** Facilitate communication by implementing a public email form and completing the
+>* **Public Email Form and Footer:** Facilitate communication by implementing a public email form and completing the
   footer for a professional and polished user interface.
 
-* **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
+>* **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
 
-* **Appointment management:** Manage your appointments
+>* **Appointment management:** Manage your appointments
 
-* **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you never miss valuable information about your upcoming appointments.
-* **Email Notifications on shop purchases: Be notified every time a purchase is made.**
+>* **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you never miss valuable information about your upcoming appointments.
 
-* **Full control:** On what section shows/hides from the landing page depending on your businesses need for the section
+>* **Email Notifications on shop purchases: Be notified every time a purchase is made.**
 
-* **2-Factor authentication:** To enhance security of your accounts
+>* **Full control:** On what section shows/hides from the landing page depending on your businesses need for the section
 
-* **Theme customization:** To give every user the ability to customize the look and feel of the app to their liking
+>* **2-Factor authentication:** To enhance security of your accounts
 
-* **Application health:** See how your application is performing and make the necessary changes in the server
+>* **Theme customization:** To give every user the ability to customize the look and feel of the app to their liking
 
-* **Business information:** Have full access on different aspects of your business including system users, section
+>* **Application health:** See how your application is performing and make the necessary changes in the server
+
+>* **Business information:** Have full access on different aspects of your business including system users, section
   visibility, business services, announcements and much more...
-* **E-commerce:** TALL stack e-commerce shop. Stripe integration
-* **Shop panel control** Have control over the shop products and orders straight from you admin panel.
-* **One Time Passwords (OTP)** for an extra added layer of security.
+
+>* **E-commerce:** TALL stack e-commerce shop. Stripe integration
+
+>* **Shop panel control** Have control over the shop products and orders straight from you admin panel.
+>* **One Time Passwords (OTP)** for an extra added layer of security.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
