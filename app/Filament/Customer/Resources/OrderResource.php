@@ -142,7 +142,7 @@ class OrderResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return Order::count();
+        return Order::where('user_id', auth()->id())->count();
     }
 
     public static function getRelations(): array
