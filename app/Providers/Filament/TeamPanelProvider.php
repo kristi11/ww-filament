@@ -73,7 +73,7 @@ class TeamPanelProvider extends PanelProvider
                 ThemesPlugin::make(),
                 \App\Filament\Plugins\BreezyCore::make()
                     ->myProfile(
-                        shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
+                        shouldRegisterUserMenu: true, // Sets the 'account' link in the panel User Menu (default = false)
                         shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
                         hasAvatars: false, // Sets the navigation group for the My Profile page (default = null)
                         slug: 'profile', // Enables the avatar upload form component (default = false)

@@ -10,6 +10,7 @@ use Exception;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -19,6 +20,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class UserResource extends Resource
 {
@@ -131,8 +133,24 @@ class UserResource extends Resource
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
                         ->visible(CRUD_settings::query()->value('can_delete_content'))
-                        ->label('')
-                        ->tooltip('Delete'),
+                        ->label('Delete')
+                        ->tooltip('Delete')
+                        ->requiresConfirmation()
+                        ->action(function (Collection $records) {
+                            foreach ($records as $record) {
+                                if ($record->is_super_admin) {
+                                    Notification::make()
+                                        ->warning()
+                                        ->title('Cannot Delete')
+                                        ->body('Super admin users cannot be deleted.')
+                                        ->send();
+
+                                    return;
+                                }
+                            }
+
+                            $records->each->delete();
+                        }),
                 ]),
             ]);
     }
