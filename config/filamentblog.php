@@ -33,7 +33,7 @@ return [
         'foreign_key' => 'user_id',
         'columns' => [
             'name' => 'name',
-            'avatar' => 'avatar_url', // column name for avatar
+            'avatar' => 'profile_photo_path', // column name for avatar
         ],
     ],
     'seo' => [
