@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Enums\HOURS;
-use App\Enums\minutes;
+use App\Enums\MINUTES;
 use App\Filament\Resources\ServiceResource\Pages;
 use App\Models\CRUD_settings;
 use App\Models\Service;
