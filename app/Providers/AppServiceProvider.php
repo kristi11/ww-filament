@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Actions\Shop\MigrateSessionCart;
 use App\Factories\CartFactory;
+use App\Filament\Plugins\BlogPostResource;
 use App\Models\Appointment;
 use App\Models\Gallery;
 use App\Models\Hero;
@@ -15,6 +16,7 @@ use App\Observers\HeroObserver;
 use App\Observers\ProductsObserver;
 use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use BezhanSalleh\PanelSwitch\PanelSwitch;
+use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
@@ -55,6 +57,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Filament::registerResources([
+            BlogPostResource::class,
+        ]);
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
             $panelSwitch
                 ->renderHook('panels::global-search.after')
