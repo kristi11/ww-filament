@@ -103,7 +103,7 @@ class ServiceResource extends Resource
                         [
                             Select::make('estimated_hours')
                                 ->enum(HOURS::class)
-                                ->options(HOURS::class)
+                                ->options(collect(HOURS::cases())->mapWithKeys(fn ($hour) => [$hour->value => $hour->name])->toArray())
                                 ->searchable()
                                 ->preload()
                                 ->columnSpan(1)
@@ -112,7 +112,7 @@ class ServiceResource extends Resource
                                 ->prefixIcon('heroicon-s-clock'),
                             Select::make('estimated_minutes')
                                 ->enum(MINUTES::class)
-                                ->options(MINUTES::class)
+                                ->options(collect(MINUTES::cases())->mapWithKeys(fn ($minute) => [$minute->value => $minute->name])->toArray())
                                 ->searchable()
                                 ->preload()
                                 ->columnSpan(1)
