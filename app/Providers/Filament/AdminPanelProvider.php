@@ -54,6 +54,7 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('favicon.svg'))
             ->login()
             ->passwordReset()
+            ->emailVerification()
             ->colors([
                 'primary' => Color::Indigo,
                 'gray' => Color::Slate,

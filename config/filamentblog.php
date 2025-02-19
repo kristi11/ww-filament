@@ -50,5 +50,5 @@ return [
         'secret_key' => env('RECAPTCHA_SECRET_KEY'),
     ],
 
-    'disk' => env('FILAMENT_BLOG_DISK', 'public'),
+    'disk' => 'DO-SPACES',
 ];
