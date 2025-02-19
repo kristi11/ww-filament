@@ -27,9 +27,11 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Niladam\FilamentAutoLogout\AutoLogoutPlugin;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
@@ -80,6 +82,16 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                AutoLogoutPlugin::make()
+                    // Enable any of the following options if needed
+//                    ->color(Color::Emerald)     // Set the color. Defaults to Zinc
+//                    ->disableIf(fn () => auth()->id() === 1)        // Disable the user with ID 1
+//                    ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 5)   // Logout the user after 5 minutes
+//                    ->withoutWarning()          // Disable the warning before logging out
+//                    ->withoutTimeLeft()         // Disable the time left
+//                    ->timeLeftText('Oh no. Kicking you in...')      // Change the time left text
+//                    ->timeLeftText('')
+                    ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30),
                 Blog::make(),
                 //FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d7eb411200ca9ba02d81c109a389b3d",
+    "content-hash": "8eb8bedc909576aab4152ac3e740a597",
     "packages": [
         {
             "name": "afsakar/filament-otp-login",
@@ -5161,6 +5161,54 @@
             "time": "2024-12-05T17:15:07+00:00"
         },
         {
+            "name": "monzer/filament-email-verification-alert",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/monzer15/filament-email-verification-alert.git",
+                "reference": "7b2850661978045abb4d8ec84c92677965687abe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/monzer15/filament-email-verification-alert/zipball/7b2850661978045abb4d8ec84c92677965687abe",
+                "reference": "7b2850661978045abb4d8ec84c92677965687abe",
+                "shasum": ""
+            },
+            "require": {
+                "filament/support": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Monzer\\FilamentEmailVerificationAlert\\EmailVerificationAlertServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Monzer\\FilamentEmailVerificationAlert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Monzer Osman",
+                    "email": "monzerosman15@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Send Email verifications on the fly!",
+            "support": {
+                "issues": "https://github.com/monzer15/filament-email-verification-alert/issues",
+                "source": "https://github.com/monzer15/filament-email-verification-alert/tree/v1.0.0"
+            },
+            "time": "2025-02-12T16:15:24+00:00"
+        },
+        {
             "name": "mtdowling/jmespath.php",
             "version": "2.8.0",
             "source": {
@@ -5538,6 +5586,76 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
             },
             "time": "2024-12-30T11:07:19+00:00"
+        },
+        {
+            "name": "niladam/filament-auto-logout",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/niladam/filament-auto-logout.git",
+                "reference": "920b6d6bfa955c74657aefa8c4c0075f44830b55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/niladam/filament-auto-logout/zipball/920b6d6bfa955c74657aefa8c4c0075f44830b55",
+                "reference": "920b6d6bfa955c74657aefa8c4c0075f44830b55",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Niladam\\FilamentAutoLogout\\AutoLogoutServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Niladam\\FilamentAutoLogout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Madalin Tache",
+                    "email": "niladam@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A filament plugin that auto logs out your users if they are idle.",
+            "homepage": "https://github.com/niladam/filament-auto-logout",
+            "keywords": [
+                "afk logout",
+                "autologout",
+                "filament auto logout",
+                "filament-auto-logout",
+                "laravel",
+                "logout if afk",
+                "logout if idle",
+                "logout on idle"
+            ],
+            "support": {
+                "issues": "https://github.com/niladam/filament-auto-logout/issues",
+                "source": "https://github.com/niladam/filament-auto-logout"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/niladam",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-02-14T06:20:45+00:00"
         },
         {
             "name": "njxqlus/filament-lightbox",
