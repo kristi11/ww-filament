@@ -33,7 +33,7 @@ class HeroResource extends Resource
 {
     protected static ?string $model = Hero::class;
 
-//    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     protected static ?string $navigationGroup = 'Settings';
 

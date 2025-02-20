@@ -22,7 +22,7 @@ class FlexibilityResource extends Resource
 {
     protected static ?string $model = Flexibility::class;
 
-//    protected static ?string $navigationIcon = 'heroicon-o-adjustments-horizontal';
+    protected static ?string $navigationIcon = 'heroicon-o-adjustments-horizontal';
 
     protected static ?string $navigationGroup = 'Business Information';
 

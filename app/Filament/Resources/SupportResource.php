@@ -20,7 +20,7 @@ class SupportResource extends Resource
 {
     protected static ?string $model = Support::class;
 
-//    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
+    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-ellipsis';
 
     protected static ?string $label = 'Support';
 

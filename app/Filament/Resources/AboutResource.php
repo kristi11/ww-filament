@@ -19,7 +19,7 @@ class AboutResource extends Resource
 {
     protected static ?string $model = About::class;
 
-//    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 
     protected static ?string $navigationGroup = 'Footer';
 

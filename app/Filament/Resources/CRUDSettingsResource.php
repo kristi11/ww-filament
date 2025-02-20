@@ -17,6 +17,7 @@ class CRUDSettingsResource extends Resource
     protected static ?string $pluralModelLabel = 'Content';
     protected static ?string $slug = 'content';
     protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationIcon = 'heroicon-o-cog';
 
     private const PERMISSIONS = [
         'create' => [

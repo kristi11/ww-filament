@@ -18,7 +18,7 @@ class PublicPageResource extends Resource
 {
     protected static ?string $model = PublicPage::class;
 
-//    protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
+    protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
 
     protected static ?string $navigationGroup = 'Settings';
 

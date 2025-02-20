@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
 class SocialResource extends Resource
 {
     protected static ?string $model = Social::class;
-//    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationGroup = 'Business Information';
     protected static ?string $recordTitleAttribute = 'user.name';
 
