@@ -28,7 +28,7 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'Business Information';
 
-//    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -64,6 +64,19 @@ class UserResource extends Resource
         return $table
             ->deferLoading()
             ->striped()
+            ->paginated([25, 50, 100, 'all']) // Allow users to choose, default to 25
+            ->defaultPaginationPageOption(25)
+            ->modifyQueryUsing(fn ($query) => $query->with('roles')->select([
+                'id',
+                'name',
+                'email',
+//                'is_super_admin',
+//                'is_team_user',
+//                'is_panel_user',
+                'email_verified_at',
+                'created_at',
+                'updated_at'
+            ]))
             ->columns([
 //                ImageColumn::make('avatar_url')
 //                    ->circular(),
@@ -128,7 +141,6 @@ class UserResource extends Resource
                     ->label('')
                     ->tooltip('Edit'),
             ])
-            ->paginated(false)
             ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
