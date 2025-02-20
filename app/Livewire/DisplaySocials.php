@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Hero;
 use App\Models\Social;
 use Livewire\Component;
 
@@ -35,6 +36,7 @@ class DisplaySocials extends Component
     {
         return view('livewire.display-socials',
         [
+            'hero' => Hero::first(),
             'socials' => Social::first()
         ]);
     }

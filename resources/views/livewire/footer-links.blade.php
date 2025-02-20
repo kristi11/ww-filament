@@ -4,7 +4,8 @@
         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
             @if($faq)
                 <a href="{{ route('faq') }}" target="_blank"
-                   class="no-underline hover:underline text-gray-800 hover:text-pink-500">
+                   class="no-underline hover:underline transition duration-300"
+                   style="color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.5);">
                     FAQ
                 </a>
             @endif
@@ -12,14 +13,18 @@
         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
             @if($help)
                 <a href="{{ route('help') }}" target="_blank"
-                   class="no-underline hover:underline text-gray-800 hover:text-pink-500">Help
+                   class="no-underline hover:underline transition duration-300"
+                   style="color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.5);">
+                    Help
                 </a>
             @endif
         </li>
         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
             @if($support)
                 <a href="{{ route('support') }}" target="_blank"
-                   class="no-underline hover:underline text-gray-800 hover:text-pink-500">Support
+                   class="no-underline hover:underline transition duration-300"
+                   style="color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.5);">
+                    Support
                 </a>
             @endif
         </li>

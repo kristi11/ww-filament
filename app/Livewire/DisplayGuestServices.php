@@ -6,6 +6,7 @@ use AllowDynamicProperties;
 use App\Filament\Customer\Resources\CustomerAppointmentResource;
 use App\Filament\Resources\AppointmentResource;
 use App\Models\Flexibility;
+use App\Models\Hero;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use App\Models\Service;
@@ -35,6 +36,7 @@ class DisplayGuestServices extends Component
 
         return view('livewire.display-guest-services',
             [
+                'hero' => Hero::first(),
                 'services' => Service::simplePaginate(3),
                 'flexible_pricing' => $flexiblePricing,
                 'guestServices' => PublicPage::where('services', true)->first(),

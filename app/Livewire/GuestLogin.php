@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Hero;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use Filament\Facades\Filament;
@@ -36,6 +37,7 @@ class GuestLogin extends Component
     public function render()
     {
         return view('livewire.guest-login', [
+            'hero' => Hero::first(),
             'credentials' => PublicPage::where('credentials', true)->first(),
             'background' => SectionColors::first(),
         ]);

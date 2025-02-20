@@ -1,26 +1,33 @@
 <div>
     @if($socials)
-        <section id="login" class="bg-white py-8 lg:p-20">
+        <section id="login" class="py-8 lg:p-20"
+                 style="background-image: linear-gradient(to bottom right, #FFFFFF, color-mix(in srgb, {{$hero->gradientDegreeFirstColor}} 5%, white))">
             <div class="container flex flex-wrap justify-center mx-auto pb-12 pt-4 rounded-lg">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2 justify-center">
-
-                        @if(!empty($socials->instagram))
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2 justify-center">
+                    @if(!empty($socials->instagram))
+                        <div>
                             <x-icons.instagram_svg/>
-                        @endif
+                        </div>
+                    @endif
 
-                        @if(!empty($socials->facebook))
+                    @if(!empty($socials->facebook))
+                        <div>
                             <x-icons.facebook_svg/>
-                        @endif
+                        </div>
+                    @endif
 
-                        @if(!empty($socials->twitter))
+                    @if(!empty($socials->twitter))
+                        <div>
                             <x-icons.twitter_svg/>
-                        @endif
+                        </div>
+                    @endif
 
-                        @if(!empty($socials->linkedin))
+                    @if(!empty($socials->linkedin))
+                        <div>
                             <x-icons.linkedin_svg/>
-                        @endif
-
-                    </div>
+                        </div>
+                    @endif
+                </div>
             </div>
         </section>
     @endif

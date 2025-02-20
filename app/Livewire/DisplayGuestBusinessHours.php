@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\BusinessHour;
 use App\Models\Flexibility;
+use App\Models\Hero;
 use App\Models\PublicPage;
 use App\Models\SectionColors;
 use Illuminate\View\View;
@@ -17,6 +18,7 @@ class DisplayGuestBusinessHours extends Component
 
         return view('livewire.display-guest-business-hours',
             [
+                'hero' =>Hero::firstOrFail(),
                 'hours' => BusinessHour::all(),
                 'always_open' => $alwaysOpen,
                 'guestHours' => PublicPage::where('hours', true)->first(),
