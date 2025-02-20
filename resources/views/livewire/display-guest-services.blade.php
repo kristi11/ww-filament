@@ -1,6 +1,6 @@
 <div>
     @if($guestServices)
-        <section id="service" class="py-12 lg:py-24"
+        <section id="services" class="py-12 lg:py-24"
                  style="background-image: linear-gradient(to bottom right, #FFFFFF, color-mix(in srgb, {{$hero->gradientDegreeFirstColor}} 5%, white))">
             <div class="container mx-auto px-4 max-w-7xl">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-4"

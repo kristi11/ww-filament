@@ -35,7 +35,7 @@ clearInterval(gsapInterval3);
 }
 }, 5);
 "
-        class="lg:text-3xl text-xl tracking-loose uppercase w-full antialiased drop-shadow-xl"
+        class="lg:text-3xl text-xl tracking-loose uppercase w-full antialiased drop-shadow-lg text-gray-100 font-bold text-center invisible"
     >
         {{ $hero->thirdQuote }}
     </p>
