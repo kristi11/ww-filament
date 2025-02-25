@@ -18,7 +18,7 @@ return [
         'prefix' => 'fblog_', // prefix for all blog tables
     ],
     'route' => [
-        'prefix' => 'blogs',
+//        'prefix' => 'blogs', this route needs to be enabled to access the blog
         'middleware' => ['web'],
         //        'home' => [
         //            'name' => 'filamentblog.home',

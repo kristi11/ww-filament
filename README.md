@@ -478,7 +478,7 @@ an account
 > The following are the known issues that need addressing and i hope that the community will step in and work on them:
 >
 > * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
-> * FBlog plugin has been disabled until i can figure out a few configuration settings. To enable it go to `AdminPanelProvider.php` and `AppServiceProvider.php` and follow the steps outlined
+> * FBlog plugin has been disabled until i can figure out a few configuration settings. To enable it go to `AdminPanelProvider.php`, `AppServiceProvider.php`, and `filamentblog.php`, and follow the steps outlined.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
