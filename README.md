@@ -56,7 +56,6 @@ span
         <li><a href="#panel-switching">Panel switching</a></li>
         <li><a href="#adding-variants">Adding variants</a></li>
         <li><a href="#otp">One Time Passwords</a></li>
-        <li><a href="#demonstration-environment-note">Demonstration environment note</a></li>
       </ul>
     </li>
     <li><a href="#shop">Shop</a></li>
@@ -370,12 +369,6 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 > [!NOTE]
 >
 > In order to properly switch user panels for different roles the admin of the system must be assigned all the available roles (`super_admin`, `team_user` and `panel_user`) in the user resource. That way the admin will not be prompted with a `403` code when trying to access a panel that he doesn't have access to.
-
-### Demonstration environment note
-
-> [!NOTE]
->
-> The user, in this case the admin of the system needs to have all roles assigned to them. So `super_admin`, `team_user` and `panel_user` in order to not be prompted with the `403` error code when switching panels.
 
 <!-- Adding variants -->
 
