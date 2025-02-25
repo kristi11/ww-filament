@@ -54,17 +54,17 @@
             }
         }, $data.cursorSpeed);
     })"
-    class="flex items-center justify-center min-h-[40vh] mx-auto px-4">
+    class="flex items-center mx-auto px-4">
 
-    <div class="relative flex items-center justify-center w-full max-w-7xl">
-        <span class="absolute -left-4 -top-8 text-8xl text-gray-200 font-serif select-none">"</span>
+    <div class="relative flex items-center  w-full max-w-7xl">
+{{--        <span class="absolute -left-4 -top-8 text-8xl text-gray-200 font-serif select-none">"</span>--}}
 
         <p
             x-text="text"
             class="font-black text-4xl md:text-7xl lg:text-8xl text-center
                    leading-tight tracking-tight
                    drop-shadow-lg
-                   transition-all duration-300"
+                   transition-all duration-300 text-gray-200"
             x-show="text.length > 0"
             x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 transform scale-95"
@@ -76,6 +76,6 @@
             class="absolute right-0 w-1 md:w-2 -mr-2 bg-slate-900 h-3/4 top-1/2 -translate-y-1/2">
         </span>
 
-        <span class="absolute -right-4 -bottom-8 text-8xl text-gray-200 font-serif rotate-180 select-none">"</span>
+{{--        <span class="absolute -right-4 -bottom-8 text-8xl text-gray-200 font-serif rotate-180 select-none">"</span>--}}
     </div>
 </div>

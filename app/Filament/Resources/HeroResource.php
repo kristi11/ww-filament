@@ -18,13 +18,11 @@ use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -137,6 +135,13 @@ class HeroResource extends Resource
                         Forms\Components\Toggle::make('waves')
                             ->required()
                             ->helperText('Enable or disable waves for the hero')
+                            ->columnSpanFull(),
+                    ]),
+                Section::make('Full screen background image')
+                    ->schema([
+                        Forms\Components\Toggle::make('full_screen_image')
+                            ->required()
+                            ->helperText('Here you can choose whether you want the image as the hero background or have a gradient background with the option of adding an image')
                             ->columnSpanFull(),
                     ]),
             ]);

@@ -1,10 +1,50 @@
 <?php
 
+/**
+ * This observer handles events related to the Product model.
+ */
+
 namespace App\Observers;
 
-use App\Models\Product;
-use Illuminate\Support\Facades\Storage;
+use /**
+ * Represents the Product model in the Laravel application.
+ *
+ * This model interacts with the `products` table in the MySQL database.
+ *
+ * The Product model may contain business logic, relationships, and
+ * other functionalities specific to the product entity.
+ *
+ * Queue connection for operations is set to "sync".
+ *
+ * @package App\Models
+ */
+    App\Models\Product;
+use /**
+ * The Storage facade provides methods to interact with the file storage system in Laravel.
+ * It offers a simplified interface to manage files, including reading, writing, and deleting files,
+ * as well as manipulating directories and managing file metadata.
+ *
+ * Laravel supports multiple storage drivers like local, S3, FTP, and others,
+ * which can be set in the configuration file.
+ *
+ * Common usage includes:
+ * - Managing file uploads.
+ * - Accessing stored files.
+ * - Generating file URLs.
+ * - Performing file operations such as copying, deleting, and renaming.
+ *
+ * This facade is part of Laravel's service container and must be appropriately configured
+ * in the application's `filesystem.php` configuration file.
+ *
+ * To use a specific storage disk, you can specify it in the method calls or
+ * set the default disk in the configuration.
+ */
+    Illuminate\Support\Facades\Storage;
 
+/**
+ * Observes the lifecycle events of the Product model and performs specific actions
+ * based on the type of event triggered.
+ */
 class ProductsObserver
 {
     /**

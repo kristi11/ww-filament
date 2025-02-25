@@ -158,7 +158,7 @@ class OrderResource extends Resource
 
     public static function canCreate(): bool
     {
-        return CRUD_settings::query()->value('can_create_content');
+        return false;
     }
 
     public static function canEdit(Model $record): bool

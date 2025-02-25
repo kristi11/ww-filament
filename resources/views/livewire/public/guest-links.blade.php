@@ -1,10 +1,10 @@
 <div>
 
     <meta charset="UTF-8"/>
-    <meta
-        http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src https://*; child-src 'none';"
-    />
+{{--    <meta--}}
+{{--        http-equiv="Content-Security-Policy"--}}
+{{--        content="default-src 'self'; img-src https://*; child-src 'none';"--}}
+{{--    />--}}
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('sitemap.xml') }}"/>
     <link rel="canonical" href="{{ URL::current() }}"/>
     <meta property="og:title" content="Witty Workflow"/>
