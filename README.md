@@ -21,7 +21,7 @@ span
 
 > # This app is in active development
 
-### The website is a demonstration app for developer or clients to see how their app would look like in real world scenarios. Some CRUD features have been disabled to maintain a proper demonstration environment. To enable all the CRUD functionality follow the steps outlined on the <a href="#disabled-features">Disabled features</a> section and then on the **Content** resource choose to enable the desired functions.
+### The website is a demonstration app for developer or clients to see how their app would look like in real world scenarios.
 
 ## **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 
@@ -121,6 +121,7 @@ span
 > * **E-commerce:** TALL stack e-commerce shop. Stripe integration
 
 > * **Shop panel control** Have control over the shop products and orders straight from you admin panel.
+
 > * **One Time Passwords (OTP)** for an extra added layer of security.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
@@ -326,10 +327,6 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 >
 > #####  Switch the `canEdit()` function in `CRUDSettingsResource.php` to `true` ose `false` to enable or disable choosing whether the admin should be able to edit content or not.
 
-> [!IMPORTANT]
->
-> #####  The only disabled feature in the demonstration app is being able to edit the super-admin profile like email and password. That can easily be enabled following the below steps.
-
 ### **Side note:**
 
 #### If the `canCreate()`, `canEdit()` or `canDelete()` functions return anything other than a `true` or `false` value is best not to mess with that value because that value is supposed to be that way.
@@ -378,7 +375,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 > [!NOTE]
 >
-> In order to maintain a proper demonstration environment in the [demonstration app](https://wittyworkflow.com/), the admin has only been given the `super_admin` role so when trying to switch panels on the [demonstration app](https://wittyworkflow.com/) you will be prompted with the `403` error. This would be alleviated by simply adding `team_user` and `panel_user` to the admin of the system on the user resource but as stated above this is done INTENTIONALLY to maintain a proper demonstration environment.
+> The user, in this case the admin of the system needs to have all roles assigned to them. So `super_admin`, `team_user` and `panel_user` in order to not be prompted with the `403` error code when switching panels.
 
 <!-- Adding variants -->
 
