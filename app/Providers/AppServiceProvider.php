@@ -57,9 +57,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Filament::registerResources([
-            BlogPostResource::class,
-        ]);
+//        Filament::registerResources([
+//            BlogPostResource::class,Enable this to enable FBlog plugin along with the AdminPanelProvider requirements explained in AdminPanelProvider
+//        ]);
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
             $panelSwitch
                 ->renderHook('panels::global-search.after')

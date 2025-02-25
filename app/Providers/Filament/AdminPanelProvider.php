@@ -92,7 +92,7 @@ class AdminPanelProvider extends PanelProvider
 //                    ->timeLeftText('Oh no. Kicking you in...')      // Change the time left text
 //                    ->timeLeftText('')
                     ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30),
-                Blog::make(),
+//                Blog::make(),Enable to enable the FBlog plugin. Also, you'd have to enable BlogPostResource::class in AppServiceProvider
                 //FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()

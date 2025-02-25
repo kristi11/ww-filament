@@ -465,6 +465,7 @@ an account
 21. [ ]  Add in app tracking for orders. Thinking of using laravel reverb for live tracking.
 22. [X]  Add One Time Passwords (OTP) for an extra added layer of security
 23. [X]  Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
+24. [X] Add [auto logout](https://filamentphp.com/plugins/niladam-auto-logout) plugin where you can set an auto logout timer to bump up security
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -477,12 +478,14 @@ an account
 > The following are the known issues that need addressing and i hope that the community will step in and work on them:
 >
 > * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
+> * FBlog plugin has been disabled until i can figure out a few configuration settings. To enable it go to `AdminPanelProvider.php` and `AppServiceProvider.php` and follow the steps outlined
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Workaround
 
-For now as a workaround only logged in users can add to cart.
+* For now as a workaround only logged in users can add to cart.
+* FBlog plugin has been disabled until the issues have been resolved
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
