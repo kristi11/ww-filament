@@ -12,6 +12,7 @@
         "ext-intl": "*",
         "ext-pdo": "*",
         "afsakar/filament-otp-login": "^1.3",
+        "amendozaaguiar/filament-route-statistics": "^3.0",
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "bezhansalleh/filament-language-switch": "^3.0",
         "bezhansalleh/filament-panel-switch": "^1.0",

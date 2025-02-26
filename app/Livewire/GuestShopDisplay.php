@@ -12,7 +12,7 @@ class GuestShopDisplay extends Component
     {
         return view('livewire.guest-shop-display', [
             'hero' => Hero::firstOrFail(),
-            'shop' => PublicPage::where('shop', true)->first(),
+            'shop' => PublicPage::where('shop', true)->firstOrFail(),
         ]);
     }
 }

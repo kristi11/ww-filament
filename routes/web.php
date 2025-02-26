@@ -68,13 +68,11 @@ Route::get('/about', function () {
 Route::middleware('public-page-check')->group(function () {
     Route::get('/shop', StoreFront::class)->name('shop');
 
-    Route::get('/product/{product}', ProductInfo::class)->name('productInfo');
+    Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
 
     Route::get('/cart',Cart::class)->name('cart');
 
     Route::get('/checkout-status',CheckoutStatus::class)->name('checkout-status');
-
-    Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
 
     Route::get('/order/{orderId}',ViewOrder::class)->name('view-order');
 });

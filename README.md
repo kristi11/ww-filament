@@ -1,4 +1,6 @@
-span
+> [!DEBUG]
+>
+> #### Currently theres a bug affecting the shop where when the shop link is clicked returns `404` even though it shouldnt. I'm working on fixing this 
 
 <br />
 <div align="center">
@@ -456,6 +458,17 @@ an account
 22. [X]  Add One Time Passwords (OTP) for an extra added layer of security
 23. [X]  Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
 24. [X] Add [auto logout](https://filamentphp.com/plugins/niladam-auto-logout) plugin where you can set an auto logout timer to bump up security
+25.[ ] Add system chat
+26.[ ] Add AI chatbot
+27.[ ] Add AI chatbot for generating images
+28.[ ] Add Excel Export 
+29. [ ] Add calendar
+30. [ ] Add more dev tools for a more optimal/clearer app control
+31. [ ] Add star rating to shop products
+32. [ ] Optimize dashboard data for a better understanding of whats going on with the app (Ongoing effort)
+33. [ ] Add email template builder for better control on how the outgoing emails look and feel
+34. [ ] Add Advanced filters 
+35. [ ] Add barcode to shop products
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 

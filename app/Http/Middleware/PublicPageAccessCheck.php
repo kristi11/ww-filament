@@ -11,8 +11,7 @@ class PublicPageAccessCheck
     public function handle(Request $request, Closure $next)
     {
         // Fetch the PublicPage settings
-        $publicPage = PublicPage::where('shop', true)  // this checks the 'shop' column in the PublicPage model
-            ->first();
+        $publicPage = PublicPage::where('shop', true)->first();
 
         // If no PublicPage instance is found for this user (or public settings), return 404
         if (!$publicPage) {
