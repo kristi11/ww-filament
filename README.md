@@ -1,4 +1,4 @@
-> [!DEBUG]
+> [!WARNING]
 >
 > #### Currently theres a bug affecting the shop where when the shop link is clicked returns `404` even though it shouldnt. I'm working on fixing this 
 
