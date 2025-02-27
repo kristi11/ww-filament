@@ -26,6 +26,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use NaturalGroove\Filament\ImageGeneratorField\Forms\Components\ImageGenerator;
 
 class HeroResource extends Resource
 {
@@ -114,13 +115,6 @@ class HeroResource extends Resource
                     ]),
                 Section::make('Hero image')
                     ->schema([
-//                        Forms\Components\SpatieMediaLibraryFileUpload::make('image')
-//                            ->image()
-//                            ->imageEditor()
-//                            ->placeholder('Upload hero image')
-//                            ->disk('s3-public')
-//                            ->directory('hero')
-//                            ->visibility('public'),
                         Forms\Components\FileUpload::make('image')
                             ->image()
                             ->imageEditor()
