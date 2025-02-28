@@ -1,6 +1,6 @@
 > [!WARNING]
 >
-> #### Currently theres a bug affecting the shop where when the shop link is clicked returns `404` even though it shouldnt. I'm working on fixing this 
+> #### For some unknown reason all of the non-filament routes are returning `404`. I'm working on fixing this 
 
 <br />
 <div align="center">
