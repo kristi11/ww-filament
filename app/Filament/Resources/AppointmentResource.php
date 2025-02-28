@@ -20,6 +20,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class AppointmentResource extends Resource
 {
@@ -239,9 +240,10 @@ class AppointmentResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
                         ->visible(CRUD_settings::query()->value('can_delete_content'))
-                        ->label('')
+                        ->label('Delete')
                         ->tooltip('Delete'),
                 ]),
+                ExportBulkAction::make()
             ]);
     }
 

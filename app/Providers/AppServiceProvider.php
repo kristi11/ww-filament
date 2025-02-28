@@ -2,31 +2,25 @@
 
 namespace App\Providers;
 
-use App\Actions\Shop\MigrateSessionCart;
-use App\Factories\CartFactory;
-use App\Filament\Plugins\BlogPostResource;
 use App\Models\Appointment;
 use App\Models\Gallery;
 use App\Models\Hero;
 use App\Models\Product;
-use App\Models\User;
 use App\Observers\AppointmentObserver;
 use App\Observers\GalleryObserver;
 use App\Observers\HeroObserver;
 use App\Observers\ProductsObserver;
 use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use BezhanSalleh\PanelSwitch\PanelSwitch;
-use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
-use Laravel\Fortify\Fortify;
 use Money\Currencies\ISOCurrencies;
 use Money\Formatter\IntlMoneyFormatter;
 use Money\Money;
+use NumberFormatter;
 use Spatie\CpuLoadHealthCheck\CpuLoadCheck;
 use Spatie\Health\Checks\Checks\CacheCheck;
 use Spatie\Health\Checks\Checks\DatabaseCheck;
@@ -48,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-    protected function registered(Request $request, $user)
+    protected function registered(Request $request, $user): void
     {
         $user->assignRole('panel_user');
     }
@@ -80,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
                 ])
                 ->visible(fn (): bool => auth()->user()?->hasAnyRole([
                     'super_admin'
-                ]));;
+                ]));
         });
         Model::unguard();
 
@@ -120,7 +114,7 @@ class AppServiceProvider extends ServiceProvider
         ]);
         Blade::stringable(function (Money $money){
             $currencies = new ISOCurrencies();
-            $numberFormatter = new \NumberFormatter(config('USD'), \NumberFormatter::CURRENCY);
+            $numberFormatter = new NumberFormatter(config('USD'), NumberFormatter::CURRENCY);
             $moneyFormatter = new IntlMoneyFormatter($numberFormatter, $currencies);
 
             return $moneyFormatter->format($money);

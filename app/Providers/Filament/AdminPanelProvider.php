@@ -3,7 +3,6 @@
 namespace App\Providers\Filament;
 
 use Afsakar\FilamentOtpLogin\FilamentOtpLoginPlugin;
-use Amendozaaguiar\FilamentRouteStatistics\FilamentRouteStatisticsPlugin;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -83,7 +82,6 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-                FilamentRouteStatisticsPlugin::make(),
                 AutoLogoutPlugin::make()
                     // Enable any of the following options if needed
 //                    ->color(Color::Emerald)     // Set the color. Defaults to Zinc
