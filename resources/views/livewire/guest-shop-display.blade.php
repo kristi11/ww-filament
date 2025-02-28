@@ -1,5 +1,5 @@
 <div>
-{{--    @if($shop)--}}
+    @if($shop)
         <section id="shop" class="py-20 relative overflow-hidden">
             <!-- Background Elements -->
             <div class="absolute inset-0" style="background-color: #F9FAFB"></div>
@@ -79,5 +79,5 @@
                 </div>
             </div>
         </section>
-{{--    @endif--}}
+    @endif
 </div>
