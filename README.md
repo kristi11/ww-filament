@@ -1,7 +1,3 @@
-> [!WARNING]
->
-> #### For some unknown reason all of the non-filament routes are returning `404`. I'm working on fixing this 
-
 <br />
 <div align="center">
   <a href="https://github.com/kristi11/wittyworkflow/">
@@ -481,14 +477,12 @@ an account
 > The following are the known issues that need addressing and i hope that the community will step in and work on them:
 >
 > * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
-> * FBlog plugin has been disabled until i can figure out a few configuration settings. To enable it go to `AdminPanelProvider.php`, `AppServiceProvider.php`, and `filamentblog.php`, and follow the steps outlined.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 ## Workaround
 
 * For now as a workaround only logged in users can add to cart.
-* FBlog plugin has been disabled until the issues have been resolved
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
