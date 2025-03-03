@@ -202,16 +202,4 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return "$this->first_name $this->last_name";
     }
-
-//    protected static function booted(): void
-//    {
-//        static::created(function (User $user) {
-//            $user->assignRole('panel_user');
-//        });
-//    }
-
-//    protected static function booted(): void
-//    {
-//        static::addGlobalScope(new OwnerScope);
-//    }
 }

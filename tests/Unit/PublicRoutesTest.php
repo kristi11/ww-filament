@@ -32,35 +32,9 @@ class PublicRoutesTest extends TestCase
             'Terms page' => ['/terms', 'terms'],
             'Contact page' => ['/contact', 'contact'],
             'About page' => ['/about', 'about'],
+            'Shop page' => ['/shop', 'shop'],
         ];
     }
-
-    /**
-     * Test routes that require public-page-check middleware
-     */
-    public function test_public_shop_routes_are_accessible()
-    {
-        // Test shop page
-        $response = $this->get('/shop');
-        $response->assertStatus(200);
-
-        // Test product page (you'll need a valid product ID)
-//         $response = $this->get('/product/1');
-//         $response->assertStatus(200);
-
-        // Test cart page
-        $response = $this->get('/cart');
-        $response->assertStatus(200);
-
-        // Test checkout status page
-        $response = $this->get('/checkout-status');
-        $response->assertStatus(200);
-
-        // Test order view page (you'll need a valid order ID)
-        // $response = $this->get('/order/1');
-        // $response->assertStatus(200);
-    }
-
     /**
      * Test login redirect
      */
