@@ -35,6 +35,7 @@ use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\Pages\HealthCheckResults;
+use TomatoPHP\FilamentPWA\FilamentPWAPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -81,6 +82,7 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+//                FilamentPWAPlugin::make(), //This plugin shouldn't be activated as of now since im still trying to figure out the configurations mo make it work properly
                 AutoLogoutPlugin::make()
                     // Enable any of the following options if needed
 //                    ->color(Color::Emerald)     // Set the color. Defaults to Zinc
@@ -97,7 +99,6 @@ class AdminPanelProvider extends PanelProvider
                     ->slideOver()
                     ->RetainRecentIfFavorite(true)
                     ->associateItemsWithTheirGroups(),
-                //FilamentSpatieLaravelBackupPlugin::make(),
                 ThemesPlugin::make(),
                 \App\Filament\Plugins\BreezyCore::make()
                     ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
