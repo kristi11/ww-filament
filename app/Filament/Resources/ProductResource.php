@@ -17,6 +17,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ProductResource extends Resource
 {
@@ -128,7 +130,17 @@ class ProductResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
                     ->visible(CRUD_settings::query()->value('can_delete_content')),
-                    ExportBulkAction::make()
+                    ExportBulkAction::make()->exports([
+                        ExcelExport::make()->withColumns([
+                            Column::make('name')->heading('Product name'),
+                            Column::make('description')->heading('Product description'),
+                            Column::make('price')->heading('Product price in $'),
+                            Column::make('created_at')->heading('Creation date'),
+                            Column::make('updated_at')->heading('Last updated'),
+                        ])
+                            ->askForFilename()
+                            ->askForWriterType()
+                    ])
                 ]),
             ]);
     }
