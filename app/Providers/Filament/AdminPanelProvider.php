@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use Afsakar\FilamentOtpLogin\FilamentOtpLoginPlugin;
+use App\Filament\Widgets\RevenueWidget;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -78,6 +79,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
+                RevenueWidget::class,
                 UsersCountWidget::class,
                 UsersChartWidget::class
             ])
