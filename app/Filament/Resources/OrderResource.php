@@ -164,11 +164,11 @@ class OrderResource extends Resource
 
     public static function canEdit(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_edit_content');
+        return false;
     }
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return false;
     }
 }
