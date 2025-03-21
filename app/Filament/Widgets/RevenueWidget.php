@@ -2,8 +2,10 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\PublicPage;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Stripe\Exception\ApiErrorException;
 use Stripe\Stripe;
 use Stripe\Charge;
 use Stripe\Balance;
@@ -12,6 +14,22 @@ use Stripe\Dispute;
 
 class RevenueWidget extends BaseWidget
 {
+    public static function canView(): bool
+    {
+        return PublicPage::where('shop', true)->exists();
+    }
+    protected function getHeading(): string
+    {
+        return 'Revenue information';
+    }
+    protected function getSubheading(): string
+    {
+        return 'The shop revenue details';
+    }
+
+    /**
+     * @throws ApiErrorException
+     */
     protected function getStats(): array
     {
         // Set Stripe API key

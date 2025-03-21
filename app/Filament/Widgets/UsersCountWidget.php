@@ -13,6 +13,15 @@ class UsersCountWidget extends BaseWidget
      return 2;
     }
 
+    protected function getHeading(): string
+    {
+        return 'Users and Services';
+    }
+    protected function getSubheading(): string
+    {
+        return 'The total number of users and services in the database';
+    }
+
     protected function getStats(): array
     {
         return [

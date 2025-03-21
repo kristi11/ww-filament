@@ -15,6 +15,14 @@ class BusinessInformationWidget extends BaseWidget
     {
         return 4;
     }
+    protected function getHeading(): string
+    {
+        return 'Business Information';
+    }
+    protected function getSubheading(): string
+    {
+        return 'The total business information';
+    }
 
     protected function getStats(): array
     {

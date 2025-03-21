@@ -23,6 +23,11 @@ class UsersChartWidget extends ChartWidget
         ];
     }
 
+    public function getHeading(): string
+    {
+        return 'User signups';
+    }
+
     protected function getData(): array
     {
         $filter = $this->filter;
