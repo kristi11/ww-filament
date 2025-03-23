@@ -28,6 +28,11 @@ class UsersChartWidget extends ChartWidget
         return 'User signups';
     }
 
+    public function getDescription(): string
+    {
+        return 'The user signup trend over different time periods';
+    }
+
     protected function getData(): array
     {
         $filter = $this->filter;
