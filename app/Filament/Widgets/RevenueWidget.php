@@ -22,7 +22,7 @@ class RevenueWidget extends BaseWidget
     {
         return 'Revenue information';
     }
-    protected function getSubheading(): string
+    protected function getDescription(): string
     {
         return 'The shop revenue details';
     }

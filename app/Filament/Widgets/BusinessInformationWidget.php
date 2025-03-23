@@ -19,7 +19,7 @@ class BusinessInformationWidget extends BaseWidget
     {
         return 'Business Information';
     }
-    protected function getSubheading(): string
+    protected function getDescription(): string
     {
         return 'The total business information';
     }

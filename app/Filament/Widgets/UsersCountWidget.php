@@ -17,7 +17,7 @@ class UsersCountWidget extends BaseWidget
     {
         return 'Users and Services';
     }
-    protected function getSubheading(): string
+    protected function getDescription(): string
     {
         return 'The total number of users and services in the database';
     }

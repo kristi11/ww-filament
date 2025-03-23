@@ -16,7 +16,7 @@ class OrderAndProductsWidget extends BaseWidget
     {
         return 'Orders and Products';
     }
-    protected function getSubheading(): string
+    protected function getDescription(): string
     {
         return 'The total orders and products in the database';
     }
