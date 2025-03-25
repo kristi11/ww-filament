@@ -32,38 +32,75 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(ShieldSeeder::class);
-        $admin = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
-            'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
-        ]);
-        $team = User::create([
-            'name' => 'Team',
-            'email' => 'team@example.com',
-            'password' => Hash::make('password'),
-            'email_verified_at' => now(),
-            'remember_token' => Str::random(10),
-        ]);
-        $user = User::factory(125)->create();
-        Address::factory()->create(['user_id' => $admin->id]);
-        Service::factory(12)->create(['user_id' => $admin->id]);
-        BusinessHour::factory(7)->create(['user_id' => $admin->id]);
-        Hero::factory()->create(['user_id' => $admin->id]);
-        Social::factory()->create(['user_id' => $admin->id]);
-        Flexibility::create(['user_id' => $admin->id]);
-        PublicPage::factory()->create(['user_id' => $admin->id]);
-        SectionColors::factory()->create(['user_id' => $admin->id]);
-        About::factory()->create(['user_id' => $admin->id]);
-        Contact::factory()->create(['user_id' => $admin->id]);
-        Terms::factory()->create(['user_id' => $admin->id]);
-        Privacy::factory()->create(['user_id' => $admin->id]);
-        FAQdata::factory()->create(['user_id' => $admin->id]);
-        Help::factory()->create(['user_id' => $admin->id]);
-        CRUD_settings::factory()->create(['user_id' => $admin->id]);
-        Support::factory()->create(['user_id' => $admin->id]);
-        Product::factory(6)->hasVariants(3)->create();
+
+        $admin = $this->createUser('Admin', 'admin@example.com');
+        $this->createAdminAssociatedData($admin);
+
+        $this->createUser('Team', 'team@example.com');
+        User::factory(125)->create();
+
+        $this->createProducts();
     }
 
+    /**
+     * Create a user with standard attributes
+     */
+    private function createUser(string $name, string $email): User
+    {
+        return User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => Hash::make('password'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+        ]);
+    }
+
+    /**
+     * Create all associated data for admin user
+     */
+    private function createAdminAssociatedData(User $admin): void
+    {
+        // Create multiple instances
+        Service::factory(12)->create(['user_id' => $admin->id]);
+        BusinessHour::factory(7)->create(['user_id' => $admin->id]);
+
+        // Create single instances with factory
+        $this->createSingleInstanceModels($admin, [
+            Address::class,
+            Hero::class,
+            Social::class,
+            PublicPage::class,
+            SectionColors::class,
+            About::class,
+            Contact::class,
+            Terms::class,
+            Privacy::class,
+            FAQdata::class,
+            Help::class,
+            CRUD_settings::class,
+            Support::class,
+        ]);
+
+        // Create without factory
+        Flexibility::create(['user_id' => $admin->id]);
+    }
+
+    /**
+     * Create a single instance for each model with factory
+     */
+    private function createSingleInstanceModels(User $user, array $modelClasses): void
+    {
+        foreach ($modelClasses as $modelClass) {
+            $modelClass::factory()->create(['user_id' => $user->id]);
+        }
+    }
+
+    /**
+     * Create products with variants
+     */
+    private function createProducts(): void
+    {
+        Product::factory(6)->hasVariants(3)->create();
+    }
 }

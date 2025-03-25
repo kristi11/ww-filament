@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Providers;
 
 use App\Models\Appointment;
@@ -15,6 +14,7 @@ use BezhanSalleh\PanelSwitch\PanelSwitch;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 use Money\Currencies\ISOCurrencies;
@@ -42,18 +42,63 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+    /**
+     * Handle post-registration logic for users.
+     */
     protected function registered(Request $request, $user): void
     {
         $user->assignRole('panel_user');
     }
+
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
-//        Filament::registerResources([
-//            BlogPostResource::class,Enable this to enable FBlog plugin along with the AdminPanelProvider requirements explained in AdminPanelProvider
-//        ]);
+        $this->configureUrl();
+        $this->configureModels();
+        $this->configureCashier();
+        $this->registerObservers();
+        $this->configurePanelSwitch();
+        $this->configureLanguageSwitch();
+        $this->configureHealthChecks();
+        $this->configureBladeDirectives();
+    }
+
+    /**
+     * Configure base model behavior.
+     */
+    private function configureModels(): void
+    {
+        Model::shouldBeStrict();
+        Model::unguard();
+    }
+
+    /**
+     * Configure Cashier behavior.
+     */
+    private function configureCashier(): void
+    {
+        Cashier::calculateTaxes();
+    }
+
+    /**
+     * Register model observers.
+     */
+    private function registerObservers(): void
+    {
+        Gallery::observe(GalleryObserver::class);
+        Appointment::observe(AppointmentObserver::class);
+        Product::observe(ProductsObserver::class);
+        Hero::observe(HeroObserver::class);
+    }
+
+    /**
+     * Configure panel switching functionality.
+     */
+    private function configurePanelSwitch(): void
+    {
         PanelSwitch::configureUsing(function (PanelSwitch $panelSwitch) {
             $panelSwitch
                 ->renderHook('panels::global-search.after')
@@ -72,30 +117,27 @@ class AppServiceProvider extends ServiceProvider
                     'team' => __('Team'),
                     'customer' => __('Customer'),
                 ])
-                ->visible(fn (): bool => auth()->user()?->hasAnyRole([
+                ->visible(fn(): bool => auth()->user()?->hasAnyRole([
                     'super_admin'
                 ]));
         });
-        Model::unguard();
+    }
 
-        Cashier::calculateTaxes();
-//        Fortify::authenticateUsing(function (Request $request) {
-//            $user = User::where('email', $request->email)->first();
-//
-//            if ($user && Hash::check($request->password, $user->password)) {
-//                (new MigrateSessionCart)->migrate(CartFactory::make(), $user?->cart ?: $user->cart()->create());
-//                return $user;
-//            }
-//        });
-
-        Gallery::observe(GalleryObserver::class);
-        Appointment::observe(AppointmentObserver::class);
-        Product::observe(ProductsObserver::class);
-        Hero::observe(HeroObserver::class);
+    /**
+     * Configure language switching functionality.
+     */
+    private function configureLanguageSwitch(): void
+    {
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
-            $switch
-                ->locales(['ar','en','fr']);
+            $switch->locales(['ar', 'en', 'fr']);
         });
+    }
+
+    /**
+     * Configure application health checks.
+     */
+    private function configureHealthChecks(): void
+    {
         Health::checks([
             CacheCheck::new(),
             UsedDiskSpaceCheck::new(),
@@ -112,12 +154,23 @@ class AppServiceProvider extends ServiceProvider
             DatabaseConnectionCountCheck::new()
                 ->failWhenMoreConnectionsThan(100)
         ]);
-        Blade::stringable(function (Money $money){
+    }
+
+    /**
+     * Configure custom Blade directives and string handlers.
+     */
+    private function configureBladeDirectives(): void
+    {
+        Blade::stringable(function (Money $money) {
             $currencies = new ISOCurrencies();
             $numberFormatter = new NumberFormatter(config('USD'), NumberFormatter::CURRENCY);
             $moneyFormatter = new IntlMoneyFormatter($numberFormatter, $currencies);
-
             return $moneyFormatter->format($money);
         });
+    }
+
+    private function configureUrl(): void
+    {
+        URL::forceScheme('https');
     }
 }
