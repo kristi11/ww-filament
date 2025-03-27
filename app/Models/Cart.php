@@ -17,11 +17,6 @@ class Cart extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'session_id',
-    ];
-
     protected function total(): Attribute
     {
         return  Attribute::make(

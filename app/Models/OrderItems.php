@@ -11,19 +11,6 @@ class OrderItems extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'order_id',
-        'product_variant_id',
-        'name',
-        'description',
-        'price',
-        'quantity',
-        'amount_discount',
-        'amount_subtotal',
-        'amount_tax',
-        'amount_total',
-    ];
-
     public $casts = [
         'price' => MoneyCast::class,
         'amount_discount' => MoneyCast::class,

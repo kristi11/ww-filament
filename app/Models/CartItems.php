@@ -22,14 +22,6 @@ class CartItems extends Model
         'quantity',
     ];
 
-//    protected function subtotal(): Attribute
-//    {
-//        return Attribute::make(
-//            get: function (){
-//                return $this->product->price->multiply($this->quantity);
-//            }
-//        );
-//    }
     protected function subtotal(): Attribute
     {
         return Attribute::make(

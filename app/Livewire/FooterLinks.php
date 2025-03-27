@@ -13,7 +13,6 @@ class FooterLinks extends Component
     public function render()
     {
         return view('livewire.footer-links', [
-            'hero' => Hero::first(),
             'faq' => FAQdata::first()->visibility,
             'help' => Help::first()->visibility,
             'support' => Support::first()->visibility,

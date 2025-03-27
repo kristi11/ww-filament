@@ -13,7 +13,6 @@ class FooterCompany extends Component
     {
         return view('livewire.footer-company',
         [
-            'hero' => Hero::first(),
             'about' => About::first()->visibility,
             'contact' => Contact::first()->visibility,
         ]);

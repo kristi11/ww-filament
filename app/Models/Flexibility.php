@@ -10,10 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Flexibility extends Model
 {
-    protected $fillable = [
-        'always_open',
-        'flexible_pricing',
-    ];
 
     public function user(): BelongsTo
     {

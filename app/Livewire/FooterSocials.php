@@ -10,10 +10,6 @@ class FooterSocials extends Component
 {
     public function render()
     {
-        return view('livewire.footer-socials',
-            [
-                'hero' => Hero::first(),
-                'social' => Social::first(),
-            ]);
+        return view('livewire.footer-socials');
     }
 }

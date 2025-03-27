@@ -14,15 +14,29 @@ class DisplayGuestBusinessHours extends Component
 {
     public function render(): View
     {
-        $alwaysOpen = Flexibility::where('always_open', true)->first();
+        return view('livewire.display-guest-business-hours', [
+            'hours' => $this->getBusinessHours(),
+            'always_open' => $this->getAlwaysOpenStatus(),
+        ]);
+    }
 
-        return view('livewire.display-guest-business-hours',
-            [
-                'hero' =>Hero::firstOrFail(),
-                'hours' => BusinessHour::all(),
-                'always_open' => $alwaysOpen,
-                'guestHours' => PublicPage::where('hours', true)->first(),
-                'background' => SectionColors::first(),
-            ]);
+    /**
+     * Get business hours data
+     *
+     * @return BusinessHour
+     */
+    private function getBusinessHours()
+    {
+        return BusinessHour::select(['day', 'open', 'close', 'status'])->get();
+    }
+
+    /**
+     * Get the always open status from Flexibility settings
+     *
+     * @return Flexibility|null
+     */
+    private function getAlwaysOpenStatus()
+    {
+        return Flexibility::where('always_open', true)->first();
     }
 }

@@ -40,11 +40,11 @@
                                                 <span style="color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.7);">
                                                 from
                                                 <span class="font-semibold">
-                                                    {{Carbon::parse($hour->open_from)->format('g:i A')}}
+                                                    {{Carbon::parse($hour->open)->format('g:i A')}}
                                                 </span>
                                                 to
                                                 <span class="font-semibold">
-                                                    {{Carbon::parse($hour->open_until)->format('g:i A')}}
+                                                    {{Carbon::parse($hour->close)->format('g:i A')}}
                                                 </span>
                                             </span>
                                             @else

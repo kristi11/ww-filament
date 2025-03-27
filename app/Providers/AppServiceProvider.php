@@ -1,10 +1,14 @@
 <?php
+
 namespace App\Providers;
 
 use App\Models\Appointment;
 use App\Models\Gallery;
 use App\Models\Hero;
 use App\Models\Product;
+use App\Models\PublicPage;
+use App\Models\SectionColors;
+use App\Models\Social;
 use App\Observers\AppointmentObserver;
 use App\Observers\GalleryObserver;
 use App\Observers\HeroObserver;
@@ -15,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 use Money\Currencies\ISOCurrencies;
@@ -59,11 +64,42 @@ class AppServiceProvider extends ServiceProvider
         $this->configureUrl();
         $this->configureModels();
         $this->configureCashier();
+        $this->configureViewData();
         $this->registerObservers();
         $this->configurePanelSwitch();
         $this->configureLanguageSwitch();
         $this->configureHealthChecks();
         $this->configureBladeDirectives();
+        $this->configurePageVisibilitySettings();
+    }
+
+    /**
+     * Configure visibility settings for various page sections
+     *
+     * @param  string  $section  The section name to configure
+     * @param  string|null  $viewVariable  The name of the view variable (default: same as section)
+     * @return void
+     */
+    private function configureVisibility(string $section, ?string $viewVariable = null): void
+    {
+        $viewVariable = $viewVariable ?? $section;
+        View::share($viewVariable, PublicPage::where($section, true)->first());
+    }
+
+    /**
+     * Configure all visibility settings for public pages
+     *
+     * @return void
+     */
+    private function configurePageVisibilitySettings(): void
+    {
+        $this->configureVisibility('hero', 'publicHero');
+        $this->configureVisibility('hours', 'guestHours');
+        $this->configureVisibility('services', 'guestServices');
+        $this->configureVisibility('footer');
+        $this->configureVisibility('credentials');
+        $this->configureVisibility('gallery');
+        $this->configureVisibility('email');
     }
 
     /**
@@ -71,7 +107,6 @@ class AppServiceProvider extends ServiceProvider
      */
     private function configureModels(): void
     {
-        Model::shouldBeStrict();
         Model::unguard();
     }
 
@@ -81,6 +116,52 @@ class AppServiceProvider extends ServiceProvider
     private function configureCashier(): void
     {
         Cashier::calculateTaxes();
+    }
+
+    /**
+     * Force HTTPS for all URLs.
+     */
+    private function configureUrl(): void
+    {
+        URL::forceScheme('https');
+    }
+
+    /**
+     * Configure and share data with views.
+     */
+    private function configureViewData(): void
+    {
+        // Share single model instances
+        $this->shareModel('hero', Hero::first());
+        $this->shareModel('background', SectionColors::first());
+        $this->shareModel('social', Social::first());
+
+        // Share PublicPage models filtered by specific boolean flags
+        $this->sharePublicPageByFlag('shop');
+        $this->sharePublicPageByFlag('services');
+        $this->sharePublicPageByFlag('hours');
+        $this->sharePublicPageByFlag('email');
+    }
+
+    /**
+     * Helper method to share a model instance with views.
+     *
+     * @param  string  $key  The view variable name
+     * @param  mixed  $model  The model instance to share
+     */
+    private function shareModel(string $key, $model): void
+    {
+        View::share($key, $model);
+    }
+
+    /**
+     * Share a PublicPage model filtered by a specific flag.
+     *
+     * @param  string  $flag  The boolean flag to filter by
+     */
+    private function sharePublicPageByFlag(string $flag): void
+    {
+        View::share($flag, PublicPage::where($flag, true)->first());
     }
 
     /**
@@ -167,10 +248,5 @@ class AppServiceProvider extends ServiceProvider
             $moneyFormatter = new IntlMoneyFormatter($numberFormatter, $currencies);
             return $moneyFormatter->format($money);
         });
-    }
-
-    private function configureUrl(): void
-    {
-        URL::forceScheme('https');
     }
 }

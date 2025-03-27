@@ -2,28 +2,27 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static where(string $string, true $true)
  */
-class PublicPage extends Model
+class PublicPage extends Model implements Htmlable
 {
     use HasFactory;
 
+    /**
+     * Get content as HTML string
+     *
+     * @return string
+     */
+    public function toHtml()
+    {
+        return $this->content ?? '';
+    }
 
-    protected $fillable = [
-        'user_id',
-        'guestHero',
-        'credentials',
-        'services',
-        'shop',
-        'hours',
-        'gallery',
-        'email',
-        'footer',
-    ];
 
     public function user()
     {

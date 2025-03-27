@@ -11,17 +11,6 @@ use Illuminate\Database\Eloquent\Model;
 class SectionColors extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'user_id',
-        'loginBackgroundColor',
-        'servicesBackgroundColor',
-        'hoursBackgroundColor',
-        'galleryBackgroundColor',
-        'ctaBackgroundColor',
-        'footerBackgroundColor',
-    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);

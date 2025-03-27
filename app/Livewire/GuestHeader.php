@@ -17,10 +17,7 @@ class GuestHeader extends Component
     public function render(): Factory|View|Application
     {
         return view('livewire.public.guest_header', [
-            'hero' => Hero::firstOrFail(),
             'address' => Address::first(),
-            'businessHours' => BusinessHour::all(),
-            'social' => Social::first(),
         ]);
     }
 }

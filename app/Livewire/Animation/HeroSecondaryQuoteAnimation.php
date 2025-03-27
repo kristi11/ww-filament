@@ -9,9 +9,6 @@ class HeroSecondaryQuoteAnimation extends Component
 {
     public function render()
     {
-        return view('livewire.animation.hero-secondary-quote-animation',
-        [
-            'hero' => Hero::first(),
-        ]);
+        return view('livewire.animation.hero-secondary-quote-animation');
     }
 }

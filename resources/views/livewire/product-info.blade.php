@@ -6,7 +6,7 @@
     @auth
         <livewire:shop-auth-nav/>
     @endauth
-<livewire:guest-notificaiton/>
+<livewire:guest-notification/>
     <div class="grid grid:cols-1 lg:grid-cols-2 gap-10 justify-center mx-4 my-20 md:m-10 lg:m-20 bg-gray-50">
         @if($this->product->image)
             <div class="space-y-4" x-data="{ image: '{{Storage::disk(config('filesystems.disks.STORAGE_DISK'))->url($this->product->image[0])}}'}">

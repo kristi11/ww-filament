@@ -10,13 +10,6 @@ class CRUD_settings extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'can_add_content',
-        'can_edit_content',
-        'can_delete_content',
-    ];
-
     protected $casts = [
         'can_add_content' => 'boolean',
         'can_edit_content' => 'boolean',

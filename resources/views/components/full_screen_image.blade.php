@@ -1,6 +1,3 @@
-@php
-    $hero = \App\Models\Hero::first();
-@endphp
 <div>
     <div class="relative min-h-screen overflow-hidden" style="background-image: url('{{ $hero && $hero->image ? Storage::disk(config('filesystems.disks.STORAGE_DISK'))->url($hero->image) : 'https://via.placeholder.com/1920x1080' }}'); background-size: cover; background-position: center;">
         <!-- Background gradient (slightly darker) -->

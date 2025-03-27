@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class GuestNotificaiton extends Component
+class GuestNotification extends Component
 {
     public function render()
     {

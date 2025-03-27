@@ -12,11 +12,6 @@ class GuestFooter extends Component
 {
     public function render(): View
     {
-        return view('livewire.public.guest-footer',
-        [
-            'hero' => Hero::firstOrFail(),
-            'footer' => PublicPage::where('footer', true)->first(),
-            'background' => SectionColors::first(),
-        ]);
+        return view('livewire.public.guest-footer');
     }
 }

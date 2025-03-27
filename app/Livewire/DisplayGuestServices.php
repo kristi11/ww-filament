@@ -2,45 +2,61 @@
 
 namespace App\Livewire;
 
-use AllowDynamicProperties;
-use App\Filament\Customer\Resources\CustomerAppointmentResource;
-use App\Filament\Resources\AppointmentResource;
 use App\Models\Flexibility;
-use App\Models\Hero;
-use App\Models\PublicPage;
-use App\Models\SectionColors;
 use App\Models\Service;
-use Filament\Facades\Filament;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
+/**
+ * Component for displaying services to guest users
+ */
 class DisplayGuestServices extends Component
 {
     use WithPagination;
     use WithoutUrlPagination;
 
+    /**
+     * The number of services to display per page
+     *
+     * @var int
+     */
+    private const SERVICES_PER_PAGE = 3;
 
-    public function bookService()
-    {
-        return redirect(url('dashboard/customer-appointments'));
-    }
-
+    /**
+     * Render the component view
+     */
     public function render(): View
     {
-        $flexiblePricing = Flexibility::where('flexible_pricing', true)->first();
+        return view('livewire.display-guest-services', [
+            'services' => $this->getServices(),
+            'flexible_pricing' => $this->hasFlexiblePricing(),
+        ]);
+    }
 
-        return view('livewire.display-guest-services',
-            [
-                'hero' => Hero::first(),
-                'services' => Service::simplePaginate(3),
-                'flexible_pricing' => $flexiblePricing,
-                'guestServices' => PublicPage::where('services', true)->first(),
-                'background' => SectionColors::first(),
-            ]);
+    /**
+     * Redirect to the customer appointments page
+     */
+    public function bookService()
+    {
+        return redirect()->to('dashboard/customer-appointments');
+    }
+
+    /**
+     * Get paginated services
+     */
+    private function getServices()
+    {
+        return Service::simplePaginate(self::SERVICES_PER_PAGE);
+    }
+
+    /**
+     * Check if flexible pricing is enabled
+     */
+    private function hasFlexiblePricing(): ?Flexibility
+    {
+        return Flexibility::where('flexible_pricing', true)->first();
     }
 }

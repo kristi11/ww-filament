@@ -13,7 +13,6 @@ class FooterLegal extends Component
     {
         return view('livewire.footer-legal',
         [
-            'hero' =>Hero::first(),
             'terms' => Terms::first()->visibility,
             'privacy' => Privacy::first()->visibility,
         ]);

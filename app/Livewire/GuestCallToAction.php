@@ -18,9 +18,6 @@ class GuestCallToAction extends Component
                 'admins' => User::whereHas('roles', function ($query) {
                     $query->where('name', 'super_admin');
                 })->get(),
-                'hero' => Hero::firstOrFail(),
-                'email' => PublicPage::where('email', true)->first(),
-                'background' => SectionColors::first(),
             ]);
     }
 }
