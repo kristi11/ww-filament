@@ -33,7 +33,6 @@
         "laravel/tinker": "^2.8",
         "league/flysystem-aws-s3-v3": "^3.28",
         "moneyphp/money": "^4.5",
-        "monzer/filament-chatify-integration": "^1.0",
         "monzer/filament-email-verification-alert": "^1.0",
         "niladam/filament-auto-logout": "^1.0",
         "njxqlus/filament-lightbox": "^3.2",
