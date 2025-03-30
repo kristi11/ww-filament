@@ -67,9 +67,9 @@ class TeamPanelProvider extends PanelProvider
                 'business_hours' => BusinessHoursWidget::class,
             ])
             ->plugins([
-                ChatifyPlugin::make()
-                    ->customPage(CustomChatifyPage::class)
-                    ->disableFloatingChatWidget(),
+//                ChatifyPlugin::make()
+//                    ->customPage(CustomChatifyPage::class)
+//                    ->disableFloatingChatWidget(),
                 AutoLogoutPlugin::make()
                     // Enable any of the following options if needed
 //                    ->color(Color::Emerald)     // Set the color. Defaults to Zinc
