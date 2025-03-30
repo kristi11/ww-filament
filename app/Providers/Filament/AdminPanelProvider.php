@@ -2,14 +2,13 @@
 
 namespace App\Providers\Filament;
 
-use Afsakar\FilamentOtpLogin\FilamentOtpLoginPlugin;
+use App\Filament\Pages\CustomChatifyPage;
 use App\Filament\Widgets\RevenueWidget;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 use Exception;
-use Filament\Forms\Components\FileUpload;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -30,13 +29,12 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Jeffgreco13\FilamentBreezy\BreezyCore;
+use Monzer\FilamentChatifyIntegration\ChatifyPlugin;
 use Niladam\FilamentAutoLogout\AutoLogoutPlugin;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\Pages\HealthCheckResults;
-use TomatoPHP\FilamentPWA\FilamentPWAPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -84,6 +82,9 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                ChatifyPlugin::make()
+                    ->customPage(CustomChatifyPage::class)
+                    ->disableFloatingChatWidget(),
 //                FilamentPWAPlugin::make(), //This plugin shouldn't be activated as of now since im still trying to figure out the configurations mo make it work properly
                 AutoLogoutPlugin::make()
                     // Enable any of the following options if needed

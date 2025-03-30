@@ -212,12 +212,7 @@ To get started clone this repository.
    ```
 
    `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be
-   the `super admin`. the credentials for the super admin are the following:
-
-   ```
-   email: admin@example.com
-   password: password
-   ```
+   the `super admin`.
 10. Link the storage folder.
 
     ```

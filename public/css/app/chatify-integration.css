@@ -1,0 +1,82 @@
+.chat-button {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-button:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.05);
+}
+
+.chat-icon {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.message-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    animation: bounce 1s infinite;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.message-badge.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+[dir="rtl"] .chat-button {
+    left: 20px;
+    right: auto;
+}
+
+[dir="ltr"] .chat-button {
+    right: 20px;
+    left: auto;
+}
+
+[dir="rtl"] .message-badge {
+    left: 0;
+    right: auto;
+}
+
+[dir="ltr"] .message-badge {
+    right: 0;
+    left: auto;
+}
