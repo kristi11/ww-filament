@@ -92,15 +92,7 @@ class FlexibilityResource extends Resource
                     ->label('')
                     ->tooltip('Edit'),
             ])
-            ->paginated(false)
-            ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make()
-                        ->visible(CRUD_settings::query()->value('can_delete_content'))
-                        ->label('')
-                        ->tooltip('Delete'),
-                ]),
-            ]);
+            ->paginated(false);
     }
 
     public static function getRelations(): array
