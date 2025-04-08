@@ -96,7 +96,7 @@ class ServiceResource extends Resource
                                     'undo',
                                 ]),
                         ]
-                    )->toHtml(),
+                    ),
                 Section::make('Estimated Time')
                     ->columns(2)
                     ->schema(
