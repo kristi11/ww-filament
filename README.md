@@ -35,15 +35,13 @@
       <ul>
         <li><a href="#key-features">Key Features</a></li>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#use-cases">Use cases</a></li>
       </ul>
-    </li>
-    <li>
-        <a href="#key-features">Key features</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#quickstart">Quickstart</a></li>
       </ul>
     </li>
     <li><a href="#command_list">Command list</a></li>
@@ -59,6 +57,7 @@
     <li><a href="#shop">Shop</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#whats-next">What's next</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -76,50 +75,33 @@
 
 ## About The Project
 
-##### [WittyWorkflow](https:://wittyworkflow.com) is a TALL stack small business management tool. It includes an E-commerce shop, appointment management, role based access and much more. Below is an overview of the key functionalities of the app:
+##### [WittyWorkflow](https://wittyworkflow.com) is a TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) foundation designed for building niche marketplaces and small business management tools. Whether you’re crafting an e-commerce shop, managing appointments, or creating custom workflows, this modular platform—powered by Filament PHP—offers a robust starting point. It’s built to be forked, extended, and deployed fast, with features like role-based dashboards, Stripe payments, and customizable UI out of the box.
 
-## Key Features:
+##### Originally a demo app, WittyWorkflow has evolved into a versatile base for real-world projects. A prime example? It’s being adapted into the Artisanal Food Production Manager—a marketplace example connecting artisanal producers to customers, complete with product listings, orders, and secure payments. Developers can use it as-is for small business needs or tailor it to specialized industries like handmade goods, local services, or boutique retail.
 
-> * **Dynamic Hero:** Engage your audience with a visually appealing and dynamic hero section that captures attention and
->   communicates your brand essence. The hero is fully customizable from the admin panel to ensure a seamless user
->   experience.
+### Key Features
 
-> * **Role-Based Access:** Utilizing the
->   powerful [Filament PHP](https://filamentphp.com/), [WittyWorkflow](https:://wittyworkflow.com) offers role-based
->   access control, enabling
->   different panels for different user roles. Admins have full access to all functionalities, while staff members and
->   customers have a more limited view.
+> * **Dynamic Hero:** Capture attention with a visually stunning, admin-customizable hero section—fully editable via Filament for a seamless experience.
 
-> * **SPA functionality with `Wire:Navigate` :** Enhance navigation with an SPA like menu featuring `wire:navigate`
->   functionality, bringing Single Page Application (SPA) functionality to your site for smooth transitions between links.
+> * **Role-Based Access:** Leverage Filament PHP for flexible, role-based dashboards—admins control all, team members and customers (e.g., producers/retailers) get tailored views, powered by Shield.
 
-> * **Public Email Form and Footer:** Facilitate communication by implementing a public email form and completing the
->   footer for a professional and polished user interface.
+> * **SPA-Like Navigation:** Enjoy smooth transitions with Livewire’s `wire:navigate`—enhances UX across panels and public pages.
 
-> * **Enhanced Footer:**  Showing different requirements/terms/help etc. of what your business has/requires/offers
+> * **Customizable Contact & Footer:** Boost engagement with a public email form and admin-editable footer for terms, help, or business details.
 
-> * **Appointment management:** Manage your appointments
+> * **E-commerce Module:** A TALL stack shop with Stripe integration, product management, and admin control—perfect for niches like artisanal food.
 
-> * **Email Notifications on Appointment Changes:** Receive email notifications for changes in appointments, ensuring you never miss valuable information about your upcoming appointments.
+> * **Appointment Management:** Schedule and manage appointments with email notifications—optional for service-based apps.
 
-> * **Email Notifications on shop purchases: Be notified every time a purchase is made.**
+> * **Security Suite:** Protect accounts with 2-Factor Authentication (2FA) and One-Time Passwords (OTP)—toggleable for your needs.
 
-> * **Full control:** On what section shows/hides from the landing page depending on your businesses need for the section
+> * **Theme Customization:** Tailor the app’s look with admin-controlled themes and section visibility—swap styles without code.
 
-> * **2-Factor authentication:** To enhance security of your accounts
+> * **Application Health:** Monitor performance and server status with Spatie Laravel Health—actionable insights from the dashboard.
 
-> * **Theme customization:** To give every user the ability to customize the look and feel of the app to their liking
+> * **Business Settings:** Manage announcements, visibility, and niche-specific data—adaptable for any small business or marketplace.
 
-> * **Application health:** See how your application is performing and make the necessary changes in the server
-
-> * **Business information:** Have full access on different aspects of your business including system users, section
->   visibility, business services, announcements and much more...
-
-> * **E-commerce:** TALL stack e-commerce shop. Stripe integration
-
-> * **Shop panel control** Have control over the shop products and orders straight from you admin panel.
-
-> * **One Time Passwords (OTP)** for an extra added layer of security.
+> * **Developer Tools:** Demo seeds, and modular structure—fork and extend with ease.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -136,38 +118,42 @@ This section lists all major frameworks/libraries used to bootstrap this project
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
+### Use Cases
+
+#### WittyWorkflow powers niche apps—here’s how:
+
+- **Artisanal Food Marketplace**: Producers list products, customers order, payments via Stripe.
+- **Local Service Hub**: Book appointments for craftspeople, manage team schedules, customize the public page.
+- **Boutique E-commerce**: Run a standalone shop with themed UI, secure logins, and order insights.
+- **Creative Freelancer Platform**: Artists and designers showcase portfolios, clients request quotes and track project milestones.
+- **Pop-up Event Manager**: Coordinate vendors, sell tickets, and create dynamic event pages with real-time updates.
+- **Fitness Studio Management**: Schedule classes, process memberships, and enable instructor/client communication.
+
+Fork it, tweak it—build your vision fast.
+
 <!-- GETTING STARTED -->
 
-## Getting Started
+### Getting Started
 
-This project is built with [Filament 3](https://filamentphp.com)
+Get WittyWorkflow running in minutes—perfect for prototyping or building your next niche app.
 
-## Installation
-
-To get started clone this repository.
-
-1. Clone the repo
-
+#### Quickstart
+1. Clone the repo:
    ```
-   https://github.com/kristi11/ww-filament.git
+   git clone https://github.com/kristi11/ww-filament.git
    ```
-
-   or if you have a different name you'd like to use for the project create an empty folder with your desired name, `cd`
-   into that folder and
-   run the following command:
-
-   ```
-   https://github.com/kristi11/ww-filament.git .
-   ```
-
-   this will clone all the project's content without the project name folder.
+   
+2. Cd into project
+    ```
+    cd ww-filament
+    ```
+   
 2. Install NPM dependencies
 
    ```
-   npm install
+    npm install
    ```
 
-   and run npm `npm run dev` if you're working locally or `npm run build` if you're working on production.
 3. Install the composer dependencies.
 
    ```
@@ -197,8 +183,8 @@ To get started clone this repository.
    ```
    php artisan migrate:fresh --seed
    ```
-9. [WittyWorkflow](https:://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
-   to provide proper user roles. We need to setup the plugin and generate the permissions for that package
+9. [WittyWorkflow](https://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
+   to provide proper user roles. We need to set up the plugin and generate the permissions for that package
 
    ```
    php artisan shield:setup --fresh
@@ -280,7 +266,7 @@ DO_SPACES_REGION=region
 DO_SPACES_ENDPOINT=endpoint-that-is-provided-by-DigitalOcean
 ```
 
-Here's a [youtube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to set up Digital Ocean Spaces with Laravel.
+Here's a [YouTube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to set up Digital Ocean Spaces with Laravel.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
 
@@ -301,7 +287,7 @@ After running the `stripe listen` command you will be provided with the `STRIPE_
 
 To make test purchases in your local environment you can enter card nr. `4242 4242 4242 4242`. Any 4 numbers for expiration date for example `03/11` and any 3 numbers for CVC code for example `111`. This is stripe's testing card numbers
 
-#### To enter Stripe's live mode you need to complete your business profile in [Stripe's dashboard](https://dashboard.stripe.com/test/dashboard) and change the API keys from _test_ to _live API keys_. Also after running `php artian cashier:webhook` in your production server you need to go to the [webhooks page](https://dashboard.stripe.com/webhooks) click on the newly created webhook and copy the `Signin secret` to your `STRIPE_WEBHOOK_SECRET` in your `.env` file. Also i noticed that the `php artian cashier:webhook` doesn't generate the `checkout.session.completed` so you will have to do that manually in order for the purchase to go through. To do that click on the newly created webhook and as of `11/13/2024` you can go to the `...` button on the right side of the page, choose `update details` and on the `events to send` click `select events...` and enter `checkout.session.completed`. This way stripe will start listening for the event and proceed the payment.
+#### To enter Stripe's live mode you need to complete your business profile in [Stripe's dashboard](https://dashboard.stripe.com/test/dashboard) and change the API keys from _test_ to _live API keys_. Also after running `php artian cashier:webhook` in your production server you need to go to the [webhooks page](https://dashboard.stripe.com/webhooks) click on the newly created webhook and copy the `Signin secret` to your `STRIPE_WEBHOOK_SECRET` in your `.env` file. Also, I noticed that the `php artian cashier:webhook` doesn't generate the `checkout.session.completed` so you will have to do that manually in order for the purchase to go through. To do that click on the newly created webhook and as of `11/13/2024` you can go to the `...` button on the right side of the page, choose `update details` and on the `events to send` click `select events...` and enter `checkout.session.completed`. This way stripe will start listening for the event and proceed the payment.
 
 > [!IMPORTANT]
 >
@@ -323,7 +309,7 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 #### If the `canCreate()`, `canEdit()` or `canDelete()` functions return anything other than a `true` or `false` value is best not to mess with that value because that value is supposed to be that way.
 
-[WittyWorkflow](https:://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
+[WittyWorkflow](https://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
 manage user profiles. Change the following value to `shouldRegisterUserMenu: true/false` depending on your app's needs,
 to `enable/disable` profile editing on `AdminPanelProvider.php` and `TeamPanelProvider.php` for the `Admin` and `Team member`
 roles
@@ -344,7 +330,7 @@ roles
 
 ### Role configuration
 
-[WittyWorkflow](https:://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
+[WittyWorkflow](https://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
 package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard, inside the `Settings` sidebar menu group and for both `team_user` and `panel_user` choose `select all` on
 the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view`
 and `view any` under the `Gallery` model permissions. Also give the `panel_user` all permissions on the `Order` model permissions.
@@ -367,11 +353,11 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 ### Adding variants
 
-**There are quite a few steps you need to take to add/edit/delete variants and i'll walk you through all of them:**
+**There are quite a few steps you need to take to add/edit/delete variants, and I'll walk you through all of them:**
 
 * Create migration to `add/edit/delete` database variants.
 * Update the `ProductVariant.php` factory if needed. As of now only the `size` and `color` variants are assigned on the initial database seed just to keep things simple.
-* Add the`Enum` for the newly created variant in `App/Enums`. To keep things simple, the enum can be named the same name as the database column but you can name it whatever you want.
+* Add the`Enum` for the newly created variant in `App/Enums`. To keep things simple, the enum can be named the same name as the database column, but you can name it whatever you want.
 * Update the `getForm()` function in `ProductVariant.php` model, add/edit/delete the desired variants.
 * Update the `$table` function in `ProductVariantResource.php`, add/edit/delete the desired variants.
 * Update the `$table` function in `VariationsRelationManager.php`, add/edit/delete the desired variants.
@@ -422,18 +408,14 @@ an account
 1. [X]  Create separate dashboards for each user role
 2. [X]  Add Filament [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) for managing user roles and
    permissions
-3. [X]  Create business information resources (appointments, services, users etc )
+3. [X]  Create business information resources (appointments, services, users etc. )
 4. [X]  Add socials resource for referencing business's social profiles
 5. [X]  Add CRUD functionality to sections of the public page for a more controlled and customizable experience
 6. [X]  Add Hero animations
 7. [X]  Add footer resources to give users an easy way to add their policies, FAQ and other business related information
 8. [X]  Add flash notifications and email notifications for appointment changes
 9. [X]  Add shop for purchases
-10. [ ]  Add more animated hero options the user can choose from
 11. [X]  Improve visuals (**ongoing effort**)
-12. [ ]  Add How to section showing the users how to use the app
-13. [ ]  Add analytics to admin dashboard
-14. [ ]  Improve SEO
 15. [X]  Add [Announce](https://filamentphp.com/plugins/rupadana-announce) package to announce different messages to
     system users
 16. [X]  Add [Themes](https://filamentphp.com/plugins/hasnayeen-themes) package to give users more options on system
@@ -444,22 +426,19 @@ an account
     languages
 19. [X]  Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
     app is running.
-20. [ ]  Add CRUD for shipping/billing address in the app so you don't have to enter it manually when checking out.
-21. [ ]  Add in app tracking for orders. Thinking of using laravel reverb for live tracking.
 22. [X]  Add One Time Passwords (OTP) for an extra added layer of security
 23. [X]  Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
 24. [X] Add [auto logout](https://filamentphp.com/plugins/niladam-auto-logout) plugin where you can set an auto logout timer to bump up security
-25.[ ] Add system chat
-26.[ ] Add AI chatbot
-27.[ ] Add AI chatbot for generating images
-28.[ ] Add Excel Export 
-29. [ ] Add calendar
-30. [ ] Add more dev tools for a more optimal/clearer app control
-31. [ ] Add star rating to shop products
-32. [ ] Optimize dashboard data for a better understanding of whats going on with the app (Ongoing effort)
-33. [ ] Add email template builder for better control on how the outgoing emails look and feel
-34. [ ] Add Advanced filters 
-35. [ ] Add barcode to shop products
+
+### Whats-next
+### WittyWorkflow is evolving—here’s what’s next:
+
+- [ ] **Niche Marketplace Features**: Add producer/retailer panels, delivery tracking for projects like artisanal food hubs (Help Wanted).
+- [ ] **Enhanced E-commerce**: Stripe Connect payouts, shipping integrations (e.g., USPS API).
+- [ ] **Core Polish**: Improve visuals, optimize dashboard data (Ongoing).
+- [ ] **Dev Tools**: Add Laravel Reverb for live order tracking, Excel export for orders.
+- [ ] **User Experience**: Theme switcher UI, email template builder (Help Wanted).
+- [ ] **Analytics**: Basic admin stats (e.g., sales, user growth).
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -469,7 +448,7 @@ an account
 >
 > ## Known issues
 >
-> The following are the known issues that need addressing and i hope that the community will step in and work on them:
+> The following are the known issues that need addressing and I hope that the community will step in and work on them:
 >
 > * Cart items don't get sent from `session id` to `user_id` if the user was logged out when placing the order but after filling out the cart logs in/registers for an account to continue with the order.
 
@@ -477,7 +456,7 @@ an account
 
 ## Workaround
 
-* For now as a workaround only logged in users can add to cart.
+* For now as a workaround only logged-in users can add to cart.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -485,10 +464,15 @@ an account
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
-contributions you make are **greatly appreciated**.
+Love open source? Help shape WittyWorkflow:
 
-If you have a suggestion that would make this better, please contact me at `tanellari@gmail.com`
+1. Fork the repo.
+2. Create a branch: `git checkout -b feature/your-idea`.
+3. Commit changes: `git commit -m "Add cool thing"`.
+4. Push: `git push origin feature/your-idea`.
+5. Open a PR to `main`.
+
+Check [Issues](https://github.com/kristi11/ww-filament/issues) for tasks (e.g., cart bug)—email tanellari@gmail.com with questions.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
