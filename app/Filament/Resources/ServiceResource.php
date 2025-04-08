@@ -242,6 +242,7 @@ class ServiceResource extends Resource
                             ->placeholder('Est. minutes not set'),
                         TextEntry::make('description')
                             ->label('Description')
+                            ->html()
                             ->color(Color::Gray),
                         TextEntry::make('extra_description')
                             ->label('Extra Description')
