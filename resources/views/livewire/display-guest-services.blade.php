@@ -57,7 +57,7 @@
                                     </div>
 
                                 @if($service->price !== null)
-                                    <div class="mt-auto">
+                                    <div class="mt-auto pt-6">
                                         @if($flexible_pricing)
                                             <div class="inline-block text-sm font-semibold px-4 py-2 rounded-lg"
                                                  style="background-color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.7); color: white;">
