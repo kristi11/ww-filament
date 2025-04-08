@@ -32,6 +32,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "league/flysystem-aws-s3-v3": "^3.28",
+        "mews/purifier": "^3.4",
         "moneyphp/money": "^4.5",
         "monzer/filament-chatify-integration": "^1.0",
         "monzer/filament-email-verification-alert": "^1.0",
