@@ -52,7 +52,7 @@
                                         {!! Purifier::clean(\Illuminate\Support\Str::limit($service->description, 200)) !!}
                                     </div>
 
-                                    <div class="border-t pt-6 text-gray-300">
+                                    <div class="border-b border-t pb-6 pt-6 text-gray-300">
                                         {!! Purifier::clean(\Illuminate\Support\Str::limit($service->extra_description, 200)) !!}
                                     </div>
 
