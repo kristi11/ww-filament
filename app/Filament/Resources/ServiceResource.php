@@ -246,6 +246,7 @@ class ServiceResource extends Resource
                             ->color(Color::Gray),
                         TextEntry::make('extra_description')
                             ->label('Extra Description')
+                            ->html()
                             ->color(Color::Gray),
                     ]),
             ]);
