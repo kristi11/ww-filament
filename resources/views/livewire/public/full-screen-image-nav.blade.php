@@ -3,7 +3,7 @@
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3 px-4">
             <!-- Logo Section -->
             <div class="flex items-center">
-                <a class="font-bold text-2xl lg:text-3xl bg-gradient-to-r from-blue-500 to-blue-900 bg-clip-text text-transparent hover:opacity-80 transition-opacity" href="#">
+                <a class="font-bold text-2xl lg:text-3xl bg-gradient-to-r from-[{{$hero->gradientDegreeFirstColor}}] to-[{{$hero->gradientDegreeSecondColor}}] bg-clip-text text-transparent hover:opacity-80 transition-opacity" href="#">
                     {{ config('app.name') }}
                 </a>
             </div>

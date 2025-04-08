@@ -37,7 +37,6 @@ class GuestLogin extends Component
     public function render()
     {
         return view('livewire.guest-login', [
-            'hero' => Hero::first(),
             'credentials' => PublicPage::where('credentials', true)->first(),
             'background' => SectionColors::first(),
         ]);
