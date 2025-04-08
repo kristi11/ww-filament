@@ -41,49 +41,57 @@
                             <div class="h-1 mx-auto w-64 rounded-full"
                                  style="background-image: linear-gradient(to right, {{$hero->gradientDegreeFirstColor}}, color-mix(in srgb, {{$hero->gradientDegreeFirstColor}} 40%, white));"></div>
                         </div>
-                        <div class="gap-4 grid grid-cols-1 md:grid-cols-3">
+
+                        <!-- For multiple buttons (admin) -->
+                        <div class="gap-4 grid grid-cols-1 md:grid-cols-3 w-4/5 mx-auto place-items-center">
                             @php
                                 $userRoles = Auth::user()->roles->pluck('name');
                                 $hasMultipleRoles = $userRoles->count() > 1;
                             @endphp
 
                             @if($hasMultipleRoles || $userRoles->contains('super_admin'))
-                                <!-- Show multiple buttons for admin with multiple roles -->
                                 <button wire:click="loginAsSuperAdmin"
                                         style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
-                                        class="bg-white mx-auto lg:mx-0 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        class="bg-white mx-auto font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out w-full text-center">
                                     Admin Dashboard
                                 </button>
 
                                 <button wire:click="loginAsTeam"
                                         style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
-                                        class="bg-white mx-auto lg:mx-0 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        class="bg-white mx-auto font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out w-full text-center">
                                     Team Dashboard
                                 </button>
 
                                 <button wire:click="loginAsCustomer"
                                         style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
-                                        class="bg-white mx-auto lg:mx-0 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        class="bg-white mx-auto font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out w-full text-center">
                                     Customer Dashboard
                                 </button>
                             @elseif($userRoles->contains('panel_user'))
-                                <button wire:click="loginAsCustomer"
-                                        style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
-                                        class="bg-white mx-auto lg:mx-0 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                                    Dashboard
-                                </button>
+                                <!-- For single button (centered) -->
+                                <div class="md:col-span-3 flex justify-center w-full">
+                                    <button wire:click="loginAsCustomer"
+                                            style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
+                                            class="bg-white mx-auto font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        Dashboard
+                                    </button>
+                                </div>
                             @elseif($userRoles->contains('team_user'))
-                                <button wire:click="loginAsTeam"
-                                        style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
-                                        class="bg-white mx-auto lg:mx-0 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                                    Dashboard
-                                </button>
+                                <div class="md:col-span-3 flex justify-center w-full">
+                                    <button wire:click="loginAsTeam"
+                                            style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
+                                            class="bg-white mx-auto font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        Dashboard
+                                    </button>
+                                </div>
                             @else
-                                <button wire:click="loginAsSuperAdmin"
-                                        style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
-                                        class="bg-white mx-auto lg:mx-0 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                                    Dashboard
-                                </button>
+                                <div class="md:col-span-3 flex justify-center w-full">
+                                    <button wire:click="loginAsSuperAdmin"
+                                            style="color: {{$hero->gradientDegreeFirstColor}}; border: 2px solid;"
+                                            class="bg-white mx-auto font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                                        Dashboard
+                                    </button>
+                                </div>
                             @endif
                         </div>
                     @endauth
