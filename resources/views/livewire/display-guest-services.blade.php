@@ -49,7 +49,7 @@
                                 </h3>
 
                                 <p class="text-gray-800 mb-6 line-clamp-3">
-                                    {{ \Illuminate\Support\Str::limit($service->description, '200') }}
+                                    {!! e(\Illuminate\Support\Str::limit($service->description, 200)) !!}
                                 </p>
 
                                 @if($service->price !== null)
