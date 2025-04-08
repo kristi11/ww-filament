@@ -56,7 +56,7 @@
                     @endif
                     @if($email)
                         <li>
-                            <a class="flex items-center gap-3 px-4 py-3 lg:py-2 rounded-lg text-white transition-colors" href="#cta">
+                            <a class="flex items-center gap-3 px-4 py-3 lg:py-2 rounded-lg text-white hover:bg-white/10 hover:text-gray-300 transition-colors" href="#cta">
                                 <svg class="w-5 h-5 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
@@ -76,8 +76,7 @@
         const navContent = document.getElementById('nav-content');
         const header = document.getElementById('header');
         const navToggleIcon = document.getElementById('nav-toggle-icon');
-        const navLinks = document.querySelectorAll('#nav-content a:not([href="#cta"])'); // Exclude Contact link
-        const contactLink = document.querySelector('#nav-content a[href="#cta"]');
+        const navLinks = document.querySelectorAll('#nav-content a'); // Now include all links
         const navUl = document.querySelector('#nav-content ul');
 
         // Function to update menu styles based on scroll position
@@ -92,16 +91,11 @@
                 // Update toggle icon
                 navToggleIcon.classList.remove('text-white');
                 navToggleIcon.classList.add('text-gray-900');
-                // Update non-CTA links
+                // Update all links
                 navLinks.forEach(link => {
                     link.classList.remove('text-white', 'hover:bg-white/10', 'hover:text-gray-300');
                     link.classList.add('text-gray-900', 'hover:bg-gray-100', 'hover:text-gray-700');
                 });
-                // Update Contact button
-                if (contactLink) {
-                    contactLink.classList.remove('bg-white/10', 'hover:bg-white/20');
-                    contactLink.classList.add('bg-gradient-to-r', 'from-blue-500', 'to-blue-900', 'hover:opacity-80');
-                }
             } else {
                 // Revert header
                 header.classList.remove('bg-white/70', 'shadow-sm');
@@ -112,16 +106,11 @@
                 // Revert toggle icon
                 navToggleIcon.classList.remove('text-gray-900');
                 navToggleIcon.classList.add('text-white');
-                // Revert non-CTA links
+                // Revert all links
                 navLinks.forEach(link => {
                     link.classList.remove('text-gray-900', 'hover:bg-gray-100', 'hover:text-gray-700');
                     link.classList.add('text-white', 'hover:bg-white/10', 'hover:text-gray-300');
                 });
-                // Revert Contact button
-                if (contactLink) {
-                    contactLink.classList.remove('bg-gradient-to-r', 'from-blue-500', 'to-blue-900', 'hover:opacity-80');
-                    contactLink.classList.add('bg-white/10', 'hover:bg-white/20');
-                }
             }
         }
 
