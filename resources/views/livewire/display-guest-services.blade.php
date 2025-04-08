@@ -48,9 +48,9 @@
                                     {{ ucwords($service->name) }}
                                 </h3>
 
-                                <p class="text-gray-800 mb-6 line-clamp-3">
+                                <div class="text-gray-800 mb-6 line-clamp-3">
                                     {!! Purifier::clean(\Illuminate\Support\Str::limit($service->description, 200)) !!}
-                                </p>
+                                </div>
 
                                 @if($service->price !== null)
                                     <div class="mt-auto">
