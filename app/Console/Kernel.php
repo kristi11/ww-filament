@@ -32,6 +32,7 @@ class Kernel extends ConsoleKernel
         $schedule->command(AbandonedCart::class)->dailyAt('13:00');
         $schedule->command(RemoveInactiveSessionCarts::class)->weekly();
         $schedule->call(CheckDependencyVersions::class)->daily();
+        $schedule->command('telescope:prune')->daily();
 
     }
 

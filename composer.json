@@ -31,6 +31,7 @@
         "laravel/fortify": "^1.24",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
+        "laravel/telescope": "^5.7",
         "laravel/tinker": "^2.8",
         "league/flysystem-aws-s3-v3": "^3.28",
         "mews/purifier": "^3.4",
@@ -94,7 +95,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "config": {

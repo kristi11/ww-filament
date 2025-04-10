@@ -109,6 +109,11 @@
 
 This section lists all major frameworks/libraries used to bootstrap this project.
 
+* Laravel 10.x
+* Filament 3.x
+* PHP 8.1
+
+
 * ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
 * ![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
 * ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
