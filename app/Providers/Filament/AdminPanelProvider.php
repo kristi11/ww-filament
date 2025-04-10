@@ -8,6 +8,7 @@ use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
+use CWSPS154\AppSettings\AppSettingsPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -82,6 +83,7 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
+                AppSettingsPlugin::make(),
 //                ChatifyPlugin::make()
 ////                    ->customPage(CustomChatifyPage::class)
 //                    ->disableFloatingChatWidget(),
