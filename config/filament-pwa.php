@@ -13,5 +13,5 @@ return [
      * Allow Routes
      * ---------------------------------------------------------------
      */
-    "allow_routes" => true
+    "allow_routes" => true,
 ];

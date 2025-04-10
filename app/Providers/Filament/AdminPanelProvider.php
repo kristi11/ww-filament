@@ -2,13 +2,11 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Pages\CustomChatifyPage;
 use App\Filament\Widgets\RevenueWidget;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
-use CWSPS154\AppSettings\AppSettingsPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -30,7 +28,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Monzer\FilamentChatifyIntegration\ChatifyPlugin;
 use Niladam\FilamentAutoLogout\AutoLogoutPlugin;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
@@ -83,7 +80,6 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-//                AppSettingsPlugin::make(),
 //                ChatifyPlugin::make()
 ////                    ->customPage(CustomChatifyPage::class)
 //                    ->disableFloatingChatWidget(),
