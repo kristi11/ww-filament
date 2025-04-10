@@ -2,11 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Widgets\CustomDependencyWidget;
 use App\Filament\Widgets\RevenueWidget;
 use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
+use Cmsmaxinc\FilamentSystemVersions\Filament\Widgets\DependencyWidget;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -17,6 +19,7 @@ use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentView;
+use Filament\Widgets\StatsOverviewWidget;
 use Hasnayeen\Themes\Http\Middleware\SetTheme;
 use Hasnayeen\Themes\ThemesPlugin;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -75,6 +78,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
+                CustomDependencyWidget::class,
+                StatsOverviewWidget::class,
                 RevenueWidget::class,
                 UsersCountWidget::class,
                 UsersChartWidget::class

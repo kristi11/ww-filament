@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eef2c1b17b1d8655dd93bc0604be9935",
+    "content-hash": "8a219a823c1dc508e26c52e6c34990bc",
     "packages": [
         {
             "name": "afsakar/filament-otp-login",
@@ -987,6 +987,72 @@
                 "source": "https://github.com/CharrafiMed/global-search-modal/tree/v3.7.0"
             },
             "time": "2025-02-06T15:27:48+00:00"
+        },
+        {
+            "name": "cmsmaxinc/filament-system-versions",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cmsmaxinc/filament-system-versions.git",
+                "reference": "6c1579ee2f0b16b6b2726644a991adab19307162"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cmsmaxinc/filament-system-versions/zipball/6c1579ee2f0b16b6b2726644a991adab19307162",
+                "reference": "6c1579ee2f0b16b6b2726644a991adab19307162",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "FilamentSystemVersions": "Cmsmaxinc\\FilamentSystemVersions\\Facades\\FilamentSystemVersions"
+                    },
+                    "providers": [
+                        "Cmsmaxinc\\FilamentSystemVersions\\FilamentSystemVersionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cmsmaxinc\\FilamentSystemVersions\\": "src/",
+                    "Cmsmaxinc\\FilamentSystemVersions\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CMS Max"
+                }
+            ],
+            "description": "This is my package filament-system-versions",
+            "homepage": "https://github.com/cmsmaxinc/filament-system-versions",
+            "keywords": [
+                "cmsmaxinc",
+                "filament-system-versions",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/cmsmaxinc/filament-system-versions/issues",
+                "source": "https://github.com/cmsmaxinc/filament-system-versions"
+            },
+            "time": "2025-02-17T20:16:48+00:00"
         },
         {
             "name": "composer/pcre",
