@@ -6,7 +6,6 @@ use Cmsmaxinc\FilamentSystemVersions\Filament\Widgets\DependencyWidget as BaseDe
 
 class CustomDependencyWidget extends BaseDependencyWidget
 {
-    // Override the column span to control the width
-    protected string|int|array $columnSpan = 'full'; // Or 'full', 1, 3
+    protected string|int|array $columnSpan = 'full'; // 'full', 1, 3
     protected static ?int $sort = 2;
 }
