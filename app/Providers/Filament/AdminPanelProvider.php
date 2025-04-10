@@ -83,7 +83,7 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-                AppSettingsPlugin::make(),
+//                AppSettingsPlugin::make(),
 //                ChatifyPlugin::make()
 ////                    ->customPage(CustomChatifyPage::class)
 //                    ->disableFloatingChatWidget(),
