@@ -58,6 +58,7 @@ class TeamPanelProvider extends PanelProvider
             ->spa()
             ->login()
             ->passwordReset()
+            ->emailVerification()
 //            ->profile(isSimple: false)
             ->sidebarCollapsibleOnDesktop()
 //            ->discoverWidgets(in: app_path('Filament/Customer/Widgets'), for: 'App\\Filament\\Customer\\Widgets')

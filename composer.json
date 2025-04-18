@@ -37,7 +37,6 @@
         "mews/purifier": "^3.4",
         "moneyphp/money": "^4.5",
         "monzer/filament-chatify-integration": "^1.0",
-        "monzer/filament-email-verification-alert": "^1.0",
         "niladam/filament-auto-logout": "^1.0",
         "njxqlus/filament-lightbox": "^3.2",
         "psr/simple-cache": "^2.0",

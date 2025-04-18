@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cf96a9ce133fa2e8c2c61f033708c7a",
+    "content-hash": "36bfc0d97bc1b9cff8eeab5fb95eaf81",
     "packages": [
         {
             "name": "afsakar/filament-otp-login",
@@ -5770,54 +5770,6 @@
                 "source": "https://github.com/monzer15/filament-chatify-integration/tree/v1.0.1"
             },
             "time": "2025-03-10T02:23:09+00:00"
-        },
-        {
-            "name": "monzer/filament-email-verification-alert",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/monzer15/filament-email-verification-alert.git",
-                "reference": "7b2850661978045abb4d8ec84c92677965687abe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/monzer15/filament-email-verification-alert/zipball/7b2850661978045abb4d8ec84c92677965687abe",
-                "reference": "7b2850661978045abb4d8ec84c92677965687abe",
-                "shasum": ""
-            },
-            "require": {
-                "filament/support": "^3.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Monzer\\FilamentEmailVerificationAlert\\EmailVerificationAlertServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Monzer\\FilamentEmailVerificationAlert\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Monzer Osman",
-                    "email": "monzerosman15@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Send Email verifications on the fly!",
-            "support": {
-                "issues": "https://github.com/monzer15/filament-email-verification-alert/issues",
-                "source": "https://github.com/monzer15/filament-email-verification-alert/tree/v1.0.0"
-            },
-            "time": "2025-02-12T16:15:24+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",

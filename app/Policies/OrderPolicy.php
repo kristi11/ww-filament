@@ -23,7 +23,8 @@ class OrderPolicy
      */
     public function view(User $user, Order $order): bool
     {
-        return $user->can('view_order');
+        // User must have permission AND be the owner of the order
+        return $user->can('view_order') && $user->id === $order->user_id;
     }
 
     /**
@@ -39,7 +40,8 @@ class OrderPolicy
      */
     public function update(User $user, Order $order): bool
     {
-        return $user->can('update_order');
+        // User must have permission AND be the owner of the order
+        return $user->can('update_order') && $user->id === $order->user_id;
     }
 
     /**
@@ -47,7 +49,8 @@ class OrderPolicy
      */
     public function delete(User $user, Order $order): bool
     {
-        return $user->can('delete_order');
+        // User must have permission AND be the owner of the order
+        return $user->can('delete_order') && $user->id === $order->user_id;
     }
 
     /**
@@ -63,7 +66,8 @@ class OrderPolicy
      */
     public function forceDelete(User $user, Order $order): bool
     {
-        return $user->can('force_delete_order');
+        // User must have permission AND be the owner of the order
+        return $user->can('force_delete_order') && $user->id === $order->user_id;
     }
 
     /**
@@ -79,7 +83,8 @@ class OrderPolicy
      */
     public function restore(User $user, Order $order): bool
     {
-        return $user->can('restore_order');
+        // User must have permission AND be the owner of the order
+        return $user->can('restore_order') && $user->id === $order->user_id;
     }
 
     /**
@@ -95,7 +100,8 @@ class OrderPolicy
      */
     public function replicate(User $user, Order $order): bool
     {
-        return $user->can('replicate_order');
+        // User must have permission AND be the owner of the order
+        return $user->can('replicate_order') && $user->id === $order->user_id;
     }
 
     /**

@@ -61,6 +61,7 @@ class CustomerPanelProvider extends PanelProvider
             ->login()
             ->registration()
             ->passwordReset()
+            ->emailVerification()
             ->sidebarCollapsibleOnDesktop()
 //            ->discoverWidgets(in: app_path('Filament/Customer/Widgets'), for: 'App\\Filament\\Customer\\Widgets')
             ->widgets([

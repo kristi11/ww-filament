@@ -23,7 +23,8 @@ class AppointmentPolicy
      */
     public function view(User $user, Appointment $appointment): bool
     {
-        return $user->can('view_appointment');
+        // User must have permission AND be the owner of the appointment
+        return $user->can('view_appointment') && $user->id === $appointment->user_id;
     }
 
     /**
@@ -39,7 +40,8 @@ class AppointmentPolicy
      */
     public function update(User $user, Appointment $appointment): bool
     {
-        return $user->can('update_appointment');
+        // User must have permission AND be the owner of the appointment
+        return $user->can('update_appointment') && $user->id === $appointment->user_id;
     }
 
     /**
@@ -47,7 +49,8 @@ class AppointmentPolicy
      */
     public function delete(User $user, Appointment $appointment): bool
     {
-        return $user->can('delete_appointment');
+        // User must have permission AND be the owner of the appointment
+        return $user->can('delete_appointment') && $user->id === $appointment->user_id;
     }
 
     /**
@@ -55,6 +58,7 @@ class AppointmentPolicy
      */
     public function deleteAny(User $user): bool
     {
+        // Keep this permission-based, but the query scope will handle filtering
         return $user->can('delete_any_appointment');
     }
 
@@ -63,7 +67,8 @@ class AppointmentPolicy
      */
     public function forceDelete(User $user, Appointment $appointment): bool
     {
-        return $user->can('force_delete_appointment');
+        // User must have permission AND be the owner of the appointment
+        return $user->can('force_delete_appointment') && $user->id === $appointment->user_id;
     }
 
     /**
@@ -71,6 +76,7 @@ class AppointmentPolicy
      */
     public function forceDeleteAny(User $user): bool
     {
+        // Keep this permission-based, but the query scope will handle filtering
         return $user->can('force_delete_any_appointment');
     }
 
@@ -79,7 +85,8 @@ class AppointmentPolicy
      */
     public function restore(User $user, Appointment $appointment): bool
     {
-        return $user->can('restore_appointment');
+        // User must have permission AND be the owner of the appointment
+        return $user->can('restore_appointment') && $user->id === $appointment->user_id;
     }
 
     /**
@@ -87,6 +94,7 @@ class AppointmentPolicy
      */
     public function restoreAny(User $user): bool
     {
+        // Keep this permission-based, but the query scope will handle filtering
         return $user->can('restore_any_appointment');
     }
 
@@ -95,7 +103,8 @@ class AppointmentPolicy
      */
     public function replicate(User $user, Appointment $appointment): bool
     {
-        return $user->can('replicate_appointment');
+        // User must have permission AND be the owner of the appointment
+        return $user->can('replicate_appointment') && $user->id === $appointment->user_id;
     }
 
     /**
