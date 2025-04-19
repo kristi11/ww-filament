@@ -31,12 +31,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(ShieldSeeder::class);
-
         $admin = $this->createUser('Admin', 'admin@example.com');
         $this->createAdminAssociatedData($admin);
 
         $this->createUser('Team', 'team@example.com');
+        $this->call(ShieldSeeder::class);
         User::factory(125)->create();
 
         $this->createProducts();

@@ -18,6 +18,7 @@ use BezhanSalleh\PanelSwitch\PanelSwitch;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -64,6 +65,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (Schema::hasTable('heroes')) {
+            Hero::observe(HeroObserver::class);
+        }
         $this->configureUrl();
         $this->configureModels();
         $this->configureCashier();
