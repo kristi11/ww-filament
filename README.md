@@ -83,7 +83,7 @@
 **Watch a guided tour of Witty Workflow's key features and intuitive interface.**
 
 <a href="https://app.arcade.software/share/h1IWCpnFk0tsYB0N8bIz">
-  <img src="public/demo-thumbnail.png" alt="Interactive Demo" width="600">
+  <img src="public/demo-thumbnail.png" alt="Interactive Demo" width="100%">
 </a>
 
 ### Key Features
