@@ -10,7 +10,7 @@
     A platform for managing your business
     <br />
     <br />
-    <a href="https://wittyworkflow.com/">View Demo</a>
+ <a href="#interactive-demo">Interactive Demo</a>
     ·
     <a href="https://github.com/kristi11/wittyworkflow/issues">Report Bug</a>
     ·
@@ -18,8 +18,6 @@
   </p>
 
 > # This app is in active development
-
-### The website is a demonstration app for developer or clients to see how their app would look like in real world scenarios.
 
 ## **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 
@@ -33,6 +31,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li> <a href="#interactive-demo">Interactive Demo</a>
         <li><a href="#key-features">Key Features</a></li>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#use-cases">Use cases</a></li>
@@ -75,9 +74,17 @@
 
 ## About The Project
 
-##### [WittyWorkflow](https://wittyworkflow.com) is a TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) foundation designed for building niche marketplaces and small business management tools. Whether you’re crafting an e-commerce shop, managing appointments, or creating custom workflows, this modular platform—powered by Filament PHP—offers a robust starting point. It’s built to be forked, extended, and deployed fast, with features like role-based dashboards, Stripe payments, and customizable UI out of the box.
+##### WittyWorkflow is a TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) foundation designed for building niche marketplaces and small business management tools. Whether you’re crafting an e-commerce shop, managing appointments, or creating custom workflows, this modular platform—powered by Filament PHP—offers a robust starting point. It’s built to be forked, extended, and deployed fast, with features like role-based dashboards, Stripe payments, and customizable UI out of the box.
 
 ##### Originally a demo app, WittyWorkflow has evolved into a versatile base for real-world projects. A prime example? It’s being adapted into the Artisanal Food Production Manager—a marketplace example connecting artisanal producers to customers, complete with product listings, orders, and secure payments. Developers can use it as-is for small business needs or tailor it to specialized industries like handmade goods, local services, or boutique retail.
+
+### Interactive Demo
+
+**Watch a guided tour of Witty Workflow's key features and intuitive interface.**
+
+<a href="https://app.arcade.software/share/h1IWCpnFk0tsYB0N8bIz">
+  <img src="public/demo-thumbnail.png" alt="Interactive Demo" width="600">
+</a>
 
 ### Key Features
 
@@ -188,7 +195,7 @@ Get WittyWorkflow running in minutes—perfect for prototyping or building your 
    ```
    php artisan migrate:fresh --seed
    ```
-9. [WittyWorkflow](https://wittyworkflow.com) uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
+9. WittyWorkflow uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
    to provide proper user roles. We need to set up the plugin and generate the permissions for that package
 
    ```
@@ -260,18 +267,6 @@ MAIL_FROM_ADDRESS=your_email
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
-This app uses DigitalOcean Spaces to store files. If you want to
-use [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces) you need to add the credentials to the `.env` file.
-
-```
-DO_SPACES_KEY=key
-DO_SPACES_SECRET=secret
-DO_SPACES_BUCKET=bucket-name
-DO_SPACES_REGION=region
-DO_SPACES_ENDPOINT=endpoint-that-is-provided-by-DigitalOcean
-```
-
-Here's a [YouTube video](https://www.youtube.com/watch?v=vFwy-vB_d_k) on how to set up Digital Ocean Spaces with Laravel.
 
 If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
 
@@ -294,10 +289,6 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 #### To enter Stripe's live mode you need to complete your business profile in [Stripe's dashboard](https://dashboard.stripe.com/test/dashboard) and change the API keys from _test_ to _live API keys_. Also after running `php artian cashier:webhook` in your production server you need to go to the [webhooks page](https://dashboard.stripe.com/webhooks) click on the newly created webhook and copy the `Signin secret` to your `STRIPE_WEBHOOK_SECRET` in your `.env` file. Also, I noticed that the `php artian cashier:webhook` doesn't generate the `checkout.session.completed` so you will have to do that manually in order for the purchase to go through. To do that click on the newly created webhook and as of `11/13/2024` you can go to the `...` button on the right side of the page, choose `update details` and on the `events to send` click `select events...` and enter `checkout.session.completed`. This way stripe will start listening for the event and proceed the payment.
 
-> [!IMPORTANT]
->
-> ## To make a test live purchase in the [store](https://wittyworkflow.com/shop) login and choose a product to purchase. After clicking `checkout` in the cart, in your order details click `Add promotion code` and enter `100OFF` for a `100%` discount in your order just so you can see that everything works as intended.
-
 # Your application is now ready for use. Enjoy! To install it in production follow your servers specific needs.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
@@ -314,7 +305,7 @@ To make test purchases in your local environment you can enter card nr. `4242 42
 
 #### If the `canCreate()`, `canEdit()` or `canDelete()` functions return anything other than a `true` or `false` value is best not to mess with that value because that value is supposed to be that way.
 
-[WittyWorkflow](https://wittyworkflow.com) uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
+WittyWorkflow uses [filament-breezy](https://filamentphp.com/plugins/jeffgreco-breezy) to
 manage user profiles. Change the following value to `shouldRegisterUserMenu: true/false` depending on your app's needs,
 to `enable/disable` profile editing on `AdminPanelProvider.php` and `TeamPanelProvider.php` for the `Admin` and `Team member`
 roles
@@ -335,7 +326,7 @@ roles
 
 ### Role configuration
 
-[WittyWorkflow](https://wittyworkflow.com) used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
+WittyWorkflow used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
 package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard, inside the `Settings` sidebar menu group and for both `team_user` and `panel_user` choose `select all` on
 the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view`
 and `view any` under the `Gallery` model permissions. Also give the `panel_user` all permissions on the `Order` model permissions.
@@ -387,11 +378,12 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 ## Usage
 
-_For App examples, please refer to [WittyWorkflow](https://wittyworkflow.com/)_
-
-<p align="right">(<a href="#about-the-project">back to top</a>)</p>
-
-To access the `super-admin dashboard` email me at `tanellari@gmail.com`.
+To access the `super-admin dashboard, go to the [Super-admin dashboard](https://wittyworkflow.com/admin/login) and enter the following
+credentials::
+```
+Email: admin@example.com
+Password: password
+```
 
 To access the `team dashboard` go to the [Team dashboard](https://wittyworkflow.com/team/login) and enter the following
 credentials:
@@ -493,7 +485,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Kristi Tanellari - [@TanellariKristi](https://twitter.com/TanellariKristi) - tanellari@gmail.com
+## Connect with Me
+[<img src="https://simpleicons.org/icons/github.svg" alt="GitHub" width="30"/>](https://github.com/kristi11)
 
 Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kristi11/wittyworkflow/)
 
