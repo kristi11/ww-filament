@@ -1,10 +1,23 @@
 <div>
 
     <meta charset="UTF-8"/>
-{{--    <meta--}}
-{{--        http-equiv="Content-Security-Policy"--}}
-{{--        content="default-src 'self'; img-src https://*; child-src 'none';"--}}
-{{--    />--}}
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' https://* data:;
+        font-src 'self';
+        connect-src 'self';
+        media-src 'self';
+        object-src 'none';
+        child-src 'none';
+        frame-ancestors 'self';
+        form-action 'self';
+        base-uri 'self';
+    "
+    />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('sitemap.xml') }}"/>
     <link rel="canonical" href="{{ URL::current() }}"/>
     <meta property="og:title" content="Witty Workflow"/>
