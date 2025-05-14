@@ -12,10 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // First add the user_id column as nullable
-        Schema::table('leads', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable()->after('id');
-        });
+        // Check if user_id column exists before adding it
+        if (!Schema::hasColumn('leads', 'user_id')) {
+            Schema::table('leads', function (Blueprint $table) {
+                $table->unsignedBigInteger('user_id')->nullable()->after('id');
+            });
+        }
 
         // Get the first admin user to associate with existing leads
         $adminId = DB::table('users')
@@ -35,10 +37,27 @@ return new class extends Migration
             DB::table('leads')->whereNull('user_id')->update(['user_id' => $adminId]);
         }
 
-        // Add the foreign key constraint
-        Schema::table('leads', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
-        });
+        // Add the foreign key constraint if the column exists and doesn't already have one
+        if (Schema::hasColumn('leads', 'user_id')) {
+            // Check if foreign key already exists
+            $foreignKeys = Schema::getConnection()
+                ->getDoctrineSchemaManager()
+                ->listTableForeignKeys('leads');
+
+            $foreignKeyExists = false;
+            foreach ($foreignKeys as $foreignKey) {
+                if (in_array('user_id', $foreignKey->getLocalColumns())) {
+                    $foreignKeyExists = true;
+                    break;
+                }
+            }
+
+            if (!$foreignKeyExists) {
+                Schema::table('leads', function (Blueprint $table) {
+                    $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+                });
+            }
+        }
     }
 
     /**
@@ -46,8 +65,26 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('leads', function (Blueprint $table) {
-            $table->dropColumn('user_id');
-        });
+        // Only drop the column if it exists
+        if (Schema::hasColumn('leads', 'user_id')) {
+            // First drop the foreign key if it exists
+            $foreignKeys = Schema::getConnection()
+                ->getDoctrineSchemaManager()
+                ->listTableForeignKeys('leads');
+
+            foreach ($foreignKeys as $foreignKey) {
+                if (in_array('user_id', $foreignKey->getLocalColumns())) {
+                    Schema::table('leads', function (Blueprint $table) use ($foreignKey) {
+                        $table->dropForeign($foreignKey->getName());
+                    });
+                    break;
+                }
+            }
+
+            // Then drop the column
+            Schema::table('leads', function (Blueprint $table) {
+                $table->dropColumn('user_id');
+            });
+        }
     }
 };

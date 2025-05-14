@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('leads', function (Blueprint $table) {
-            $table->boolean('read')->default(false)->after('message');
-        });
+        // Only add the read column if it doesn't already exist
+        if (!Schema::hasColumn('leads', 'read')) {
+            Schema::table('leads', function (Blueprint $table) {
+                $table->boolean('read')->default(false)->after('message');
+            });
+        }
     }
 
     /**
@@ -21,8 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('leads', function (Blueprint $table) {
-            $table->dropColumn('read');
-        });
+        // Only drop the column if it exists
+        if (Schema::hasColumn('leads', 'read')) {
+            Schema::table('leads', function (Blueprint $table) {
+                $table->dropColumn('read');
+            });
+        }
     }
 };
