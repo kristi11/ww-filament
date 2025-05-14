@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Lead extends Model
 {
@@ -16,19 +15,31 @@ class Lead extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'phone',
         'message',
+        'read',
         'status',
         'has_new_reply',
     ];
 
     /**
-     * Get the replies for the lead.
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
      */
-    public function replies(): HasMany
+    protected $casts = [
+        'read' => 'boolean',
+        'has_new_reply' => 'boolean',
+    ];
+
+    /**
+     * Get the user that owns the lead.
+     */
+    public function user()
     {
-        return $this->hasMany(LeadReply::class);
+        return $this->belongsTo(User::class);
     }
 }

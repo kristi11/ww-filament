@@ -230,4 +230,12 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return $this->hasMany(CRUD_settings::class);
     }
+
+    /**
+     * Get the leads for the user.
+     */
+    public function leads(): HasMany
+    {
+        return $this->hasMany(Lead::class);
+    }
 }
