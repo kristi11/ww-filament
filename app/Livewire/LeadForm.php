@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Mail\LeadNotification;
 use App\Models\Hero;
 use App\Models\Lead;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class LeadForm extends Component
@@ -38,7 +40,7 @@ class LeadForm extends Component
         }
 
         // Create the lead
-        Lead::create([
+        $lead = Lead::create([
             'user_id' => $admin->id,
             'name' => $this->name,
             'email' => $this->email,
@@ -47,6 +49,9 @@ class LeadForm extends Component
             'status' => 'new',
             'has_new_reply' => false,
         ]);
+
+        // Send email notification to admin
+        Mail::to($admin->email)->send(new LeadNotification($lead));
 
         // Reset the form
         $this->reset(['name', 'email', 'phone', 'message']);
