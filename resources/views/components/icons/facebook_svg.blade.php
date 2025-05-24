@@ -25,7 +25,7 @@ tooltipPosition: 'top',
         <div>
             <div class="col-span-1">
                 <button wire:click="facebook" title="Facebook"
-                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                        class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 focus:outline-none transform transition hover:scale-105 duration-300 ease-in-out">
                     <svg width="40px" height="40px" viewBox="0 -0.5 25 25" fill="none"
                          xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
