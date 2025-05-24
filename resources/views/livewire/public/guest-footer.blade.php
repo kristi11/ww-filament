@@ -6,11 +6,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <!-- Brand column -->
                     <div class="col-span-1 md:col-span-2 lg:col-span-2">
-                        <a class="inline-block no-underline hover:no-underline font-bold text-2xl lg:text-3xl transition duration-300 ease-in-out hover:scale-105 mb-6"
+                        <a class="inline-block no-underline hover:no-underline font-extrabold text-2xl lg:text-3xl transition duration-300 ease-in-out hover:scale-105 mb-6"
                            style="color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.7);">
                             {{ config('app.name') }}
                         </a>
-                        <p class="text-gray-600 mt-4 max-w-md">
+                        <p class="text-gray-600 font-medium mt-4 max-w-md">
                             Empowering your business with modern solutions and exceptional service.
                         </p>
                     </div>
@@ -38,7 +38,7 @@
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <!-- Copyright -->
                     <div class="mb-4 md:mb-0">
-                        <p class="text-sm text-gray-500">
+                        <p class="text-sm text-gray-500 font-medium">
                             &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
                         </p>
                     </div>

@@ -5,11 +5,10 @@
             <div class="container flex flex-wrap justify-center mx-auto pb-12 pt-4 rounded-lg">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2 justify-center">
                     @if(!empty($socials->instagram))
-                        <div class="transform transition-all duration-300 hover:scale-110 cursor-pointer"
+                        <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
-                             x-animation="zoom-in bounce slow"
-                             wire:click="instagram">
-                            <div class="relative overflow-hidden rounded-full">
+                             x-animation="zoom-in bounce slow">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full">
                                 <x-icons.instagram_svg/>
                                 <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
                             </div>
@@ -17,11 +16,10 @@
                     @endif
 
                     @if(!empty($socials->facebook))
-                        <div class="transform transition-all duration-300 hover:scale-110 cursor-pointer"
+                        <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
-                             x-animation="zoom-in bounce slow"
-                             wire:click="facebook">
-                            <div class="relative overflow-hidden rounded-full">
+                             x-animation="zoom-in bounce slow">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full shadow-lg">
                                 <div class="p-0 m-0 inline-block">
                                     <x-icons.facebook_svg/>
                                 </div>
@@ -31,11 +29,10 @@
                     @endif
 
                     @if(!empty($socials->twitter))
-                        <div class="transform transition-all duration-300 hover:scale-110 cursor-pointer"
+                        <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
-                             x-animation="zoom-in bounce slow"
-                             wire:click="twitter">
-                            <div class="relative overflow-hidden rounded-full">
+                             x-animation="zoom-in bounce slow">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full shadow-lg">
                                 <div class="p-0 m-0 inline-block">
                                     <x-icons.twitter_svg/>
                                 </div>
@@ -45,11 +42,10 @@
                     @endif
 
                     @if(!empty($socials->linkedin))
-                        <div class="transform transition-all duration-300 hover:scale-110 cursor-pointer"
+                        <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
-                             x-animation="zoom-in bounce slow"
-                             wire:click="linkedin">
-                            <div class="relative overflow-hidden rounded-full">
+                             x-animation="zoom-in bounce slow">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full shadow-lg">
                                 <div class="p-0 m-0 inline-block">
                                     <x-icons.linkedin_svg/>
                                 </div>
