@@ -18,9 +18,9 @@ class CRUD_settingsFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'can_create_content' => true,
+            'can_create_content' => false,
             'can_edit_content' => true,
-            'can_delete_content' => true,
+            'can_delete_content' => false,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
