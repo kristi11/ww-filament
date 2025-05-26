@@ -31,7 +31,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li> <a href="#interactive-demo">Interactive Demo</a>
+        <li><a href="#interactive-demo">Interactive Demo</a></li>
         <li><a href="#key-features">Key Features</a></li>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#use-cases">Use cases</a></li>
@@ -40,7 +40,9 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#quickstart">Quickstart</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
       </ul>
     </li>
     <li><a href="#command_list">Command list</a></li>
@@ -54,6 +56,12 @@
       </ul>
     </li>
     <li><a href="#shop">Shop</a></li>
+    <li><a href="#appointment-management">Appointment Management</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#customization-guide">Customization Guide</a></li>
+    <li><a href="#deployment">Deployment</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#performance">Performance Optimization</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#whats-next">What's next</a></li>
@@ -137,9 +145,9 @@ This section lists all major frameworks/libraries used to bootstrap this project
 - **Artisanal Food Marketplace**: Producers list products, customers order, payments via Stripe.
 - **Local Service Hub**: Book appointments for craftspeople, manage team schedules, customize the public page.
 - **Boutique E-commerce**: Run a standalone shop with themed UI, secure logins, and order insights.
-- **Creative Freelancer Platform**: Artists and designers showcase portfolios, clients request quotes and track project milestones.
-- **Pop-up Event Manager**: Coordinate vendors, sell tickets, and create dynamic event pages with real-time updates.
-- **Fitness Studio Management**: Schedule classes, process memberships, and enable instructor/client communication.
+- **Creative Freelancer Platform**: Artists and designers showcase portfolios, clients request quotes.
+- **Pop-up Event Manager**: Coordinate vendors, sell tickets.
+- **Fitness Studio Management**: Schedule classes.
 
 Fork it, tweak it—build your vision fast.
 
@@ -149,87 +157,112 @@ Fork it, tweak it—build your vision fast.
 
 Get WittyWorkflow running in minutes—perfect for prototyping or building your next niche app.
 
+### Prerequisites
+
+Before you begin, ensure your development environment meets these requirements:
+
+- **PHP 8.1+** with the following extensions:
+  - BCMath
+  - Ctype
+  - Fileinfo
+  - JSON
+  - Mbstring
+  - OpenSSL
+  - PDO
+  - Tokenizer
+  - XML
+- **Composer 2.0+**
+- **Node.js 16+** and NPM
+- **MySQL 5.7+** or PostgreSQL 10+
+- **Git**
+
+
 #### Quickstart
 1. Clone the repo:
    ```
    git clone https://github.com/kristi11/ww-filament.git
    ```
-   
+
 2. Cd into project
     ```
     cd ww-filament
     ```
-   
-2. Install NPM dependencies
+
+3. Install NPM dependencies
 
    ```
     npm install
    ```
 
-3. Install the composer dependencies.
+4. Install the composer dependencies.
 
    ```
    composer install
    ```
-4. Create a copy of your .env file.
+5. Create a copy of your .env file.
 
    ```
     cp .env.example .env
    ```
-5. Generate an app encryption key.
+6. Generate an app encryption key.
 
    ```
    php artisan key:generate
    ```
 
-   if using laravel [forge](https://forge.laravel.com/) there's no need to generate key since when creating the
-   server [forge](https://forge.laravel.com/) will take care of the key generation.
-6. Create an empty database for your application. I personally like using [TablePlus](https://tableplus.com/), but you
-   can
-   use whatever you like.
-7. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name
-   is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env`
-   file with your database name.
-8. Migrate and seed the database.
+   > **Note:** If using Laravel [Forge](https://forge.laravel.com/), there's no need to generate a key since Forge handles key generation when creating the server.
+
+7. Create an empty database for your application. We recommend using [TablePlus](https://tableplus.com/), but you can use any database management tool you prefer.
+
+8. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env` file with your database name.
+
+9. Migrate and seed the database.
 
    ```
    php artisan migrate:fresh --seed
    ```
-9. WittyWorkflow uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin
-   to provide proper user roles. We need to set up the plugin and generate the permissions for that package
+10. WittyWorkflow uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin to provide proper user roles. We need to set up the plugin and generate the permissions for that package:
 
    ```
    php artisan shield:setup --fresh
    php artisan shield:generate --all --panel=admin
    ```
 
-   and define the super admin of the system
+   Then define the super admin of the system:
 
    ```
    php artisan shield:super-admin --user="1"
    ```
 
-   `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be
-   the `super admin`.
-10. Link the storage folder.
+   `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be the `super admin`.
+
+11. Link the storage folder.
 
     ```
     php artisan storage:link
     ```
-11. Run the application.
+12. Run the application.
 
     ```
     php artisan serve
     ```
-12. Visit your application in the browser.
+13. Visit your application in the browser.
 
     ```
     http://localhost:8000
     ```
 
+14. Compile assets for development:
+
+    ```
+    npm run dev
+    ```
+
 ### Command list
 
-```
+For quick reference, here's the complete list of commands to set up WittyWorkflow:
+
+```bash
 git clone https://github.com/kristi11/ww-filament.git .
 npm install
 composer install
@@ -240,21 +273,35 @@ php artisan shield:setup --fresh
 php artisan shield:generate --all --panel=admin
 php artisan shield:super-admin --user="1"
 php artisan storage:link
+npm run dev
+php artisan serve
 ```
 
-Don't forget to run `npm run dev` and `php artisan serve`
-after the above commands are ran.
+### Troubleshooting
+
+If you encounter issues during installation, here are solutions to common problems:
+
+| Issue | Solution |
+|-------|----------|
+| **Class not found errors** | Run `composer dump-autoload` |
+| **Node.js errors** | Ensure you're using Node.js 16+ with `node -v` |
+| **Database connection errors** | Verify credentials in `.env` file |
+| **Permission issues** | Check directory permissions, especially for storage and bootstrap/cache |
+| **Blank page after installation** | Check PHP error logs and ensure all requirements are met |
+| **Missing images/assets** | Run `php artisan storage:link` again |
+| **Shield errors** | Run `php artisan optimize:clear` then retry Shield commands |
+
+For more complex issues, check the [Laravel documentation](https://laravel.com/docs) or open an issue on our [GitHub repository](https://github.com/kristi11/wittyworkflow/issues).
+
+### Email Configuration
 
 > [!NOTE]
->
 > Don't forget to update your Mail settings to reflect your production server's needs
 
-I use [Mailtrap](https://mailtrap.io/) for local email testing. You can use whatever you like. If you want to
-use [Mailtrap](https://mailtrap.io/),
-create an account and add the credentials to the `.env` file. If you are using [forge](https://forge.laravel.com/) you
-can add the credentials to the server environment variables.
+For local email testing, we recommend [Mailtrap](https://mailtrap.io/). To use Mailtrap:
 
-If you decide to use [Mailtrap](https://mailtrap.io/), you can use the following credentials:
+1. Create a Mailtrap account
+2. Add your Mailtrap credentials to the `.env` file:
 
 ```
 MAIL_MAILER=smtp
@@ -267,14 +314,27 @@ MAIL_FROM_ADDRESS=your_email
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
-
-If you are using [forge](https://forge.laravel.com/) you can add the credentials to the server environment variables.
+If you are using [Laravel Forge](https://forge.laravel.com/), you can add the credentials to the server environment variables.
 
 <!-- SHOP -->
 
 ## Shop
 
-Add the Stripe credentials:
+WittyWorkflow includes a fully-featured e-commerce system built with the TALL stack and integrated with Stripe for payment processing. This section will guide you through setting up and using the shop functionality.
+
+### Shop Architecture Overview
+
+The shop system consists of several key components:
+
+- **Products & Variants**: Products can have multiple variants (size, color, etc.)
+- **Cart System**: Manages items added to a user's cart
+- **Checkout Process**: Integrated with Stripe for secure payments
+
+### Setting Up the Shop
+
+#### 1. Stripe Integration
+
+First, add your Stripe credentials to your `.env` file:
 
 ```
 STRIPE_KEY=your-stripe-key
@@ -282,14 +342,108 @@ STRIPE_SECRET=your-stripe-secret
 STRIPE_WEBHOOK_SECRET=your-stripe-webhook-secret
 ```
 
-In your local server (for testing purposes only) use [stripe-cli](https://docs.stripe.com/stripe-cli) and run `stripe login` to log in into stripe and then `stripe listen --forward-to {your url here}/stripe/webhook --format JSON` to listen to Stripe's webhook.
-After running the `stripe listen` command you will be provided with the `STRIPE_WEBHOOK_SECRET` that you need to paste into your `.env` file for the webhook to function properly. Installation instructions for your local development environment will be in the stripe-cli link above
+##### Development Environment Setup
 
-To make test purchases in your local environment you can enter card nr. `4242 4242 4242 4242`. Any 4 numbers for expiration date for example `03/11` and any 3 numbers for CVC code for example `111`. This is stripe's testing card numbers
+For local testing:
 
-#### To enter Stripe's live mode you need to complete your business profile in [Stripe's dashboard](https://dashboard.stripe.com/test/dashboard) and change the API keys from _test_ to _live API keys_. Also after running `php artian cashier:webhook` in your production server you need to go to the [webhooks page](https://dashboard.stripe.com/webhooks) click on the newly created webhook and copy the `Signin secret` to your `STRIPE_WEBHOOK_SECRET` in your `.env` file. Also, I noticed that the `php artian cashier:webhook` doesn't generate the `checkout.session.completed` so you will have to do that manually in order for the purchase to go through. To do that click on the newly created webhook and as of `11/13/2024` you can go to the `...` button on the right side of the page, choose `update details` and on the `events to send` click `select events...` and enter `checkout.session.completed`. This way stripe will start listening for the event and proceed the payment.
+1. Install [stripe-cli](https://docs.stripe.com/stripe-cli)
+2. Run `stripe login` to authenticate with your Stripe account
+3. Start the webhook listener:
+   ```
+   stripe listen --forward-to {your-local-url}/stripe/webhook --format JSON
+   ```
+4. Copy the webhook signing secret provided by the CLI to your `.env` file as `STRIPE_WEBHOOK_SECRET`
 
-# Your application is now ready for use. Enjoy! To install it in production follow your servers specific needs.
+##### Production Environment Setup
+
+For production:
+
+1. Run `php artisan cashier:webhook` on your server to register the webhook with Stripe
+2. Go to the [Stripe Webhooks Dashboard](https://dashboard.stripe.com/webhooks)
+3. Click on the newly created webhook
+4. Copy the "Signing Secret" to your `.env` file as `STRIPE_WEBHOOK_SECRET`
+5. Ensure the `checkout.session.completed` event is enabled:
+   - Click the "..." button on the webhook
+   - Choose "Update details"
+   - Under "Events to send", click "Select events..."
+   - Add `checkout.session.completed`
+
+#### 2. Database Configuration
+
+The shop system uses several database tables:
+
+- `products`: Stores product information
+- `product_variants`: Stores variant information for products
+- `carts`: Manages user shopping carts
+- `cart_items`: Stores items in carts
+- `orders`: Tracks completed orders
+- `order_items`: Stores items in orders
+
+These tables are created automatically when you run migrations.
+
+### Using the Shop System
+
+#### Product Management
+
+Products are managed through the Filament admin panel:
+
+1. Navigate to the Products section in the admin panel
+2. Create products with basic information (name, description, price, image)
+3. Add variants for each product (size, color, etc.)
+
+#### Cart Functionality
+
+The cart system allows users to:
+
+- Add products to their cart
+- Update quantities
+- Remove items
+- View cart totals
+
+The cart is implemented using the `Cart` and `CartItems` models, with the `AddProductVariantToCart` action handling the addition of products.
+
+#### Checkout Process
+
+The checkout process is handled by:
+
+1. `CreateStripeCheckoutSession`: Creates a Stripe checkout session from the cart
+2. `HandleCheckoutSessionCompleted`: Processes the completed checkout, creates an order, and clears the cart
+
+#### Order Management
+
+After checkout, orders are:
+
+1. Created in the database with billing and shipping information
+2. Associated with the user who made the purchase
+3. Viewable in the admin panel for management
+
+### Testing the Shop
+
+To test purchases in your development environment:
+
+1. Use Stripe's test card number: `4242 4242 4242 4242`
+2. Any future expiration date (e.g., `03/30`)
+3. Any 3-digit CVC code (e.g., `123`)
+4. Any name and address information
+
+### Going Live
+
+To switch to production mode:
+
+1. Complete your business profile in the [Stripe Dashboard](https://dashboard.stripe.com/settings/account)
+2. Switch from test to live API keys in your `.env` file
+3. Ensure your webhook is properly configured for the live environment
+4. Test the complete purchase flow with a real card (consider using a small amount)
+
+### Customizing the Shop
+
+The shop system is designed to be customizable:
+
+- **Product Variants**: Add custom variants in `app/Enums/` and update the `ProductVariant` model
+- **Checkout Flow**: Modify the `CreateStripeCheckoutSession` class to customize checkout options
+- **Order Processing**: Extend the `HandleCheckoutSessionCompleted` class to add custom logic after purchase
+
+See the [Adding Variants](#adding-variants) section for detailed instructions on customizing product variants.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -375,6 +529,256 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
+
+## Appointment Management
+
+WittyWorkflow includes a comprehensive appointment scheduling system that integrates with email notifications and calendar systems.
+
+### Appointment System Architecture
+
+The appointment system consists of several key components:
+
+- **Models**: `Appointment` and `Service` models manage the data structure
+- **Booking Flow**: Users select services, available time slots, and complete bookings
+- **Notifications**: Automatic emails for booking confirmation, reminders, and updates
+
+### Setting Up Appointments
+
+1. **Configure Business Hours**:
+   - Navigate to the Business Hours section in the admin panel
+   - Set your regular operating hours for each day of the week
+   - Configure special hours for holidays or events
+
+2. **Set Up Services**:
+   - Create services that can be booked through the Services section
+   - Define duration, price, and description for each service
+   - Assign services to specific team members if needed
+
+3. **Configure Email Templates**:
+   - Customize email templates for appointment confirmations and reminders
+   - Set up notification preferences for both staff and customers
+
+### Managing Appointments
+
+Appointments can be managed through the Filament admin panel:
+
+1. **View Appointments**:
+   - See all upcoming appointments in a calendar or list view
+   - Filter by date, service, or status
+
+2. **Create Appointments**:
+   - Add appointments manually for walk-in customers
+
+3. **Update Appointments**:
+   - Reschedule appointments as needed
+   - Change service or duration
+   - Add notes or special requirements
+
+4. **Cancel Appointments**:
+   - Cancel with automatic notification to the customer
+   - Optionally offer rebooking options
+
+### Customizing the Appointment System
+
+The appointment system can be customized in several ways:
+
+- **Booking Rules**: Modify booking rules in `app/Models/Appointment.php`
+- **Email Templates**: Customize email templates in `resources/views/emails/appointments/`
+- **Booking Form**: Extend the booking form in `resources/views/livewire/appointment-form.blade.php`
+
+## Testing
+
+WittyWorkflow comes with a comprehensive test suite covering models, features, and integrations.
+
+### Running Tests
+
+```bash
+# Run all tests
+php artisan test
+
+# Run specific test suite
+php artisan test --testsuite=Feature
+
+# Run specific test
+php artisan test --filter=HeroTest
+```
+
+### Test Structure
+
+- **Unit Tests**: Test individual components in isolation
+- **Feature Tests**: Test complete features and user workflows
+- **Browser Tests**: Test UI interactions using Laravel Dusk (if installed)
+
+The test files are organized in the following directories:
+
+- `tests/Unit/`: Unit tests for individual classes and methods
+- `tests/Feature/`: Feature tests for complete functionality
+- `tests/Feature/Models/`: Tests for model functionality
+
+### Writing New Tests
+
+When adding new features, create corresponding tests in the appropriate directory:
+
+- Model tests in `tests/Feature/Models/`
+- Feature tests in `tests/Feature/`
+- Browser tests in `tests/Browser/` (if using Dusk)
+
+Example of a basic model test:
+
+```php
+/** @test */
+public function it_can_create_a_model()
+{
+    $model = YourModel::factory()->create();
+    $this->assertInstanceOf(YourModel::class, $model);
+    $this->assertDatabaseHas('your_models', ['id' => $model->id]);
+}
+```
+
+## Customization Guide
+
+WittyWorkflow is designed to be highly customizable without modifying core files.
+
+### Theme Customization
+
+- **Colors**: Modify the color scheme in `tailwind.config.js`
+- **Typography**: Change fonts and text styles in `resources/css/app.css`
+- **Layouts**: Customize layouts in `resources/views/layouts/`
+
+### Extending Core Functionality
+
+- **Custom Resources**: Add new Filament resources in `app/Filament/Resources/`
+- **Custom Widgets**: Create dashboard widgets in `app/Filament/Widgets/`
+- **Custom Fields**: Add custom form fields in `app/Forms/Components/`
+
+### Common Customization Examples
+
+1. **Adding a Blog**:
+   - Create a Blog model and migration
+   - Add a Filament resource for managing blog posts
+   - Create public routes and views for displaying posts
+
+2. **Custom User Roles**:
+   - Extend the Shield configuration to add new roles
+   - Define permissions for the new roles
+   - Create role-specific dashboards or views
+
+3. **Payment Gateway Integration**:
+   - Add alternative payment methods beyond Stripe
+   - Create payment gateway service classes
+   - Integrate with checkout process
+
+## Deployment
+
+### Server Requirements
+
+- PHP 8.1+
+- Nginx or Apache
+- MySQL 5.7+ or PostgreSQL 10+
+- Composer
+- Node.js and NPM (for asset compilation)
+
+### Deployment Steps
+
+1. **Set up your web server and database**:
+   - Configure Nginx/Apache with proper PHP settings
+   - Create a database for your application
+
+2. **Clone the repository to your server**:
+   ```bash
+   git clone https://github.com/kristi11/ww-filament.git /path/to/your/site
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   composer install --no-dev --optimize-autoloader
+   npm install && npm run build
+   ```
+
+4. **Set up environment variables**:
+   - Copy `.env.example` to `.env`
+   - Configure database, mail, and other settings
+   - Generate application key: `php artisan key:generate`
+
+5. **Run migrations**:
+   ```bash
+   php artisan migrate
+   ```
+
+6. **Set up task scheduling**:
+   Add this to your crontab:
+   ```
+   * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+   ```
+
+7. **Configure caching**:
+   ```bash
+   php artisan config:cache
+   php artisan route:cache
+   php artisan view:cache
+   ```
+
+### Platform-Specific Guides
+
+- **Laravel Forge**: One-click deployment with automatic SSL
+- **Digital Ocean**: Using the App Platform
+- **AWS**: Deploying with Elastic Beanstalk
+
+## Security
+
+WittyWorkflow implements multiple security features to protect your application and data.
+
+### Authentication Options
+
+- **Standard email/password authentication**
+- **Two-Factor Authentication (2FA)**
+- **One-Time Password (OTP)**
+
+### Authorization System
+
+- **Role-based access control** via Filament Shield
+- **Permission management** through the admin panel
+- **Policy-based authorization** for fine-grained control
+
+### Security Best Practices
+
+- Keep all dependencies updated
+- Enable HTTPS in production
+- Implement proper CORS policies
+- Use environment variables for sensitive information
+
+### Data Protection
+
+- User data is encrypted where appropriate
+- Passwords are hashed using bcrypt
+- CSRF protection is enabled for all forms
+- XSS protection through proper output escaping
+
+## Performance Optimization
+
+### Caching Strategies
+
+- Enable Redis caching in `.env`: `CACHE_DRIVER=redis`
+- Use model caching for frequently accessed data
+- Implement view caching for complex templates
+
+### Database Optimization
+
+- Add indexes to frequently queried columns
+- Use eager loading to prevent N+1 query issues
+- Consider database table partitioning for large datasets
+
+### Asset Optimization
+
+- Use production builds: `npm run build`
+- Enable HTTP/2 on your web server
+- Implement a CDN for static assets
+
+### Monitoring and Profiling
+
+- Use Laravel Telescope for development debugging
+- Implement Laravel Horizon for queue monitoring
+- Consider New Relic or Blackfire for production monitoring
 
 ## Usage
 
@@ -463,11 +867,53 @@ an account
 
 Love open source? Help shape WittyWorkflow:
 
-1. Fork the repo.
-2. Create a branch: `git checkout -b feature/your-idea`.
-3. Commit changes: `git commit -m "Add cool thing"`.
-4. Push: `git push origin feature/your-idea`.
-5. Open a PR to `main`.
+### Development Workflow
+
+1. **Fork the repository**:
+   - Click the "Fork" button at the top right of the repository page
+   - Clone your fork locally: `git clone https://github.com/YOUR-USERNAME/ww-filament.git`
+
+2. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/your-idea
+   ```
+
+3. **Implement your changes**:
+   - Follow the coding standards (PSR-12)
+   - Write or update tests for your changes
+   - Ensure all tests pass: `php artisan test`
+
+4. **Commit your changes**:
+   ```bash
+   git commit -m "Add cool thing"
+   ```
+
+   Use descriptive commit messages that explain what changes were made and why.
+
+5. **Push to your fork**:
+   ```bash
+   git push origin feature/your-idea
+   ```
+
+6. **Submit a pull request**:
+   - Go to the original repository
+   - Click "New pull request"
+   - Select "compare across forks"
+   - Select your fork and branch
+   - Fill out the PR template with details about your changes
+
+### Code Style Guidelines
+
+- Follow PSR-12 coding standards
+- Use Laravel naming conventions
+- Write descriptive commit messages
+- Document public methods and classes
+
+### Pull Request Process
+
+1. Update the README.md with details of changes if applicable
+2. Update the CHANGELOG.md with details of changes
+3. The PR will be merged once reviewed and approved
 
 Check [Issues](https://github.com/kristi11/ww-filament/issues) for tasks (e.g., cart bug)—email tanellari@gmail.com with questions.
 
