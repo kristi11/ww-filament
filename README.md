@@ -43,6 +43,7 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#quickstart">Quickstart</a></li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#email-configuration">Email Configuration</a></li>
       </ul>
     </li>
     <li><a href="#command_list">Command list</a></li>
@@ -50,23 +51,111 @@
       <a href="#configuration">Configuration</a>
       <ul>
         <li><a href="#disabled-features">Disabled features</a></li>
+        <li><a href="#side-note">Side note</a></li>
+        <li><a href="#role-configuration">Role configuration</a></li>
+        <li><a href="#role-explanation">Role explanation</a></li>
         <li><a href="#panel-switching">Panel switching</a></li>
         <li><a href="#adding-variants">Adding variants</a></li>
         <li><a href="#otp">One Time Passwords</a></li>
       </ul>
     </li>
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#appointment-management">Appointment Management</a></li>
-    <li><a href="#testing">Testing</a></li>
-    <li><a href="#customization-guide">Customization Guide</a></li>
-    <li><a href="#deployment">Deployment</a></li>
-    <li><a href="#security">Security</a></li>
-    <li><a href="#performance">Performance Optimization</a></li>
+    <li>
+      <a href="#shop">Shop</a>
+      <ul>
+        <li><a href="#shop-architecture-overview">Shop Architecture Overview</a></li>
+        <li><a href="#setting-up-the-shop">Setting Up the Shop</a>
+          <ul>
+            <li><a href="#1-stripe-integration">1. Stripe Integration</a></li>
+            <li><a href="#2-database-configuration">2. Database Configuration</a></li>
+          </ul>
+        </li>
+        <li><a href="#using-the-shop-system">Using the Shop System</a>
+          <ul>
+            <li><a href="#product-management">Product Management</a></li>
+            <li><a href="#cart-functionality">Cart Functionality</a></li>
+            <li><a href="#checkout-process">Checkout Process</a></li>
+            <li><a href="#order-management">Order Management</a></li>
+          </ul>
+        </li>
+        <li><a href="#testing-the-shop">Testing the Shop</a></li>
+        <li><a href="#going-live">Going Live</a></li>
+        <li><a href="#customizing-the-shop">Customizing the Shop</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#appointment-management">Appointment Management</a>
+      <ul>
+        <li><a href="#appointment-system-architecture">Appointment System Architecture</a></li>
+        <li><a href="#setting-up-appointments">Setting Up Appointments</a></li>
+        <li><a href="#managing-appointments">Managing Appointments</a></li>
+        <li><a href="#customizing-the-appointment-system">Customizing the Appointment System</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#testing">Testing</a>
+      <ul>
+        <li><a href="#running-tests">Running Tests</a></li>
+        <li><a href="#test-structure">Test Structure</a></li>
+        <li><a href="#writing-new-tests">Writing New Tests</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#customization-guide">Customization Guide</a>
+      <ul>
+        <li><a href="#theme-customization">Theme Customization</a></li>
+        <li><a href="#extending-core-functionality">Extending Core Functionality</a></li>
+        <li><a href="#common-customization-examples">Common Customization Examples</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#deployment">Deployment</a>
+      <ul>
+        <li><a href="#server-requirements">Server Requirements</a></li>
+        <li><a href="#deployment-steps">Deployment Steps</a></li>
+        <li><a href="#platform-specific-guides">Platform-Specific Guides</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#security">Security</a>
+      <ul>
+        <li><a href="#authentication-options">Authentication Options</a></li>
+        <li><a href="#authorization-system">Authorization System</a></li>
+        <li><a href="#security-best-practices">Security Best Practices</a></li>
+        <li><a href="#data-protection">Data Protection</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#performance">Performance Optimization</a>
+      <ul>
+        <li><a href="#caching-strategies">Caching Strategies</a></li>
+        <li><a href="#database-optimization">Database Optimization</a></li>
+        <li><a href="#asset-optimization">Asset Optimization</a></li>
+        <li><a href="#monitoring-and-profiling">Monitoring and Profiling</a></li>
+      </ul>
+    </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#whats-next">What's next</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <li>
+      <a href="#roadmap">Roadmap</a>
+      <ul>
+        <li><a href="#whats-next">What's next</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#contributing">Contributing</a>
+      <ul>
+        <li><a href="#development-workflow">Development Workflow</a></li>
+        <li><a href="#code-style-guidelines">Code Style Guidelines</a></li>
+        <li><a href="#pull-request-process">Pull Request Process</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#license">License</a>
+      <ul>
+        <li><a href="#what-this-means-for-developers">What this means for developers</a></li>
+        <li><a href="#mit-license-summary">MIT License Summary</a></li>
+        <li><a href="#useful-resources">Useful Resources</a></li>
+      </ul>
+    </li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
     <li>
@@ -923,7 +1012,43 @@ Check [Issues](https://github.com/kristi11/ww-filament/issues) for tasks (e.g., 
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is distributed under the MIT License, one of the most permissive and widely used open source licenses.
+
+### What this means for developers:
+
+- **You can:** Use the code commercially, modify it, distribute it, and use it privately
+- **You must:** Include the original copyright notice and the license text in any copy of the software/source
+- **You cannot:** Hold the authors liable for damages as the software is provided "as is"
+
+### MIT License Summary
+
+```
+Copyright (c) 2024 Kristi Tanellari
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+### Useful Resources
+
+- [Understanding the MIT License](https://choosealicense.com/licenses/mit/) - A detailed explanation of the MIT license
+- [Open Source Initiative](https://opensource.org/licenses/MIT) - The MIT License defined by the Open Source Initiative
+- [TLDRLegal MIT Explanation](https://tldrlegal.com/license/mit-license) - A simplified explanation of what you can, cannot, and must do
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
@@ -931,8 +1056,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-## Connect with Me
+### Connect with Me
 [<img src="https://simpleicons.org/icons/github.svg" alt="GitHub" width="30"/>](https://github.com/kristi11)
+[<img src="https://simpleicons.org/icons/gmail.svg" alt="Email" width="30"/>](mailto:tanellari@gmail.com)
 
 Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kristi11/wittyworkflow/)
 
@@ -948,6 +1074,15 @@ I've included a few of my favorite links to kick things off!
 * [Filament](https://filamentphp.com/)
 * [Livewire](https://livewire.laravel.com)
 * [Tailwind CSS](https://tailwindcss.com)
+* [Alpine.js](https://alpinejs.dev)
+* [Stripe](https://stripe.com)
+* [Laravel Cashier](https://laravel.com/docs/billing)
+* [Laravel Sanctum](https://laravel.com/docs/sanctum)
+* [Laravel Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
+* [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy)
+* [Vite](https://vitejs.dev)
+* [MoneyPHP](https://moneyphp.org)
+* [Laravel Telescope](https://laravel.com/docs/telescope)
 * [README Template](https://github.com/othneildrew/Best-README-Template/)
 * [Markdown Badges](https://github.com/Ileriayo/markdown-badges)
 * [Choose an Open Source License](https://choosealicense.com)
