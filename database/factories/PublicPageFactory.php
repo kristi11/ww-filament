@@ -13,6 +13,7 @@ class PublicPageFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => \App\Models\User::factory(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'hero' => true,

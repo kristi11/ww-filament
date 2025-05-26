@@ -13,6 +13,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => \App\Models\User::factory(),
             'stripe_checkout_session_id' => $this->faker->word(),
             'amount_shipping' => $this->faker->randomNumber(),
             'amount_discount' => $this->faker->randomNumber(),
