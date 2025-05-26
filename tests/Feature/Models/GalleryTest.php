@@ -6,6 +6,7 @@ use App\Models\Gallery;
 use App\Models\Service;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
@@ -22,7 +23,9 @@ class GalleryTest extends TestCase
         Gallery::flushEventListeners();
 
         // Mock the Storage facade
-        Storage::fake('gallery');
+        Storage::fake('public');
+        Storage::fake('media');
+        Storage::fake(config('filesystems.disks.STORAGE_DISK'));
     }
 
     /** @test */
@@ -46,6 +49,35 @@ class GalleryTest extends TestCase
             'service_id' => $service->id,
             'description' => 'This is a test gallery',
         ]);
+    }
+
+    /** @test */
+    public function it_can_upload_an_image()
+    {
+        $service = Service::factory()->create();
+
+        $galleryData = [
+            'service_id' => $service->id,
+            'description' => 'This is a test gallery',
+        ];
+
+        $gallery = Gallery::create($galleryData);
+
+        // Create a fake image
+        $file = UploadedFile::fake()->image('gallery-image.jpg');
+
+        // Add media to the gallery using Spatie's MediaLibrary
+        $media = $gallery->addMedia($file)
+            ->usingName('Test Gallery Image')
+            ->usingFileName($file->hashName())
+            ->toMediaCollection();
+
+        // Assert the media was added
+        $this->assertCount(1, $gallery->getMedia());
+
+        // Assert the media has the correct properties
+        $this->assertEquals('Test Gallery Image', $media->name);
+        $this->assertEquals($file->hashName(), $media->file_name);
     }
 
     /** @test */

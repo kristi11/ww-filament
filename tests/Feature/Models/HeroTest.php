@@ -6,12 +6,22 @@ use App\Models\Hero;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class HeroTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Mock the Storage facade
+        Storage::fake(config('filesystems.disks.STORAGE_DISK'));
+    }
 
     /** @test */
     public function it_can_create_a_hero()
@@ -52,6 +62,44 @@ class HeroTest extends TestCase
             'user_id' => $user->id,
             'mainQuote' => 'Test Main Quote',
         ]);
+    }
+
+    /** @test */
+    public function it_can_upload_an_image()
+    {
+        $user = User::factory()->create();
+
+        $heroData = [
+            'user_id' => $user->id,
+            'mainQuote' => 'Test Main Quote',
+            'secondaryQuote' => 'Test Secondary Quote',
+            'thirdQuote' => 'Test Third Quote',
+            'gradientType' => 'linear-gradient',
+            'gradientDegree' => '90',
+            'gradientDegreeStart' => '0',
+            'gradientDegreeEnd' => '100',
+            'gradientDegreeFirstColor' => '#0061ff',
+            'gradientDegreeSecondColor' => '#60efff',
+            'waves' => true,
+            'full_screen_image' => true,
+        ];
+
+        $hero = Hero::create($heroData);
+
+        // Create a fake image
+        $file = UploadedFile::fake()->image('hero-image.jpg');
+
+        // Update the hero with the image
+        $hero->update(['image' => $file->hashName()]);
+
+        // Store the file in the storage
+        Storage::disk(config('filesystems.disks.STORAGE_DISK'))->putFileAs('hero', $file, $file->hashName());
+
+        // Assert the file exists in storage
+        Storage::disk(config('filesystems.disks.STORAGE_DISK'))->assertExists('hero/' . $file->hashName());
+
+        // Assert the hero has the image path
+        $this->assertEquals($file->hashName(), $hero->image);
     }
 
     /** @test */

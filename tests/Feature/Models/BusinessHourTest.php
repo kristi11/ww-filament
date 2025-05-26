@@ -88,10 +88,21 @@ class BusinessHourTest extends TestCase
     /** @test */
     public function it_clears_open_and_close_times_when_status_changes_to_false()
     {
-        // The setStatusAttribute method in BusinessHour model has an issue
-        // It tries to set 'closed' to null, but the column is actually 'close'
-        // For now, we'll skip this test
-        $this->markTestSkipped('The BusinessHour model has an issue with the setStatusAttribute method.');
+        // Create a business hour with status = true and open/close times set
+        $businessHour = BusinessHour::factory()->create([
+            'status' => true,
+            'open' => '09:00',
+            'close' => '17:00',
+        ]);
+
+        // Update status to false
+        $businessHour->update(['status' => false]);
+        $businessHour->refresh();
+
+        // Assert that open and close times are cleared (set to null)
+        $this->assertNull($businessHour->open);
+        $this->assertNull($businessHour->close);
+        $this->assertFalse($businessHour->status);
     }
 
     /** @test */

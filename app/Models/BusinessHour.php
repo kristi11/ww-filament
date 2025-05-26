@@ -36,7 +36,7 @@ class BusinessHour extends Model
 
         if (! $value && $this->getOriginal('status')) {
             $this->attributes['open'] = null;
-            $this->attributes['closed'] = null;
+            $this->attributes['close'] = null;
         }
         $this->attributes['status'] = $value;
     }
