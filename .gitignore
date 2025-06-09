@@ -6,6 +6,7 @@
 /storage/*.key
 /vendor
 /lang/vendor
+/.junie
 .env
 .env.backup
 .env.production
