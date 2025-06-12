@@ -1,32 +1,43 @@
-<br />
+# WittyWorkflow
+
 <div align="center">
   <a href="https://github.com/kristi11/wittyworkflow/">
     <img src="public/android-chrome-192x192.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Witty workflow</h3>
+  <h1 align="center">Witty Workflow</h1>
 
-<p align="center">
-    A platform for managing your business
+  <p align="center">
+    A powerful platform for managing your business built with the TALL stack
     <br />
     <br />
- <a href="#interactive-demo">Interactive Demo</a>
+    <a href="#interactive-demo">🎮 Interactive Demo</a>
     ·
-    <a href="https://github.com/kristi11/wittyworkflow/issues">Report Bug</a>
+    <a href="https://github.com/kristi11/wittyworkflow/issues">🐛 Report Bug</a>
     ·
-    <a href="https://github.com/kristi11/wittyworkflow/issues">Request Feature</a>
+    <a href="https://github.com/kristi11/wittyworkflow/issues">✨ Request Feature</a>
   </p>
 
-> # This app is in active development
+  ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+  ![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
+  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![Filament](https://img.shields.io/badge/Filament-FFAA00?style=for-the-badge&logoColor=%23000000)
+  ![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
+  ![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
 
-## **THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
-
+  ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+  ![License](https://img.shields.io/badge/license-MIT-green.svg)
+  ![PHP](https://img.shields.io/badge/PHP-8.1+-8892BF.svg)
 </div>
+
+> **⚠️ This app is in active development**
+
+> **⚠️ THIS REPOSITORY SHOULD BE USED ON A BRAND-NEW PROJECT**
 
 <!-- TABLE OF CONTENTS -->
 
 <details>
-  <summary>Table of Contents</summary>
+  <summary>📋 Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -169,13 +180,13 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## 🚀 About The Project
 
-##### WittyWorkflow is a TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) foundation designed for building niche marketplaces and small business management tools. Whether you’re crafting an e-commerce shop, managing appointments, or creating custom workflows, this modular platform—powered by Filament PHP—offers a robust starting point. It’s built to be forked, extended, and deployed fast, with features like role-based dashboards, Stripe payments, and customizable UI out of the box.
+WittyWorkflow is a TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) foundation designed for building niche marketplaces and small business management tools. Whether you're crafting an e-commerce shop, managing appointments, or creating custom workflows, this modular platform—powered by Filament PHP—offers a robust starting point. It's built to be forked, extended, and deployed fast, with features like role-based dashboards, Stripe payments, and customizable UI out of the box.
 
-##### Originally a demo app, WittyWorkflow has evolved into a versatile base for real-world projects. A prime example? It’s being adapted into the Artisanal Food Production Manager—a marketplace example connecting artisanal producers to customers, complete with product listings, orders, and secure payments. Developers can use it as-is for small business needs or tailor it to specialized industries like handmade goods, local services, or boutique retail.
+Originally a demo app, WittyWorkflow has evolved into a versatile base for real-world projects. A prime example? It's being adapted into the Artisanal Food Production Manager—a marketplace example connecting artisanal producers to customers, complete with product listings, orders, and secure payments. Developers can use it as-is for small business needs or tailor it to specialized industries like handmade goods, local services, or boutique retail.
 
-### Interactive Demo
+### 🎮 Interactive Demo
 
 **Watch a guided tour of Witty Workflow's key features and intuitive interface.**
 
@@ -183,33 +194,33 @@
   <img src="public/demo-thumbnail.png" alt="Interactive Demo" width="100%">
 </a>
 
-### Key Features
+### ✨ Key Features
 
-> * **Dynamic Hero:** Capture attention with a visually stunning, admin-customizable hero section—fully editable via Filament for a seamless experience.
+* 🌟 **Dynamic Hero:** Capture attention with a visually stunning, admin-customizable hero section—fully editable via Filament for a seamless experience.
 
-> * **Role-Based Access:** Leverage Filament PHP for flexible, role-based dashboards—admins control all, team members and customers (e.g., producers/retailers) get tailored views, powered by Shield.
+* 🔐 **Role-Based Access:** Leverage Filament PHP for flexible, role-based dashboards—admins control all, team members and customers (e.g., producers/retailers) get tailored views, powered by Shield.
 
-> * **SPA-Like Navigation:** Enjoy smooth transitions with Livewire’s `wire:navigate`—enhances UX across panels and public pages.
+* ⚡ **SPA-Like Navigation:** Enjoy smooth transitions with Livewire's `wire:navigate`—enhances UX across panels and public pages.
 
-> * **Customizable Contact & Footer:** Boost engagement with a public email form and admin-editable footer for terms, help, or business details.
+* 📝 **Customizable Contact & Footer:** Boost engagement with a public email form and admin-editable footer for terms, help, or business details.
 
-> * **E-commerce Module:** A TALL stack shop with Stripe integration, product management, and admin control—perfect for niches like artisanal food.
+* 🛒 **E-commerce Module:** A TALL stack shop with Stripe integration, product management, and admin control—perfect for niches like artisanal food.
 
-> * **Appointment Management:** Schedule and manage appointments with email notifications—optional for service-based apps.
+* 📅 **Appointment Management:** Schedule and manage appointments with email notifications—optional for service-based apps.
 
-> * **Security Suite:** Protect accounts with 2-Factor Authentication (2FA) and One-Time Passwords (OTP)—toggleable for your needs.
+* 🔒 **Security Suite:** Protect accounts with 2-Factor Authentication (2FA) and One-Time Passwords (OTP)—toggleable for your needs.
 
-> * **Theme Customization:** Tailor the app’s look with admin-controlled themes and section visibility—swap styles without code.
+* 🎨 **Theme Customization:** Tailor the app's look with admin-controlled themes and section visibility—swap styles without code.
 
-> * **Application Health:** Monitor performance and server status with Spatie Laravel Health—actionable insights from the dashboard.
+* 📊 **Application Health:** Monitor performance and server status with Spatie Laravel Health—actionable insights from the dashboard.
 
-> * **Business Settings:** Manage announcements, visibility, and niche-specific data—adaptable for any small business or marketplace.
+* ⚙️ **Business Settings:** Manage announcements, visibility, and niche-specific data—adaptable for any small business or marketplace.
 
-> * **Developer Tools:** Demo seeds, and modular structure—fork and extend with ease.
+* 🧰 **Developer Tools:** Demo seeds, and modular structure—fork and extend with ease.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
-## Built With
+## 🛠️ Built With
 
 This section lists all major frameworks/libraries used to bootstrap this project.
 
@@ -217,19 +228,18 @@ This section lists all major frameworks/libraries used to bootstrap this project
 * Filament 3.x
 * PHP 8.1
 
-
-* ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
-* ![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
-* ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-* ![Filament](https://img.shields.io/badge/Filament-FFAA00?style=for-the-badge&logoColor=%23000000)
-* ![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
-* ![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
+![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Filament](https://img.shields.io/badge/Filament-FFAA00?style=for-the-badge&logoColor=%23000000)
+![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
+![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
-### Use Cases
+### 💼 Use Cases
 
-#### WittyWorkflow powers niche apps—here’s how:
+#### WittyWorkflow powers niche apps—here's how:
 
 - **Artisanal Food Marketplace**: Producers list products, customers order, payments via Stripe.
 - **Local Service Hub**: Book appointments for craftspeople, manage team schedules, customize the public page.
@@ -242,11 +252,11 @@ Fork it, tweak it—build your vision fast.
 
 <!-- GETTING STARTED -->
 
-### Getting Started
+## 🚀 Getting Started
 
 Get WittyWorkflow running in minutes—perfect for prototyping or building your next niche app.
 
-### Prerequisites
+### 📋 Prerequisites
 
 Before you begin, ensure your development environment meets these requirements:
 
@@ -266,36 +276,32 @@ Before you begin, ensure your development environment meets these requirements:
 - **Git**
 
 
-#### Quickstart
+#### ⚡ Quickstart
 1. Clone the repo:
-   ```
+   ```bash
    git clone https://github.com/kristi11/ww-filament.git
    ```
 
 2. Cd into project
-    ```
+    ```bash
     cd ww-filament
     ```
 
 3. Install NPM dependencies
-
-   ```
+   ```bash
     npm install
    ```
 
 4. Install the composer dependencies.
-
-   ```
+   ```bash
    composer install
    ```
 5. Create a copy of your .env file.
-
-   ```
+   ```bash
     cp .env.example .env
    ```
 6. Generate an app encryption key.
-
-   ```
+   ```bash
    php artisan key:generate
    ```
 
@@ -306,48 +312,41 @@ Before you begin, ensure your development environment meets these requirements:
 8. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env` file with your database name.
 
 9. Migrate and seed the database.
-
-   ```
+   ```bash
    php artisan migrate:fresh --seed
    ```
 10. WittyWorkflow uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin to provide proper user roles. We need to set up the plugin and generate the permissions for that package:
-
-   ```
+   ```bash
    php artisan shield:setup --fresh
    php artisan shield:generate --all --panel=admin
    ```
 
    Then define the super admin of the system:
-
-   ```
+   ```bash
    php artisan shield:super-admin --user="1"
    ```
 
    `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be the `super admin`.
 
 11. Link the storage folder.
-
-    ```
+    ```bash
     php artisan storage:link
     ```
 12. Run the application.
-
-    ```
+    ```bash
     php artisan serve
     ```
 13. Visit your application in the browser.
-
     ```
     http://localhost:8000
     ```
 
 14. Compile assets for development:
-
-    ```
+    ```bash
     npm run dev
     ```
 
-### Command list
+### 📝 Command list
 
 For quick reference, here's the complete list of commands to set up WittyWorkflow:
 
@@ -366,7 +365,7 @@ npm run dev
 php artisan serve
 ```
 
-### Troubleshooting
+### ❓ Troubleshooting
 
 If you encounter issues during installation, here are solutions to common problems:
 
@@ -382,7 +381,7 @@ If you encounter issues during installation, here are solutions to common proble
 
 For more complex issues, check the [Laravel documentation](https://laravel.com/docs) or open an issue on our [GitHub repository](https://github.com/kristi11/wittyworkflow/issues).
 
-### Email Configuration
+### 📧 Email Configuration
 
 > [!NOTE]
 > Don't forget to update your Mail settings to reflect your production server's needs
@@ -407,11 +406,11 @@ If you are using [Laravel Forge](https://forge.laravel.com/), you can add the cr
 
 <!-- SHOP -->
 
-## Shop
+## 🛒 Shop
 
 WittyWorkflow includes a fully-featured e-commerce system built with the TALL stack and integrated with Stripe for payment processing. This section will guide you through setting up and using the shop functionality.
 
-### Shop Architecture Overview
+### 🏗️ Shop Architecture Overview
 
 The shop system consists of several key components:
 
@@ -419,7 +418,7 @@ The shop system consists of several key components:
 - **Cart System**: Manages items added to a user's cart
 - **Checkout Process**: Integrated with Stripe for secure payments
 
-### Setting Up the Shop
+### ⚙️ Setting Up the Shop
 
 #### 1. Stripe Integration
 
@@ -470,7 +469,7 @@ The shop system uses several database tables:
 
 These tables are created automatically when you run migrations.
 
-### Using the Shop System
+### 🛍️ Using the Shop System
 
 #### Product Management
 
@@ -506,7 +505,7 @@ After checkout, orders are:
 2. Associated with the user who made the purchase
 3. Viewable in the admin panel for management
 
-### Testing the Shop
+### 🧪 Testing the Shop
 
 To test purchases in your development environment:
 
@@ -515,7 +514,7 @@ To test purchases in your development environment:
 3. Any 3-digit CVC code (e.g., `123`)
 4. Any name and address information
 
-### Going Live
+### 🚀 Going Live
 
 To switch to production mode:
 
@@ -524,7 +523,7 @@ To switch to production mode:
 3. Ensure your webhook is properly configured for the live environment
 4. Test the complete purchase flow with a real card (consider using a small amount)
 
-### Customizing the Shop
+### 🔧 Customizing the Shop
 
 The shop system is designed to be customizable:
 
@@ -536,7 +535,7 @@ See the [Adding Variants](#adding-variants) section for detailed instructions on
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
-## Configuration
+## ⚙️ Configuration
 
 ### **Disabled features:**
 
@@ -553,7 +552,7 @@ manage user profiles. Change the following value to `shouldRegisterUserMenu: tru
 to `enable/disable` profile editing on `AdminPanelProvider.php` and `TeamPanelProvider.php` for the `Admin` and `Team member`
 roles
 
-```
+```php
 ->myProfile(
     shouldRegisterUserMenu: false, // Sets the 'account' link in the panel User Menu (default = false)
     shouldRegisterNavigation: false, // Adds a main navigation item for the My Profile page (default = false)
@@ -567,14 +566,14 @@ roles
 )
 ```
 
-### Role configuration
+### 👥 Role configuration
 
 WittyWorkflow used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
 package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard, inside the `Settings` sidebar menu group and for both `team_user` and `panel_user` choose `select all` on
 the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view`
 and `view any` under the `Gallery` model permissions. Also give the `panel_user` all permissions on the `Order` model permissions.
 
-### Role explanation
+### 🔑 Role explanation
 
 #### In order to use the Team role you need to create the role from the admin panel and the name of the role should be 'team_user' as it doesn't exist by default and then assign that role to a desired user. Multiple roles can be assigned to a user
 
@@ -582,7 +581,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 * `team_user` = The team members of the system assigned by the Super Admin
 * `panel_user` = The panel for the customers
 
-### Panel switching
+### 🔄 Panel switching
 
 > [!NOTE]
 >
@@ -590,7 +589,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 <!-- Adding variants -->
 
-### Adding variants
+### 🔄 Adding variants
 
 **There are quite a few steps you need to take to add/edit/delete variants, and I'll walk you through all of them:**
 
@@ -619,11 +618,11 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 <!-- USAGE EXAMPLES -->
 
-## Appointment Management
+## 📅 Appointment Management
 
 WittyWorkflow includes a comprehensive appointment scheduling system that integrates with email notifications and calendar systems.
 
-### Appointment System Architecture
+### 🏗️ Appointment System Architecture
 
 The appointment system consists of several key components:
 
@@ -631,7 +630,7 @@ The appointment system consists of several key components:
 - **Booking Flow**: Users select services, available time slots, and complete bookings
 - **Notifications**: Automatic emails for booking confirmation, reminders, and updates
 
-### Setting Up Appointments
+### ⚙️ Setting Up Appointments
 
 1. **Configure Business Hours**:
    - Navigate to the Business Hours section in the admin panel
@@ -647,7 +646,7 @@ The appointment system consists of several key components:
    - Customize email templates for appointment confirmations and reminders
    - Set up notification preferences for both staff and customers
 
-### Managing Appointments
+### 📋 Managing Appointments
 
 Appointments can be managed through the Filament admin panel:
 
@@ -667,7 +666,7 @@ Appointments can be managed through the Filament admin panel:
    - Cancel with automatic notification to the customer
    - Optionally offer rebooking options
 
-### Customizing the Appointment System
+### 🔧 Customizing the Appointment System
 
 The appointment system can be customized in several ways:
 
@@ -675,11 +674,11 @@ The appointment system can be customized in several ways:
 - **Email Templates**: Customize email templates in `resources/views/emails/appointments/`
 - **Booking Form**: Extend the booking form in `resources/views/livewire/appointment-form.blade.php`
 
-## Testing
+## 🧪 Testing
 
 WittyWorkflow comes with a comprehensive test suite covering models, features, and integrations.
 
-### Running Tests
+### 🏃‍♂️ Running Tests
 
 ```bash
 # Run all tests
@@ -692,7 +691,7 @@ php artisan test --testsuite=Feature
 php artisan test --filter=HeroTest
 ```
 
-### Test Structure
+### 📁 Test Structure
 
 - **Unit Tests**: Test individual components in isolation
 - **Feature Tests**: Test complete features and user workflows
@@ -704,7 +703,7 @@ The test files are organized in the following directories:
 - `tests/Feature/`: Feature tests for complete functionality
 - `tests/Feature/Models/`: Tests for model functionality
 
-### Writing New Tests
+### ✍️ Writing New Tests
 
 When adding new features, create corresponding tests in the appropriate directory:
 
@@ -724,23 +723,23 @@ public function it_can_create_a_model()
 }
 ```
 
-## Customization Guide
+## 🎨 Customization Guide
 
 WittyWorkflow is designed to be highly customizable without modifying core files.
 
-### Theme Customization
+### 🎭 Theme Customization
 
 - **Colors**: Modify the color scheme in `tailwind.config.js`
 - **Typography**: Change fonts and text styles in `resources/css/app.css`
 - **Layouts**: Customize layouts in `resources/views/layouts/`
 
-### Extending Core Functionality
+### 🧩 Extending Core Functionality
 
 - **Custom Resources**: Add new Filament resources in `app/Filament/Resources/`
 - **Custom Widgets**: Create dashboard widgets in `app/Filament/Widgets/`
 - **Custom Fields**: Add custom form fields in `app/Forms/Components/`
 
-### Common Customization Examples
+### 📚 Common Customization Examples
 
 1. **Adding a Blog**:
    - Create a Blog model and migration
@@ -757,9 +756,9 @@ WittyWorkflow is designed to be highly customizable without modifying core files
    - Create payment gateway service classes
    - Integrate with checkout process
 
-## Deployment
+## 🚀 Deployment
 
-### Server Requirements
+### 🖥️ Server Requirements
 
 - PHP 8.1+
 - Nginx or Apache
@@ -767,7 +766,7 @@ WittyWorkflow is designed to be highly customizable without modifying core files
 - Composer
 - Node.js and NPM (for asset compilation)
 
-### Deployment Steps
+### 📋 Deployment Steps
 
 1. **Set up your web server and database**:
    - Configure Nginx/Apache with proper PHP settings
@@ -807,69 +806,69 @@ WittyWorkflow is designed to be highly customizable without modifying core files
    php artisan view:cache
    ```
 
-### Platform-Specific Guides
+### 🌐 Platform-Specific Guides
 
 - **Laravel Forge**: One-click deployment with automatic SSL
 - **Digital Ocean**: Using the App Platform
 - **AWS**: Deploying with Elastic Beanstalk
 
-## Security
+## 🔒 Security
 
 WittyWorkflow implements multiple security features to protect your application and data.
 
-### Authentication Options
+### 🔐 Authentication Options
 
 - **Standard email/password authentication**
 - **Two-Factor Authentication (2FA)**
 - **One-Time Password (OTP)**
 
-### Authorization System
+### 🛡️ Authorization System
 
 - **Role-based access control** via Filament Shield
 - **Permission management** through the admin panel
 - **Policy-based authorization** for fine-grained control
 
-### Security Best Practices
+### 🔒 Security Best Practices
 
 - Keep all dependencies updated
 - Enable HTTPS in production
 - Implement proper CORS policies
 - Use environment variables for sensitive information
 
-### Data Protection
+### 🔏 Data Protection
 
 - User data is encrypted where appropriate
 - Passwords are hashed using bcrypt
 - CSRF protection is enabled for all forms
 - XSS protection through proper output escaping
 
-## Performance Optimization
+## ⚡ Performance Optimization
 
-### Caching Strategies
+### 📦 Caching Strategies
 
 - Enable Redis caching in `.env`: `CACHE_DRIVER=redis`
 - Use model caching for frequently accessed data
 - Implement view caching for complex templates
 
-### Database Optimization
+### 🗄️ Database Optimization
 
 - Add indexes to frequently queried columns
 - Use eager loading to prevent N+1 query issues
 - Consider database table partitioning for large datasets
 
-### Asset Optimization
+### 🚀 Asset Optimization
 
 - Use production builds: `npm run build`
 - Enable HTTP/2 on your web server
 - Implement a CDN for static assets
 
-### Monitoring and Profiling
+### 📊 Monitoring and Profiling
 
 - Use Laravel Telescope for development debugging
 - Implement Laravel Horizon for queue monitoring
 - Consider New Relic or Blackfire for production monitoring
 
-## Usage
+## 🔍 Usage
 
 To access the `super-admin dashboard, go to the [Super-admin dashboard](https://wittyworkflow.com/admin/login) and enter the following
 credentials::
@@ -893,7 +892,7 @@ an account
 
 <!-- ROADMAP -->
 
-## Roadmap
+## 🗺️ Roadmap
 
 1. [X]  Create separate dashboards for each user role
 2. [X]  Add Filament [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) for managing user roles and
@@ -920,8 +919,8 @@ an account
 23. [X]  Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
 24. [X] Add [auto logout](https://filamentphp.com/plugins/niladam-auto-logout) plugin where you can set an auto logout timer to bump up security
 
-### Whats-next
-### WittyWorkflow is evolving—here’s what’s next:
+### 🔮 Whats-next
+### WittyWorkflow is evolving—here's what's next:
 
 - [ ] **Niche Marketplace Features**: Add producer/retailer panels, delivery tracking for projects like artisanal food hubs (Help Wanted).
 - [ ] **Enhanced E-commerce**: Stripe Connect payouts, shipping integrations (e.g., USPS API).
@@ -944,7 +943,7 @@ an account
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
-## Workaround
+## 🔧 Workaround
 
 * For now as a workaround only logged-in users can add to cart.
 
@@ -952,11 +951,11 @@ an account
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## 🤝 Contributing
 
 Love open source? Help shape WittyWorkflow:
 
-### Development Workflow
+### 🔄 Development Workflow
 
 1. **Fork the repository**:
    - Click the "Fork" button at the top right of the repository page
@@ -991,14 +990,14 @@ Love open source? Help shape WittyWorkflow:
    - Select your fork and branch
    - Fill out the PR template with details about your changes
 
-### Code Style Guidelines
+### 📝 Code Style Guidelines
 
 - Follow PSR-12 coding standards
 - Use Laravel naming conventions
 - Write descriptive commit messages
 - Document public methods and classes
 
-### Pull Request Process
+### 📤 Pull Request Process
 
 1. Update the README.md with details of changes if applicable
 2. Update the CHANGELOG.md with details of changes
@@ -1010,17 +1009,17 @@ Check [Issues](https://github.com/kristi11/ww-filament/issues) for tasks (e.g., 
 
 <!-- LICENSE -->
 
-## License
+## 📄 License
 
 This project is distributed under the MIT License, one of the most permissive and widely used open source licenses.
 
-### What this means for developers:
+### 📋 What this means for developers:
 
 - **You can:** Use the code commercially, modify it, distribute it, and use it privately
 - **You must:** Include the original copyright notice and the license text in any copy of the software/source
 - **You cannot:** Hold the authors liable for damages as the software is provided "as is"
 
-### MIT License Summary
+### 📜 MIT License Summary
 
 ```
 Copyright (c) 2024 Kristi Tanellari
@@ -1044,7 +1043,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### Useful Resources
+### 📚 Useful Resources
 
 - [Understanding the MIT License](https://choosealicense.com/licenses/mit/) - A detailed explanation of the MIT license
 - [Open Source Initiative](https://opensource.org/licenses/MIT) - The MIT License defined by the Open Source Initiative
@@ -1054,7 +1053,7 @@ SOFTWARE.
 
 <!-- CONTACT -->
 
-## Contact
+## 📞 Contact
 
 ### Connect with Me
 [<img src="https://simpleicons.org/icons/github.svg" alt="GitHub" width="30"/>](https://github.com/kristi11)
@@ -1066,7 +1065,7 @@ Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kris
 
 <!-- ACKNOWLEDGMENTS -->
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 I've included a few of my favorite links to kick things off!
 
