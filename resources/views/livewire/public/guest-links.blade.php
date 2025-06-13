@@ -38,14 +38,14 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon-16x16.png')}}">
     <link rel="manifest" href="{{ asset('site.webmanifest') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
+        @vite('resources/css/app.css')
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
           "name": "Witty Workflow",
           "description": "A business management tool with role based access to different dashboards. It includes appointments, CRUD for business information, email notifications, flash notifications, full control on the visibility of the public page sections, enhanced footer, application health, 2 factor authentication, profile editing and more.",
-          "applicationCategory": "BusinessApplication",,
+          "applicationCategory": "BusinessApplication",
 
           "brand": {
             "@type": "Brand",
@@ -57,12 +57,7 @@
           }
         }
     </script>
-    {{--    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>--}}
-    <style type="text/tailwindcss">
-        @tailwind base;
-        @tailwind components;
-        @tailwind utilities;
-
+    <style>
         html {
             scroll-behavior: smooth;
             scroll-padding: 10rem;

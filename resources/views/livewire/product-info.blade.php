@@ -34,10 +34,10 @@
                     <div class="text-red-600">{{ $message }}</div>
                 @enderror
                 @guest
-                    <x-filament::button wire:click="customerLogin" wire:navigate class="uppercase">Login to Add to cart</x-filament::button>
+                    <x-filament::button wire:click="customerLogin" wire:navigate class="uppercase bg-gray-700">Login to Add to cart</x-filament::button>
                 @endguest
                 @auth
-                    <x-filament::button wire:click="addToCart" wire:navigate class="uppercase" >Add to cart</x-filament::button>
+                    <x-filament::button wire:click="addToCart" wire:navigate class="uppercase bg-gray-700">Add to cart</x-filament::button>
                 @endauth
             </div>
         </div>
