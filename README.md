@@ -212,6 +212,8 @@ Originally a demo app, WittyWorkflow has evolved into a versatile base for real-
 
 * 🎨 **Theme Customization:** Tailor the app's look with admin-controlled themes and section visibility—swap styles without code.
 
+* 🔄 **Section Positioning:** Control the order of public page sections through an intuitive admin interface—customize the user experience without touching code.
+
 * 📊 **Application Health:** Monitor performance and server status with Spatie Laravel Health—actionable insights from the dashboard.
 
 * ⚙️ **Business Settings:** Manage announcements, visibility, and niche-specific data—adaptable for any small business or marketplace.
