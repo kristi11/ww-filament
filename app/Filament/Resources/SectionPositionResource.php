@@ -30,7 +30,9 @@ class SectionPositionResource extends Resource
     {
         return $form
             ->schema([
-                Section::make('👤 Created by')
+                Section::make()
+                    ->icon('heroicon-o-user')
+                    ->heading('Created by')
                     ->description('Who created this section position')
                     ->columns(1)
                     ->schema([
@@ -45,7 +47,9 @@ class SectionPositionResource extends Resource
                             ->prefixIcon('heroicon-s-user-circle'),
                     ]),
 
-                Section::make('🔄 Section Configuration')
+                Section::make()
+                    ->icon('heroicon-o-arrow-path')
+                    ->heading('Section Configuration')
                     ->description('Configure how this section appears on your public page')
                     ->columns(2)
                     ->schema([
@@ -78,14 +82,14 @@ class SectionPositionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->description(str('## 🔄 Section Positioning
+            ->description(str('## Section Positioning
 
 **Section positioning** allows you to control the order in which sections appear on your public page.
 
-* 🔀 **Drag and drop** sections to easily reorder them
-* 🔢 Use the **position field** to set specific positions
-* ⬆️ **Lower numbers** appear first on the page
-* 👁️ Toggle **visibility** to show/hide sections
+* **Drag and drop** sections to easily reorder them
+* Use the **position field** to set specific positions
+* **Lower numbers** appear first on the page
+* Toggle **visibility** to show/hide sections
 
 Customize your public page layout without touching any code!')->markdown()->toHtmlString())
             ->columns([
@@ -135,7 +139,7 @@ Customize your public page layout without touching any code!')->markdown()->toHt
                 Tables\Actions\EditAction::make()
                     ->slideOver()
                     ->label('')
-                    ->slideOver()
+                    ->icon('heroicon-o-pencil-square')
                     ->tooltip('Edit section position'),
             ])
             ->reorderable('position')
@@ -159,7 +163,7 @@ Customize your public page layout without touching any code!')->markdown()->toHt
         return [
             'index' => Pages\ListSectionPositions::route('/'),
             'create' => Pages\CreateSectionPosition::route('/create'),
-            'edit' => Pages\EditSectionPosition::route('/{record}/edit'),
+//            'edit' => Pages\EditSectionPosition::route('/{record}/edit'),
         ];
     }
 }
