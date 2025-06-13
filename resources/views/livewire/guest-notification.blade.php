@@ -10,7 +10,7 @@
         x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
-        class="bg-white border border-gray-200 fixed font-semibold mr-2 mt-2 p-6 right-0 rounded-lg shadow-xl text-gray-500 top-0 flex"
+        class="bg-white border border-gray-200 fixed font-semibold mr-2 mt-2 p-6 right-0 rounded-lg shadow-xl text-gray-500 top-0 flex z-50"
     >
         <div class="mr-2">
             <svg width="20px" height="20px" viewBox="0 0 1024 1024" class="icon"
