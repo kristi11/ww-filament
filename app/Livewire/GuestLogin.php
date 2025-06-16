@@ -37,8 +37,12 @@ class GuestLogin extends Component
     public function render()
     {
         return view('livewire.guest-login', [
-            'credentials' => PublicPage::where('credentials', true)->first(),
-            'background' => SectionColors::first(),
+            'credentials' => cache()->remember('guest_login_credentials', now()->addMinutes(60), function () {
+                return PublicPage::where('credentials', true)->first();
+            }),
+            'background' => cache()->remember('guest_login_background', now()->addMinutes(60), function () {
+                return SectionColors::first();
+            }),
         ]);
     }
 }

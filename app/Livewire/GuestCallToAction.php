@@ -15,9 +15,11 @@ class GuestCallToAction extends Component
     {
         return view('livewire.public.guest-call-to-action',
             [
-                'admins' => User::whereHas('roles', function ($query) {
-                    $query->where('name', 'super_admin');
-                })->get(),
+                'admins' => cache()->remember('guest_call_to_action_admins', now()->addMinutes(60), function () {
+                    return User::whereHas('roles', function ($query) {
+                        $query->where('name', 'super_admin');
+                    })->get();
+                }),
             ]);
     }
 }

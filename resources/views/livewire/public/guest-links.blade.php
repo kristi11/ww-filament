@@ -1,23 +1,8 @@
 <div>
-
-    <meta charset="UTF-8"/>
-    <meta
-        http-equiv="Content-Security-Policy"
-        content="
-        default-src 'self';
-        script-src 'self';
-        style-src 'self' 'unsafe-inline';
-        img-src 'self' https://* data:;
-        font-src 'self';
-        connect-src 'self';
-        media-src 'self';
-        object-src 'none';
-        child-src 'none';
-        frame-ancestors 'self';
-        form-action 'self';
-        base-uri 'self';
-    "
-    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('sitemap.xml') }}"/>
     <link rel="canonical" href="{{ URL::current() }}"/>
     <meta property="og:title" content="Witty Workflow"/>
@@ -27,8 +12,6 @@
     <meta property="og:description"
           content="Witty Workflow is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses."/>
     <meta name="twitter:card" content="summary"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta name="description"
           content="Witty Workflow is a dynamic web application poised to evolve into a robust platform designed to streamline business management. The application incorporates a range of features to empower users in efficiently managing their businesses."/>
     <meta name="keywords"
@@ -37,8 +20,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon-16x16.png')}}">
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
-        @vite('resources/css/app.css')
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    @vite('resources/css/app.css')
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",

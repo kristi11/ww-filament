@@ -1,5 +1,5 @@
 <div>
-    <div class="relative min-h-screen overflow-hidden" style="background-image: url('{{ $hero && $hero->image ? Storage::disk(config('filesystems.disks.STORAGE_DISK'))->url($hero->image) : 'https://via.placeholder.com/1920x1080' }}'); background-size: cover; background-position: center;">
+    <div class="relative min-h-screen overflow-hidden" style="background-image: url('{{ $hero && $hero->image ? Storage::disk(config('filesystems.disks.STORAGE_DISK'))->url($hero->image) : asset('default-heroImage.png') }}'); background-size: cover; background-position: center;">
         <!-- Background gradient (slightly darker) -->
         <div class="absolute inset-0 bg-gray-900 bg-opacity-80"></div>
 

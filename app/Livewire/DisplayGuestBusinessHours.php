@@ -27,7 +27,9 @@ class DisplayGuestBusinessHours extends Component
      */
     private function getBusinessHours()
     {
-        return BusinessHour::select(['day', 'open', 'close', 'status'])->get();
+        return cache()->remember('business_hours', now()->addMinutes(60), function () {
+            return BusinessHour::select(['day', 'open', 'close', 'status'])->get();
+        });
     }
 
     /**
@@ -37,6 +39,8 @@ class DisplayGuestBusinessHours extends Component
      */
     private function getAlwaysOpenStatus()
     {
-        return Flexibility::where('always_open', true)->first();
+        return cache()->remember('always_open_status', now()->addMinutes(60), function () {
+            return Flexibility::where('always_open', true)->first();
+        });
     }
 }

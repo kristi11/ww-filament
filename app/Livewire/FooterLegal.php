@@ -13,8 +13,12 @@ class FooterLegal extends Component
     {
         return view('livewire.footer-legal',
         [
-            'terms' => Terms::first()->visibility,
-            'privacy' => Privacy::first()->visibility,
+            'terms' => cache()->remember('footer_legal_terms', now()->addMinutes(60), function () {
+                return Terms::first()->visibility;
+            }),
+            'privacy' => cache()->remember('footer_legal_privacy', now()->addMinutes(60), function () {
+                return Privacy::first()->visibility;
+            }),
         ]);
     }
 }

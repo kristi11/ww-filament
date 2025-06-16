@@ -90,7 +90,11 @@ class AppServiceProvider extends ServiceProvider
     private function configureVisibility(string $section, ?string $viewVariable = null): void
     {
         $viewVariable = $viewVariable ?? $section;
-        View::share($viewVariable, PublicPage::where($section, true)->first());
+        $cacheKey = "visibility_{$section}";
+        $model = cache()->remember($cacheKey, now()->addMinutes(60), function () use ($section) {
+            return PublicPage::where($section, true)->first();
+        });
+        View::share($viewVariable, $model);
     }
 
     /**
@@ -138,10 +142,10 @@ class AppServiceProvider extends ServiceProvider
      */
     private function configureViewData(): void
     {
-        // Share single model instances
-        $this->shareModel('hero', Hero::first());
-        $this->shareModel('background', SectionColors::first());
-        $this->shareModel('social', Social::first());
+        // Share single model instances with caching
+        $this->shareCachedModel('hero', Hero::class, fn() => Hero::first(), 60);
+        $this->shareCachedModel('background', SectionColors::class, fn() => SectionColors::first(), 60);
+        $this->shareCachedModel('social', Social::class, fn() => Social::first(), 60);
 
         // Share PublicPage models filtered by specific boolean flags
         $this->sharePublicPageByFlag('shop');
@@ -162,13 +166,32 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
+     * Helper method to share a cached model instance with views.
+     *
+     * @param  string  $key  The view variable name
+     * @param  string  $modelClass  The model class name
+     * @param  \Closure  $query  The query to execute
+     * @param  int  $minutes  Cache duration in minutes
+     */
+    private function shareCachedModel(string $key, string $modelClass, \Closure $query, int $minutes = 60): void
+    {
+        $cacheKey = "shared_model_{$key}";
+        $model = cache()->remember($cacheKey, now()->addMinutes($minutes), $query);
+        View::share($key, $model);
+    }
+
+    /**
      * Share a PublicPage model filtered by a specific flag.
      *
      * @param  string  $flag  The boolean flag to filter by
      */
     private function sharePublicPageByFlag(string $flag): void
     {
-        View::share($flag, PublicPage::where($flag, true)->first());
+        $cacheKey = "public_page_{$flag}";
+        $model = cache()->remember($cacheKey, now()->addMinutes(60), function () use ($flag) {
+            return PublicPage::where($flag, true)->first();
+        });
+        View::share($flag, $model);
     }
 
     /**

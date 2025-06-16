@@ -154,7 +154,9 @@ class OrderResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return Order::count();
+        return cache()->remember('order_count', now()->addMinutes(5), function () {
+            return Order::count();
+        });
     }
 
     public static function canCreate(): bool

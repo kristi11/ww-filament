@@ -5,7 +5,6 @@ namespace App\Providers\Filament;
 use App\Filament\Customer\Widgets\BusinessHoursWidget;
 use App\Filament\Customer\Widgets\ServicesWidget;
 use App\Filament\Customer\Widgets\SocialsWidget;
-use App\Filament\Pages\CustomChatifyPage;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
@@ -28,7 +27,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Monzer\FilamentChatifyIntegration\ChatifyPlugin;
 use Niladam\FilamentAutoLogout\AutoLogoutPlugin;
 use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 
@@ -75,9 +73,6 @@ class CustomerPanelProvider extends PanelProvider
                 ]
             )
             ->plugins([
-//                ChatifyPlugin::make()
-//                    ->customPage(CustomChatifyPage::class)
-//                    ->disableFloatingChatWidget(),
                 AutoLogoutPlugin::make()
                     // Enable any of the following options if needed
 //                    ->color(Color::Emerald)     // Set the color. Defaults to Zinc

@@ -11,7 +11,9 @@ class DisplaySocials extends Component
     protected function getSocialData(): Social
     {
         if (!$this->socialData) {
-            $this->socialData = Social::first();
+            $this->socialData = cache()->remember('social_data', now()->addMinutes(60), function () {
+                return Social::first();
+            });
         }
 
         return $this->socialData;

@@ -265,7 +265,9 @@ class ServiceResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return Service::count();
+        return cache()->remember('service_count', now()->addMinutes(5), function () {
+            return Service::count();
+        });
     }
 
     public static function getPages(): array

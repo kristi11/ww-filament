@@ -184,7 +184,9 @@ class UserResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return User::count();
+        return cache()->remember('user_count', now()->addMinutes(5), function () {
+            return User::count();
+        });
     }
 
     public static function getPages(): array

@@ -181,7 +181,9 @@ class ProductResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return Product::count();
+        return cache()->remember('product_count', now()->addMinutes(5), function () {
+            return Product::count();
+        });
     }
 
     public static function getRelations(): array

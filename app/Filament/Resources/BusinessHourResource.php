@@ -185,7 +185,9 @@ class BusinessHourResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return BusinessHour::count();
+        return cache()->remember('business_hour_count', now()->addMinutes(5), function () {
+            return BusinessHour::count();
+        });
     }
 
     public static function getGlobalSearchResultDetails($record): array

@@ -19,7 +19,7 @@
                         <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
                              x-animation="zoom-in bounce slow">
-                            <div class="social-icon-wrapper relative overflow-hidden rounded-full shadow-lg">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full">
                                 <div class="p-0 m-0 inline-block">
                                     <x-icons.facebook_svg/>
                                 </div>
@@ -32,7 +32,7 @@
                         <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
                              x-animation="zoom-in bounce slow">
-                            <div class="social-icon-wrapper relative overflow-hidden rounded-full shadow-lg">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full">
                                 <div class="p-0 m-0 inline-block">
                                     <x-icons.twitter_svg/>
                                 </div>
@@ -45,7 +45,7 @@
                         <div class="transform transition-all duration-300 hover:scale-110"
                              x-data="{}"
                              x-animation="zoom-in bounce slow">
-                            <div class="social-icon-wrapper relative overflow-hidden rounded-full shadow-lg">
+                            <div class="social-icon-wrapper relative overflow-hidden rounded-full">
                                 <div class="p-0 m-0 inline-block">
                                     <x-icons.linkedin_svg/>
                                 </div>

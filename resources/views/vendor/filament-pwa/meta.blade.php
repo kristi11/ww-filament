@@ -30,6 +30,8 @@
 <meta name="msapplication-TileColor" content="{{ $config['background_color'] }}">
 <meta name="msapplication-TileImage" content="{{ data_get(end($config['icons']), 'src') }}">
 
+<!-- Service worker registration disabled to prevent errors -->
+<!--
 <script type="text/javascript">
     // Initialize the service worker
     if ('serviceWorker' in navigator) {
@@ -44,3 +46,4 @@
         });
     }
 </script>
+-->

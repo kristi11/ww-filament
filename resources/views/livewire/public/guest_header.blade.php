@@ -1,6 +1,5 @@
 <div>
     <head>
-        <livewire:guest-links/>
         <style>
             .gradient {
                 background: {{ $hero->gradientType }}(

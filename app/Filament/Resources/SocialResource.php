@@ -139,7 +139,9 @@ class SocialResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return Social::count();
+        return cache()->remember('social_count', now()->addMinutes(5), function () {
+            return Social::count();
+        });
     }
 
     public static function canCreate(): bool

@@ -85,10 +85,6 @@ class AdminPanelProvider extends PanelProvider
                 UsersChartWidget::class
             ])
             ->plugins([
-//                ChatifyPlugin::make()
-////                    ->customPage(CustomChatifyPage::class)
-//                    ->disableFloatingChatWidget(),
-//                FilamentPWAPlugin::make(), //This plugin shouldn't be activated as of now since im still trying to figure out the configurations mo make it work properly
                 AutoLogoutPlugin::make()
                     // Enable any of the following options if needed
 //                    ->color(Color::Emerald)     // Set the color. Defaults to Zinc

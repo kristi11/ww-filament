@@ -49,7 +49,13 @@ class DisplayGuestServices extends Component
      */
     private function getServices()
     {
-        return Service::simplePaginate(self::SERVICES_PER_PAGE);
+        // Use the current page in the cache key to ensure proper pagination
+        $currentPage = request()->query('page', 1);
+        $cacheKey = "services_page_{$currentPage}_" . self::SERVICES_PER_PAGE;
+
+        return cache()->remember($cacheKey, now()->addMinutes(60), function () {
+            return Service::simplePaginate(self::SERVICES_PER_PAGE);
+        });
     }
 
     /**
@@ -57,6 +63,8 @@ class DisplayGuestServices extends Component
      */
     private function hasFlexiblePricing(): ?Flexibility
     {
-        return Flexibility::where('flexible_pricing', true)->first();
+        return cache()->remember('flexible_pricing', now()->addMinutes(60), function () {
+            return Flexibility::where('flexible_pricing', true)->first();
+        });
     }
 }

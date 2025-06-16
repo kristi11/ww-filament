@@ -52,14 +52,14 @@
                                         {!! Purifier::clean(\Illuminate\Support\Str::limit($service->description, 200)) !!}
                                     </div>
 
-                                    <div class="border-b border-t pb-6 pt-6 text-gray-300">
+                                    <div class="border-b border-t pb-6 pt-6 text-slate-400">
                                         {!! Purifier::clean(\Illuminate\Support\Str::limit($service->extra_description, 200)) !!}
                                     </div>
 
                                 @if($service->price !== null)
                                     <div class="mt-auto pt-6">
                                         @if($flexible_pricing)
-                                            <div class="inline-block text-sm font-semibold px-4 py-2 rounded-lg"
+                                            <div class="inline-block text-sm px-4 py-2 rounded-lg"
                                                  style="background-color: {{$hero->gradientDegreeFirstColor}}; filter: brightness(0.7); color: white;">
                                                 Starting at ${{ number_format($service->price, 2) }}
                                             </div>

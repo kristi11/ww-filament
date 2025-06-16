@@ -340,7 +340,9 @@ class AppointmentResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return Appointment::count();
+        return cache()->remember('appointment_count', now()->addMinutes(5), function () {
+            return Appointment::count();
+        });
     }
 
     public static function getPages(): array

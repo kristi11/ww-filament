@@ -3,7 +3,7 @@
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-3 px-4">
             <!-- Logo Section -->
             <div class="flex items-center">
-                <a class="font-bold text-2xl lg:text-3xl bg-gradient-to-r from-[{{$hero->gradientDegreeFirstColor}}] to-[{{$hero->gradientDegreeSecondColor}}] bg-clip-text text-transparent hover:opacity-80 transition-opacity" href="#">
+                <a class="font-bold text-2xl lg:text-3xl bg-gradient-to-r from-blue-900 to-blue-900 bg-clip-text text-transparent hover:opacity-80 transition-opacity" href="#">
                     {{ config('app.name') }}
                 </a>
             </div>
@@ -84,10 +84,10 @@
             if (window.scrollY > 50) { // Adjust threshold as needed
                 // Update header
                 header.classList.remove('bg-transparent');
-                header.classList.add('bg-white/70', 'shadow-sm');
+                header.classList.add('bg-white/70');
                 // Update mobile menu background (ul inside #nav-content)
                 navUl.classList.remove('bg-transparent');
-                navUl.classList.add('bg-white/70', 'shadow-sm');
+                navUl.classList.add('bg-white/70');
                 // Update toggle icon
                 navToggleIcon.classList.remove('text-white');
                 navToggleIcon.classList.add('text-gray-900');
@@ -98,10 +98,10 @@
                 });
             } else {
                 // Revert header
-                header.classList.remove('bg-white/70', 'shadow-sm');
+                header.classList.remove('bg-white/70');
                 header.classList.add('bg-transparent');
                 // Revert mobile menu background (ul inside #nav-content)
-                navUl.classList.remove('bg-white/70', 'shadow-sm');
+                navUl.classList.remove('bg-white/70');
                 navUl.classList.add('bg-transparent');
                 // Revert toggle icon
                 navToggleIcon.classList.remove('text-gray-900');

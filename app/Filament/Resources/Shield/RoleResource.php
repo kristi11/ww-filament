@@ -189,9 +189,13 @@ class RoleResource extends Resource implements HasShieldPermissions
 
     public static function getNavigationBadge(): ?string
     {
-        return Utils::isResourceNavigationBadgeEnabled()
-            ? static::getModel()::count()
-            : null;
+        if (!Utils::isResourceNavigationBadgeEnabled()) {
+            return null;
+        }
+
+        return cache()->remember('role_count', now()->addMinutes(5), function () {
+            return static::getModel()::count();
+        });
     }
 
     public static function isScopedToTenant(): bool

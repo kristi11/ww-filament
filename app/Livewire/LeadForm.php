@@ -60,7 +60,9 @@ class LeadForm extends Component
 
     public function render(): View
     {
-        $hero = Hero::first();
+        $hero = cache()->remember('lead_form_hero', now()->addMinutes(60), function () {
+            return Hero::first();
+        });
 
         return view('livewire.lead-form', [
             'hero' => $hero,

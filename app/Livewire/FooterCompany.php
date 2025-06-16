@@ -13,8 +13,12 @@ class FooterCompany extends Component
     {
         return view('livewire.footer-company',
         [
-            'about' => About::first()->visibility,
-            'contact' => Contact::first()->visibility,
+            'about' => cache()->remember('footer_company_about', now()->addMinutes(60), function () {
+                return About::first()->visibility;
+            }),
+            'contact' => cache()->remember('footer_company_contact', now()->addMinutes(60), function () {
+                return Contact::first()->visibility;
+            }),
         ]);
     }
 }
