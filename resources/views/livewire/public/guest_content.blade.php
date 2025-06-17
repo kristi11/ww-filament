@@ -7,22 +7,34 @@
     @foreach($sectionPositions as $sectionName)
         @switch($sectionName)
             @case('display-socials')
-                <livewire:display-socials/>
+                <x-scroll-animation animation="fade" direction="up" duration="700">
+                    <livewire:display-socials/>
+                </x-scroll-animation>
                 @break
             @case('guest-login')
-                <livewire:guest-login/>
+                <x-scroll-animation animation="fade" direction="up" duration="700" delay="100">
+                    <livewire:guest-login/>
+                </x-scroll-animation>
                 @break
             @case('display-guest-services')
-                <livewire:display-guest-services/>
+                <x-scroll-animation animation="fade" direction="up" duration="700" delay="200">
+                    <livewire:display-guest-services/>
+                </x-scroll-animation>
                 @break
             @case('guest-shop-display')
-                <livewire:guest-shop-display/>
+                <x-scroll-animation animation="zoom" duration="700" delay="100">
+                    <livewire:guest-shop-display/>
+                </x-scroll-animation>
                 @break
             @case('display-guest-business-hours')
-                <livewire:display-guest-business-hours/>
+                <x-scroll-animation animation="fade" direction="left" duration="700">
+                    <livewire:display-guest-business-hours/>
+                </x-scroll-animation>
                 @break
             @case('display-guest-gallery')
-                <livewire:display-guest-gallery/>
+                <x-scroll-animation animation="fade" direction="right" duration="700" delay="200">
+                    <livewire:display-guest-gallery/>
+                </x-scroll-animation>
                 @break
         @endswitch
     @endforeach
