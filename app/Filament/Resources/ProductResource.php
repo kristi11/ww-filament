@@ -92,7 +92,8 @@ class ProductResource extends Resource
                     ->placeholder('No images')
                     ->limit(3)
                     ->limitedRemainingText(isSeparate: true)
-                    ->checkFileExistence(false),
+                    ->checkFileExistence(false)
+                    ->extraImgAttributes(['loading' => 'lazy']),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
@@ -129,7 +130,9 @@ class ProductResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->visible(CRUD_settings::query()->value('can_delete_content')),
+                    ->visible(fn() => cache()->remember('crud_settings_can_delete_content', now()->addMinutes(60), function () {
+                        return CRUD_settings::query()->value('can_delete_content');
+                    })),
                     ExportBulkAction::make()->exports([
                         ExcelExport::make()->withColumns([
                             Column::make('name')->heading('Product name'),
@@ -204,16 +207,22 @@ class ProductResource extends Resource
 
     public static function canCreate(): bool
     {
-        return CRUD_settings::query()->value('can_create_content');
+        return cache()->remember('crud_settings_can_create_content', now()->addMinutes(60), function () {
+            return CRUD_settings::query()->value('can_create_content');
+        });
     }
 
     public static function canEdit(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_edit_content');
+        return cache()->remember('crud_settings_can_edit_content', now()->addMinutes(60), function () {
+            return CRUD_settings::query()->value('can_edit_content');
+        });
     }
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return cache()->remember('crud_settings_can_delete_content', now()->addMinutes(60), function () {
+            return CRUD_settings::query()->value('can_delete_content');
+        });
     }
 }

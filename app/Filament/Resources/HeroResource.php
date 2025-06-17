@@ -157,7 +157,8 @@ class HeroResource extends Resource
                     ->circular()
                     ->label('Hero image')
                     ->placeholder('No image')
-                    ->disk(config('filesystems.disks.STORAGE_DISK')),
+                    ->disk(config('filesystems.disks.STORAGE_DISK'))
+                    ->extraImgAttributes(['loading' => 'lazy']),
                 TextColumn::make('mainQuote')
                     ->limit(20)
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -200,7 +201,7 @@ class HeroResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->paginated(false)
+            ->paginated([10, 25, 50])
             ->filters([
                 //
             ])
@@ -307,7 +308,9 @@ class HeroResource extends Resource
 
     public static function canEdit(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_edit_content');
+        return cache()->remember('crud_settings_can_edit_content', now()->addMinutes(60), function () {
+            return CRUD_settings::query()->value('can_edit_content');
+        });
     }
 
     public static function canDelete(Model $record): bool

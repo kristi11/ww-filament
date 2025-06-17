@@ -113,17 +113,26 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
      */
     public function getIsSuperAdminAttribute(): bool
     {
-        return $this->roles->pluck('name')->contains(self::ROLE_SUPER_ADMIN);
+        $cacheKey = "user_{$this->id}_is_super_admin";
+        return cache()->remember($cacheKey, now()->addMinutes(60), function () {
+            return $this->roles->pluck('name')->contains(self::ROLE_SUPER_ADMIN);
+        });
     }
 
     public function getIsTeamUserAttribute(): bool
     {
-        return $this->roles->pluck('name')->contains(self::ROLE_TEAM_USER);
+        $cacheKey = "user_{$this->id}_is_team_user";
+        return cache()->remember($cacheKey, now()->addMinutes(60), function () {
+            return $this->roles->pluck('name')->contains(self::ROLE_TEAM_USER);
+        });
     }
 
     public function getIsPanelUserAttribute(): bool
     {
-        return $this->roles->pluck('name')->contains(self::ROLE_PANEL_USER);
+        $cacheKey = "user_{$this->id}_is_panel_user";
+        return cache()->remember($cacheKey, now()->addMinutes(60), function () {
+            return $this->roles->pluck('name')->contains(self::ROLE_PANEL_USER);
+        });
     }
 
     /**

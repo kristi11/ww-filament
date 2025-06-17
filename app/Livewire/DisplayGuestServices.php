@@ -54,7 +54,7 @@ class DisplayGuestServices extends Component
         $cacheKey = "services_page_{$currentPage}_" . self::SERVICES_PER_PAGE;
 
         return cache()->remember($cacheKey, now()->addMinutes(60), function () {
-            return Service::simplePaginate(self::SERVICES_PER_PAGE);
+            return Service::with('user')->simplePaginate(self::SERVICES_PER_PAGE);
         });
     }
 

@@ -90,11 +90,17 @@ class AppServiceProvider extends ServiceProvider
     private function configureVisibility(string $section, ?string $viewVariable = null): void
     {
         $viewVariable = $viewVariable ?? $section;
-        $cacheKey = "visibility_{$section}";
-        $model = cache()->remember($cacheKey, now()->addMinutes(60), function () use ($section) {
-            return PublicPage::where($section, true)->first();
-        });
-        View::share($viewVariable, $model);
+        try {
+            $cacheKey = "visibility_{$section}";
+            $model = cache()->remember($cacheKey, now()->addMinutes(60), function () use ($section) {
+                return PublicPage::where($section, true)->first();
+            });
+            View::share($viewVariable, $model);
+        } catch (\Exception $e) {
+            // Fallback to direct query if caching fails
+            $model = PublicPage::where($section, true)->first();
+            View::share($viewVariable, $model);
+        }
     }
 
     /**
@@ -175,9 +181,15 @@ class AppServiceProvider extends ServiceProvider
      */
     private function shareCachedModel(string $key, string $modelClass, \Closure $query, int $minutes = 60): void
     {
-        $cacheKey = "shared_model_{$key}";
-        $model = cache()->remember($cacheKey, now()->addMinutes($minutes), $query);
-        View::share($key, $model);
+        try {
+            $cacheKey = "shared_model_{$key}";
+            $model = cache()->remember($cacheKey, now()->addMinutes($minutes), $query);
+            View::share($key, $model);
+        } catch (\Exception $e) {
+            // Fallback to direct query if caching fails (e.g., Redis not available)
+            $model = $query();
+            View::share($key, $model);
+        }
     }
 
     /**
@@ -187,11 +199,17 @@ class AppServiceProvider extends ServiceProvider
      */
     private function sharePublicPageByFlag(string $flag): void
     {
-        $cacheKey = "public_page_{$flag}";
-        $model = cache()->remember($cacheKey, now()->addMinutes(60), function () use ($flag) {
-            return PublicPage::where($flag, true)->first();
-        });
-        View::share($flag, $model);
+        try {
+            $cacheKey = "public_page_{$flag}";
+            $model = cache()->remember($cacheKey, now()->addMinutes(60), function () use ($flag) {
+                return PublicPage::where($flag, true)->first();
+            });
+            View::share($flag, $model);
+        } catch (\Exception $e) {
+            // Fallback to direct query if caching fails
+            $model = PublicPage::where($flag, true)->first();
+            View::share($flag, $model);
+        }
     }
 
     /**
