@@ -1,6 +1,6 @@
 <div>
     @if($credentials)
-        <section id="login" class="py-8 lg:p-20"
+        <section id="login" class="py-8 px-4 lg:p-20"
                  style="background-image: linear-gradient(to bottom right, #FFFFFF, color-mix(in srgb, {{$hero->gradientDegreeFirstColor}} 5%, white))">
             <x-animated-background>
                 <div class="container flex flex-wrap justify-center mx-auto pb-12 pt-4 rounded-lg shadow-lg"

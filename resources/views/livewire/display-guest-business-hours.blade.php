@@ -1,7 +1,7 @@
 <div>
     @php use Carbon\Carbon; @endphp
     @if($guestHours)
-        <section id="hours" class="py-8 lg:p-20"
+        <section id="hours" class="py-8 px-4 lg:p-20"
                  style="background-image: linear-gradient(to bottom right, #FFFFFF, color-mix(in srgb, {{$hero->gradientDegreeFirstColor}} 5%, white))">
             <div class="container pb-12 pt-4 rounded-lg shadow-lg"
                  style="background-image: linear-gradient(to bottom right, #FFFFFF, color-mix(in srgb, {{$hero->gradientDegreeFirstColor}} 5%, white))">
