@@ -11,6 +11,7 @@
 
 namespace App\Livewire;
 
+use App\Actions\Shop\GetProductById;
 use /**
  * Handles adding a product variant to the cart.
  *
@@ -173,9 +174,9 @@ class ProductInfo extends Component
     }
 
     #[Computed]
-    public function product()
+    public function product(GetProductById $getProduct)
     {
-        return Product::findOrFail($this->productId);
+        return $getProduct->execute($this->productId);
     }
 
     public function customerLogin()

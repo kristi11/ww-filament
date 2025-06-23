@@ -20,23 +20,7 @@
 
 namespace App\Livewire;
 
-use /**
- * Class CartFactory
- *
- * This factory class is responsible for creating and managing instances of Cart.
- * It interacts with the application's models and services to facilitate the creation
- * of cart instances with pre-configured or default data.
- *
- * Usage of this factory ensures standardized cart instance creation,
- * while adhering to the application's business logic.
- *
- * Laravel Version: 10.48.26.
- * Database: MySQL.
- * Queue Connection: Sync.
- *
- * @package App\Factories
- */
-    App\Factories\CartFactory;
+use App\Actions\Shop\GetCartItemCount;
 use /**
  * The Livewire\Attributes\Computed attribute is used to define computed properties
  * within a Livewire component. Computed properties are derived from other properties
@@ -73,7 +57,7 @@ class NavigationCart extends Component
     #[Computed]
     public function count()
     {
-        return CartFactory::make()->items()->sum('quantity');
+        return app(GetCartItemCount::class)->execute();
     }
     public function render()
     {

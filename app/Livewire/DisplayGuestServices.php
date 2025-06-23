@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use App\Models\Flexibility;
-use App\Models\Service;
+use App\Actions\Services\CheckFlexiblePricing;
+use App\Actions\Services\GetPaginatedServices;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -28,11 +28,13 @@ class DisplayGuestServices extends Component
     /**
      * Render the component view
      */
-    public function render(): View
+    public function render(GetPaginatedServices $getServices, CheckFlexiblePricing $checkPricing): View
     {
+        $currentPage = request()->query('page', 1);
+
         return view('livewire.display-guest-services', [
-            'services' => $this->getServices(),
-            'flexible_pricing' => $this->hasFlexiblePricing(),
+            'services' => $getServices->execute(self::SERVICES_PER_PAGE, $currentPage),
+            'flexible_pricing' => $checkPricing->execute(),
         ]);
     }
 
@@ -42,29 +44,5 @@ class DisplayGuestServices extends Component
     public function bookService()
     {
         return redirect()->to('dashboard/customer-appointments');
-    }
-
-    /**
-     * Get paginated services
-     */
-    private function getServices()
-    {
-        // Use the current page in the cache key to ensure proper pagination
-        $currentPage = request()->query('page', 1);
-        $cacheKey = "services_page_{$currentPage}_" . self::SERVICES_PER_PAGE;
-
-        return cache()->remember($cacheKey, now()->addMinutes(60), function () {
-            return Service::with('user')->simplePaginate(self::SERVICES_PER_PAGE);
-        });
-    }
-
-    /**
-     * Check if flexible pricing is enabled
-     */
-    private function hasFlexiblePricing(): ?Flexibility
-    {
-        return cache()->remember('flexible_pricing', now()->addMinutes(60), function () {
-            return Flexibility::where('flexible_pricing', true)->first();
-        });
     }
 }

@@ -29,6 +29,7 @@
 
 namespace App\Livewire;
 
+use App\Actions\Orders\GetOrderByCheckoutSession;
 use /**
  * @property string $name The name of the application.
  * @property string $version The Laravel version of the application.
@@ -183,9 +184,9 @@ use /**
     }
 
     #[Computed]
-    public function order()
+    public function order(GetOrderByCheckoutSession $getOrder)
     {
-        return auth()->user()->orders()->where('stripe_checkout_session_id', $this->sessionId)->first();
+        return $getOrder->execute($this->sessionId, auth()->id());
     }
     public function render()
     {

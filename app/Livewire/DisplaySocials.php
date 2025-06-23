@@ -1,7 +1,9 @@
 <?php
 namespace App\Livewire;
 
+use App\Actions\Socials\RedirectToSocialMedia;
 use App\Models\Social;
+use Illuminate\Http\RedirectResponse;
 use Livewire\Component;
 
 class DisplaySocials extends Component
@@ -19,42 +21,35 @@ class DisplaySocials extends Component
         return $this->socialData;
     }
 
-    public function redirectToSocialMedia(string $platform)
+    public function redirectToSocialMedia(string $platform, RedirectToSocialMedia $redirectAction): ?RedirectResponse
     {
-        $socialData = $this->getSocialData();
+        $url = $redirectAction->execute($platform);
 
-        $urls = [
-            'instagram' => 'https://www.instagram.com/',
-            'facebook' => 'https://www.facebook.com/',
-            'linkedin' => 'https://www.linkedin.com/in/',
-            'twitter' => 'https://twitter.com/'
-        ];
-
-        if (!isset($urls[$platform]) || empty($socialData->$platform)) {
+        if (!$url) {
             return null;
         }
 
-        return redirect(url($urls[$platform] . $socialData->$platform));
+        return redirect()->away($url);
     }
 
     public function instagram()
     {
-        return $this->redirectToSocialMedia('instagram');
+        return $this->redirectToSocialMedia('instagram', app(RedirectToSocialMedia::class));
     }
 
     public function facebook()
     {
-        return $this->redirectToSocialMedia('facebook');
+        return $this->redirectToSocialMedia('facebook', app(RedirectToSocialMedia::class));
     }
 
     public function linkedin()
     {
-        return $this->redirectToSocialMedia('linkedin');
+        return $this->redirectToSocialMedia('linkedin', app(RedirectToSocialMedia::class));
     }
 
     public function twitter()
     {
-        return $this->redirectToSocialMedia('twitter');
+        return $this->redirectToSocialMedia('twitter', app(RedirectToSocialMedia::class));
     }
 
     public function render()

@@ -12,10 +12,12 @@ class AppointmentUpdatedNotification extends Notification
 
     /**
      * Create a new notification instance.
+     *
+     * @param \App\Models\Appointment|null $appointment The appointment that was updated
      */
-    public function __construct()
+    public function __construct($appointment = null)
     {
-        //
+        $this->appointment = $appointment;
     }
 
     /**

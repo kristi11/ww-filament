@@ -2,16 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\Hero;
-use App\Models\PublicPage;
-use App\Models\SectionColors;
+use App\Actions\Footer\GetFooterData;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class GuestFooter extends Component
 {
-    public function render(): View
+    public function render(GetFooterData $getFooterData): View
     {
-        return view('livewire.public.guest-footer');
+        $footerData = $getFooterData->execute();
+
+        return view('livewire.public.guest-footer', $footerData);
     }
 }

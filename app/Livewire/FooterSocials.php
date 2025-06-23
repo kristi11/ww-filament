@@ -2,8 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Hero;
-use App\Models\Social;
+use App\Actions\Footer\GetFooterSocialsData;
 use Livewire\Component;
 
 class FooterSocials extends Component
@@ -15,8 +14,8 @@ class FooterSocials extends Component
         $this->icons = $icons;
     }
 
-    public function render()
+    public function render(GetFooterSocialsData $getFooterSocialsData)
     {
-        return view('livewire.footer-socials');
+        return view('livewire.footer-socials', $getFooterSocialsData->execute());
     }
 }

@@ -85,38 +85,50 @@ class AppointmentObserver
         // User who is performing the update
         $currentUser = Auth::user();
 
-        // Check if current user fits either a team user or super admin role
-        $updatedByTeamUser = User::whereHas('roles', function ($query) use ($currentUser) {
-            $query->where('name', 'team_user')->where('id', $currentUser->id);
-        })->exists();
+        // Default values if no user is authenticated
+        $updatedByTeamUser = false;
+        $updatedBySuperAdmin = false;
 
-        $updatedBySuperAdmin = User::whereHas('roles', function ($query) use ($currentUser) {
-            $query->where('name', 'super_admin')->where('id', $currentUser->id);
-        })->exists();
+        // Check if current user fits either a team user or super admin role
+        if ($currentUser) {
+            $updatedByTeamUser = User::whereHas('roles', function ($query) use ($currentUser) {
+                $query->where('name', 'team_user')->where('id', $currentUser->id);
+            })->exists();
+
+            $updatedBySuperAdmin = User::whereHas('roles', function ($query) use ($currentUser) {
+                $query->where('name', 'super_admin')->where('id', $currentUser->id);
+            })->exists();
+        }
 
         $superAdmin = User::whereHas('roles', function ($query) {
             $query->where('name', 'super_admin');
         })->get();
 
         if ($updatedByTeamUser) {
-            Notification::make()
-                ->title('Appointment Updated')
-                ->body("The appointment for service $serviceName has been updated.")
-                ->actions([
-                    Action::make('Your appointments')->button()->url('/dashboard/customer-appointments/'),
-                ])
-                ->sendToDatabase($appointment->user); // Assuming the customer is referenced as 'user' in the Appointment model
-            $appointment->user->notify(new AppointmentUpdatedNotification());
+            // Only send notification if user exists
+            if ($appointment->user) {
+                Notification::make()
+                    ->title('Appointment Updated')
+                    ->body("The appointment for service $serviceName has been updated.")
+                    ->actions([
+                        Action::make('Your appointments')->button()->url('/dashboard/customer-appointments/'),
+                    ])
+                    ->sendToDatabase($appointment->user); // Assuming the customer is referenced as 'user' in the Appointment model
+                $appointment->user->notify(new AppointmentUpdatedNotification($appointment));
+            }
         } elseif ($updatedBySuperAdmin) {
-            Notification::make()
-                ->title('Appointment Updated')
-                ->body("The appointment for service $serviceName has been updated.")
-                ->actions([
-                    Action::make('Your appointments')->button()->url('/dashboard/customer-appointments/'),
-                ])
-                ->sendToDatabase($appointment->user); // Assuming the customer is referenced as 'user' in the Appointment model
-            $appointment->user->notify(new AppointmentUpdatedNotification());
-        } elseif ($currentUser->id == $appointment->user_id) {
+            // Only send notification if user exists
+            if ($appointment->user) {
+                Notification::make()
+                    ->title('Appointment Updated')
+                    ->body("The appointment for service $serviceName has been updated.")
+                    ->actions([
+                        Action::make('Your appointments')->button()->url('/dashboard/customer-appointments/'),
+                    ])
+                    ->sendToDatabase($appointment->user); // Assuming the customer is referenced as 'user' in the Appointment model
+                $appointment->user->notify(new AppointmentUpdatedNotification($appointment));
+            }
+        } elseif ($currentUser && $currentUser->id == $appointment->user_id) {
             $actionURL = $appointment->teamUser
                 ? '/team/team-appointments/'
                 : '/admin/appointments/';
@@ -129,10 +141,10 @@ class AppointmentObserver
                 ])
                 ->sendToDatabase($appointment->teamUser ? $appointment->teamUser : $superAdmin);
             if ($appointment->teamUser) {
-                $appointment->teamUser->notify(new AppointmentUpdatedNotification());
+                $appointment->teamUser->notify(new AppointmentUpdatedNotification($appointment));
             } else {
                 foreach ($superAdmin as $admin) {
-                    $admin->notify(new AppointmentUpdatedNotification());
+                    $admin->notify(new AppointmentUpdatedNotification($appointment));
                 }
             }
         }

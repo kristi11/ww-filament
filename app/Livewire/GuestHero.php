@@ -2,19 +2,21 @@
 
 namespace App\Livewire;
 
-use App\Models\Hero;
-use App\Models\PublicPage;
-use App\Models\Social;
+use App\Actions\Heroes\GetHeroData;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class GuestHero extends Component
 {
-
     public $image = '';
 
-    public function render(): View
+    public function render(GetHeroData $getHeroData): View
     {
-        return view('livewire.public.guest-hero');
+        $data = $getHeroData->execute();
+
+        return view('livewire.public.guest-hero', [
+            'hero' => $data['hero'],
+            'publicHero' => $data['publicHero'],
+        ]);
     }
 }

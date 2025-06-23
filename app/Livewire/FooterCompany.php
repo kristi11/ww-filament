@@ -2,23 +2,13 @@
 
 namespace App\Livewire;
 
-use App\Models\About;
-use App\Models\Contact;
-use App\Models\Hero;
+use App\Actions\Footer\GetFooterCompanyData;
 use Livewire\Component;
 
 class FooterCompany extends Component
 {
-    public function render()
+    public function render(GetFooterCompanyData $getFooterCompanyData)
     {
-        return view('livewire.footer-company',
-        [
-            'about' => cache()->remember('footer_company_about', now()->addMinutes(60), function () {
-                return About::first()->visibility;
-            }),
-            'contact' => cache()->remember('footer_company_contact', now()->addMinutes(60), function () {
-                return Contact::first()->visibility;
-            }),
-        ]);
+        return view('livewire.footer-company', $getFooterCompanyData->execute());
     }
 }

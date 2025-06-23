@@ -70,7 +70,7 @@ class HeroObserver
     public function deleted(Hero $hero): void
     {
         $originalImagePath = $hero->getOriginal('image');
-        if ($hero->isDirty('image') && $originalImagePath !== null) {
+        if ($originalImagePath !== null) {
             Storage::disk(config('filesystems.disks.STORAGE_DISK'))->delete($originalImagePath);
         }
     }

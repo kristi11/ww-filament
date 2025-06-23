@@ -36,9 +36,26 @@ use Illuminate\Notifications\Notification;
      */
     public function toMail($notifiable): MailMessage
     {
-        $serviceName = $this->appointment->service->name;
-        $date = Carbon::parse($this->appointment->date);
-        $time = Carbon::parse($this->appointment->time);
+        // Load the service if it's not already loaded
+        if (!$this->appointment->relationLoaded('service')) {
+            $this->appointment->load('service');
+        }
+
+        // Get service name or use a default if service doesn't exist
+        $serviceName = $this->appointment->service ? $this->appointment->service->name : 'Unknown';
+
+        // Parse date and time, with fallbacks for invalid values
+        try {
+            $date = Carbon::parse($this->appointment->date);
+        } catch (\Exception $e) {
+            $date = Carbon::now();
+        }
+
+        try {
+            $time = Carbon::parse($this->appointment->time);
+        } catch (\Exception $e) {
+            $time = Carbon::now();
+        }
 
         return (new MailMessage)
             ->subject('New Appointment')

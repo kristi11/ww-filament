@@ -14,6 +14,9 @@
 
 namespace App\Livewire;
 
+use App\Actions\Shop\DeleteCartItem;
+use App\Actions\Shop\RenderVariantAttributes;
+use App\Actions\Shop\UpdateCartItemQuantity;
 use /**
  * This class is responsible for creating a Stripe Checkout Session
  * within the shop-related actions of the application.
@@ -111,16 +114,14 @@ class Cart extends Component
         return $this->cart->items;
     }
 
-    public function increment($itemId)
+    public function increment($itemId, UpdateCartItemQuantity $updateQuantity)
     {
-        return $this->cart->items->find($itemId)?->increment('quantity');
+        return $updateQuantity->increment($itemId);
     }
-    public function decrement($itemId): void
+
+    public function decrement($itemId, UpdateCartItemQuantity $updateQuantity): void
     {
-        $item = $this->cart->items->find($itemId);
-        if ($item->quantity > 1){
-            $item->decrement('quantity');
-        }
+        $updateQuantity->decrement($itemId);
     }
 
     public function checkout(CreateStripeCheckoutSession $checkoutSession)
@@ -144,28 +145,16 @@ class Cart extends Component
         return redirect(route('shop'));
     }
 
-    public function delete($itemId): void
+    public function delete($itemId, DeleteCartItem $deleteItem): void
     {
-        $this->cart->items()->where('id', $itemId)->delete();
-        $this->dispatch('productDeletedFromCart');
+        if ($deleteItem->execute($itemId)) {
+            $this->dispatch('productDeletedFromCart');
+        }
     }
 
-    public function renderAttributes($variant): array
+    public function renderAttributes($variant, RenderVariantAttributes $renderer): array
     {
-        $enumMappings = config('enums', []); // Retrieve mappings from config
-        $output = [];
-
-        foreach ($enumMappings as $key => $enumClass) {
-            $value = $variant->$key ?? null; // Safely access value
-
-            if ($value instanceof $enumClass) {
-                $output[$key] = ucfirst($key) . ': ' . $value->getLabel();
-            } elseif (!is_null($value)) {
-                $output[$key] = ucfirst($key) . ': ' . $value;
-            }
-        }
-
-        return $output;
+        return $renderer->execute($variant);
     }
 
     public function render()
