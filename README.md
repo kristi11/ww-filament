@@ -52,12 +52,25 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#quickstart">Quickstart</a></li>
+        <li><a href="#quickstart">Quickstart</a>
+          <ul>
+            <li><a href="#automated-setup-recommended">Automated Setup</a></li>
+            <li><a href="#shield-setup-only">Shield Setup Only</a></li>
+            <li><a href="#manual-setup-alternative">Manual Setup</a></li>
+          </ul>
+        </li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
         <li><a href="#email-configuration">Email Configuration</a></li>
       </ul>
     </li>
-    <li><a href="#command_list">Command list</a></li>
+    <li>
+      <a href="#command_list">Command list</a>
+      <ul>
+        <li><a href="#automated-setup-single-command">Automated Setup</a></li>
+        <li><a href="#shield-setup-only-1">Shield Setup Only</a></li>
+        <li><a href="#manual-setup-individual-commands">Manual Setup</a></li>
+      </ul>
+    </li>
     <li>
       <a href="#configuration">Configuration</a>
       <ul>
@@ -279,30 +292,87 @@ Before you begin, ensure your development environment meets these requirements:
 
 
 #### ⚡ Quickstart
+
+##### Automated Setup (Recommended)
+
+WittyWorkflow provides convenient setup commands to automate the installation process:
+
+1. Clone the repo and navigate to the project directory:
+   ```bash
+   git clone https://github.com/kristi11/ww-filament.git
+   cd ww-filament
+   ```
+
+2. Run the automated setup command:
+   ```bash
+   php artisan app:setup
+   ```
+
+   This command will:
+   - Install NPM and Composer dependencies
+   - Create .env file from .env.example
+   - Generate application key
+   - Run database migrations with seeding
+   - Set up Shield with proper permissions
+   - Create storage link
+   - Build assets
+
+   **Available options:**
+   - `--no-key`: Skip the key generation step
+   - `--production`: Use npm run build instead of npm run dev (for production environments)
+
+   After setup is complete, start the development server with:
+   ```bash
+   php artisan serve
+   ```
+
+3. Visit your application in the browser:
+   ```
+   http://localhost:8000
+   ```
+
+##### Shield Setup Only
+
+If you need to set up just the Shield permissions system:
+
+```bash
+php artisan app:setup-shield
+```
+
+This command will:
+- Run fresh migrations with seeding
+- Set up Shield with proper permissions
+- Generate Shield resources for the admin panel
+- Set up the super admin user
+
+##### Manual Setup (Alternative)
+
+If you prefer to run commands individually or need more control over the setup process:
+
 1. Clone the repo:
    ```bash
    git clone https://github.com/kristi11/ww-filament.git
    ```
 
-2. Cd into project
+2. Navigate to the project directory:
     ```bash
     cd ww-filament
     ```
 
-3. Install NPM dependencies
+3. Install NPM dependencies:
    ```bash
     npm install
    ```
 
-4. Install the composer dependencies.
+4. Install the composer dependencies:
    ```bash
    composer install
    ```
-5. Create a copy of your .env file.
+5. Create a copy of your .env file:
    ```bash
     cp .env.example .env
    ```
-6. Generate an app encryption key.
+6. Generate an app encryption key:
    ```bash
    php artisan key:generate
    ```
@@ -313,11 +383,11 @@ Before you begin, ensure your development environment meets these requirements:
 
 8. In the `.env` file, add database information to allow Laravel to connect to the database. The default database name is `ww_filament`. If you are using a different name, you'll need to edit the `DB_DATABASE` variable in the `.env` file with your database name.
 
-9. Migrate and seed the database.
+9. Migrate and seed the database:
    ```bash
    php artisan migrate:fresh --seed
    ```
-10. WittyWorkflow uses [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) plugin to provide proper user roles. We need to set up the plugin and generate the permissions for that package:
+10. Set up Shield for user roles and permissions:
    ```bash
    php artisan shield:setup --fresh
    php artisan shield:generate --all --panel=admin
@@ -330,15 +400,15 @@ Before you begin, ensure your development environment meets these requirements:
 
    `--user=1` is the `id` of the user that will be the `super admin`. You can change it to whatever user you want to be the `super admin`.
 
-11. Link the storage folder.
+11. Link the storage folder:
     ```bash
     php artisan storage:link
     ```
-12. Run the application.
+12. Run the application:
     ```bash
     php artisan serve
     ```
-13. Visit your application in the browser.
+13. Visit your application in the browser:
     ```
     http://localhost:8000
     ```
@@ -350,7 +420,30 @@ Before you begin, ensure your development environment meets these requirements:
 
 ### 📝 Command list
 
-For quick reference, here's the complete list of commands to set up WittyWorkflow:
+For quick reference, here are the commands to set up WittyWorkflow:
+
+#### Automated Setup (Single Command)
+
+```bash
+# Complete setup with one command
+php artisan app:setup
+
+# Options:
+# --no-key      Skip the key generation step
+# --production  Use npm run build instead of npm run dev
+
+# After setup, start the server with:
+php artisan serve
+```
+
+#### Shield Setup Only
+
+```bash
+# Set up Shield permissions system only
+php artisan app:setup-shield
+```
+
+#### Manual Setup (Individual Commands)
 
 ```bash
 git clone https://github.com/kristi11/ww-filament.git .
