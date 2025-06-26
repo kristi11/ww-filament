@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
-use App\Models\CRUD_settings;
 use App\Models\Order;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
@@ -11,7 +10,6 @@ use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class OrderResource extends Resource
 {
@@ -21,41 +19,41 @@ class OrderResource extends Resource
 
     protected static ?string $navigationGroup = 'Shop';
 
-//    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
+    //    protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
-//    public static function form(Form $form): Form
-//    {
-//        return $form
-//            ->schema([
-//                Forms\Components\Select::make('user_id')
-//                    ->relationship('user', 'name')
-//                    ->required(),
-//                Forms\Components\TextInput::make('stripe_checkout_session_id')
-//                    ->required()
-//                    ->maxLength(255),
-//                Forms\Components\TextInput::make('amount_shipping')
-//                    ->required()
-//                ,
-//                Forms\Components\TextInput::make('amount_discount')
-//                    ->required()
-//                ,
-//                Forms\Components\TextInput::make('amount_tax')
-//                    ->required()
-//                ,
-//                Forms\Components\TextInput::make('amount_subtotal')
-//                    ->required()
-//                ,
-//                Forms\Components\TextInput::make('amount_total')
-//                    ->required()
-//                ,
-//                Forms\Components\Textarea::make('billing_address')
-//                    ->required()
-//                    ->columnSpanFull(),
-//                Forms\Components\Textarea::make('shipping_address')
-//                    ->required()
-//                    ->columnSpanFull(),
-//            ]);
-//    }
+    //    public static function form(Form $form): Form
+    //    {
+    //        return $form
+    //            ->schema([
+    //                Forms\Components\Select::make('user_id')
+    //                    ->relationship('user', 'name')
+    //                    ->required(),
+    //                Forms\Components\TextInput::make('stripe_checkout_session_id')
+    //                    ->required()
+    //                    ->maxLength(255),
+    //                Forms\Components\TextInput::make('amount_shipping')
+    //                    ->required()
+    //                ,
+    //                Forms\Components\TextInput::make('amount_discount')
+    //                    ->required()
+    //                ,
+    //                Forms\Components\TextInput::make('amount_tax')
+    //                    ->required()
+    //                ,
+    //                Forms\Components\TextInput::make('amount_subtotal')
+    //                    ->required()
+    //                ,
+    //                Forms\Components\TextInput::make('amount_total')
+    //                    ->required()
+    //                ,
+    //                Forms\Components\Textarea::make('billing_address')
+    //                    ->required()
+    //                    ->columnSpanFull(),
+    //                Forms\Components\Textarea::make('shipping_address')
+    //                    ->required()
+    //                    ->columnSpanFull(),
+    //            ]);
+    //    }
 
     public static function table(Table $table): Table
     {
@@ -68,7 +66,7 @@ class OrderResource extends Resource
                     ->badge()
                     ->color(Color::Slate),
                 Tables\Columns\TextColumn::make('items.name')
-                ->label("Item('s) name"),
+                    ->label("Item('s) name"),
                 Tables\Columns\TextColumn::make('totalQuantity')
                     ->badge()
                     ->color(Color::Indigo)
@@ -119,20 +117,20 @@ class OrderResource extends Resource
                 //
             ])
             ->actions([
-//                Tables\Actions\EditAction::make(),
-//                Action::make('openLink')
-//                    ->label('')
-//                    ->tooltip('View order')
-//                    ->icon('heroicon-o-eye')
-//                    ->action(fn ($record) => null)
-//                    ->color('primary')
-//                    ->url(fn ($record) => route('view-order', ['orderId' => $record->id]))
-//                    ->openUrlInNewTab(),
+                //                Tables\Actions\EditAction::make(),
+                //                Action::make('openLink')
+                //                    ->label('')
+                //                    ->tooltip('View order')
+                //                    ->icon('heroicon-o-eye')
+                //                    ->action(fn ($record) => null)
+                //                    ->color('primary')
+                //                    ->url(fn ($record) => route('view-order', ['orderId' => $record->id]))
+                //                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
-//                Tables\Actions\BulkActionGroup::make([
-//                    Tables\Actions\DeleteBulkAction::make(),
-//                ]),
+                //                Tables\Actions\BulkActionGroup::make([
+                //                    Tables\Actions\DeleteBulkAction::make(),
+                //                ]),
             ]);
     }
 

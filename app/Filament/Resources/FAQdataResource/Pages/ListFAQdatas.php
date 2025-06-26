@@ -14,7 +14,7 @@ class ListFAQdatas extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add FAQ'),
+                ->label('Add FAQ'),
         ];
     }
 }

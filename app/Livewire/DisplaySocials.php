@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire;
 
 use App\Actions\Socials\RedirectToSocialMedia;
@@ -12,7 +13,7 @@ class DisplaySocials extends Component
 
     protected function getSocialData(): Social
     {
-        if (!$this->socialData) {
+        if (! $this->socialData) {
             $this->socialData = cache()->remember('social_data', now()->addMinutes(60), function () {
                 return Social::first();
             });
@@ -25,7 +26,7 @@ class DisplaySocials extends Component
     {
         $url = $redirectAction->execute($platform);
 
-        if (!$url) {
+        if (! $url) {
             return null;
         }
 
@@ -55,7 +56,7 @@ class DisplaySocials extends Component
     public function render()
     {
         return view('livewire.display-socials', [
-            'socials' => $this->getSocialData()
+            'socials' => $this->getSocialData(),
         ]);
     }
 }

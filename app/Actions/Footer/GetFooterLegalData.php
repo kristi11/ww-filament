@@ -23,8 +23,6 @@ class GetFooterLegalData
 
     /**
      * Get terms visibility status
-     *
-     * @return bool|null
      */
     protected function getTermsVisibility(): ?bool
     {
@@ -35,8 +33,6 @@ class GetFooterLegalData
 
     /**
      * Get privacy visibility status
-     *
-     * @return bool|null
      */
     protected function getPrivacyVisibility(): ?bool
     {

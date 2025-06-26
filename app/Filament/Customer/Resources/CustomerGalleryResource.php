@@ -8,7 +8,6 @@ use App\Models\Gallery;
 use Filament\Forms\Form;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Support\Colors\Color;
@@ -76,7 +75,7 @@ class CustomerGalleryResource extends Resource
                     ->collapsible(),
             ])
             ->filters([
-                SelectFilter::make('author')->relationship('service', 'name')
+                SelectFilter::make('author')->relationship('service', 'name'),
             ])
             ->emptyStateHeading('No images yet')
             ->emptyStateDescription('No images have been added to the gallery yet')

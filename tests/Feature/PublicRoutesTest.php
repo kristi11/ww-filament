@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Models\PublicPage;
 use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 

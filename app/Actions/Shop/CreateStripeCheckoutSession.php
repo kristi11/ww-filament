@@ -27,7 +27,7 @@ use /**
  * Queue Connection:
  * Please note that queue connection is set to 'sync' in this application.
  */
-    App\Models\Cart;
+App\Models\Cart;
 use /**
  * The CartItems model.
  *
@@ -54,7 +54,7 @@ use /**
  * Database Structure:
  * - Includes fields such as 'id', 'user_id', 'product_id', 'quantity', 'price', and timestamps.
  */
-    App\Models\CartItems;
+App\Models\CartItems;
 use /**
  * Illuminate\Database\Eloquent\Collection
  *
@@ -73,7 +73,7 @@ use /**
  *
  * @see https://laravel.com/docs/eloquent
  */
-    Illuminate\Database\Eloquent\Collection;
+Illuminate\Database\Eloquent\Collection;
 use /**
  * Class Checkout
  *
@@ -89,7 +89,7 @@ use /**
  * - Managing Stripe payment intents.
  * - Retrieving order or payment details.
  */
-    Laravel\Cashier\Checkout;
+Laravel\Cashier\Checkout;
 
 /**
  * Handles the creation of a Stripe Checkout session from a given cart.
@@ -141,6 +141,7 @@ class CreateStripeCheckoutSession
             ];
         })->toArray();
     }
+
     private function generateDescriptionItems(CartItems $item): array
     {
         $enumMappings = config('enums', []); // Load the enum mappings with a default to avoid null
@@ -150,9 +151,9 @@ class CreateStripeCheckoutSession
             $value = $item->variant->$attribute;
 
             if ($value instanceof $enumClass) {
-                $descriptionItems[] = ucfirst($attribute) . ": {$value->getLabel()}";
-            } elseif (!is_null($value)) {
-                $descriptionItems[] = ucfirst($attribute) . ": $value";
+                $descriptionItems[] = ucfirst($attribute).": {$value->getLabel()}";
+            } elseif (! is_null($value)) {
+                $descriptionItems[] = ucfirst($attribute).": $value";
             }
         }
 

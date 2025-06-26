@@ -23,7 +23,7 @@ class CheckFlexiblePricingTest extends TestCase
     public function it_returns_null_when_no_flexible_pricing_exists()
     {
         // Arrange
-        $action = new CheckFlexiblePricing();
+        $action = new CheckFlexiblePricing;
 
         // Act
         $result = $action->execute();
@@ -39,9 +39,9 @@ class CheckFlexiblePricingTest extends TestCase
         $user = User::factory()->create();
         Flexibility::create([
             'user_id' => $user->id,
-            'flexible_pricing' => true
+            'flexible_pricing' => true,
         ]);
-        $action = new CheckFlexiblePricing();
+        $action = new CheckFlexiblePricing;
 
         // Act
         $result = $action->execute();
@@ -58,9 +58,9 @@ class CheckFlexiblePricingTest extends TestCase
         $user = User::factory()->create();
         Flexibility::create([
             'user_id' => $user->id,
-            'flexible_pricing' => true
+            'flexible_pricing' => true,
         ]);
-        $action = new CheckFlexiblePricing();
+        $action = new CheckFlexiblePricing;
         $cacheKey = 'flexible_pricing';
 
         // Act
@@ -77,9 +77,9 @@ class CheckFlexiblePricingTest extends TestCase
         $user = User::factory()->create();
         $flexibility = Flexibility::create([
             'user_id' => $user->id,
-            'flexible_pricing' => true
+            'flexible_pricing' => true,
         ]);
-        $action = new CheckFlexiblePricing();
+        $action = new CheckFlexiblePricing;
         $cacheKey = 'flexible_pricing';
 
         // Cache a value manually

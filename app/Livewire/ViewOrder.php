@@ -35,7 +35,7 @@ use /**
  * Usage of the `Computed` attribute requires careful management of property
  * dependencies to ensure accuracy and performance.
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * Class LivewireComponent
  *
@@ -47,10 +47,8 @@ use /**
  *
  * This component allows the development of user interfaces with real-time updates
  * and reactive properties, leveraging Livewire's features for maintaining state.
- *
- * @package Laravel
  */
-    Livewire\Component;
+Livewire\Component;
 
 /**
  * A Livewire component for viewing an order.
@@ -69,6 +67,7 @@ class ViewOrder extends Component
     {
         return auth()->user()->orders()->findOrFail($this->orderId);
     }
+
     public function render()
     {
         return view('livewire.view-order');

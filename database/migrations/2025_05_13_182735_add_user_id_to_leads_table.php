@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         // Check if user_id column exists before adding it
-        if (!Schema::hasColumn('leads', 'user_id')) {
+        if (! Schema::hasColumn('leads', 'user_id')) {
             Schema::table('leads', function (Blueprint $table) {
                 $table->unsignedBigInteger('user_id')->nullable()->after('id');
             });
@@ -28,7 +28,7 @@ return new class extends Migration
             ->value('users.id');
 
         // If no admin user found, use the first user
-        if (!$adminId) {
+        if (! $adminId) {
             $adminId = DB::table('users')->value('id');
         }
 
@@ -52,7 +52,7 @@ return new class extends Migration
                 }
             }
 
-            if (!$foreignKeyExists) {
+            if (! $foreignKeyExists) {
                 Schema::table('leads', function (Blueprint $table) {
                     $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
                 });

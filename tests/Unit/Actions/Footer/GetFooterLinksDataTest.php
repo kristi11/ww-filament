@@ -25,7 +25,7 @@ class GetFooterLinksDataTest extends TestCase
     public function it_returns_null_values_when_no_data_exists()
     {
         // Arrange
-        $action = new GetFooterLinksData();
+        $action = new GetFooterLinksData;
 
         // Act
         $result = $action->execute();
@@ -47,20 +47,20 @@ class GetFooterLinksDataTest extends TestCase
 
         $faq = FAQdata::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
         $help = Help::create([
             'user_id' => $user->id,
-            'visibility' => false
+            'visibility' => false,
         ]);
 
         $support = Support::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
-        $action = new GetFooterLinksData();
+        $action = new GetFooterLinksData;
 
         // Act
         $result = $action->execute();
@@ -83,10 +83,10 @@ class GetFooterLinksDataTest extends TestCase
 
         $faq = FAQdata::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
-        $action = new GetFooterLinksData();
+        $action = new GetFooterLinksData;
 
         // Act
         $action->execute();

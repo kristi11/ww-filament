@@ -2,10 +2,10 @@
 
 namespace App\Filament\Plugins;
 
-use Firefly\FilamentBlog\Resources\PostResource as BasePostResource;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Firefly\FilamentBlog\Models\Post;
+use Firefly\FilamentBlog\Resources\PostResource as BasePostResource;
 
 class BlogPostResource extends BasePostResource
 {

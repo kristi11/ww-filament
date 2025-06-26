@@ -14,7 +14,7 @@ class ListHelps extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add help information'),
+                ->label('Add help information'),
         ];
     }
 }

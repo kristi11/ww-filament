@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         // Only add the read column if it doesn't already exist
-        if (!Schema::hasColumn('leads', 'read')) {
+        if (! Schema::hasColumn('leads', 'read')) {
             Schema::table('leads', function (Blueprint $table) {
                 $table->boolean('read')->default(false)->after('message');
             });

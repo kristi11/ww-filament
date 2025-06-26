@@ -20,8 +20,11 @@ use Illuminate\Database\Eloquent\Model;
 class SocialResource extends Resource
 {
     protected static ?string $model = Social::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
+
     protected static ?string $navigationGroup = 'Business Information';
+
     protected static ?string $recordTitleAttribute = 'user.name';
 
     public static function form(Form $form): Form
@@ -32,7 +35,7 @@ class SocialResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -148,7 +151,7 @@ class SocialResource extends Resource
     {
         $recordExists = Social::exists();
 
-        return !$recordExists;
+        return ! $recordExists;
     }
 
     public static function canEdit(Model $record): bool
@@ -160,5 +163,4 @@ class SocialResource extends Resource
     {
         return CRUD_settings::query()->value('can_delete_content');
     }
-
 }

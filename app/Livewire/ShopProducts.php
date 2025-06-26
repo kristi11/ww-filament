@@ -8,8 +8,6 @@
  *
  * The component uses Livewire's WithPagination trait for pagination functionality and
  * integrates URL-based state management for the keyword query parameter.
- *
- * @package App\Livewire
  */
 
 namespace App\Livewire;
@@ -31,7 +29,7 @@ use /**
  *
  * Application Name: Laravel
  */
-    App\Models\Product;
+App\Models\Product;
 use /**
  * The Computed attribute is part of the Livewire framework for Laravel.
  *
@@ -44,15 +42,13 @@ use /**
  *
  * @see https://laravel-livewire.com/docs/2.x/computed-properties
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * Represents a Livewire URL attribute.
  *
  * The `Url` attribute is used to manage Livewire component URL bindings in Laravel applications.
- *
- * @package Livewire\Attributes
  */
-    Livewire\Attributes\Url;
+Livewire\Attributes\Url;
 use /**
  * A Livewire component for use within a Laravel application.
  *
@@ -76,8 +72,7 @@ use /**
  * with backend logic while maintaining a streamlined development approach. This
  * component adheres to the structure and conventions of Livewire components.
  */
-    Livewire\Component;
-use /**
+Livewire\Component;/**
  * The WithoutUrlPagination trait can be used in Livewire components to disable
  * URL-based pagination. By default, when using pagination in Livewire, the
  * current page is appended to the URL. This behavior can be disabled by
@@ -92,7 +87,7 @@ use /**
  * Livewire component, and will not interact with the browser's address bar or
  * URL history.
  */
-    Livewire\WithoutUrlPagination;
+
 use /**
  * Trait WithPagination
  *
@@ -110,7 +105,7 @@ use /**
  * - The Laravel application should have pagination enabled.
  * - The Livewire component using this trait must be designed to work with paginated data.
  */
-    Livewire\WithPagination;
+Livewire\WithPagination;
 
 /**
  * Handles product display functionality within the shop, including pagination
@@ -128,7 +123,7 @@ class ShopProducts extends Component
     {
         return Product::query()
             ->latest()
-            ->when($this->keywords, fn ($query) => $query->where('name', 'like', '%' . $this->keywords . '%'))
+            ->when($this->keywords, fn ($query) => $query->where('name', 'like', '%'.$this->keywords.'%'))
             ->Paginate(6);
     }
 

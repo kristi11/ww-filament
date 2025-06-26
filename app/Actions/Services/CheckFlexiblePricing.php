@@ -9,8 +9,6 @@ class CheckFlexiblePricing
 {
     /**
      * Check if flexible pricing is enabled
-     *
-     * @return Flexibility|null
      */
     public function execute(): ?Flexibility
     {

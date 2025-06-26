@@ -26,7 +26,7 @@ class GetFooterDataTest extends TestCase
     public function it_returns_null_values_when_no_data_exists()
     {
         // Arrange
-        $action = new GetFooterData();
+        $action = new GetFooterData;
 
         // Act
         $result = $action->execute();
@@ -50,25 +50,25 @@ class GetFooterDataTest extends TestCase
 
         $hero = Hero::factory()->create([
             'user_id' => $user->id,
-            'gradientDegreeFirstColor' => '#ff0000'
+            'gradientDegreeFirstColor' => '#ff0000',
         ]);
 
         $background = SectionColors::factory()->create([
             'user_id' => $user->id,
-            'footerBackgroundColor' => 'bg-gray-100'
+            'footerBackgroundColor' => 'bg-gray-100',
         ]);
 
         $social = Social::factory()->create([
             'user_id' => $user->id,
-            'instagram' => 'test_instagram'
+            'instagram' => 'test_instagram',
         ]);
 
         $publicPage = PublicPage::factory()->create([
             'user_id' => $user->id,
-            'footer' => true
+            'footer' => true,
         ]);
 
-        $action = new GetFooterData();
+        $action = new GetFooterData;
 
         // Act
         $result = $action->execute();
@@ -97,10 +97,10 @@ class GetFooterDataTest extends TestCase
         $user = User::factory()->create();
 
         $hero = Hero::factory()->create([
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]);
 
-        $action = new GetFooterData();
+        $action = new GetFooterData;
 
         // Act
         $action->execute();

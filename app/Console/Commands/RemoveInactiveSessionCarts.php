@@ -26,11 +26,11 @@ class RemoveInactiveSessionCarts extends Command
      */
     public function handle()
     {
-       $carts = Cart::whereDoesntHave('user')->whereDate('created_at', '<', now()->subDay(1))->get();
+        $carts = Cart::whereDoesntHave('user')->whereDate('created_at', '<', now()->subDay(1))->get();
 
-       foreach ($carts as $cart) {
-           $cart->items()->delete();
-           $cart->delete();
-       }
+        foreach ($carts as $cart) {
+            $cart->items()->delete();
+            $cart->delete();
+        }
     }
 }

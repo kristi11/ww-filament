@@ -14,7 +14,7 @@ class ListSupports extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add support information'),
+                ->label('Add support information'),
         ];
     }
 }

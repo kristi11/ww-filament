@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum US_STATES : string
+enum US_STATES: string
 {
     case ALABAMA = 'AL';
     case ALASKA = 'AK';

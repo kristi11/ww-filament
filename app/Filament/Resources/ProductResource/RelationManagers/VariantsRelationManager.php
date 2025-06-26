@@ -119,9 +119,9 @@ class VariantsRelationManager extends RelationManager
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                ->slideOver()
-                ->label('')
-                ->tooltip('Edit product variant'),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit product variant'),
                 Tables\Actions\DeleteAction::make()
                     ->label('')
                     ->tooltip('Delete product variant'),

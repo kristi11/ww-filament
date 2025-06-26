@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('leads', function (Blueprint $table) {
-            if (!Schema::hasColumn('leads', 'status')) {
+            if (! Schema::hasColumn('leads', 'status')) {
                 $table->string('status')->default('new')->after('read');
             }
 
-            if (!Schema::hasColumn('leads', 'has_new_reply')) {
+            if (! Schema::hasColumn('leads', 'has_new_reply')) {
                 $table->boolean('has_new_reply')->default(false)->after('status');
             }
         });

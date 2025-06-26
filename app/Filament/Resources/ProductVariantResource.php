@@ -48,7 +48,7 @@ class ProductVariantResource extends Resource
                     ->limit(3)
                     ->limitedRemainingText(isSeparate: true)
                     ->checkFileExistence(false)
-                ->label('Image'),
+                    ->label('Image'),
                 TextColumn::make('color')
                     ->searchable()
                     ->placeholder('N/A'),
@@ -155,18 +155,18 @@ class ProductVariantResource extends Resource
             ->columnToggleFormMaxHeight('350px')
             ->filters([
                 Tables\Filters\SelectFilter::make('product')
-                ->relationship('product', 'name')
-                ->multiple()
-                ->searchable()
-                ->preload()
+                    ->relationship('product', 'name')
+                    ->multiple()
+                    ->searchable()
+                    ->preload(),
             ])
             ->defaultGroup('product.name')
             ->groups(['size', 'age', 'weight'])
             ->actions([
                 Tables\Actions\EditAction::make()
-                ->slideOver()
-                ->label('')
-                ->tooltip('Edit product variant'),
+                    ->slideOver()
+                    ->label('')
+                    ->tooltip('Edit product variant'),
             ])
             ->bulkActions([
                 DeleteBulkAction::make()
@@ -187,8 +187,8 @@ class ProductVariantResource extends Resource
     {
         return [
             'index' => Pages\ListProductVariants::route('/'),
-//            'create' => Pages\CreateProductVariant::route('/create'),
-//            'edit' => Pages\EditProductVariant::route('/{record}/edit'),
+            //            'create' => Pages\CreateProductVariant::route('/create'),
+            //            'edit' => Pages\EditProductVariant::route('/{record}/edit'),
         ];
     }
 }

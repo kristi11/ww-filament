@@ -16,13 +16,13 @@ class ListOrders extends ListRecords
         return [
             Actions\CreateAction::make(),
             Actions\Action::make('Shop')
-            ->url(function () {
-                return route('shop');
-            })
-            ->icon('heroicon-o-building-storefront')
-            ->openUrlInNewTab()
-            ->tooltip('Go to shop')
-            ->color(Color::Lime)
+                ->url(function () {
+                    return route('shop');
+                })
+                ->icon('heroicon-o-building-storefront')
+                ->openUrlInNewTab()
+                ->tooltip('Go to shop')
+                ->color(Color::Lime),
         ];
     }
 }

@@ -8,7 +8,6 @@ use App\Filament\Widgets\UsersChartWidget;
 use App\Filament\Widgets\UsersCountWidget;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use CharrafiMed\GlobalSearchModal\GlobalSearchModalPlugin;
-use Cmsmaxinc\FilamentSystemVersions\Filament\Widgets\DependencyWidget;
 use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -82,7 +81,7 @@ class AdminPanelProvider extends PanelProvider
                 StatsOverviewWidget::class,
                 RevenueWidget::class,
                 UsersCountWidget::class,
-                UsersChartWidget::class
+                UsersChartWidget::class,
             ])
             ->plugins([
                 AutoLogoutPlugin::make()
@@ -95,15 +94,15 @@ class AdminPanelProvider extends PanelProvider
 //                    ->timeLeftText('Oh no. Kicking you in...')      // Change the time left text
 //                    ->timeLeftText('')
                     ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30),
-//                Blog::make(),Enable to enable the FBlog plugin. Also, you'd have to enable BlogPostResource::class in AppServiceProvider
-                //FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
+                //                Blog::make(),Enable to enable the FBlog plugin. Also, you'd have to enable BlogPostResource::class in AppServiceProvider
+                // FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()
                     ->RetainRecentIfFavorite(true)
                     ->associateItemsWithTheirGroups(),
                 ThemesPlugin::make(),
                 \App\Filament\Plugins\BreezyCore::make()
-                    ->avatarUploadComponent(fn($fileUpload) => $fileUpload->disableLabel())
+                    ->avatarUploadComponent(fn ($fileUpload) => $fileUpload->disableLabel())
                     ->myProfile(
                         shouldRegisterUserMenu: true,
                         // Sets the 'account' link in the panel User Menu (default = false)
@@ -115,7 +114,7 @@ class AdminPanelProvider extends PanelProvider
 
                     )
                     ->enableTwoFactorAuthentication(
-                    // force the user to enable 2FA before they can use the application (default = false)
+                        // force the user to enable 2FA before they can use the application (default = false)
                     ),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('1s') // optional, by default it is set to null
@@ -127,7 +126,7 @@ class AdminPanelProvider extends PanelProvider
                     ->gridColumns([
                         'default' => 1,
                         'sm' => 2,
-                        'lg' => 3
+                        'lg' => 3,
                     ])
                     ->sectionColumnSpan(1)
                     ->checkboxListColumns([
@@ -150,20 +149,19 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                SetTheme::class
+                SetTheme::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
             ])
-            ->databaseNotifications()
-            //->profile(isSimple: false)
-            ;
+            ->databaseNotifications();
+        // ->profile(isSimple: false)
     }
 
     public function register(): void
     {
         parent::register();
         FilamentView::registerRenderHook('panels::body.end',
-            fn(): string => Blade::render("@vite('resources/js/app.js')"));
+            fn (): string => Blade::render("@vite('resources/js/app.js')"));
     }
 }

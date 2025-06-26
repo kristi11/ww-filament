@@ -14,7 +14,7 @@ class ListGalleries extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add image'),
+                ->label('Add image'),
         ];
     }
 }

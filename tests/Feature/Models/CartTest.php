@@ -4,7 +4,6 @@ namespace Tests\Feature\Models;
 
 use App\Models\Cart;
 use App\Models\CartItems;
-use App\Models\ProductVariant;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

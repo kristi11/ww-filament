@@ -2,8 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\PublicPage;
-use App\Models\SectionColors;
 use Illuminate\View\View;
 use Livewire\Component;
 

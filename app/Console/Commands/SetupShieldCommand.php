@@ -13,7 +13,6 @@ class SetupShieldCommand extends Command
     /**
      * Configure the prompt fallbacks and set interactive mode to false to avoid stream_isatty issues.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return void
      */
     protected function configurePrompts(InputInterface $input)
@@ -23,7 +22,9 @@ class SetupShieldCommand extends Command
         // Force non-interactive mode to avoid stream_isatty issues
         Prompt::interactive(false);
     }
+
     protected $signature = 'app:setup-shield';
+
     protected $description = 'Run a series of commands to set up Shield with fresh migrations and admin user';
 
     public function handle()
@@ -39,7 +40,7 @@ class SetupShieldCommand extends Command
         $this->info('Setting up Shield...');
         // Use Process with --minimal and --no-interaction options to avoid interactive prompts
         $process = new \Symfony\Component\Process\Process([
-            'php', 'artisan', 'shield:setup', '--fresh', '--minimal', '--no-interaction'
+            'php', 'artisan', 'shield:setup', '--fresh', '--minimal', '--no-interaction',
         ]);
         $process->run();
         $this->info($process->getOutput());

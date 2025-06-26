@@ -22,6 +22,7 @@ class Kernel extends ConsoleKernel
     protected array $middleware = [
         RecordUserActivity::class,
     ];
+
     /**
      * Define the application's command schedule.
      */

@@ -26,7 +26,7 @@ class GetPaginatedServicesTest extends TestCase
         // Arrange
         $user = User::factory()->create();
         Service::factory()->count(5)->create(['user_id' => $user->id]);
-        $action = new GetPaginatedServices();
+        $action = new GetPaginatedServices;
         $perPage = 3;
         $currentPage = 1;
 
@@ -45,7 +45,7 @@ class GetPaginatedServicesTest extends TestCase
         // Arrange
         $user = User::factory()->create();
         Service::factory()->count(5)->create(['user_id' => $user->id]);
-        $action = new GetPaginatedServices();
+        $action = new GetPaginatedServices;
         $perPage = 3;
         $currentPage = 1;
         $cacheKey = "services_page_{$currentPage}_{$perPage}";
@@ -67,11 +67,11 @@ class GetPaginatedServicesTest extends TestCase
             Service::factory()->create([
                 'user_id' => $user->id,
                 'name' => "Service {$i}",
-                'created_at' => now()->subDays($i) // Ensure different creation dates for ordering
+                'created_at' => now()->subDays($i), // Ensure different creation dates for ordering
             ]);
         }
 
-        $action = new GetPaginatedServices();
+        $action = new GetPaginatedServices;
         $perPage = 3;
 
         // Act

@@ -28,8 +28,6 @@ Route::get('/', function () {
     return view('publicPage');
 })->name('home');
 
-
-
 Route::get('/faq', function () {
     return view('footer.FAQ', ['faq' => FAQdata::get()]);
 })->name('faq');
@@ -57,23 +55,23 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('footer.about', ['about' => About::get()]);
 })->name('about');
-//Route::middleware(['auth', 'auth.session'])->group(function () {
+// Route::middleware(['auth', 'auth.session'])->group(function () {
 //    Route::get('preview', function (){
 //        $order = \App\Models\Order::first();
 //        return new \App\Mail\OrderConfirmation($order);
 //       $cart = \App\Models\User::first()->cart;
 //       return new \App\Mail\AbandonedCartReminder($cart);
 //    });
-//});
+// });
 Route::middleware('public-page-check')->group(function () {
     Route::get('/shop', StoreFront::class)->name('shop');
 
-    Route::get('/product/{product}',ProductInfo::class)->name('productInfo');
+    Route::get('/product/{product}', ProductInfo::class)->name('productInfo');
 
-    Route::get('/cart',Cart::class)->name('cart');
+    Route::get('/cart', Cart::class)->name('cart');
 
-    Route::get('/checkout-status',CheckoutStatus::class)->name('checkout-status');
+    Route::get('/checkout-status', CheckoutStatus::class)->name('checkout-status');
 
-    Route::get('/order/{orderId}',ViewOrder::class)->name('view-order');
+    Route::get('/order/{orderId}', ViewOrder::class)->name('view-order');
 });
 Route::redirect('/login', '/admin/login')->name('redirectedLogin');

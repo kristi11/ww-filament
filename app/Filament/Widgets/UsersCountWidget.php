@@ -9,14 +9,16 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class UsersCountWidget extends BaseWidget
 {
-    protected function getColumns() : int{
-     return 2;
+    protected function getColumns(): int
+    {
+        return 2;
     }
 
     protected function getHeading(): string
     {
         return 'Users and Services';
     }
+
     protected function getDescription(): string
     {
         return 'The total number of users and services in the database';

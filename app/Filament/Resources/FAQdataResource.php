@@ -39,7 +39,7 @@ class FAQdataResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->columnSpanFull()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
@@ -112,7 +112,7 @@ class FAQdataResource extends Resource
     {
         $recordExists = FAQdata::exists();
 
-        return !$recordExists;
+        return ! $recordExists;
     }
 
     public static function canEdit(Model $record): bool

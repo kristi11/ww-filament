@@ -25,8 +25,6 @@ class GetFooterLinksData
 
     /**
      * Get FAQ visibility status
-     *
-     * @return bool|null
      */
     protected function getFaqVisibility(): ?bool
     {
@@ -37,8 +35,6 @@ class GetFooterLinksData
 
     /**
      * Get help visibility status
-     *
-     * @return bool|null
      */
     protected function getHelpVisibility(): ?bool
     {
@@ -49,8 +45,6 @@ class GetFooterLinksData
 
     /**
      * Get support visibility status
-     *
-     * @return bool|null
      */
     protected function getSupportVisibility(): ?bool
     {

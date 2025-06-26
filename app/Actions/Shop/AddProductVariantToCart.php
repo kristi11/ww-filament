@@ -3,7 +3,6 @@
 namespace App\Actions\Shop;
 
 use App\Factories\CartFactory;
-use App\Models\Cart;
 
 class AddProductVariantToCart
 {
@@ -13,9 +12,9 @@ class AddProductVariantToCart
             'product_variant_id' => $variantId,
 
         ],
-        [
-            'quantity' => 0,
-        ]);
+            [
+                'quantity' => 0,
+            ]);
 
         $item->increment('quantity', $quantity);
         $item->touch();

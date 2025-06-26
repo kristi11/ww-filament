@@ -14,7 +14,7 @@ class ListTerms extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add terms information'),
+                ->label('Add terms information'),
         ];
     }
 }

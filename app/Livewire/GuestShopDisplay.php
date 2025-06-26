@@ -2,8 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Hero;
-use App\Models\PublicPage;
 use Livewire\Component;
 
 class GuestShopDisplay extends Component

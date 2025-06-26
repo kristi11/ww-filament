@@ -4,9 +4,6 @@ namespace App\Livewire;
 
 use App\Models\BusinessHour;
 use App\Models\Flexibility;
-use App\Models\Hero;
-use App\Models\PublicPage;
-use App\Models\SectionColors;
 use Illuminate\View\View;
 use Livewire\Component;
 

@@ -27,8 +27,6 @@ class GetFooterData
 
     /**
      * Get the hero model for brand colors
-     *
-     * @return Hero|null
      */
     protected function getHero(): ?Hero
     {
@@ -39,8 +37,6 @@ class GetFooterData
 
     /**
      * Get the section colors model for background colors
-     *
-     * @return SectionColors|null
      */
     protected function getBackground(): ?SectionColors
     {
@@ -51,8 +47,6 @@ class GetFooterData
 
     /**
      * Get the social model for social media links
-     *
-     * @return Social|null
      */
     protected function getSocial(): ?Social
     {
@@ -63,8 +57,6 @@ class GetFooterData
 
     /**
      * Check if the footer should be displayed
-     *
-     * @return PublicPage|null
      */
     protected function getFooterVisibility(): ?PublicPage
     {

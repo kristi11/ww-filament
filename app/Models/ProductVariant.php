@@ -89,7 +89,7 @@ class ProductVariant extends Model
         return $variantAttributes;
     }
 
-    public static function getForm():array
+    public static function getForm(): array
     {
         return [
             Section::make('General variants')

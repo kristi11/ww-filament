@@ -17,7 +17,7 @@ class GetProductByIdTest extends TestCase
     {
         // Arrange
         $product = Product::factory()->create();
-        $action = new GetProductById();
+        $action = new GetProductById;
 
         // Act
         $result = $action->execute($product->id);
@@ -31,7 +31,7 @@ class GetProductByIdTest extends TestCase
     public function it_throws_exception_when_product_not_found()
     {
         // Arrange
-        $action = new GetProductById();
+        $action = new GetProductById;
 
         // Assert
         $this->expectException(ModelNotFoundException::class);

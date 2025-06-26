@@ -22,7 +22,7 @@ class HeroFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'mainQuote' => "Control your business",
+            'mainQuote' => 'Control your business',
             'secondaryQuote' => 'In one dashboard',
             'thirdQuote' => 'Check us out',
             'gradientType' => 'linear-gradient',

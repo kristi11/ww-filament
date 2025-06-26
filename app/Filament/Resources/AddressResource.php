@@ -41,7 +41,7 @@ class AddressResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -137,7 +137,7 @@ class AddressResource extends Resource
     {
         $recordExists = Address::exists();
 
-        return !$recordExists;
+        return ! $recordExists;
     }
 
     public static function getPages(): array

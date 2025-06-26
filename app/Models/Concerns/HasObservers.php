@@ -32,7 +32,7 @@ trait HasObservers
                 if (is_string($listener)) {
                     // Format is 'ObserverClass@method'
                     $observerClass = Str::before($listener, '@');
-                    if (!in_array($observerClass, $observers)) {
+                    if (! in_array($observerClass, $observers)) {
                         $observers[] = $observerClass;
                     }
                 }

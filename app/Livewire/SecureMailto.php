@@ -22,7 +22,7 @@ use /**
  * - Passing and sharing data across view templates.
  * - Checking if a view exists within the application.
  */
-    Illuminate\Contracts\View\Factory;
+Illuminate\Contracts\View\Factory;
 use /**
  * Interface Illuminate\Contracts\View\View
  *
@@ -34,43 +34,14 @@ use /**
  * Implementing this interface enables flexibility in modifying or extending
  * the behavior of view generation in Laravel.
  */
-    Illuminate\Contracts\View\View;
+Illuminate\Contracts\View\View;
 use /**
  * The Laravel application instance.
  *
  * This class is the core of a Laravel application. It is responsible for
  * managing the services, configuration, and environment of the application.
- *
- * @package Laravel
- *
- * Key Features:
- * - Provides access to the service container.
- * - Manages the application's lifecycle, including bootstrapping and shutdown.
- * - Acts as the entry point for handling HTTP and console requests.
- *
- * Dependencies:
- * - Relies on configuration files, the service container, and environment
- *   variables to operate effectively.
- *
- * Configuration:
- * - Supports customization through `app.php` configuration file.
- * - Offers extensibility through service providers.
- *
- * Database:
- * - Uses MySQL as the primary database connection.
- *
- * Queue:
- * - Configured to use the `sync` queue driver for handling queued jobs.
- *
- * Laravel Version: 10.48.26
- *
- * Application Name: Laravel
- *
- * Database: MySQL
- *
- * Queue Connection: Sync
  */
-    Illuminate\Foundation\Application;
+Illuminate\Foundation\Application;
 use /**
  * This class represents a Livewire component in a Laravel application.
  *
@@ -89,7 +60,7 @@ use /**
  * override the necessary methods or properties in accordance with Livewire's
  * component lifecycle methods.
  */
-    Livewire\Component;
+Livewire\Component;
 
 /**
  * A Laravel Livewire component that facilitates redirection to a mailto link.

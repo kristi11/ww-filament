@@ -85,7 +85,6 @@ class AppServiceProvider extends ServiceProvider
      *
      * @param  string  $section  The section name to configure
      * @param  string|null  $viewVariable  The name of the view variable (default: same as section)
-     * @return void
      */
     private function configureVisibility(string $section, ?string $viewVariable = null): void
     {
@@ -105,8 +104,6 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Configure all visibility settings for public pages
-     *
-     * @return void
      */
     private function configurePageVisibilitySettings(): void
     {
@@ -149,9 +146,9 @@ class AppServiceProvider extends ServiceProvider
     private function configureViewData(): void
     {
         // Share single model instances with caching
-        $this->shareCachedModel('hero', Hero::class, fn() => Hero::first(), 60);
-        $this->shareCachedModel('background', SectionColors::class, fn() => SectionColors::first(), 60);
-        $this->shareCachedModel('social', Social::class, fn() => Social::first(), 60);
+        $this->shareCachedModel('hero', Hero::class, fn () => Hero::first(), 60);
+        $this->shareCachedModel('background', SectionColors::class, fn () => SectionColors::first(), 60);
+        $this->shareCachedModel('social', Social::class, fn () => Social::first(), 60);
 
         // Share PublicPage models filtered by specific boolean flags
         $this->sharePublicPageByFlag('shop');
@@ -246,8 +243,8 @@ class AppServiceProvider extends ServiceProvider
                     'team' => __('Team'),
                     'customer' => __('Customer'),
                 ])
-                ->visible(fn(): bool => auth()->user()?->hasAnyRole([
-                    'super_admin'
+                ->visible(fn (): bool => auth()->user()?->hasAnyRole([
+                    'super_admin',
                 ]));
         });
     }
@@ -281,7 +278,7 @@ class AppServiceProvider extends ServiceProvider
                 ->failWhenLoadIsHigherInTheLast5Minutes(2.0)
                 ->failWhenLoadIsHigherInTheLast15Minutes(1.5),
             DatabaseConnectionCountCheck::new()
-                ->failWhenMoreConnectionsThan(100)
+                ->failWhenMoreConnectionsThan(100),
         ]);
     }
 
@@ -291,9 +288,10 @@ class AppServiceProvider extends ServiceProvider
     private function configureBladeDirectives(): void
     {
         Blade::stringable(function (Money $money) {
-            $currencies = new ISOCurrencies();
+            $currencies = new ISOCurrencies;
             $numberFormatter = new NumberFormatter(config('USD'), NumberFormatter::CURRENCY);
             $moneyFormatter = new IntlMoneyFormatter($numberFormatter, $currencies);
+
             return $moneyFormatter->format($money);
         });
     }

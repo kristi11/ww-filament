@@ -23,20 +23,20 @@ class UpdateCartItemQuantityTest extends TestCase
     public function it_increments_cart_item_quantity()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         $cartItem = CartItems::create([
             'cart_id' => $cart->id,
             'product_variant_id' => 1,
-            'quantity' => 1
+            'quantity' => 1,
         ]);
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new UpdateCartItemQuantity();
+        $action = new UpdateCartItemQuantity;
 
         // Act
         $result = $action->increment($cartItem->id);
@@ -50,14 +50,14 @@ class UpdateCartItemQuantityTest extends TestCase
     public function it_returns_false_when_incrementing_non_existent_item()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new UpdateCartItemQuantity();
+        $action = new UpdateCartItemQuantity;
 
         // Act
         $result = $action->increment(999); // Non-existent ID
@@ -70,20 +70,20 @@ class UpdateCartItemQuantityTest extends TestCase
     public function it_decrements_cart_item_quantity()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         $cartItem = CartItems::create([
             'cart_id' => $cart->id,
             'product_variant_id' => 1,
-            'quantity' => 2
+            'quantity' => 2,
         ]);
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new UpdateCartItemQuantity();
+        $action = new UpdateCartItemQuantity;
 
         // Act
         $result = $action->decrement($cartItem->id);
@@ -97,20 +97,20 @@ class UpdateCartItemQuantityTest extends TestCase
     public function it_does_not_decrement_below_one()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         $cartItem = CartItems::create([
             'cart_id' => $cart->id,
             'product_variant_id' => 1,
-            'quantity' => 1
+            'quantity' => 1,
         ]);
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new UpdateCartItemQuantity();
+        $action = new UpdateCartItemQuantity;
 
         // Act
         $result = $action->decrement($cartItem->id);
@@ -124,14 +124,14 @@ class UpdateCartItemQuantityTest extends TestCase
     public function it_returns_false_when_decrementing_non_existent_item()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new UpdateCartItemQuantity();
+        $action = new UpdateCartItemQuantity;
 
         // Act
         $result = $action->decrement(999); // Non-existent ID

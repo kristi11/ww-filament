@@ -18,7 +18,7 @@ class OwnerScope implements Scope
         // query will fail with an `unauthenticated` error.
         if (Auth::check()) {
             // If the user has the 'super_admin' role, we will not alter the query.
-            if (!Auth::user()->isSuperAdmin) {
+            if (! Auth::user()->isSuperAdmin) {
                 $builder->where('id', Auth::id());
             }
         }

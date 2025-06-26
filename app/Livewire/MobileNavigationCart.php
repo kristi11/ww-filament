@@ -33,9 +33,8 @@ use /**
  * accessed as a public property on the component.
  *
  * @category Livewire
- * @package  Livewire\Attributes
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * This class represents a Livewire component in the Laravel application.
  *
@@ -58,10 +57,8 @@ use /**
  * Requirements:
  * - Ensure proper installation and configuration of Livewire in your application.
  * - Define component properties, methods, and lifecycle hooks as needed.
- *
- * @package Laravel
  */
-    Livewire\Component;
+Livewire\Component;
 
 /**
  * This class represents a Livewire component for a mobile navigation cart.
@@ -72,7 +69,7 @@ class MobileNavigationCart extends Component
 {
     public $listeners = [
         'productAddedToCart' => '$refresh',
-        'productDeletedFromCart' => '$refresh'
+        'productDeletedFromCart' => '$refresh',
     ];
 
     #[Computed]
@@ -80,6 +77,7 @@ class MobileNavigationCart extends Component
     {
         return app(GetCartItemCount::class)->execute();
     }
+
     public function render()
     {
         return view('livewire.mobile-navigation-cart');

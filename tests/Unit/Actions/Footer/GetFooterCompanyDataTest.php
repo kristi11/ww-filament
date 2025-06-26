@@ -24,7 +24,7 @@ class GetFooterCompanyDataTest extends TestCase
     public function it_returns_null_values_when_no_data_exists()
     {
         // Arrange
-        $action = new GetFooterCompanyData();
+        $action = new GetFooterCompanyData;
 
         // Act
         $result = $action->execute();
@@ -44,15 +44,15 @@ class GetFooterCompanyDataTest extends TestCase
 
         $about = About::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
         $contact = Contact::create([
             'user_id' => $user->id,
-            'visibility' => false
+            'visibility' => false,
         ]);
 
-        $action = new GetFooterCompanyData();
+        $action = new GetFooterCompanyData;
 
         // Act
         $result = $action->execute();
@@ -73,10 +73,10 @@ class GetFooterCompanyDataTest extends TestCase
 
         $about = About::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
-        $action = new GetFooterCompanyData();
+        $action = new GetFooterCompanyData;
 
         // Act
         $action->execute();

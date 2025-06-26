@@ -15,10 +15,8 @@ use /**
  * other functionalities specific to the product entity.
  *
  * Queue connection for operations is set to "sync".
- *
- * @package App\Models
  */
-    App\Models\Product;
+App\Models\Product;
 use /**
  * The Storage facade provides methods to interact with the file storage system in Laravel.
  * It offers a simplified interface to manage files, including reading, writing, and deleting files,
@@ -39,7 +37,7 @@ use /**
  * To use a specific storage disk, you can specify it in the method calls or
  * set the default disk in the configuration.
  */
-    Illuminate\Support\Facades\Storage;
+Illuminate\Support\Facades\Storage;
 
 /**
  * Observes the lifecycle events of the Product model and performs specific actions
@@ -67,7 +65,7 @@ class ProductsObserver
             if ($originalImages !== null) {
                 // Loop through original images and delete any that don't exist in the updated images
                 foreach ($originalImages as $originalImage) {
-                    if (!in_array($originalImage, $updatedImages)) {
+                    if (! in_array($originalImage, $updatedImages)) {
                         Storage::disk(config('filesystems.disks.STORAGE_DISK'))->delete($originalImage);
                     }
                 }

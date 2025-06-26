@@ -18,7 +18,7 @@ class GetOrderByCheckoutSessionTest extends TestCase
         // Arrange
         $user = User::factory()->create();
         $sessionId = 'non_existent_session_id';
-        $action = new GetOrderByCheckoutSession();
+        $action = new GetOrderByCheckoutSession;
 
         // Act
         $result = $action->execute($sessionId, $user->id);
@@ -38,10 +38,10 @@ class GetOrderByCheckoutSessionTest extends TestCase
         // Create an order for user1
         Order::factory()->create([
             'user_id' => $user1->id,
-            'stripe_checkout_session_id' => $sessionId
+            'stripe_checkout_session_id' => $sessionId,
         ]);
 
-        $action = new GetOrderByCheckoutSession();
+        $action = new GetOrderByCheckoutSession;
 
         // Act - Try to get the order as user2
         $result = $action->execute($sessionId, $user2->id);
@@ -60,10 +60,10 @@ class GetOrderByCheckoutSessionTest extends TestCase
         // Create an order for the user
         $order = Order::factory()->create([
             'user_id' => $user->id,
-            'stripe_checkout_session_id' => $sessionId
+            'stripe_checkout_session_id' => $sessionId,
         ]);
 
-        $action = new GetOrderByCheckoutSession();
+        $action = new GetOrderByCheckoutSession;
 
         // Act
         $result = $action->execute($sessionId, $user->id);

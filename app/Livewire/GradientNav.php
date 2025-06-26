@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\PublicPage;
 use Livewire\Component;
 
 class GradientNav extends Component

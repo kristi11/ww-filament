@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Terms;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TermsPolicy

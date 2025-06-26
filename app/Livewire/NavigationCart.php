@@ -34,15 +34,12 @@ use /**
  *
  * @see https://laravel-livewire.com/docs for further details on Livewire and computed properties.
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * This class serves as a Livewire component in a Laravel application.
  * Livewire components are used for building dynamic interfaces using Laravel.
- *
- * @package Laravel
- * @subpackage Livewire
  */
-    Livewire\Component;
+Livewire\Component;
 
 /**
  * Livewire component responsible for displaying and updating the navigation cart.
@@ -51,7 +48,7 @@ class NavigationCart extends Component
 {
     public $listeners = [
         'productAddedToCart' => '$refresh',
-        'productDeletedFromCart' => '$refresh'
+        'productDeletedFromCart' => '$refresh',
     ];
 
     #[Computed]
@@ -59,6 +56,7 @@ class NavigationCart extends Component
     {
         return app(GetCartItemCount::class)->execute();
     }
+
     public function render()
     {
         return view('livewire.navigation-cart');

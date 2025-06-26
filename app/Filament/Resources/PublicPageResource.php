@@ -35,7 +35,7 @@ class PublicPageResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -131,8 +131,8 @@ class PublicPageResource extends Resource
     {
         return [
             'index' => Pages\ListPublicPages::route('/'),
-//            'create' => Pages\CreatePublicPage::route('/create'),
-//            'edit' => Pages\EditPublicPage::route('/{record}/edit'),
+            //            'create' => Pages\CreatePublicPage::route('/create'),
+            //            'edit' => Pages\EditPublicPage::route('/{record}/edit'),
         ];
     }
 
@@ -140,7 +140,7 @@ class PublicPageResource extends Resource
     {
         $recordExists = PublicPage::exists();
 
-        return !$recordExists;
+        return ! $recordExists;
     }
 
     public static function canEdit(Model $record): bool

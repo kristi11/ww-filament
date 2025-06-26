@@ -41,7 +41,7 @@ class GalleryObserverTest extends TestCase
         // Create a gallery with initial images
         $gallery = Gallery::factory()->create([
             'service_id' => $service->id,
-            'image' => []
+            'image' => [],
         ]);
 
         // Create fake images and store them
@@ -85,7 +85,7 @@ class GalleryObserverTest extends TestCase
         // Create a gallery with no initial images
         $gallery = Gallery::factory()->create([
             'service_id' => $service->id,
-            'image' => []
+            'image' => [],
         ]);
 
         // Create fake images and store them

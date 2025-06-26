@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Animation;
 
-use App\Models\Hero;
 use Livewire\Component;
 
 class HeroThirdQuoteAnimation extends Component

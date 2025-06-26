@@ -10,8 +10,9 @@ enum Weight: string
     case ULTRA_LIGHT = 'Ultra Light';
     case ULTRA_HEAVY = 'Ultra Heavy';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::LIGHT => 'Light',
             self::MEDIUM => 'Medium',
             self::HEAVY => 'Heavy',

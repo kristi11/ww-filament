@@ -8,8 +8,6 @@ class GetCartItemCount
 {
     /**
      * Get the total count of items in the cart
-     *
-     * @return int
      */
     public function execute(): int
     {

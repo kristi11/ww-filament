@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Observers\AppointmentObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
@@ -75,7 +74,7 @@ class AppointmentTest extends TestCase
     public function it_can_update_an_appointment()
     {
         $appointment = Appointment::factory()->create([
-            'status' => AppointmentStatus::Pending->value
+            'status' => AppointmentStatus::Pending->value,
         ]);
 
         $newData = [

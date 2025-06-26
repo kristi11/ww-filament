@@ -16,7 +16,7 @@ class CRUD_settings extends Model
         'can_delete_content' => 'boolean',
     ];
 
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

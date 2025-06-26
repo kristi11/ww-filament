@@ -5,12 +5,12 @@ namespace App\Filament\Widgets;
 use App\Models\PublicPage;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
-use Stripe\Exception\ApiErrorException;
-use Stripe\Stripe;
-use Stripe\Charge;
 use Stripe\Balance;
-use Stripe\Refund;
+use Stripe\Charge;
 use Stripe\Dispute;
+use Stripe\Exception\ApiErrorException;
+use Stripe\Refund;
+use Stripe\Stripe;
 
 class RevenueWidget extends BaseWidget
 {
@@ -18,10 +18,12 @@ class RevenueWidget extends BaseWidget
     {
         return PublicPage::where('shop', true)->exists();
     }
+
     protected function getHeading(): string
     {
         return 'Revenue information';
     }
+
     protected function getDescription(): string
     {
         return 'The shop revenue details';
@@ -78,10 +80,10 @@ class RevenueWidget extends BaseWidget
             'status' => 'succeeded',
             'created' => ['gte' => $startOfMonth],
         ]);
-        $topCustomer = !empty($monthlyCharges->data)
+        $topCustomer = ! empty($monthlyCharges->data)
             ? collect($monthlyCharges->data)
                 ->groupBy('customer')
-                ->map(fn($group) => $group->sum('amount') / 100)
+                ->map(fn ($group) => $group->sum('amount') / 100)
                 ->sortDesc()
                 ->take(1)
                 ->all()
@@ -90,15 +92,15 @@ class RevenueWidget extends BaseWidget
         $topCustomerRevenue = $topCustomer[$topCustomerId] ?? 0;
 
         return [
-            Stat::make('Total Revenue (Stripe)', '$' . number_format($totalRevenue, 2))
+            Stat::make('Total Revenue (Stripe)', '$'.number_format($totalRevenue, 2))
                 ->description('Revenue from Stripe charges')
                 ->descriptionIcon('heroicon-o-currency-dollar')
                 ->color('success'),
-            Stat::make('Pending Balance', '$' . number_format($pendingBalance, 2))
+            Stat::make('Pending Balance', '$'.number_format($pendingBalance, 2))
                 ->description('Funds awaiting payout')
                 ->descriptionIcon('heroicon-o-clock')
                 ->color('warning'),
-            Stat::make('Total Refunds', '$' . number_format($totalRefunds, 2))
+            Stat::make('Total Refunds', '$'.number_format($totalRefunds, 2))
                 ->description('This month')
                 ->descriptionIcon('heroicon-o-arrow-path')
                 ->color('danger'),
@@ -110,7 +112,7 @@ class RevenueWidget extends BaseWidget
                 ->description('This month')
                 ->descriptionIcon('heroicon-o-shield-exclamation')
                 ->color('danger'),
-            Stat::make('Top Customer Revenue', '$' . number_format($topCustomerRevenue, 2))
+            Stat::make('Top Customer Revenue', '$'.number_format($topCustomerRevenue, 2))
                 ->description($topCustomerId === 'None' ? 'No data' : "Customer ID: $topCustomerId")
                 ->descriptionIcon('heroicon-o-star')
                 ->color('success'),

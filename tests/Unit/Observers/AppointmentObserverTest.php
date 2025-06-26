@@ -69,7 +69,7 @@ class AppointmentObserverTest extends TestCase
         Notification::fake();
 
         // Manually trigger the observer's created method with our mocked appointment
-        $appointmentObserver = new AppointmentObserver();
+        $appointmentObserver = new AppointmentObserver;
         $appointmentObserver->created($mockedAppointment);
 
         // Assert that the notification was sent to the super admin

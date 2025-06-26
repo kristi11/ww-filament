@@ -13,7 +13,7 @@ class AppointmentAssignedNotification extends Notification
     /**
      * Create a new notification instance.
      *
-     * @param \App\Models\Appointment|null $appointment The appointment that was assigned
+     * @param  \App\Models\Appointment|null  $appointment  The appointment that was assigned
      */
     public function __construct($appointment = null)
     {

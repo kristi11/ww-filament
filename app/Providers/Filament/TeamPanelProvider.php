@@ -76,7 +76,7 @@ class TeamPanelProvider extends PanelProvider
 //                    ->timeLeftText('Oh no. Kicking you in...')      // Change the time left text
 //                    ->timeLeftText('')
                     ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30),
-//              FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
+                //              FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()
                     ->RetainRecentIfFavorite(true)
@@ -91,7 +91,7 @@ class TeamPanelProvider extends PanelProvider
                         navigationGroup: 'Settings' // Sets the slug for the profile page (default = 'my-profile')
                     )
                     ->enableTwoFactorAuthentication(
-                    // force the user to enable 2FA before they can use the application (default = false)
+                        // force the user to enable 2FA before they can use the application (default = false)
                     ),
                 FilamentAnnouncePlugin::make()
                     ->pollingInterval('30s') // optional, by default it is set to null
@@ -110,7 +110,7 @@ class TeamPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                SetTheme::class
+                SetTheme::class,
             ])
             ->databaseNotifications()
             ->authMiddleware([

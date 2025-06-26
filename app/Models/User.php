@@ -24,6 +24,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static create(array $array)
  * @method static whereHas(string $string, \Closure $param)
  * @method static find(mixed $id)
+ *
  * @property int $id
  * @property Cart|null $cart
  * @property string|null $first_name
@@ -33,24 +34,26 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable implements FilamentUser, HasAvatar
 {
+    use Billable;
     // Authentication related traits
     use HasApiTokens;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
-
-    // Authorization related traits
-    use HasRoles;
-    use HasPanelShield;
-
     // Other functionality
     use HasFactory;
-    use Billable;
+
+    use HasPanelShield;
+    // Authorization related traits
+    use HasRoles;
+
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
     /**
      * Role name constants
      */
     private const ROLE_SUPER_ADMIN = 'super_admin';
+
     private const ROLE_TEAM_USER = 'team_user';
+
     private const ROLE_PANEL_USER = 'panel_user';
 
     /**
@@ -114,6 +117,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function getIsSuperAdminAttribute(): bool
     {
         $cacheKey = "user_{$this->id}_is_super_admin";
+
         return cache()->remember($cacheKey, now()->addMinutes(60), function () {
             return $this->roles->pluck('name')->contains(self::ROLE_SUPER_ADMIN);
         });
@@ -122,6 +126,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function getIsTeamUserAttribute(): bool
     {
         $cacheKey = "user_{$this->id}_is_team_user";
+
         return cache()->remember($cacheKey, now()->addMinutes(60), function () {
             return $this->roles->pluck('name')->contains(self::ROLE_TEAM_USER);
         });
@@ -130,6 +135,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function getIsPanelUserAttribute(): bool
     {
         $cacheKey = "user_{$this->id}_is_panel_user";
+
         return cache()->remember($cacheKey, now()->addMinutes(60), function () {
             return $this->roles->pluck('name')->contains(self::ROLE_PANEL_USER);
         });

@@ -12,7 +12,7 @@ class CreateLeadFromForm
     /**
      * Create a new lead from form data and send notification to admin
      *
-     * @param array $data Form data containing name, email, phone, and message
+     * @param  array  $data  Form data containing name, email, phone, and message
      * @return Lead|null The created lead or null if no admin is found
      */
     public function execute(array $data): ?Lead
@@ -22,7 +22,7 @@ class CreateLeadFromForm
             $query->where('name', 'super_admin');
         })->first();
 
-        if (!$admin) {
+        if (! $admin) {
             return null;
         }
 

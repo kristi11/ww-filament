@@ -10,8 +10,9 @@ class GetProductById
     /**
      * Get a product by its ID
      *
-     * @param int $productId The ID of the product to retrieve
+     * @param  int  $productId  The ID of the product to retrieve
      * @return Product The product if found
+     *
      * @throws ModelNotFoundException If the product is not found
      */
     public function execute(int $productId): Product

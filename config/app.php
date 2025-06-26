@@ -171,7 +171,7 @@ return [
         App\Providers\Filament\CustomerPanelProvider::class,
         App\Providers\Filament\TeamPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
-//        App\Providers\TelescopeServiceProvider::class,
+        //        App\Providers\TelescopeServiceProvider::class,
     ])->toArray(),
 
     /*

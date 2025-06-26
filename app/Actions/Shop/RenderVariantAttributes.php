@@ -7,7 +7,7 @@ class RenderVariantAttributes
     /**
      * Format variant attributes for display
      *
-     * @param object $variant The variant object with attributes
+     * @param  object  $variant  The variant object with attributes
      * @return array Formatted attributes as key-value pairs
      */
     public function execute(object $variant): array
@@ -19,9 +19,9 @@ class RenderVariantAttributes
             $value = $variant->$key ?? null; // Safely access value
 
             if ($value instanceof $enumClass) {
-                $output[$key] = ucfirst($key) . ': ' . $value->getLabel();
-            } elseif (!is_null($value)) {
-                $output[$key] = ucfirst($key) . ': ' . $value;
+                $output[$key] = ucfirst($key).': '.$value->getLabel();
+            } elseif (! is_null($value)) {
+                $output[$key] = ucfirst($key).': '.$value;
             }
         }
 

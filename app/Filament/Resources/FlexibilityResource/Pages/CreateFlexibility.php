@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\FlexibilityResource\Pages;
 
 use App\Filament\Resources\FlexibilityResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateFlexibility extends CreateRecord

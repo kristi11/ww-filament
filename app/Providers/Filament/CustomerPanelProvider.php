@@ -32,7 +32,7 @@ use Rupadana\FilamentAnnounce\FilamentAnnouncePlugin;
 
 class CustomerPanelProvider extends PanelProvider
 {
-//    protected int | string | array $columnSpan = 'full';
+    //    protected int | string | array $columnSpan = 'full';
     /**
      * @throws Exception
      */
@@ -83,7 +83,7 @@ class CustomerPanelProvider extends PanelProvider
 //                    ->timeLeftText('Oh no. Kicking you in...')      // Change the time left text
 //                    ->timeLeftText('')
                     ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30),
-//                FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
+                //                FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()
                     ->RetainRecentIfFavorite(true)
@@ -114,7 +114,7 @@ class CustomerPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                SetTheme::class
+                SetTheme::class,
             ])
             ->databaseNotifications()
             ->authMiddleware([
@@ -125,6 +125,6 @@ class CustomerPanelProvider extends PanelProvider
     public function register(): void
     {
         parent::register();
-        FilamentView::registerRenderHook('panels::body.end', fn(): string => Blade::render("@vite('resources/js/app.js')"));
+        FilamentView::registerRenderHook('panels::body.end', fn (): string => Blade::render("@vite('resources/js/app.js')"));
     }
 }

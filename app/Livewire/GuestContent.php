@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\PublicPage;
 use App\Models\SectionPosition;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

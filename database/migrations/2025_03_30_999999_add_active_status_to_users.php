@@ -15,7 +15,7 @@ class AddActiveStatusToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // if not exist, add the new column
-            if (!Schema::hasColumn('users', 'active_status')) {
+            if (! Schema::hasColumn('users', 'active_status')) {
                 $table->boolean('active_status')->default(0);
             }
         });

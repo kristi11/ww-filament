@@ -15,8 +15,9 @@ enum Volume: string
     case QUART = 'Quart';
     case GALLON = 'Gallon';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::MILLILITER => 'Milliliter',
             self::LITER => 'Liter',
             self::CUBIC_METER => 'Cubic Meter',

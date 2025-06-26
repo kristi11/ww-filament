@@ -24,7 +24,7 @@ class GetFooterLegalDataTest extends TestCase
     public function it_returns_null_values_when_no_data_exists()
     {
         // Arrange
-        $action = new GetFooterLegalData();
+        $action = new GetFooterLegalData;
 
         // Act
         $result = $action->execute();
@@ -44,15 +44,15 @@ class GetFooterLegalDataTest extends TestCase
 
         $terms = Terms::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
         $privacy = Privacy::create([
             'user_id' => $user->id,
-            'visibility' => false
+            'visibility' => false,
         ]);
 
-        $action = new GetFooterLegalData();
+        $action = new GetFooterLegalData;
 
         // Act
         $result = $action->execute();
@@ -73,10 +73,10 @@ class GetFooterLegalDataTest extends TestCase
 
         $terms = Terms::create([
             'user_id' => $user->id,
-            'visibility' => true
+            'visibility' => true,
         ]);
 
-        $action = new GetFooterLegalData();
+        $action = new GetFooterLegalData;
 
         // Act
         $action->execute();

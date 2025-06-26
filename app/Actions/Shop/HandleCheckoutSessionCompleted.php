@@ -20,7 +20,7 @@ use /**
  *
  * The application uses MySQL as the database and sync as the queue connection.
  */
-    App\Mail\OrderConfirmation;
+App\Mail\OrderConfirmation;
 use /**
  * Cart Model
  *
@@ -45,13 +45,12 @@ use /**
  * - Ensure proper validation and business logic when interacting with this model.
  * - Customize relationships or methods within the model as per application requirements.
  */
-    App\Models\Cart;
+App\Models\Cart;
 use /**
  * The OrderItems model.
  *
  * This model represents items associated with orders in the application.
  *
- * @package App\Models
  *
  * @property int $id The primary key of the order item.
  * @property int $order_id The ID of the associated order.
@@ -61,7 +60,7 @@ use /**
  * @property \Illuminate\Support\Carbon|null $created_at The date and time when the record was created.
  * @property \Illuminate\Support\Carbon|null $updated_at The date and time when the record was last updated.
  */
-    App\Models\OrderItems;
+App\Models\OrderItems;
 use /**
  * The User model represents a user entity within the application.
  *
@@ -72,7 +71,7 @@ use /**
  * Database: MySQL
  * Queue Connection: sync
  */
-    App\Models\User;
+App\Models\User;
 use /**
  * Class DB
  *
@@ -101,7 +100,7 @@ use /**
  * - getPdo(): Returns the underlying PDO connection.
  * - listen(): Allows listening for database queries executed during runtime.
  */
-    Illuminate\Support\Facades\DB;
+Illuminate\Support\Facades\DB;
 use /**
  * The Mail facade provides a simplistic and expressive interface for sending emails
  * in a Laravel application. It enables the use of the underlying mailer without
@@ -119,7 +118,7 @@ use /**
  *
  * Class Illuminate\Support\Facades\Mail
  */
-    Illuminate\Support\Facades\Mail;
+Illuminate\Support\Facades\Mail;
 use /**
  * The Cashier class provides convenience methods for managing Stripe billing
  * and subscription management in a Laravel application.
@@ -147,7 +146,7 @@ use /**
  * Note: Ensure queue processing where applicable as some operations may require asynchronous
  * processing, though this app appears to use the `sync` queue driver.
  */
-    Laravel\Cashier\Cashier;
+Laravel\Cashier\Cashier;
 use /**
  * Class Stripe\LineItem
  *
@@ -172,7 +171,7 @@ use /**
  * - Includes support for extensible metadata as needed for specific business
  *   requirements.
  */
-    Stripe\LineItem;
+Stripe\LineItem;
 
 /**
  * Class HandleCheckoutSessionCompleted
@@ -218,11 +217,11 @@ class HandleCheckoutSessionCompleted
                     'country' => $session->shipping_details->address->country,
                     'postal_code' => $session->shipping_details->address->postal_code,
 
-                ]
+                ],
             ]);
             $lineItems = Cashier::stripe()->checkout->sessions->allLineItems($session->id);
 
-            $orderItems = collect($lineItems->all())->map(function (LineItem $line) use ($order) {
+            $orderItems = collect($lineItems->all())->map(function (LineItem $line) {
                 $product = Cashier::stripe()->products->retrieve($line->price->product);
 
                 return new OrderItems([

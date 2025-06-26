@@ -41,7 +41,7 @@ class BusinessHourResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -71,7 +71,7 @@ class BusinessHourResource extends Resource
                             ->default('closed')
                             ->requiredIf('status', true)
                             ->markAsRequired()
-                            ->disabled(fn(Forms\Get $get): bool => !$get('status'))
+                            ->disabled(fn (Forms\Get $get): bool => ! $get('status'))
                             ->helperText('Select the time the business opens on this day.')
                             ->format('h:i A')
                             ->prefixIcon('heroicon-s-lock-open')
@@ -80,7 +80,7 @@ class BusinessHourResource extends Resource
                             ->default('closed')
                             ->requiredIf('status', true)
                             ->markAsRequired()
-                            ->disabled(fn(Forms\Get $get): bool => !$get('status'))
+                            ->disabled(fn (Forms\Get $get): bool => ! $get('status'))
                             ->helperText('Select the time the business closes on this day.')
                             ->format('h:i A')
                             ->prefixIcon('heroicon-s-lock-closed')
@@ -212,6 +212,7 @@ class BusinessHourResource extends Resource
         if (BusinessHour::count() >= $limit) {
             return false;
         }
+
         return true;
     }
 

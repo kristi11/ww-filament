@@ -14,9 +14,6 @@
 
 namespace App\Livewire;
 
-use App\Actions\Shop\DeleteCartItem;
-use App\Actions\Shop\RenderVariantAttributes;
-use App\Actions\Shop\UpdateCartItemQuantity;
 use /**
  * This class is responsible for creating a Stripe Checkout Session
  * within the shop-related actions of the application.
@@ -42,26 +39,25 @@ use /**
  * Methods:
  * - Implement the primary method to initialize and create a session.
  */
-    App\Actions\Shop\CreateStripeCheckoutSession;
+App\Actions\Shop\CreateStripeCheckoutSession;
+use App\Actions\Shop\DeleteCartItem;
+use App\Actions\Shop\RenderVariantAttributes;
+use App\Actions\Shop\UpdateCartItemQuantity;
 use /**
  * Class CartFactory
  *
  * This factory class is responsible for creating and managing instances of carts within the application.
  * It provides methods for initializing, configuring, or handling cart-related operations.
- *
- * @package App\Factories
  */
-    App\Factories\CartFactory;
+App\Factories\CartFactory;
 use /**
  * The Computed attribute is used in Livewire components to define
  * computed properties. Computed properties are automatically calculated
  * based on other component properties and are re-evaluated whenever
  * their dependent properties change. They are useful for encapsulating
  * logic that derives additional data from the existing component state.
- *
- * @package Livewire\Attributes
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * The On attribute in Livewire is used to handle browser events
  * and bind them to methods or properties within a Livewire component.
@@ -69,10 +65,8 @@ use /**
  * When the specified event occurs, the associated method in the
  * Livewire component is invoked automatically. This is helpful for
  * creating reactive components responsive to user interaction.
- *
- * @package Livewire\Attributes
  */
-    Livewire\Attributes\On;
+Livewire\Attributes\On;
 use /**
  * Class representing a Livewire component in a Laravel application.
  *
@@ -92,15 +86,13 @@ use /**
  * Framework: Laravel
  * Database: MySQL
  */
-    Livewire\Component;
+Livewire\Component;
 
 /**
  * Represents the Cart component for managing cart actions and rendering.
  */
 class Cart extends Component
 {
-
-
     #[Computed]
     public function cart()
     {
@@ -128,7 +120,6 @@ class Cart extends Component
     {
         return $checkoutSession->createFromCart($this->cart);
     }
-
 
     public function customerRegistration()
     {

@@ -96,7 +96,7 @@ class HeroTest extends TestCase
         Storage::disk(config('filesystems.disks.STORAGE_DISK'))->putFileAs('hero', $file, $file->hashName());
 
         // Assert the file exists in storage
-        Storage::disk(config('filesystems.disks.STORAGE_DISK'))->assertExists('hero/' . $file->hashName());
+        Storage::disk(config('filesystems.disks.STORAGE_DISK'))->assertExists('hero/'.$file->hashName());
 
         // Assert the hero has the image path
         $this->assertEquals($file->hashName(), $hero->image);

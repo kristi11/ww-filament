@@ -10,9 +10,13 @@ use Livewire\Component;
 class LeadForm extends Component
 {
     public $name = '';
+
     public $email = '';
+
     public $phone = '';
+
     public $message = '';
+
     public $success = false;
 
     protected $rules = [
@@ -33,8 +37,9 @@ class LeadForm extends Component
             'message' => $this->message,
         ]);
 
-        if (!$lead) {
+        if (! $lead) {
             $this->addError('form', 'Unable to submit form. Please try again later.');
+
             return;
         }
 

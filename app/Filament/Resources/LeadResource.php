@@ -6,14 +6,12 @@ use App\Filament\Resources\LeadResource\Pages;
 use App\Models\Lead;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Infolists\Infolist;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\Section;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Collection;
 
 class LeadResource extends Resource
@@ -21,8 +19,11 @@ class LeadResource extends Resource
     protected static ?string $model = Lead::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
+
     protected static ?string $navigationLabel = 'Leads';
+
     protected static ?string $navigationGroup = 'Communication';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
@@ -85,7 +86,7 @@ class LeadResource extends Resource
                     ->slideOver()
                     ->before(function (Lead $record): void {
                         // Update the lead record when the slideover is opened for the first time
-                        if (!$record->read) {
+                        if (! $record->read) {
                             $record->update([
                                 'read' => true,
                                 'status' => 'seen',
@@ -151,7 +152,7 @@ class LeadResource extends Resource
                 Tables\Actions\Action::make('mark_as_read')
                     ->icon('heroicon-o-check')
                     ->action(fn (Lead $record) => $record->update(['read' => true]))
-                    ->visible(fn (Lead $record) => !$record->read),
+                    ->visible(fn (Lead $record) => ! $record->read),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

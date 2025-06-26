@@ -10,8 +10,8 @@ class GetOrderByCheckoutSession
     /**
      * Get an order by its Stripe checkout session ID for a specific user
      *
-     * @param string $sessionId The Stripe checkout session ID
-     * @param int $userId The ID of the user who owns the order
+     * @param  string  $sessionId  The Stripe checkout session ID
+     * @param  int  $userId  The ID of the user who owns the order
      * @return Model|null The order if found, null otherwise
      */
     public function execute(string $sessionId, int $userId): ?Model

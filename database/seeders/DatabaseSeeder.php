@@ -20,7 +20,6 @@ use App\Models\Social;
 use App\Models\Support;
 use App\Models\Terms;
 use App\Models\User;
-use Database\Seeders\SectionPositionSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;

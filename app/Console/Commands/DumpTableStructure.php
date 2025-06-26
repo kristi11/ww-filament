@@ -9,14 +9,16 @@ use Illuminate\Support\Facades\Schema;
 class DumpTableStructure extends Command
 {
     protected $signature = 'db:dump-table {table}';
+
     protected $description = 'Dump the structure of a table';
 
     public function handle()
     {
         $table = $this->argument('table');
 
-        if (!Schema::hasTable($table)) {
+        if (! Schema::hasTable($table)) {
             $this->error("Table {$table} does not exist");
+
             return 1;
         }
 

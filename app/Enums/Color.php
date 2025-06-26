@@ -18,7 +18,7 @@ enum Color: string
     case BEIGE = 'Beige';
     case INDIGO = 'Indigo';
     case VIOLET = 'Violet';
-    case TURQUOISE ='Turquoise';
+    case TURQUOISE = 'Turquoise';
     case GOLD = 'Gold';
     case SILVER = 'Silver';
     case PEACH = 'Peach';
@@ -51,8 +51,9 @@ enum Color: string
     case SLATE_GREY = 'Slate Grey';
     case COBALT_BLUE = 'Cobalt Blue';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::RED => 'Red',
             self::GREEN => 'Green',
             self::BLUE => 'Blue',
@@ -102,4 +103,3 @@ enum Color: string
         };
     }
 }
-

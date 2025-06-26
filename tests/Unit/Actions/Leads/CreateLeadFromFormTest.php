@@ -24,7 +24,7 @@ class CreateLeadFromFormTest extends TestCase
     public function it_returns_null_when_no_super_admin_is_found()
     {
         // Arrange
-        $action = new CreateLeadFromForm();
+        $action = new CreateLeadFromForm;
         $formData = [
             'name' => 'John Doe',
             'email' => 'john@example.com',
@@ -48,7 +48,7 @@ class CreateLeadFromFormTest extends TestCase
         $admin = User::factory()->create();
         $admin->assignRole('super_admin');
 
-        $action = new CreateLeadFromForm();
+        $action = new CreateLeadFromForm;
         $formData = [
             'name' => 'John Doe',
             'email' => 'john@example.com',

@@ -22,7 +22,7 @@ class ListOrders extends ListRecords
                 ->icon('heroicon-o-building-storefront')
                 ->openUrlInNewTab()
                 ->tooltip('Go to shop')
-                ->color(Color::Lime)
+                ->color(Color::Lime),
         ];
     }
 }

@@ -23,7 +23,7 @@ class RedirectToSocialMediaTest extends TestCase
     public function it_returns_null_when_no_social_data_exists()
     {
         // Arrange
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('instagram');
@@ -42,9 +42,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('invalid_platform');
@@ -63,9 +63,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => '',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('instagram');
@@ -84,9 +84,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('instagram');
@@ -105,9 +105,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('facebook');
@@ -126,9 +126,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('linkedin');
@@ -147,9 +147,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $result = $action->execute('twitter');
@@ -168,9 +168,9 @@ class RedirectToSocialMediaTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'linkedin' => 'test_linkedin',
-            'twitter' => 'test_twitter'
+            'twitter' => 'test_twitter',
         ]);
-        $action = new RedirectToSocialMedia();
+        $action = new RedirectToSocialMedia;
 
         // Act
         $action->execute('instagram');

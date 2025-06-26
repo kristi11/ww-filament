@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Actions\Services\CheckFlexiblePricing;
 use App\Actions\Services\GetPaginatedServices;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
@@ -15,8 +14,8 @@ use Livewire\WithPagination;
  */
 class DisplayGuestServices extends Component
 {
-    use WithPagination;
     use WithoutUrlPagination;
+    use WithPagination;
 
     /**
      * The number of services to display per page

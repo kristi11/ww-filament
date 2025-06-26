@@ -70,16 +70,16 @@ class UserResource extends Resource
                 'id',
                 'name',
                 'email',
-//                'is_super_admin',
-//                'is_team_user',
-//                'is_panel_user',
+                //                'is_super_admin',
+                //                'is_team_user',
+                //                'is_panel_user',
                 'email_verified_at',
                 'created_at',
-                'updated_at'
+                'updated_at',
             ]))
             ->columns([
-//                ImageColumn::make('avatar_url')
-//                    ->circular(),
+                //                ImageColumn::make('avatar_url')
+                //                    ->circular(),
                 TextColumn::make('name')
                     ->searchable(),
                 IconColumn::make('is_super_admin')

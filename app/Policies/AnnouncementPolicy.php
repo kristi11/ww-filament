@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use App\Models\User;
-use Rupadana\FilamentAnnounce\Models\Announcement;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Rupadana\FilamentAnnounce\Models\Announcement;
 
 class AnnouncementPolicy
 {

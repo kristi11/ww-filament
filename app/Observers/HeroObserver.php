@@ -22,7 +22,7 @@ use /**
  * Ensure that any business logic or model manipulation adheres
  * to the project's coding and design standards.
  */
-    App\Models\Hero;
+App\Models\Hero;
 use /**
  * Storage facade serves as a proxy to the underlying filesystem.
  * Provides methods for performing file storage operations such as
@@ -38,7 +38,7 @@ use /**
  * Usage of this facade requires the configuration of storage disks
  * within the `config/filesystems.php` file.
  */
-    Illuminate\Support\Facades\Storage;
+Illuminate\Support\Facades\Storage;
 
 /**
  * Observes events on the Hero model and handles side effects accordingly.
@@ -48,10 +48,7 @@ class HeroObserver
     /**
      * Handle the Hero "created" event.
      */
-    public function created(Hero $hero): void
-    {
-
-    }
+    public function created(Hero $hero): void {}
 
     /**
      * Handle the Hero "updated" event.

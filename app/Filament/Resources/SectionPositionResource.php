@@ -11,8 +11,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SectionPositionResource extends Resource
 {
@@ -38,7 +36,7 @@ class SectionPositionResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('👤 The **currently authenticated user** is automatically set as the creator of this section position.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -118,7 +116,7 @@ Customize your public page layout without touching any code!')->markdown()->toHt
                             4 => '4 - Middle-lower section',
                             5 => '5 - Lower section',
                             6 => '6 - Bottom (Last section)',
-                            default => $state . ' - Custom position',
+                            default => $state.' - Custom position',
                         };
                     }),
                 Tables\Columns\IconColumn::make('is_visible')
@@ -163,7 +161,7 @@ Customize your public page layout without touching any code!')->markdown()->toHt
         return [
             'index' => Pages\ListSectionPositions::route('/'),
             'create' => Pages\CreateSectionPosition::route('/create'),
-//            'edit' => Pages\EditSectionPosition::route('/{record}/edit'),
+            //            'edit' => Pages\EditSectionPosition::route('/{record}/edit'),
         ];
     }
 }

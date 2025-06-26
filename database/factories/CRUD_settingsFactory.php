@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
 /**
- * @method boolean(true $true)
+ * @method bool(true $true)
  */
 class CRUD_settingsFactory extends Factory
 {

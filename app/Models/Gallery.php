@@ -15,8 +15,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Gallery extends Model implements HasMedia
 {
     use HasFactory;
-    use InteractsWithMedia;
     use HasObservers;
+    use InteractsWithMedia;
 
     protected $casts = [
         'id' => 'integer',

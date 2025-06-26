@@ -13,7 +13,6 @@ class SetupAppCommand extends Command
     /**
      * Configure the prompt fallbacks and set interactive mode to false to avoid stream_isatty issues.
      *
-     * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return void
      */
     protected function configurePrompts(InputInterface $input)
@@ -23,6 +22,7 @@ class SetupAppCommand extends Command
         // Force non-interactive mode to avoid stream_isatty issues
         Prompt::interactive(false);
     }
+
     protected $signature = 'app:setup
                             {--no-key : Skip the key generation step}
                             {--production : Use npm run build instead of npm run dev (for production environments)}';
@@ -43,7 +43,7 @@ class SetupAppCommand extends Command
 
         // Step 3: Copy .env.example to .env
         $this->info('Creating environment file...');
-        if (!file_exists(base_path('.env'))) {
+        if (! file_exists(base_path('.env'))) {
             copy(base_path('.env.example'), base_path('.env'));
             $this->info('Environment file created successfully.');
         } else {
@@ -51,7 +51,7 @@ class SetupAppCommand extends Command
         }
 
         // Step 4: Generate application key (unless skipped)
-        if (!$this->option('no-key')) {
+        if (! $this->option('no-key')) {
             $this->info('Generating application key...');
             Artisan::call('key:generate');
             $this->info(Artisan::output());
@@ -104,8 +104,8 @@ class SetupAppCommand extends Command
     /**
      * Run a process and display its output
      *
-     * @param array $command The command to run
-     * @param bool $waitForProcess Whether to wait for the process to complete
+     * @param  array  $command  The command to run
+     * @param  bool  $waitForProcess  Whether to wait for the process to complete
      * @return void
      */
     protected function runProcess(array $command, bool $waitForProcess = true)
@@ -120,7 +120,7 @@ class SetupAppCommand extends Command
         } else {
             // For long-running processes
             $process->start();
-            $this->info("Process started: " . implode(' ', $command));
+            $this->info('Process started: '.implode(' ', $command));
         }
     }
 }

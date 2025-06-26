@@ -7,9 +7,9 @@ use App\Models\User;
 use App\Notifications\AppointmentAssignedNotification;
 use App\Notifications\AppointmentCreatedNotification;
 use App\Notifications\AppointmentUpdatedNotification;
-use Illuminate\Support\Facades\Auth;
 use Filament\Notifications\Actions\Action;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Observer for Appointment model lifecycle events.

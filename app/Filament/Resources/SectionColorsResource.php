@@ -20,7 +20,9 @@ class SectionColorsResource extends Resource
     protected static ?string $model = SectionColors::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-swatch';
+
     protected static ?string $label = 'Section color';
+
     protected static ?string $navigationGroup = 'Settings';
 
     public static function form(Form $form): Form
@@ -31,7 +33,7 @@ class SectionColorsResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -78,14 +80,14 @@ class SectionColorsResource extends Resource
                     ->placeholder('No background color set'),
                 TextColumn::make('footerBackgroundColor')
                     ->placeholder('No background color set'),
-//                TextColumn::make('created_at')
-//                    ->dateTime()
-//                    ->sortable()
-//                    ->toggleable(isToggledHiddenByDefault: true),
-//                TextColumn::make('updated_at')
-//                    ->dateTime()
-//                    ->sortable()
-//                    ->toggleable(isToggledHiddenByDefault: true),
+                //                TextColumn::make('created_at')
+                //                    ->dateTime()
+                //                    ->sortable()
+                //                    ->toggleable(isToggledHiddenByDefault: true),
+                //                TextColumn::make('updated_at')
+                //                    ->dateTime()
+                //                    ->sortable()
+                //                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -110,8 +112,8 @@ class SectionColorsResource extends Resource
     {
         return [
             'index' => Pages\ListSectionColors::route('/'),
-//            'create' => Pages\CreateSectionColors::route('/create'),
-//            'edit' => Pages\EditSectionColors::route('/{record}/edit'),
+            //            'create' => Pages\CreateSectionColors::route('/create'),
+            //            'edit' => Pages\EditSectionColors::route('/{record}/edit'),
         ];
     }
 
@@ -119,7 +121,7 @@ class SectionColorsResource extends Resource
     {
         $recordExists = SectionColors::exists();
 
-        return !$recordExists;
+        return ! $recordExists;
     }
 
     public static function canEdit(Model $record): bool

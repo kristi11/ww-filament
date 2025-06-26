@@ -13,8 +13,9 @@ enum Finish: string
     case OILED = 'Oiled';
     case WEATHERED = 'Weathered';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::MATTE => 'Matte',
             self::GLOSSY => 'Glossy',
             self::SATIN => 'Satin',

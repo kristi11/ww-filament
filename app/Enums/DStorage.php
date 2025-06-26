@@ -10,8 +10,9 @@ enum DStorage: string
     case GIGABYTE = 'Gigabyte';
     case TERABYTE = 'Terabyte';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::BYTE => 'Byte',
             self::KILOBYTE => 'Kilobyte',
             self::MEGABYTE => 'Megabyte',

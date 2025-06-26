@@ -2,14 +2,14 @@
 
 namespace Tests\Feature\Models;
 
-use App\Models\User;
 use App\Models\Address;
 use App\Models\Cart;
-use App\Models\Order;
+use App\Models\Hero;
 use App\Models\Lead;
+use App\Models\Order;
 use App\Models\Service;
 use App\Models\Social;
-use App\Models\Hero;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -139,7 +139,7 @@ class UserTest extends TestCase
     public function it_has_filament_name_method()
     {
         $user = User::factory()->create([
-            'name' => 'John Doe'
+            'name' => 'John Doe',
         ]);
 
         // Just test that the method exists and returns a string

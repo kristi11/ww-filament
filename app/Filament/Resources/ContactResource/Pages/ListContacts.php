@@ -14,7 +14,7 @@ class ListContacts extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add contact information'),
+                ->label('Add contact information'),
         ];
     }
 }

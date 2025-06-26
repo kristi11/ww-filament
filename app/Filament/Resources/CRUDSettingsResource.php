@@ -14,9 +14,13 @@ use Illuminate\Database\Eloquent\Model;
 class CRUDSettingsResource extends Resource
 {
     protected static ?string $model = CRUD_settings::class;
+
     protected static ?string $pluralModelLabel = 'Content';
+
     protected static ?string $slug = 'content';
+
     protected static ?string $navigationGroup = 'Settings';
+
     protected static ?string $navigationIcon = 'heroicon-o-cog';
 
     private const PERMISSIONS = [

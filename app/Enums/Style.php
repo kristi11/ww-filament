@@ -13,8 +13,9 @@ enum Style: string
     case TANK_TOP = 'Tank Top';
     case TURTLENECK = 'Turtleneck';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::POLO => 'Polo',
             self::BUTTON_UP => 'Button-Up',
             self::LONG_SLEEVE => 'Long-sleeve',

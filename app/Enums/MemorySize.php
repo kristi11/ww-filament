@@ -9,8 +9,9 @@ enum MemorySize: string
     case SIXTEEN_GB = '16GB';
     case THIRTYTWO_GB = '32GB';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::FOUR_GB => '4GB',
             self::EIGHT_GB => '8GB',
             self::SIXTEEN_GB => '16GB',

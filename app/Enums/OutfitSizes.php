@@ -18,8 +18,9 @@ enum OutfitSizes: string
     case KING_SIZE = 'King Size';
     case CUSTOM = 'Custom';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::XXS => 'XXS',
             self::XS => 'XS',
             self::S => 'S',

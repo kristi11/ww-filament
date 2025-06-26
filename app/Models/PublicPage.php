@@ -23,7 +23,6 @@ class PublicPage extends Model implements Htmlable
         return $this->content ?? '';
     }
 
-
     public function user()
     {
         return $this->belongsTo(User::class);

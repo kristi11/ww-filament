@@ -47,7 +47,7 @@ class HeroResource extends Resource
                     ->schema([
                         Select::make('user_id')
                             ->relationship('user', 'name')
-                            ->default(fn(): int => auth()->id())
+                            ->default(fn (): int => auth()->id())
                             ->required()
                             ->helperText(str('The **currently authenticated user** is automatically set as the user.')->inlineMarkdown()->toHtmlString())
                             ->disabled()
@@ -148,10 +148,10 @@ class HeroResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Created by'),
-//                SpatieMediaLibraryImageColumn::make('image')
-//                    ->circular()
-//                    ->label('Hero image')
-//                    ->placeholder('No image'),
+                //                SpatieMediaLibraryImageColumn::make('image')
+                //                    ->circular()
+                //                    ->label('Hero image')
+                //                    ->placeholder('No image'),
                 ImageColumn::make('image')
                     ->circular()
                     ->label('Hero image')
@@ -302,7 +302,7 @@ class HeroResource extends Resource
     {
         $recordExists = Hero::exists();
 
-        return !$recordExists;
+        return ! $recordExists;
     }
 
     public static function canEdit(Model $record): bool

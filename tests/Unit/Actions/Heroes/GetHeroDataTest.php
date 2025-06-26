@@ -21,9 +21,9 @@ class GetHeroDataTest extends TestCase
         $hero = Hero::factory()->create();
         PublicPage::create([
             'user_id' => $user->id,
-            'hero' => true
+            'hero' => true,
         ]);
-        $action = new GetHeroData();
+        $action = new GetHeroData;
 
         // Act
         $result = $action->execute();
@@ -43,9 +43,9 @@ class GetHeroDataTest extends TestCase
         $hero = Hero::factory()->create();
         PublicPage::create([
             'user_id' => $user->id,
-            'hero' => false
+            'hero' => false,
         ]);
-        $action = new GetHeroData();
+        $action = new GetHeroData;
 
         // Act
         $result = $action->execute();
@@ -64,9 +64,9 @@ class GetHeroDataTest extends TestCase
         $user = User::factory()->create();
         PublicPage::create([
             'user_id' => $user->id,
-            'hero' => true
+            'hero' => true,
         ]);
-        $action = new GetHeroData();
+        $action = new GetHeroData;
 
         // Act
         $result = $action->execute();
@@ -83,7 +83,7 @@ class GetHeroDataTest extends TestCase
     {
         // Arrange
         $hero = Hero::factory()->create();
-        $action = new GetHeroData();
+        $action = new GetHeroData;
 
         // Act
         $result = $action->execute();

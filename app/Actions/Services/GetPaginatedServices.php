@@ -11,9 +11,8 @@ class GetPaginatedServices
     /**
      * Get paginated services with caching
      *
-     * @param int $perPage Number of services per page
-     * @param int $currentPage Current page number
-     * @return Paginator
+     * @param  int  $perPage  Number of services per page
+     * @param  int  $currentPage  Current page number
      */
     public function execute(int $perPage, int $currentPage = 1): Paginator
     {

@@ -18,14 +18,14 @@ class GetCartItemCountTest extends TestCase
     public function it_returns_zero_when_cart_has_no_items()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new GetCartItemCount();
+        $action = new GetCartItemCount;
 
         // Act
         $result = $action->execute();
@@ -38,27 +38,27 @@ class GetCartItemCountTest extends TestCase
     public function it_returns_sum_of_quantities_for_all_cart_items()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         // Create cart items with different quantities
         CartItems::create([
             'cart_id' => $cart->id,
             'product_variant_id' => 1,
-            'quantity' => 2
+            'quantity' => 2,
         ]);
 
         CartItems::create([
             'cart_id' => $cart->id,
             'product_variant_id' => 2,
-            'quantity' => 3
+            'quantity' => 3,
         ]);
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new GetCartItemCount();
+        $action = new GetCartItemCount;
 
         // Act
         $result = $action->execute();

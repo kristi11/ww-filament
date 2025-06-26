@@ -10,11 +10,15 @@ use Flowframe\Trend\TrendValue;
 class UsersChartWidget extends ChartWidget
 {
     protected static ?string $heading = 'User signups';
-    protected int | string |array $columnSpan = 'full';
+
+    protected int|string|array $columnSpan = 'full';
+
     protected static ?string $maxHeight = '200px';
+
     public ?string $filter = 'year';
 
-    protected function getFilters() : ?array{
+    protected function getFilters(): ?array
+    {
         return [
             'week' => 'Last week',
             'month' => 'Last month',

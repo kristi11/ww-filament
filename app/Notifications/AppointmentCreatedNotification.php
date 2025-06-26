@@ -37,7 +37,7 @@ use Illuminate\Notifications\Notification;
     public function toMail($notifiable): MailMessage
     {
         // Load the service if it's not already loaded
-        if (!$this->appointment->relationLoaded('service')) {
+        if (! $this->appointment->relationLoaded('service')) {
             $this->appointment->load('service');
         }
 

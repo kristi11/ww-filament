@@ -18,8 +18,9 @@ enum Pattern: string
     case PAISLEY = 'Paisley';
     case TEXTURED = 'Textured';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::SOLID => 'Solid',
             self::STRIPED => 'Striped',
             self::CHECKERED => 'Checkered',

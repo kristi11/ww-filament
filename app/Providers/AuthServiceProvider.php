@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         Product::class => ProductPolicy::class,
         Order::class => OrderPolicy::class,
         ProductVariant::class => ProductVariantPolicy::class,
-        Appointment::class => AppointmentPolicy::class
+        Appointment::class => AppointmentPolicy::class,
     ];
 
     /**

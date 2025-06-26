@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\SectionPosition;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SectionPositionSeeder extends Seeder

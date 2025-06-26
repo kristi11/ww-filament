@@ -8,5 +8,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSocial extends CreateRecord
 {
     protected static string $resource = SocialResource::class;
+
     protected static bool $canCreateAnother = false;
 }

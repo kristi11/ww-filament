@@ -14,7 +14,7 @@ class ListAbouts extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add about information'),
+                ->label('Add about information'),
         ];
     }
 }

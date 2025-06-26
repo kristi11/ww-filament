@@ -9,13 +9,16 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class OrderAndProductsWidget extends BaseWidget
 {
-    protected function getColumns() : int{
+    protected function getColumns(): int
+    {
         return 2;
     }
+
     protected function getHeading(): string
     {
         return 'Orders and Products';
     }
+
     protected function getDescription(): string
     {
         return 'The total orders and products in the database';

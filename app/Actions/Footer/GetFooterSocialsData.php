@@ -23,8 +23,6 @@ class GetFooterSocialsData
 
     /**
      * Get social media data
-     *
-     * @return Social|null
      */
     protected function getSocialData(): ?Social
     {
@@ -35,8 +33,6 @@ class GetFooterSocialsData
 
     /**
      * Get hero data for color styling
-     *
-     * @return Hero|null
      */
     protected function getHeroData(): ?Hero
     {

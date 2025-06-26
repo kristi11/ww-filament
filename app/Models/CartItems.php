@@ -25,8 +25,9 @@ class CartItems extends Model
     protected function subtotal(): Attribute
     {
         return Attribute::make(
-            get: function (){
+            get: function () {
                 $priceInCents = $this->product->price * 100;
+
                 return new Money($priceInCents * $this->quantity, new Currency('USD'));
             }
         );

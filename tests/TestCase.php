@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Database\Seeders\ShieldSeeder;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -12,8 +11,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -28,8 +25,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Seed the roles needed for testing.
-     *
-     * @return void
      */
     protected function seedRoles(): void
     {

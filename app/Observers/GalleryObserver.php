@@ -22,7 +22,7 @@ use /**
  * Note: Ensure that the database table schema and associated relationships
  * are compatible with the current configuration and Laravel version.
  */
-    App\Models\Gallery;
+App\Models\Gallery;
 use /**
  * Class Storage
  *
@@ -43,7 +43,7 @@ use /**
  * @see \Illuminate\Contracts\Filesystem\Factory
  * @see \Illuminate\Contracts\Filesystem\Filesystem
  */
-    Illuminate\Support\Facades\Storage;
+Illuminate\Support\Facades\Storage;
 
 /**
  * Observes model events for the Gallery model.
@@ -70,7 +70,7 @@ class GalleryObserver
             if ($originalImages !== null) {
                 // Loop through original images and delete any that don't exist in the updated images
                 foreach ($originalImages as $originalImage) {
-                    if (!in_array($originalImage, $updatedImages)) {
+                    if (! in_array($originalImage, $updatedImages)) {
                         Storage::disk(config('filesystems.disks.STORAGE_DISK'))->delete($originalImage);
                     }
                 }

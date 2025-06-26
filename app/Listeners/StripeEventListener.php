@@ -25,7 +25,7 @@ use /**
  * - Designed to handle post-checkout logic, such as updating order statuses, sending confirmation emails,
  *   or processing associated data.
  */
-    App\Actions\Shop\HandleCheckoutSessionCompleted;
+App\Actions\Shop\HandleCheckoutSessionCompleted;
 use /**
  * Event class that is triggered when a webhook is received from a payment provider.
  *
@@ -42,7 +42,7 @@ use /**
  *
  * Event namespace path: Laravel\Cashier\Events\WebhookReceived
  */
-    Laravel\Cashier\Events\WebhookReceived;
+Laravel\Cashier\Events\WebhookReceived;
 
 /**
  * Class responsible for handling Stripe webhook events.
@@ -54,8 +54,8 @@ class StripeEventListener
      */
     public function handle(WebhookReceived $event): void
     {
-        if ($event->payload['type'] == 'checkout.session.completed'){
-            (new HandleCheckoutSessionCompleted())->handle($event->payload['data']['object']['id']);
+        if ($event->payload['type'] == 'checkout.session.completed') {
+            (new HandleCheckoutSessionCompleted)->handle($event->payload['data']['object']['id']);
         }
     }
 }

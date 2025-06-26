@@ -35,7 +35,7 @@ class ProductsObserverTest extends TestCase
     {
         // Create a product with initial images
         $product = Product::factory()->create([
-            'image' => []
+            'image' => [],
         ]);
 
         // Create fake images and store them
@@ -75,7 +75,7 @@ class ProductsObserverTest extends TestCase
     {
         // Create a product with no initial images
         $product = Product::factory()->create([
-            'image' => []
+            'image' => [],
         ]);
 
         // Create fake images and store them

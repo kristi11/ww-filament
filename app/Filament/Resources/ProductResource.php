@@ -99,7 +99,7 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('description')
                     ->html()
                     ->toggleable(isToggledHiddenByDefault: true)
-                ->wrap(),
+                    ->wrap(),
                 Tables\Columns\TextColumn::make('price')
                     ->sortable()
                     ->badge()
@@ -130,9 +130,9 @@ class ProductResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->visible(fn() => cache()->remember('crud_settings_can_delete_content', now()->addMinutes(60), function () {
-                        return CRUD_settings::query()->value('can_delete_content');
-                    })),
+                        ->visible(fn () => cache()->remember('crud_settings_can_delete_content', now()->addMinutes(60), function () {
+                            return CRUD_settings::query()->value('can_delete_content');
+                        })),
                     ExportBulkAction::make()->exports([
                         ExcelExport::make()->withColumns([
                             Column::make('name')->heading('Product name'),
@@ -142,8 +142,8 @@ class ProductResource extends Resource
                             Column::make('updated_at')->heading('Last updated'),
                         ])
                             ->askForFilename()
-                            ->askForWriterType()
-                    ])
+                            ->askForWriterType(),
+                    ]),
                 ]),
             ]);
     }
@@ -152,7 +152,7 @@ class ProductResource extends Resource
     {
         return $infolist
             ->schema([
-                \Filament\Infolists\Components\Section::make("Product images")
+                \Filament\Infolists\Components\Section::make('Product images')
                     ->columns(1)
                     ->schema([
                         ImageEntry::make('image')
@@ -178,7 +178,7 @@ class ProductResource extends Resource
                 TextEntry::make('description')
                     ->label('Product Description')
                     ->html()
-                ->columnSpanFull(),
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -192,7 +192,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            VariantsRelationManager::class
+            VariantsRelationManager::class,
         ];
     }
 
@@ -200,7 +200,7 @@ class ProductResource extends Resource
     {
         return [
             'index' => Pages\ListProducts::route('/'),
-//            'create' => Pages\CreateProduct::route('/create'),
+            //            'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }

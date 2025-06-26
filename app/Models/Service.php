@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @method static simplePaginate(int $int)
  * @method static count()
+ *
  * @property mixed $price
  * @property mixed $estimated_hours
  * @property mixed $estimated_minutes

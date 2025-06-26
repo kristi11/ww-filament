@@ -19,21 +19,21 @@ class Cart extends Model
 
     protected function total(): Attribute
     {
-        return  Attribute::make(
-            get: function (){
-                return $this->items->reduce(function(Money $total, CartItems $item){
+        return Attribute::make(
+            get: function () {
+                return $this->items->reduce(function (Money $total, CartItems $item) {
                     return $total->add($item->subtotal);
                 }, new Money(0, new Currency('USD')));
             }
         );
     }
 
-    public function cart():HasMany
+    public function cart(): HasMany
     {
         return $this->hasMany(CartItems::class);
     }
 
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

@@ -23,8 +23,6 @@ class GetFooterCompanyData
 
     /**
      * Get about visibility status
-     *
-     * @return bool|null
      */
     protected function getAboutVisibility(): ?bool
     {
@@ -35,8 +33,6 @@ class GetFooterCompanyData
 
     /**
      * Get contact visibility status
-     *
-     * @return bool|null
      */
     protected function getContactVisibility(): ?bool
     {

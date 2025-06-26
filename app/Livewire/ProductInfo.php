@@ -11,7 +11,6 @@
 
 namespace App\Livewire;
 
-use App\Actions\Shop\GetProductById;
 use /**
  * Handles adding a product variant to the cart.
  *
@@ -29,7 +28,8 @@ use /**
  * - Check inventory or stock levels for the requested product variant.
  * - Add the product variant to the appropriate cart session or record in the database.
  */
-    App\Actions\Shop\AddProductVariantToCart;
+App\Actions\Shop\AddProductVariantToCart;
+use App\Actions\Shop\GetProductById;
 use /**
  * Class Product
  *
@@ -44,7 +44,7 @@ use /**
  * This model is a part of the application's Eloquent ORM layer and defines relationships, attributes, and additional
  * query scopes related to the products table.
  */
-    App\Models\Product;
+App\Models\Product;
 use /**
  * The Casts\Attribute class provides a convenient way to define mutator and accessor logic for Eloquent model attributes in Laravel.
  *
@@ -68,7 +68,7 @@ use /**
  * - Automatically casting JSON data to arrays.
  * - Formatting dates or times when accessed.
  */
-    Illuminate\Database\Eloquent\Casts\Attribute;
+Illuminate\Database\Eloquent\Casts\Attribute;
 use /**
  * This attribute is used to define computed properties
  * within Livewire components. Computed properties allow
@@ -90,7 +90,7 @@ use /**
  * in a Livewire component based on the Livewire's
  * reactivity system.
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * Class Component
  *
@@ -105,16 +105,14 @@ use /**
  *
  * Note: Define the logic and properties relevant to the specific UI functionality
  *       of this component in the implementation.
- *
- * @package App\Http\Livewire
  */
-    Livewire\Component;
+Livewire\Component;
 use /**
  * Class Currency
  *
  * Represents a currency with ISO 4217 currency code.
  */
-    Money\Currency;
+Money\Currency;
 use /**
  * The Money\Money class represents a monetary value with a specific currency.
  *
@@ -126,11 +124,8 @@ use /**
  *
  * Usage of this class typically involves the encapsulation of amounts as integers in the smallest unit
  * (e.g., cents for USD) to avoid floating-point precision issues.
- *
- * @package Money
  */
-    Money\Money;
-
+Money\Money;
 
 /**
  * Represents a Livewire component for displaying and managing product information.
@@ -138,10 +133,13 @@ use /**
 class ProductInfo extends Component
 {
     public Product $product;
+
     public $variant;
+
     public $rules = [
         'variant' => ['required', 'exists:App\Models\ProductVariant,id'],
     ];
+
     public function mount(): void
     {
         $this->variant = $this->product->variants()->value('id');
@@ -155,12 +153,11 @@ class ProductInfo extends Component
             }
         );
     }
+
     /**
      * Adds a product variant to the cart after validating the request and dispatches notifications.
      *
      * @param  AddProductVariantToCart  $cart  The cart instance to which the variant will be added.
-     *
-     * @return void
      */
     public function addToCart(AddProductVariantToCart $cart): void
     {
@@ -183,6 +180,7 @@ class ProductInfo extends Component
     {
         return redirect(url('dashboard/login'));
     }
+
     public function render()
     {
         return view('livewire.product-info');

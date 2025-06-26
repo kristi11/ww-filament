@@ -15,18 +15,16 @@ use /**
  * Laravel Version: 10.48.26
  *
  * @database-table carts
+ *
  * @queue-connection sync
  */
-    App\Models\Cart;
+App\Models\Cart;
 
-/**
- *
- */
 class MigrateSessionCart
 {
     public function migrate(Cart $sessionCart, Cart $userCart): void
     {
-        $sessionCart->items->each(fn($item) => (new AddProductVariantToCart())->add(
+        $sessionCart->items->each(fn ($item) => (new AddProductVariantToCart)->add(
             variantId: $item->product_variant_id,
             quantity: $item->quantity,
             cart: $userCart

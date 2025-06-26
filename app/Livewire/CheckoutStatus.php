@@ -29,7 +29,6 @@
 
 namespace App\Livewire;
 
-use App\Actions\Orders\GetOrderByCheckoutSession;
 use /**
  * @property string $name The name of the application.
  * @property string $version The Laravel version of the application.
@@ -45,8 +44,8 @@ use /**
  * @note Requires Laravel 10.48.26 or higher.
  * @note Using AllowDynamicProperties for dynamic property assignment.
  */
-    AllowDynamicProperties;
-use /**
+AllowDynamicProperties;
+use App\Actions\Orders\GetOrderByCheckoutSession;/**
  * Customer Appointment Resource handles all the operations
  * related to customer appointments within the Filament admin panel.
  *
@@ -60,7 +59,7 @@ use /**
  * Database: MySQL
  * Queue Connection: Sync
  */
-    App\Filament\Customer\Resources\CustomerAppointmentResource;
+
 use /**
  * Facade for Filament.
  *
@@ -69,7 +68,7 @@ use /**
  *
  * @see \Filament\FilamentManager
  */
-    Filament\Facades\Filament;
+Filament\Facades\Filament;
 use /**
  * The Livewire\Attributes\Computed attribute is used to mark a method
  * in a Livewire component as a computed property. This means that the
@@ -83,7 +82,7 @@ use /**
  * This attribute can be applied to methods within a Livewire component
  * to enhance reactivity and simplify state management.
  */
-    Livewire\Attributes\Computed;
+Livewire\Attributes\Computed;
 use /**
  * Livewire\Component is a base class for creating Laravel Livewire components.
  * It allows building dynamic, reactive interfaces leveraging the power of Laravel's ecosystem.
@@ -103,7 +102,7 @@ use /**
  *
  * @see https://laravel-livewire.com/ For detailed Livewire documentation.
  */
-    Livewire\Component;
+Livewire\Component;
 use /**
  * Interface ContainerExceptionInterface
  *
@@ -113,19 +112,15 @@ use /**
  * that do not belong to the entry-not-found category.
  * Implementations of this interface indicate errors that have occurred
  * while fetching or manipulating entries in the container.
- *
- * @package Psr\Container
  */
-    Psr\Container\ContainerExceptionInterface;
+Psr\Container\ContainerExceptionInterface;
 use /**
  * Interface NotFoundExceptionInterface
  *
  * This interface represents an exception thrown when a container cannot find
  * a service or dependency by a specific identifier.
- *
- * @package Psr\Container
  */
-    Psr\Container\NotFoundExceptionInterface;
+Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Class CheckoutStatus
@@ -154,7 +149,9 @@ use /**
 #[AllowDynamicProperties] class CheckoutStatus extends Component
 {
     public $sessionId;
+
     public $order;
+
     public $customerPanelUrl;
 
     /**
@@ -188,6 +185,7 @@ use /**
     {
         return $getOrder->execute($this->sessionId, auth()->id());
     }
+
     public function render()
     {
         return view('livewire.checkout-status');

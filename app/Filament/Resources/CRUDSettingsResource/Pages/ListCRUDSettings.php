@@ -14,7 +14,7 @@ class ListCRUDSettings extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Create content permission'),
+                ->label('Create content permission'),
         ];
     }
 }

@@ -15,7 +15,7 @@ enum AppointmentStatus: string implements HasColor
     case Rescheduled = 'rescheduled';
     case NoShow = 'no show';
 
-    public function getColor(): string | array | null
+    public function getColor(): string|array|null
     {
         return match ($this) {
             self::Pending => Color::Zinc,

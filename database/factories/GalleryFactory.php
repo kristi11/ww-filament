@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Gallery;
 use App\Models\Service;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GalleryFactory extends Factory
 {

@@ -17,7 +17,8 @@ class RenderVariantAttributesTest extends TestCase
     {
         // Arrange
         // Create a mock enum class
-        $mockEnum = new class {
+        $mockEnum = new class
+        {
             public function getLabel()
             {
                 return 'Test Label';
@@ -25,17 +26,17 @@ class RenderVariantAttributesTest extends TestCase
         };
 
         // Create a mock variant object
-        $variant = new stdClass();
+        $variant = new stdClass;
         $variant->color = $mockEnum;
         $variant->size = 'Large';
 
         // Mock the config to return our enum mappings
         Config::set('enums', [
             'color' => get_class($mockEnum),
-            'size' => 'string'
+            'size' => 'string',
         ]);
 
-        $action = new RenderVariantAttributes();
+        $action = new RenderVariantAttributes;
 
         // Act
         $result = $action->execute($variant);
@@ -43,7 +44,7 @@ class RenderVariantAttributesTest extends TestCase
         // Assert
         $this->assertEquals([
             'color' => 'Color: Test Label',
-            'size' => 'Size: Large'
+            'size' => 'Size: Large',
         ], $result);
     }
 
@@ -52,23 +53,23 @@ class RenderVariantAttributesTest extends TestCase
     {
         // Arrange
         // Create a mock variant object with only one attribute
-        $variant = new stdClass();
+        $variant = new stdClass;
         $variant->color = 'Red';
 
         // Mock the config to return our enum mappings
         Config::set('enums', [
             'color' => 'string',
-            'size' => 'string'
+            'size' => 'string',
         ]);
 
-        $action = new RenderVariantAttributes();
+        $action = new RenderVariantAttributes;
 
         // Act
         $result = $action->execute($variant);
 
         // Assert
         $this->assertEquals([
-            'color' => 'Color: Red'
+            'color' => 'Color: Red',
         ], $result);
         $this->assertArrayNotHasKey('size', $result);
     }
@@ -77,13 +78,13 @@ class RenderVariantAttributesTest extends TestCase
     public function it_returns_empty_array_when_no_enum_mappings()
     {
         // Arrange
-        $variant = new stdClass();
+        $variant = new stdClass;
         $variant->color = 'Red';
 
         // Mock the config to return empty enum mappings
         Config::set('enums', []);
 
-        $action = new RenderVariantAttributes();
+        $action = new RenderVariantAttributes;
 
         // Act
         $result = $action->execute($variant);

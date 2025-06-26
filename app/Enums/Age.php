@@ -11,8 +11,9 @@ enum Age: string
     case ADULT = 'Adult';
     case SENIOR = 'Senior';
 
-    public function getLabel(): string {
-        return match($this) {
+    public function getLabel(): string
+    {
+        return match ($this) {
             self::BABY => 'Baby',
             self::TODDLER => 'Toddler',
             self::KIDS => 'Kids',

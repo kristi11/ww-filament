@@ -24,7 +24,7 @@ class GetFooterSocialsDataTest extends TestCase
     public function it_returns_null_values_when_no_data_exists()
     {
         // Arrange
-        $action = new GetFooterSocialsData();
+        $action = new GetFooterSocialsData;
 
         // Act
         $result = $action->execute();
@@ -44,7 +44,7 @@ class GetFooterSocialsDataTest extends TestCase
 
         $hero = Hero::factory()->create([
             'user_id' => $user->id,
-            'gradientDegreeFirstColor' => '#ff0000'
+            'gradientDegreeFirstColor' => '#ff0000',
         ]);
 
         $social = Social::factory()->create([
@@ -52,10 +52,10 @@ class GetFooterSocialsDataTest extends TestCase
             'instagram' => 'test_instagram',
             'facebook' => 'test_facebook',
             'twitter' => 'test_twitter',
-            'linkedin' => 'test_linkedin'
+            'linkedin' => 'test_linkedin',
         ]);
 
-        $action = new GetFooterSocialsData();
+        $action = new GetFooterSocialsData;
 
         // Act
         $result = $action->execute();
@@ -81,10 +81,10 @@ class GetFooterSocialsDataTest extends TestCase
 
         $social = Social::factory()->create([
             'user_id' => $user->id,
-            'instagram' => 'test_instagram'
+            'instagram' => 'test_instagram',
         ]);
 
-        $action = new GetFooterSocialsData();
+        $action = new GetFooterSocialsData;
 
         // Act
         $action->execute();

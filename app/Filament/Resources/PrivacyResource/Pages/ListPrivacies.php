@@ -14,7 +14,7 @@ class ListPrivacies extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-            ->label('Add privacy information'),
+                ->label('Add privacy information'),
         ];
     }
 }

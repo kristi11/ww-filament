@@ -2,18 +2,17 @@
 
 namespace Tests\Feature;
 
+use App\Actions\Shop\AddProductVariantToCart;
+use App\Actions\Shop\CreateStripeCheckoutSession;
+use App\Actions\Shop\HandleCheckoutSessionCompleted;
 use App\Models\Cart;
 use App\Models\CartItems;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\User;
-use App\Actions\Shop\AddProductVariantToCart;
-use App\Actions\Shop\CreateStripeCheckoutSession;
-use App\Actions\Shop\HandleCheckoutSessionCompleted;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Cashier\Checkout;
 use Mockery;
@@ -55,7 +54,7 @@ class ShopTest extends TestCase
         ]);
 
         // Add the product variant to the cart
-        $action = new AddProductVariantToCart();
+        $action = new AddProductVariantToCart;
         $action->add($variant->id, 2, $cart);
 
         // Assert the cart item was created
@@ -220,7 +219,7 @@ class ShopTest extends TestCase
         ]);
 
         // Create a mock session ID
-        $sessionId = 'cs_test_' . $this->faker->uuid;
+        $sessionId = 'cs_test_'.$this->faker->uuid;
 
         // Mock the HandleCheckoutSessionCompleted action
         $actionMock = Mockery::mock(HandleCheckoutSessionCompleted::class);

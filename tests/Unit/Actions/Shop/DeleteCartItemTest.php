@@ -18,20 +18,20 @@ class DeleteCartItemTest extends TestCase
     public function it_deletes_cart_item_by_id()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         $cartItem = CartItems::create([
             'cart_id' => $cart->id,
             'product_variant_id' => 1,
-            'quantity' => 1
+            'quantity' => 1,
         ]);
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new DeleteCartItem();
+        $action = new DeleteCartItem;
 
         // Act
         $result = $action->execute($cartItem->id);
@@ -45,14 +45,14 @@ class DeleteCartItemTest extends TestCase
     public function it_returns_false_when_deleting_non_existent_item()
     {
         // Arrange
-        $cart = new Cart();
+        $cart = new Cart;
         $cart->save();
 
         // Mock the CartFactory to return our test cart
-        $cartFactoryMock = Mockery::mock('alias:' . CartFactory::class);
+        $cartFactoryMock = Mockery::mock('alias:'.CartFactory::class);
         $cartFactoryMock->shouldReceive('make')->andReturn($cart);
 
-        $action = new DeleteCartItem();
+        $action = new DeleteCartItem;
 
         // Act
         $result = $action->execute(999); // Non-existent ID
