@@ -7,7 +7,7 @@ WittyWorkflow is committed to providing security updates for the following versi
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+| < 1.0   | :white_check_mark:                |
 
 ## Reporting a Vulnerability
 
