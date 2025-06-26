@@ -11,7 +11,7 @@
     A powerful TALL stack foundation for niche marketplaces and small business management
     <br />
     <br />
-    <a href="#interactive-demo">🎮 Interactive Demo</a>
+    <a href="https://app.arcade.software/share/h1IWCpnFk0tsYB0N8bIz">🎮 Interactive Demo</a>
     ·
     <a href="https://github.com/kristi11/wittyworkflow/issues">🐛 Report Bug</a>
     ·
