@@ -24,7 +24,7 @@ return new class extends Migration
             ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
             ->where('roles.name', '=', 'super_admin')
-            ->where('model_has_roles.model_type', '=', 'App\\Models\\User')
+            ->where('model_has_roles.model_type', '=', \App\Models\User::class)
             ->value('users.id');
 
         // If no admin user found, use the first user
