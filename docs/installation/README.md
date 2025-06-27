@@ -204,7 +204,7 @@ If you encounter issues during installation, here are solutions to common proble
 | **Missing images/assets** | Run `php artisan storage:link` again |
 | **Shield errors** | Run `php artisan optimize:clear` then retry Shield commands |
 
-For more complex issues, check the [Laravel documentation](https://laravel.com/docs) or open an issue on our [GitHub repository](https://github.com/kristi11/wittyworkflow/issues).
+For more complex issues, check the [Laravel documentation](https://laravel.com/docs) or open an issue on our [GitHub repository](https://github.com/kristi11/ww-filament/issues).
 
 ## 📧 Email Configuration
 

@@ -4,9 +4,10 @@
 
 ### Connect with Me
 [<img src="https://simpleicons.org/icons/github.svg" alt="GitHub" width="30"/>](https://github.com/kristi11)
+[<img src="https://simpleicons.org/icons/x.svg" alt="X" width="30"/>](https://x.com/KristiTanellari)
 [<img src="https://simpleicons.org/icons/gmail.svg" alt="Email" width="30"/>](mailto:tanellari@gmail.com)
 
-Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kristi11/wittyworkflow/)
+Project Link: [https://github.com/kristi11/ww-filament/](https://github.com/kristi11/ww-filament/)
 
 ## 🙏 Acknowledgments
 

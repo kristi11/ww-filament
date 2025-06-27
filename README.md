@@ -1,7 +1,7 @@
 # WittyWorkflow
 
 <div align="center">
-  <a href="https://github.com/kristi11/wittyworkflow/">
+  <a href="https://github.com/kristi11/ww-filament/">
     <img src="docs/assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -13,9 +13,9 @@
     <br />
     <a href="https://app.arcade.software/share/h1IWCpnFk0tsYB0N8bIz">🎮 Interactive Demo</a>
     ·
-    <a href="https://github.com/kristi11/wittyworkflow/issues">🐛 Report Bug</a>
+    <a href="https://github.com/kristi11/ww-filament/issues">🐛 Report Bug</a>
     ·
-    <a href="https://github.com/kristi11/wittyworkflow/issues">✨ Request Feature</a>
+    <a href="https://github.com/kristi11/ww-filament/issues">✨ Request Feature</a>
   </p>
 
   ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
@@ -122,4 +122,3 @@ WittyWorkflow is open-source software licensed under the [MIT License](./LICENSE
 ---
 
 Last Updated: June 2025
-
