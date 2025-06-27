@@ -15,11 +15,12 @@ WittyWorkflow implements multiple security features to protect your application 
 To enable Two-Factor Authentication:
 
 1. In your panel provider files (e.g., `AdminPanelProvider.php`), ensure the following is configured:
-   ```php
-   ->enableTwoFactorAuthentication(
-       force: false, // Set to true to require 2FA for all users
-   )
-   ```
+
+    ```php
+    ->enableTwoFactorAuthentication(
+        force: false, // Set to true to require 2FA for all users
+    )
+    ```
 
 2. Users can enable 2FA from their profile settings
 
@@ -65,47 +66,52 @@ Enable Redis caching for improved performance:
 
 1. Install Redis on your server
 2. Add Redis configuration to your `.env` file:
-   ```
-   CACHE_DRIVER=redis
-   REDIS_HOST=127.0.0.1
-   REDIS_PASSWORD=null
-   REDIS_PORT=6379
-   ```
+
+    ```
+    CACHE_DRIVER=redis
+    REDIS_HOST=127.0.0.1
+    REDIS_PASSWORD=null
+    REDIS_PORT=6379
+    ```
 
 3. Use model caching for frequently accessed data:
-   ```php
-   $users = Cache::remember('users', 3600, function () {
-       return User::all();
-   });
-   ```
+
+    ```php
+    $users = Cache::remember('users', 3600, function () {
+        return User::all();
+    });
+    ```
 
 4. Implement view caching for complex templates:
-   ```php
-   @cache('key', 3600)
-       // Complex view content
-   @endcache
-   ```
+    ```php
+    @cache('key', 3600)
+        // Complex view content
+    @endcache
+    ```
 
 ### 🗄️ Database Optimization
 
 Optimize database performance with:
 
 - **Indexes**: Add indexes to frequently queried columns
-  ```php
-  Schema::table('users', function (Blueprint $table) {
-      $table->index('email');
-  });
-  ```
+
+    ```php
+    Schema::table('users', function (Blueprint $table) {
+        $table->index('email');
+    });
+    ```
 
 - **Eager loading**: Prevent N+1 query issues
-  ```php
-  $posts = Post::with('comments', 'author')->get();
-  ```
+
+    ```php
+    $posts = Post::with('comments', 'author')->get();
+    ```
 
 - **Query optimization**: Use query builders effectively
-  ```php
-  $users = User::select('id', 'name', 'email')->where('active', true)->get();
-  ```
+
+    ```php
+    $users = User::select('id', 'name', 'email')->where('active', true)->get();
+    ```
 
 - **Database table partitioning** for large datasets (consult your database documentation)
 
@@ -114,17 +120,18 @@ Optimize database performance with:
 For production environments:
 
 1. Use production builds:
-   ```bash
-   npm run build
-   ```
+
+    ```bash
+    npm run build
+    ```
 
 2. Enable HTTP/2 on your web server for parallel asset loading
 
 3. Implement a CDN for static assets:
-   - Configure your CDN in `.env`:
-     ```
-     ASSET_URL=https://your-cdn.com
-     ```
+    - Configure your CDN in `.env`:
+        ```
+        ASSET_URL=https://your-cdn.com
+        ```
 
 4. Optimize images with tools like TinyPNG or ImageOptim
 
@@ -133,17 +140,19 @@ For production environments:
 Monitor application performance with:
 
 - **Laravel Telescope** for development debugging:
-  ```bash
-  composer require laravel/telescope --dev
-  php artisan telescope:install
-  php artisan migrate
-  ```
+
+    ```bash
+    composer require laravel/telescope --dev
+    php artisan telescope:install
+    php artisan migrate
+    ```
 
 - **Laravel Horizon** for queue monitoring:
-  ```bash
-  composer require laravel/horizon
-  php artisan horizon:install
-  ```
+
+    ```bash
+    composer require laravel/horizon
+    php artisan horizon:install
+    ```
 
 - **Spatie Laravel Health** for system health checks (already included in WittyWorkflow)
 
@@ -154,14 +163,15 @@ Monitor application performance with:
 For optimal security and performance:
 
 1. Schedule regular updates:
-   ```php
-   // In App\Console\Kernel.php
-   protected function schedule(Schedule $schedule)
-   {
-       $schedule->command('cache:clear')->daily();
-       $schedule->command('view:clear')->daily();
-   }
-   ```
+
+    ```php
+    // In App\Console\Kernel.php
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('cache:clear')->daily();
+        $schedule->command('view:clear')->daily();
+    }
+    ```
 
 2. Monitor logs for suspicious activity
 

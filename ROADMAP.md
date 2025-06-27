@@ -4,30 +4,30 @@ This document outlines the development roadmap for WittyWorkflow, including comp
 
 ## ✅ Completed Features
 
-1. [X]  Create separate dashboards for each user role
-2. [X]  Add Filament [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) for managing user roles and
-   permissions
-3. [X]  Create business information resources (appointments, services, users etc. )
-4. [X]  Add socials resource for referencing business's social profiles
-5. [X]  Add CRUD functionality to sections of the public page for a more controlled and customizable experience
-6. [X]  Add Hero animations
-7. [X]  Add footer resources to give users an easy way to add their policies, FAQ and other business related information
-8. [X]  Add flash notifications and email notifications for appointment changes
-9. [X]  Add shop for purchases
-11. [X]  Improve visuals (**ongoing effort**)
-15. [X]  Add [Announce](https://filamentphp.com/plugins/rupadana-announce) package to announce different messages to
-    system users
-16. [X]  Add [Themes](https://filamentphp.com/plugins/hasnayeen-themes) package to give users more options on system
-    layout and design
-17. [X]  Add [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy) for 2-factor authentication and better
-    profile updating
-18. [X]  Add [Language-switch](https://filamentphp.com/plugins/bezhansalleh-language-switch) to support different
-    languages
-19. [X]  Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
-    app is running.
-22. [X]  Add One Time Passwords (OTP) for an extra added layer of security
-23. [X]  Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
-24. [X] Add [auto logout](https://filamentphp.com/plugins/niladam-auto-logout) plugin where you can set an auto logout timer to bump up security
+1. [x] Create separate dashboards for each user role
+2. [x] Add Filament [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) for managing user roles and
+       permissions
+3. [x] Create business information resources (appointments, services, users etc. )
+4. [x] Add socials resource for referencing business's social profiles
+5. [x] Add CRUD functionality to sections of the public page for a more controlled and customizable experience
+6. [x] Add Hero animations
+7. [x] Add footer resources to give users an easy way to add their policies, FAQ and other business related information
+8. [x] Add flash notifications and email notifications for appointment changes
+9. [x] Add shop for purchases
+10. [x] Improve visuals (**ongoing effort**)
+11. [x] Add [Announce](https://filamentphp.com/plugins/rupadana-announce) package to announce different messages to
+        system users
+12. [x] Add [Themes](https://filamentphp.com/plugins/hasnayeen-themes) package to give users more options on system
+        layout and design
+13. [x] Add [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy) for 2-factor authentication and better
+        profile updating
+14. [x] Add [Language-switch](https://filamentphp.com/plugins/bezhansalleh-language-switch) to support different
+        languages
+15. [x] Add [Spatie Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health) to check how the
+        app is running.
+16. [x] Add One Time Passwords (OTP) for an extra added layer of security
+17. [x] Add [Panel switch](https://filamentphp.com/plugins/bezhansalleh-panel-switch) so the administrator switches between the panels for each of the available roles to see what's available for that particular panel and make the necessary changes if needed
+18. [x] Add [auto logout](https://filamentphp.com/plugins/niladam-auto-logout) plugin where you can set an auto logout timer to bump up security
 
 ## 🔮 What's Next
 

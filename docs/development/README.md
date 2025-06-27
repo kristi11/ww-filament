@@ -70,19 +70,19 @@ WittyWorkflow is designed to be highly customizable without modifying core files
 ### 📚 Common Customization Examples
 
 1. **Adding a Blog**:
-   - Create a Blog model and migration
-   - Add a Filament resource for managing blog posts
-   - Create public routes and views for displaying posts
+    - Create a Blog model and migration
+    - Add a Filament resource for managing blog posts
+    - Create public routes and views for displaying posts
 
 2. **Custom User Roles**:
-   - Extend the Shield configuration to add new roles
-   - Define permissions for the new roles
-   - Create role-specific dashboards or views
+    - Extend the Shield configuration to add new roles
+    - Define permissions for the new roles
+    - Create role-specific dashboards or views
 
 3. **Payment Gateway Integration**:
-   - Add alternative payment methods beyond Stripe
-   - Create payment gateway service classes
-   - Integrate with checkout process
+    - Add alternative payment methods beyond Stripe
+    - Create payment gateway service classes
+    - Integrate with checkout process
 
 ## 🔍 Debugging Tips
 

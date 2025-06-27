@@ -18,16 +18,17 @@
     <a href="https://github.com/kristi11/ww-filament/issues">✨ Request Feature</a>
   </p>
 
-  ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
-  ![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
-  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-  ![Filament](https://img.shields.io/badge/Filament-FFAA00?style=for-the-badge&logoColor=%23000000)
-  ![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
-  ![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
+![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+![Livewire](https://img.shields.io/badge/livewire-%234e56a6.svg?style=for-the-badge&logo=livewire&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Filament](https://img.shields.io/badge/Filament-FFAA00?style=for-the-badge&logoColor=%23000000)
+![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
+![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
 
-  ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-  ![License](https://img.shields.io/badge/license-MIT-green.svg)
-  ![PHP](https://img.shields.io/badge/PHP-8.1+-8892BF.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![PHP](https://img.shields.io/badge/PHP-8.1+-8892BF.svg)
+
 </div>
 
 > **⚠️ This app is in active development**
@@ -78,28 +79,28 @@ For detailed installation instructions, see the [Installation Guide](./docs/inst
 
 ## ✨ Key Features
 
-* 🌟 **Dynamic Hero:** Capture attention with a visually stunning, admin-customizable hero section
-* 🔐 **Role-Based Access:** Flexible dashboards for admins, team members, and customers
-* ⚡ **SPA-Like Navigation:** Smooth transitions with Livewire's `wire:navigate`
-* 📝 **Customizable Contact & Footer:** Boost engagement with editable components
-* 🛒 **E-commerce Module:** TALL stack shop with Stripe integration
-* 📅 **Appointment Management:** Schedule and manage appointments with notifications
-* 🔒 **Security Suite:** 2FA and OTP authentication options
-* 🎨 **Theme Customization:** Tailor the app's look without touching code
-* 🔄 **Section Positioning:** Control the order of public page sections
-* 📊 **Application Health:** Monitor performance with Spatie Laravel Health
-* ⚙️ **Business Settings:** Manage announcements and niche-specific data
-* 🧰 **Developer Tools:** Demo seeds and modular structure for easy extension
+- 🌟 **Dynamic Hero:** Capture attention with a visually stunning, admin-customizable hero section
+- 🔐 **Role-Based Access:** Flexible dashboards for admins, team members, and customers
+- ⚡ **SPA-Like Navigation:** Smooth transitions with Livewire's `wire:navigate`
+- 📝 **Customizable Contact & Footer:** Boost engagement with editable components
+- 🛒 **E-commerce Module:** TALL stack shop with Stripe integration
+- 📅 **Appointment Management:** Schedule and manage appointments with notifications
+- 🔒 **Security Suite:** 2FA and OTP authentication options
+- 🎨 **Theme Customization:** Tailor the app's look without touching code
+- 🔄 **Section Positioning:** Control the order of public page sections
+- 📊 **Application Health:** Monitor performance with Spatie Laravel Health
+- ⚙️ **Business Settings:** Manage announcements and niche-specific data
+- 🧰 **Developer Tools:** Demo seeds and modular structure for easy extension
 
 ## 🛠️ Built With
 
-* Laravel 10.x
-* Filament 3.x
-* PHP 8.1
-* Livewire
-* TailwindCSS
-* Alpine.js
-* Stripe
+- Laravel 10.x
+- Filament 3.x
+- PHP 8.1
+- Livewire
+- TailwindCSS
+- Alpine.js
+- Stripe
 
 ## 🎮 Interactive Demo
 

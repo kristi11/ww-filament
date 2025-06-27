@@ -76,6 +76,3 @@ models:
     instagram: string nullable
     twitter: string nullable
     linkedin: string nullable
-
-
-

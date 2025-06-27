@@ -25,15 +25,18 @@ SOFTWARE.
 This project is distributed under the MIT License, one of the most permissive and widely used open source licenses.
 
 ### You can:
+
 - Use the code commercially
 - Modify the code
 - Distribute the code
 - Use the code privately
 
 ### You must:
+
 - Include the original copyright notice and the license text in any copy of the software/source
 
 ### You cannot:
+
 - Hold the authors liable for damages as the software is provided "as is"
 
 ## MIT License Summary

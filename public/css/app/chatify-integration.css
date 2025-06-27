@@ -44,7 +44,9 @@
     animation: bounce 1s infinite;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition:
+        opacity 0.3s,
+        visibility 0.3s;
 }
 
 .message-badge.visible {
@@ -53,7 +55,8 @@
 }
 
 @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {

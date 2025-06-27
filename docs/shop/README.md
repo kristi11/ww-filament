@@ -29,9 +29,9 @@ For local testing:
 1. Install [stripe-cli](https://docs.stripe.com/stripe-cli)
 2. Run `stripe login` to authenticate with your Stripe account
 3. Start the webhook listener:
-   ```
-   stripe listen --forward-to {your-local-url}/stripe/webhook --format JSON
-   ```
+    ```
+    stripe listen --forward-to {your-local-url}/stripe/webhook --format JSON
+    ```
 4. Copy the webhook signing secret provided by the CLI to your `.env` file as `STRIPE_WEBHOOK_SECRET`
 
 #### Production Environment Setup
@@ -43,10 +43,10 @@ For production:
 3. Click on the newly created webhook
 4. Copy the "Signing Secret" to your `.env` file as `STRIPE_WEBHOOK_SECRET`
 5. Ensure the `checkout.session.completed` event is enabled:
-   - Click the "..." button on the webhook
-   - Choose "Update details"
-   - Under "Events to send", click "Select events..."
-   - Add `checkout.session.completed`
+    - Click the "..." button on the webhook
+    - Choose "Update details"
+    - Under "Events to send", click "Select events..."
+    - Add `checkout.session.completed`
 
 ### 2. Database Configuration
 

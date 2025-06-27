@@ -35,16 +35,16 @@ roles
 
 WittyWorkflow used the [Shield](https://filamentphp.com/plugins/bezhansalleh-shield)
 package to manage roles as stated above. In order to give permissions to manage appointments go on the `Roles` section of the dashboard, inside the `Settings` sidebar menu group and for both `team_user` and `panel_user` choose `select all` on
-the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose  `view`
+the `Appointment` model permissions and to give the `panel_user` view permissions on the gallery choose `view`
 and `view any` under the `Gallery` model permissions. Also give the `panel_user` all permissions on the `Order` model permissions.
 
 ## 🔑 Role Explanation
 
 #### In order to use the Team role you need to create the role from the admin panel and the name of the role should be 'team_user' as it doesn't exist by default and then assign that role to a desired user. Multiple roles can be assigned to a user
 
-* `super_admin` = The super admin of the system
-* `team_user` = The team members of the system assigned by the Super Admin
-* `panel_user` = The panel for the customers
+- `super_admin` = The super admin of the system
+- `team_user` = The team members of the system assigned by the Super Admin
+- `panel_user` = The panel for the customers
 
 ## 🔄 Panel Switching
 
@@ -56,14 +56,14 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 **There are quite a few steps you need to take to add/edit/delete variants, and I'll walk you through all of them:**
 
-* Create migration to `add/edit/delete` database variants.
-* Update the `ProductVariant.php` factory if needed. As of now only the `size` and `color` variants are assigned on the initial database seed just to keep things simple.
-* Add the`Enum` for the newly created variant in `App/Enums`. To keep things simple, the enum can be named the same name as the database column, but you can name it whatever you want.
-* Update the `getForm()` function in `ProductVariant.php` model, add/edit/delete the desired variants.
-* Update the `$table` function in `ProductVariantResource.php`, add/edit/delete the desired variants.
-* Update the `$table` function in `VariationsRelationManager.php`, add/edit/delete the desired variants.
-* Add/Update/Delete the newly created Enum name inside `config/enums.php`.
-* Update '$casts' on the `ProductVariant.php` model
+- Create migration to `add/edit/delete` database variants.
+- Update the `ProductVariant.php` factory if needed. As of now only the `size` and `color` variants are assigned on the initial database seed just to keep things simple.
+- Add the`Enum` for the newly created variant in `App/Enums`. To keep things simple, the enum can be named the same name as the database column, but you can name it whatever you want.
+- Update the `getForm()` function in `ProductVariant.php` model, add/edit/delete the desired variants.
+- Update the `$table` function in `ProductVariantResource.php`, add/edit/delete the desired variants.
+- Update the `$table` function in `VariationsRelationManager.php`, add/edit/delete the desired variants.
+- Add/Update/Delete the newly created Enum name inside `config/enums.php`.
+- Update '$casts' on the `ProductVariant.php` model
 
 **If the above steps have been implemented, your newly created variant is ready for use throughout the app.**
 
@@ -75,7 +75,7 @@ and `view any` under the `Gallery` model permissions. Also give the `panel_user`
 
 > [!Important]
 >
-> OTP is now available for an extra added layer of security. To enable OTP just go to your desired panels and uncomment  `//FilamentOtpLoginPlugin::make(),`. The available panels are `AdminPanelProvider.php`, `CustomerPanelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
+> OTP is now available for an extra added layer of security. To enable OTP just go to your desired panels and uncomment `//FilamentOtpLoginPlugin::make(),`. The available panels are `AdminPanelProvider.php`, `CustomerPanelProvider.php` and `TeamPanelProvider.php`. If you're going to enable OTP is advisable to enable it on all panels but that depends on your app's needs.
 
 [Back to Top](../../README.md)
 
