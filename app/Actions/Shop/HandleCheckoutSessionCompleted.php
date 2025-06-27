@@ -185,7 +185,10 @@ Stripe\LineItem;
  */
 class HandleCheckoutSessionCompleted
 {
-    public function handle($sessionId)
+    /**
+     * @throws \Throwable
+     */
+    public function handle($sessionId): void
     {
         DB::transaction(function () use ($sessionId) {
             $session = Cashier::stripe()->checkout->sessions->retrieve($sessionId);

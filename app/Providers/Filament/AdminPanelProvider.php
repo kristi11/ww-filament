@@ -93,8 +93,7 @@ class AdminPanelProvider extends PanelProvider
 //                    ->withoutTimeLeft()         // Disable the time left
 //                    ->timeLeftText('Oh no. Kicking you in...')      // Change the time left text
 //                    ->timeLeftText('')
-                    ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30),
-                //                Blog::make(),Enable to enable the FBlog plugin. Also, you'd have to enable BlogPostResource::class in AppServiceProvider
+                    ->logoutAfter(Carbon::SECONDS_PER_MINUTE * 30), // Logout the user after 30 minutes
                 // FilamentOtpLoginPlugin::make(), // uncomment to enable one time passwords
                 GlobalSearchModalPlugin::make()
                     ->slideOver()

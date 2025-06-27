@@ -391,16 +391,16 @@ class RoleResource extends Resource implements HasShieldPermissions
 
     public static function canCreate(): bool
     {
-        return CRUD_settings::query()->value('can_create_content');
+        return true;
     }
 
     public static function canEdit(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_edit_content');
+        return true;
     }
 
     public static function canDelete(Model $record): bool
     {
-        return CRUD_settings::query()->value('can_delete_content');
+        return true;
     }
 }

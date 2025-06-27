@@ -55,6 +55,7 @@
         "barryvdh/laravel-debugbar": "^3.10",
         "fakerphp/faker": "^1.9.1",
         "jasonmccreary/laravel-test-assertions": "^2.4",
+        "larastan/larastan": "^2.0",
         "laravel-shift/blueprint": "^2.9",
         "laravel/pint": "^1.22",
         "laravel/sail": "^1.18",
