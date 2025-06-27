@@ -25,21 +25,32 @@ class SetupAppCommand extends Command
 
     protected $signature = 'app:setup
                             {--no-key : Skip the key generation step}
-                            {--production : Use npm run build instead of npm run dev (for production environments)}';
+                            {--production : Use npm run build instead of npm run dev (for production environments)}
+                            {--minimal-seed : Only seed essential data, skip demo content}
+                            {--no-composer : Skip Composer dependencies installation}
+                            {--no-npm : Skip NPM dependencies installation}';
 
-    protected $description = 'Set up the application with all necessary dependencies and configurations, with options to skip key generation or use production build';
+    protected $description = 'Set up the application with all necessary dependencies and configurations, with options to skip key generation, use production build, seed only essential data, skip Composer installation, or skip NPM installation';
 
     public function handle()
     {
         $this->info('Starting application setup process...');
 
-        // Step 1: npm install
-        $this->info('Installing npm dependencies...');
-        $this->runProcess(['npm', 'install']);
+        // Step 1: npm install (unless skipped)
+        if (!$this->option('no-npm')) {
+            $this->info('Installing npm dependencies...');
+            $this->runProcess(['npm', 'install']);
+        } else {
+            $this->warn('Skipping NPM dependencies installation as requested.');
+        }
 
-        // Step 2: composer install
-        $this->info('Installing composer dependencies...');
-        $this->runProcess(['composer', 'install']);
+        // Step 2: composer install (unless skipped)
+        if (!$this->option('no-composer')) {
+            $this->info('Installing composer dependencies...');
+            $this->runProcess(['composer', 'install']);
+        } else {
+            $this->warn('Skipping Composer dependencies installation as requested.');
+        }
 
         // Step 3: Copy .env.example to .env
         $this->info('Creating environment file...');
@@ -59,10 +70,22 @@ class SetupAppCommand extends Command
             $this->warn('Skipping key generation as requested.');
         }
 
-        // Step 5: Run database migrations with seeding
-        $this->info('Running fresh migrations with seeding...');
-        Artisan::call('migrate:fresh', ['--seed' => true]);
-        $this->info(Artisan::output());
+        // Step 5: Run database migrations with appropriate seeding
+        if ($this->option('minimal-seed')) {
+            $this->info('Running fresh migrations with essential seeding only...');
+            // Run migrations first
+            Artisan::call('migrate:fresh');
+            $this->info(Artisan::output());
+
+            // Then call the essential data seeder
+            $this->info('Seeding essential data only...');
+            Artisan::call('db:seed', ['--class' => 'Database\\Seeders\\EssentialDataSeeder']);
+            $this->info(Artisan::output());
+        } else {
+            $this->info('Running fresh migrations with full seeding...');
+            Artisan::call('migrate:fresh', ['--seed' => true]);
+            $this->info(Artisan::output());
+        }
 
         // Step 6: Set up Shield
         $this->info('Setting up Shield...');

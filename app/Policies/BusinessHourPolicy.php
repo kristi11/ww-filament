@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\BusinessHour;
 use App\Models\User;
+use App\Models\BusinessHour;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BusinessHourPolicy

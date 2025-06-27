@@ -52,6 +52,9 @@ WittyWorkflow provides convenient setup commands to automate the installation pr
     **Available options:**
     - `--no-key`: Skip the key generation step
     - `--production`: Use npm run build instead of npm run dev (for production environments)
+    - `--minimal-seed`: Only seed essential data, skip demo content ([learn more](./minimal-seed.md))
+    - `--no-composer`: Skip Composer dependencies installation
+    - `--no-npm`: Skip NPM dependencies installation
 
     After setup is complete, start the development server with:
 
@@ -170,8 +173,11 @@ For quick reference, here are the commands to set up WittyWorkflow:
 php artisan app:setup
 
 # Options:
-# --no-key      Skip the key generation step
-# --production  Use npm run build instead of npm run dev
+# --no-key        Skip the key generation step
+# --production    Use npm run build instead of npm run dev
+# --minimal-seed  Only seed essential data, skip demo content
+# --no-composer   Skip Composer dependencies installation
+# --no-npm        Skip NPM dependencies installation
 
 # After setup, start the server with:
 php artisan serve

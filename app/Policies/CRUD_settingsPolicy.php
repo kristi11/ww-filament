@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\CRUD_settings;
 use App\Models\User;
+use App\Models\CRUD_settings;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CRUD_settingsPolicy

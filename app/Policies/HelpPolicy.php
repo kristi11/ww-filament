@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Help;
 use App\Models\User;
+use App\Models\Help;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class HelpPolicy

@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Hero;
 use App\Models\User;
+use App\Models\Hero;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class HeroPolicy

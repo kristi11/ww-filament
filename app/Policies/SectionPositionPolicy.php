@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\SectionPosition;
 use App\Models\User;
+use App\Models\SectionPosition;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SectionPositionPolicy
