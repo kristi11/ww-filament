@@ -2,43 +2,87 @@
 
 Love open source? Help shape WittyWorkflow! This guide will help you get started with contributing to the project.
 
-## 🔄 Development Workflow
+## 🔄 Git Flow Workflow
+
+WittyWorkflow uses the Git Flow branching model for development. Please follow these guidelines:
 
 1. **Fork the repository**:
-    - Click the "Fork" button at the top right of the repository page
-    - Clone your fork locally: `git clone https://github.com/YOUR-USERNAME/ww-filament.git`
+   - Click the "Fork" button at the top right of the repository page
+   - Clone your fork locally: `git clone https://github.com/YOUR-USERNAME/ww-filament.git`
 
-2. **Create a feature branch**:
+2. **Set up Git Flow**:
+   ```bash
+   # Initialize Git Flow with default settings
+   git flow init -d
+   ```
 
-    ```bash
-    git checkout -b feature/your-idea
-    ```
+3. **Create a feature branch**:
+   ```bash
+   # Start a new feature
+   git flow feature start your-feature-name
+   ```
 
-3. **Implement your changes**:
-    - Follow the coding standards (PSR-12)
-    - Write or update tests for your changes
-    - Ensure all tests pass: `php artisan test`
+4. **Implement your changes**:
+   - Follow the coding standards (PSR-12)
+   - Write or update tests for your changes
+   - Ensure all tests pass: `php artisan test`
 
-4. **Commit your changes**:
+5. **Commit your changes**:
+   ```bash
+   git commit -m "Add cool thing"
+   ```
+   Use descriptive commit messages that explain what changes were made and why.
 
-    ```bash
-    git commit -m "Add cool thing"
-    ```
+6. **Finish your feature**:
+   ```bash
+   # Finish the feature and merge it into develop
+   git flow feature finish your-feature-name
+   ```
 
-    Use descriptive commit messages that explain what changes were made and why.
+7. **Push to your fork**:
+   ```bash
+   git checkout develop
+   git push origin develop
+   ```
 
-5. **Push to your fork**:
+8. **Submit a pull request**:
+   - Go to the original repository
+   - Click "New pull request"
+   - Select "compare across forks"
+   - Set the base branch to `develop` (not `main`)
+   - Select your fork and branch
+   - Fill out the PR template with details about your changes
 
-    ```bash
-    git push origin feature/your-idea
-    ```
+### Branch Structure
 
-6. **Submit a pull request**:
-    - Go to the original repository
-    - Click "New pull request"
-    - Select "compare across forks"
-    - Select your fork and branch
-    - Fill out the PR template with details about your changes
+- `main` - Production code only, deployed to live environments
+- `develop` - Integration branch for completed features
+- `feature/*` - New features being developed
+- `release/*` - Preparing for a new production release
+- `hotfix/*` - Urgent fixes for production issues
+- `support/*` - Maintenance for older versions (if needed)
+
+### Release Process
+
+Releases are managed by project maintainers using:
+```bash
+# Start a release
+git flow release start 1.2.3
+
+# Finish a release (merges to both main and develop)
+git flow release finish 1.2.3
+```
+
+### Hotfix Process
+
+Critical bugs in production are fixed using:
+```bash
+# Start a hotfix
+git flow hotfix start 1.2.4
+
+# Finish a hotfix (merges to both main and develop)
+git flow hotfix finish 1.2.4
+```
 
 ## 📝 Code Style Guidelines
 
@@ -115,4 +159,4 @@ We appreciate your contributions to making WittyWorkflow better!
 
 ---
 
-Last Updated: June 2025
+Last Updated: July 2023

@@ -91,6 +91,7 @@ For detailed installation instructions, see the [Installation Guide](./docs/inst
 - 📊 **Application Health:** Monitor performance with Spatie Laravel Health
 - ⚙️ **Business Settings:** Manage announcements and niche-specific data
 - 🧰 **Developer Tools:** Demo seeds and modular structure for easy extension
+- 🌿 **Git Flow Workflow:** Structured branching model for stable development and releases
 
 ## 🛠️ Built With
 
@@ -112,7 +113,7 @@ For detailed installation instructions, see the [Installation Guide](./docs/inst
 
 ## 🤝 Get Involved
 
-We welcome contributions from the community! Check out our [Contributing Guide](./CONTRIBUTING.md) to learn how you can help improve WittyWorkflow.
+We welcome contributions from the community! We follow the Git Flow branching model for development. Check out our [Contributing Guide](./CONTRIBUTING.md) to learn how you can help improve WittyWorkflow.
 
 If you have questions or need support, please [contact us](./docs/contact.md).
 
@@ -122,4 +123,4 @@ WittyWorkflow is open-source software licensed under the [MIT License](./LICENSE
 
 ---
 
-Last Updated: June 2025
+Last Updated: July 2023
