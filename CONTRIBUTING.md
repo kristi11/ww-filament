@@ -29,9 +29,29 @@ WittyWorkflow uses the Git Flow branching model for development. Please follow t
 
 5. **Commit your changes**:
    ```bash
-   git commit -m "Add cool thing"
+   git commit -m "feat: add cool thing"
    ```
-   Use descriptive commit messages that explain what changes were made and why.
+   Use [Conventional Commits](https://www.conventionalcommits.org/) format for your commit messages:
+
+   ```
+   <type>(<scope>): <description>
+   ```
+
+   Common types include:
+   - `feat`: A new feature (minor version bump)
+   - `fix`: A bug fix (patch version bump)
+   - `docs`: Documentation changes
+   - `style`: Code style changes (formatting, etc.)
+   - `refactor`: Code changes that neither fix a bug nor add a feature
+   - `test`: Adding or updating tests
+   - `chore`: Maintenance tasks
+
+   For breaking changes, add an exclamation mark after the type:
+   ```
+   feat!: redesign user authentication system
+   ```
+
+   This format is used by our automated release system to determine version numbers and generate release notes. See the [Release Process](./docs/RELEASE_PROCESS.md) documentation for more details.
 
 6. **Finish your feature**:
    ```bash
@@ -64,25 +84,65 @@ WittyWorkflow uses the Git Flow branching model for development. Please follow t
 
 ### Release Process
 
-Releases are managed by project maintainers using:
+WittyWorkflow uses an automated release process based on [semantic-release](https://github.com/semantic-release/semantic-release) that works alongside Git Flow.
+
+#### Automated Releases
+
+When changes are pushed to the `main` branch (typically after completing a Git Flow release), our GitHub Actions workflow automatically:
+
+1. Analyzes commit messages since the last release
+2. Determines the next version number based on [Semantic Versioning](https://semver.org/)
+3. Generates comprehensive release notes
+4. Creates a GitHub release with the appropriate tag
+5. Updates the CHANGELOG.md file
+
+This process relies on properly formatted commit messages following the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+#### Manual Release Process (for maintainers)
+
+Project maintainers should still use Git Flow to manage releases:
+
 ```bash
 # Start a release
-git flow release start 1.2.3
+git flow release start 1.2.3  # Version is a suggestion, final version will be determined automatically
 
 # Finish a release (merges to both main and develop)
 git flow release finish 1.2.3
+
+# Push changes to trigger the automated release
+git checkout main
+git push origin main
+git push origin --tags
+git checkout develop
+git push origin develop
 ```
+
+For detailed information about the release process, see the [Release Process](./docs/RELEASE_PROCESS.md) documentation.
 
 ### Hotfix Process
 
-Critical bugs in production are fixed using:
+Critical bugs in production are fixed using the Git Flow hotfix process, which works with our automated release system:
+
 ```bash
 # Start a hotfix
-git flow hotfix start 1.2.4
+git flow hotfix start hotfix-name  # No version needed, will be determined automatically
+
+# Make your fixes
+# Commit using conventional commits format, e.g.:
+# git commit -m "fix: resolve critical login issue"
 
 # Finish a hotfix (merges to both main and develop)
-git flow hotfix finish 1.2.4
+git flow hotfix finish hotfix-name
+
+# Push changes to trigger the automated release
+git checkout main
+git push origin main
+git push origin --tags
+git checkout develop
+git push origin develop
 ```
+
+The automated release process will detect the fix commits and create a patch release automatically.
 
 ## 📝 Code Style Guidelines
 
@@ -159,4 +219,4 @@ We appreciate your contributions to making WittyWorkflow better!
 
 ---
 
-Last Updated: July 2023
+Last Updated: July 2025
