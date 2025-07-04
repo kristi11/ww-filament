@@ -25,7 +25,7 @@
 ![Alpine.js](https://img.shields.io/badge/alpinejs-white.svg?style=for-the-badge&logo=alpinedotjs&logoColor=%238BC0D0)
 ![Stripe](https://img.shields.io/badge/Stripe-5469d4?style=for-the-badge&logo=stripe&logoColor=ffffff)
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/github/v/release/kristi11/ww-filament?include_prereleases)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![PHP](https://img.shields.io/badge/PHP-8.1+-8892BF.svg)
 
@@ -54,6 +54,7 @@ WittyWorkflow's documentation is organized into focused sections to help you fin
 - [Security & Performance](./docs/security-performance/README.md) - Best practices and optimization
 - [Usage Guide](./docs/usage/README.md) - Day-to-day operations and use cases
 - [Contributing](./CONTRIBUTING.md) - How to help improve WittyWorkflow
+- [Release Process](./docs/RELEASE_PROCESS.md) - Automated versioning and release management
 - [Roadmap](./ROADMAP.md) - Upcoming features and improvements
 - [License](./LICENSE.md) - MIT License details
 
@@ -91,6 +92,8 @@ For detailed installation instructions, see the [Installation Guide](./docs/inst
 - 📊 **Application Health:** Monitor performance with Spatie Laravel Health
 - ⚙️ **Business Settings:** Manage announcements and niche-specific data
 - 🧰 **Developer Tools:** Demo seeds and modular structure for easy extension
+- 🌿 **Git Flow Workflow:** Structured branching model for stable development and releases
+- 🏷️ **Automated Releases:** Semantic versioning with automatic release notes generation
 
 ## 🛠️ Built With
 
@@ -112,7 +115,7 @@ For detailed installation instructions, see the [Installation Guide](./docs/inst
 
 ## 🤝 Get Involved
 
-We welcome contributions from the community! Check out our [Contributing Guide](./CONTRIBUTING.md) to learn how you can help improve WittyWorkflow.
+We welcome contributions from the community! We follow the Git Flow branching model for development. Check out our [Contributing Guide](./CONTRIBUTING.md) to learn how you can help improve WittyWorkflow.
 
 If you have questions or need support, please [contact us](./docs/contact.md).
 
@@ -122,4 +125,4 @@ WittyWorkflow is open-source software licensed under the [MIT License](./LICENSE
 
 ---
 
-Last Updated: June 2025
+Last Updated: July 2025
