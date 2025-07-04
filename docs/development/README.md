@@ -95,9 +95,49 @@ When developing with WittyWorkflow, these debugging techniques can be helpful:
 
 ## 🚀 Development Workflow
 
+WittyWorkflow follows the Git Flow branching model:
+
+1. **Main Branch**: Contains production-ready code
+2. **Develop Branch**: Integration branch for completed features
+3. **Feature Branches**: For new features and non-emergency bug fixes
+4. **Release Branches**: For preparing new releases
+5. **Hotfix Branches**: For critical production fixes
+
+### Working with Git Flow
+
+1. **Start a new feature**:
+   ```bash
+   git flow feature start feature-name
+   ```
+
+2. **Finish a feature** (merges to develop):
+   ```bash
+   git flow feature finish feature-name
+   ```
+
+3. **Create a release**:
+   ```bash
+   git flow release start x.y.z
+   ```
+
+4. **Finish a release** (merges to main and develop):
+   ```bash
+   git flow release finish x.y.z
+   ```
+
+5. **Create a hotfix**:
+   ```bash
+   git flow hotfix start x.y.z
+   ```
+
+6. **Finish a hotfix** (merges to main and develop):
+   ```bash
+   git flow hotfix finish x.y.z
+   ```
+
 For the most efficient development experience:
 
-1. Make changes in a feature branch
+1. Make changes in feature branches
 2. Run tests to ensure functionality
 3. Use Laravel Mix/Vite for asset compilation
 4. Follow PSR-12 coding standards
@@ -115,4 +155,4 @@ If you're extending WittyWorkflow with custom packages:
 
 ---
 
-Last Updated: June 2025
+Last Updated: July 2023

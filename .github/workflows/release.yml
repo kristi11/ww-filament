@@ -1,0 +1,38 @@
+name: Automated Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install semantic-release and plugins
+        run: |
+          npm install --no-save semantic-release
+          npm install --no-save @semantic-release/changelog
+          npm install --no-save @semantic-release/git
+          npm install --no-save @semantic-release/github
+          npm install --no-save @semantic-release/release-notes-generator
+          npm install --no-save conventional-changelog-conventionalcommits
+
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
