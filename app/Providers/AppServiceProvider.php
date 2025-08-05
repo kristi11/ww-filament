@@ -65,19 +65,35 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (Schema::hasTable('heroes')) {
-            Hero::observe(HeroObserver::class);
+        try {
+            if (Schema::hasTable('heroes')) {
+                Hero::observe(HeroObserver::class);
+            }
+        } catch (\Exception $e) {
+            // Skip hero observer registration if database is not ready
         }
+
         $this->configureUrl();
         $this->configureModels();
         $this->configureCashier();
-        $this->configureViewData();
+
+        try {
+            $this->configureViewData();
+        } catch (\Exception $e) {
+            // Skip view data configuration if database is not ready
+        }
+
         $this->registerObservers();
         $this->configurePanelSwitch();
         $this->configureLanguageSwitch();
         $this->configureHealthChecks();
         $this->configureBladeDirectives();
-        $this->configurePageVisibilitySettings();
+
+        try {
+            $this->configurePageVisibilitySettings();
+        } catch (\Exception $e) {
+            // Skip page visibility settings if database is not ready
+        }
     }
 
     /**
