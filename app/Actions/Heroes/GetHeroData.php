@@ -19,7 +19,7 @@ class GetHeroData
 
         // Check if the hero should be displayed publicly
         // Get the first PublicPage record and check its hero column
-        $publicHero = PublicPage::first()?->hero ?? true; // Default to true if no record exists
+//        $publicHero = PublicPage::first()?->hero ?? true; // Default to true if no record exists
 
         return [
             'hero' => $hero,
